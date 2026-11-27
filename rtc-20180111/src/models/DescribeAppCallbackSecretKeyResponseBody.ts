@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAppCallbackSecretKeyResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Callback key.
+   * 
    * @example
    * a656b296a30xxxxxxxxxx1cd4
    */

@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class RtcCancelSipInviteResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID. Use this ID to locate logs and troubleshoot issues.
+   * 
    * @example
    * EB3C3C75-74D5-5F01-9F3C-9974261BAED4
    */

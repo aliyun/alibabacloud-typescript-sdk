@@ -5,19 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAppStreamingOutTemplatesShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Application ID, created and queried through the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
    * ioeh****
    */
   appId?: string;
+  /**
+   * @remarks
+   * Search condition.
+   */
   conditionShrink?: string;
   /**
+   * @remarks
+   * Page number. By default, page 1 is queried.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * Number of entries per page. The default value is 10.
+   * 
    * @example
    * 10
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAppRecordTemplateRequestTemplate extends $dara.Model {
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +37,8 @@ export class DeleteAppRecordTemplateRequestTemplate extends $dara.Model {
 export class DeleteAppRecordTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query the ID in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42,12 +46,17 @@ export class DeleteAppRecordTemplateRequest extends $dara.Model {
    */
   appId?: string;
   /**
+   * @remarks
+   * The idempotency parameter.
+   * 
    * @example
    * 53200b81-b761-4c10-842a-a0726d97xxxx
    */
   clientToken?: string;
   /**
    * @remarks
+   * The template information.
+   * 
    * This parameter is required.
    */
   template?: DeleteAppRecordTemplateRequestTemplate;

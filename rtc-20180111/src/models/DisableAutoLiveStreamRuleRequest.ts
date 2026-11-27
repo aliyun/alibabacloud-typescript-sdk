@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DisableAutoLiveStreamRuleRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query the ID in the console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class DisableAutoLiveStreamRuleRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The bypass rule ID. You can query the ID in the console or by calling the [DescribeAutoLiveStreamRule](https://help.aliyun.com/document_detail/353198.html) operation.
+   * 
    * This parameter is required.
    * 
    * @example

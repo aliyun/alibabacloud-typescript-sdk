@@ -4,31 +4,53 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeChannelOverallDataResponseBodyCallInfo extends $dara.Model {
   /**
+   * @remarks
+   * Application ID.
+   * 
    * @example
    * rjdhtnqy
    */
   appId?: string;
   /**
+   * @remarks
+   * Communication status. Valid values:  
+   * 
+   * - **IN**: In progress.  
+   * 
+   * - **OUT**: Ended.
+   * 
    * @example
    * IN
    */
   callStatus?: string;
   /**
+   * @remarks
+   * Channel ID.
+   * 
    * @example
    * 123456
    */
   channelId?: string;
   /**
+   * @remarks
+   * The UNIX timestamp when the channel was created, in seconds.
+   * 
    * @example
    * 1615860711
    */
   createdTs?: number;
   /**
+   * @remarks
+   * The UNIX timestamp when the channel was released, in seconds.
+   * 
    * @example
    * 1615860811
    */
   destroyedTs?: number;
   /**
+   * @remarks
+   * Channel duration, in seconds.
+   * 
    * @example
    * 100
    */
@@ -65,13 +87,23 @@ export class DescribeChannelOverallDataResponseBodyCallInfo extends $dara.Model 
 }
 
 export class DescribeChannelOverallDataResponseBodyMetricDatasNodes extends $dara.Model {
+  /**
+   * @remarks
+   * Extension data.
+   */
   ext?: { [key: string]: any };
   /**
+   * @remarks
+   * X-axis coordinate in the Trend Indicator.
+   * 
    * @example
    * 1612418625
    */
   x?: string;
   /**
+   * @remarks
+   * Y-axis coordinate in the Trend Indicator.
+   * 
    * @example
    * 123
    */
@@ -105,8 +137,17 @@ export class DescribeChannelOverallDataResponseBodyMetricDatasNodes extends $dar
 }
 
 export class DescribeChannelOverallDataResponseBodyMetricDatas extends $dara.Model {
+  /**
+   * @remarks
+   * List of coordinate points for the Trend Indicator.
+   */
   nodes?: DescribeChannelOverallDataResponseBodyMetricDatasNodes[];
   /**
+   * @remarks
+   * Metric Type. Valid values:
+   * - **CALL_QUALITY**: Call quality.
+   * - **CONN_NUM**: Distribution of time intervals for successful channel joins.
+   * 
    * @example
    * CALL_QUALITY
    */
@@ -139,26 +180,41 @@ export class DescribeChannelOverallDataResponseBodyMetricDatas extends $dara.Mod
 
 export class DescribeChannelOverallDataResponseBodyOverallData extends $dara.Model {
   /**
+   * @remarks
+   * Average communication connection time, in seconds.
+   * 
    * @example
    * 0.5
    */
   connAvgTime?: number;
   /**
+   * @remarks
+   * Connection success rate within 5 seconds, represented as a decimal. For example, 1.0 indicates a 100% connection success rate.
+   * 
    * @example
    * 0.91
    */
   fiveSecJoinRate?: number;
   /**
+   * @remarks
+   * Overall audio stuttering rate, represented as a decimal. For example, 0.02 indicates an audio stuttering rate of 2%.
+   * 
    * @example
    * 0.02
    */
   totalAudioStuckRate?: number;
   /**
+   * @remarks
+   * Overall video stuttering rate, represented as a decimal. For example, 0.02 indicates a video stuttering rate of 2%.
+   * 
    * @example
    * 0.02
    */
   totalVideoStuckRate?: number;
   /**
+   * @remarks
+   * Overall video blur rate, represented as a decimal. For example, 0.02 indicates a video blur rate of 2%.
+   * 
    * @example
    * 0.02
    */
@@ -193,10 +249,25 @@ export class DescribeChannelOverallDataResponseBodyOverallData extends $dara.Mod
 }
 
 export class DescribeChannelOverallDataResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Basic communication information.
+   */
   callInfo?: DescribeChannelOverallDataResponseBodyCallInfo;
+  /**
+   * @remarks
+   * List of metric data.
+   */
   metricDatas?: DescribeChannelOverallDataResponseBodyMetricDatas[];
+  /**
+   * @remarks
+   * Overview data.
+   */
   overallData?: DescribeChannelOverallDataResponseBodyOverallData;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
    */

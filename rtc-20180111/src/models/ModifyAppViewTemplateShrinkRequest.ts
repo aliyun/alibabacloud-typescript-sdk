@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAppViewTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Application ID. Create and view it in the console. Only one ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifyAppViewTemplateShrinkRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The template.
+   * 
    * This parameter is required.
    */
   templateShrink?: string;

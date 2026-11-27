@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAppLayoutRequestLayout extends $dara.Model {
   /**
    * @remarks
+   * The layout ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +37,8 @@ export class DeleteAppLayoutRequestLayout extends $dara.Model {
 export class DeleteAppLayoutRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query the ID in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -42,10 +46,17 @@ export class DeleteAppLayoutRequest extends $dara.Model {
    */
   appId?: string;
   /**
+   * @remarks
+   * The client token that is used to ensure idempotence.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The layout information.
+   */
   layout?: DeleteAppLayoutRequestLayout;
   static names(): { [key: string]: string } {
     return {

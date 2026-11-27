@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAppAgentFunctionStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. Create and query it in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example

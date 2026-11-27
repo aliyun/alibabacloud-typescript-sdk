@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StopViewRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. Create and query it in the console. Only one ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class StopViewRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * An existing channel ID. Only one ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class StopViewRequest extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
+   * An existing task ID. Only one ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example

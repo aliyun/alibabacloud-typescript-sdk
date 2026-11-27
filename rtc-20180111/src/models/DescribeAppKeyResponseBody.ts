@@ -12,6 +12,9 @@ export class DescribeAppKeyResponseBody extends $dara.Model {
    */
   appKey?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 154EF5DE-3D08-1F2C-A482-281F78D74B7C
    */

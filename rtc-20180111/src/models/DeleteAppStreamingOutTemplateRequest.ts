@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAppStreamingOutTemplateRequestStreamingOutTemplate extends $dara.Model {
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +37,8 @@ export class DeleteAppStreamingOutTemplateRequestStreamingOutTemplate extends $d
 export class DeleteAppStreamingOutTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query the ID in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,6 +47,8 @@ export class DeleteAppStreamingOutTemplateRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The stream ingest template information.
+   * 
    * This parameter is required.
    */
   streamingOutTemplate?: DeleteAppStreamingOutTemplateRequestStreamingOutTemplate;

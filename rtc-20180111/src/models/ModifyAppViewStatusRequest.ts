@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAppViewStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query the ID in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example

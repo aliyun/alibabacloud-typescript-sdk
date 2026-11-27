@@ -4,21 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeEndPointEventListResponseBodyNodesEventDataItemsEventList extends $dara.Model {
   /**
+   * @remarks
+   * The event name.
+   * 
    * @example
-   * 开始发布
+   * Start publishing
    */
   eventName?: string;
   /**
+   * @remarks
+   * The event type. Valid values:
+   * - **USER**: user event
+   * - **SYSTEM**: system event
+   * 
    * @example
    * USER
    */
   eventType?: string;
   /**
+   * @remarks
+   * The time when the event occurred. The time is a UNIX timestamp in seconds.
+   * 
    * @example
    * 1614936817
    */
   ts?: number;
   /**
+   * @remarks
+   * The time when the event occurred. The time is a UNIX timestamp in milliseconds.
+   * 
    * @example
    * 1614936817123
    */
@@ -51,8 +65,15 @@ export class DescribeEndPointEventListResponseBodyNodesEventDataItemsEventList e
 }
 
 export class DescribeEndPointEventListResponseBodyNodesEventDataItems extends $dara.Model {
+  /**
+   * @remarks
+   * The list of events.
+   */
   eventList?: DescribeEndPointEventListResponseBodyNodesEventDataItemsEventList[];
   /**
+   * @remarks
+   * The time when the first event occurred. The time is a UNIX timestamp in seconds.
+   * 
    * @example
    * 1614936817
    */
@@ -84,8 +105,15 @@ export class DescribeEndPointEventListResponseBodyNodesEventDataItems extends $d
 }
 
 export class DescribeEndPointEventListResponseBodyNodes extends $dara.Model {
+  /**
+   * @remarks
+   * The list of event data.
+   */
   eventDataItems?: DescribeEndPointEventListResponseBodyNodesEventDataItems[];
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * testuserid
    */
@@ -117,8 +145,15 @@ export class DescribeEndPointEventListResponseBodyNodes extends $dara.Model {
 }
 
 export class DescribeEndPointEventListResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of basic user information.
+   */
   nodes?: DescribeEndPointEventListResponseBodyNodes[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
    */

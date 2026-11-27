@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAppAgentTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the application. You can create and query the ID in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DeleteAppAgentTemplateRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example

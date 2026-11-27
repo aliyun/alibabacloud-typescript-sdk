@@ -12,6 +12,9 @@ export class DescribeAppViewStatusResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status of the switch. Valid values: enable (on) and disable (off).
+   * 
    * @example
    * disable
    */

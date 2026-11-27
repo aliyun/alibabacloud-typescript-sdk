@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeChannelAllUsersResponseBodyUsers extends $dara.Model {
   /**
+   * @remarks
+   * User ID.
+   * 
    * @example
    * 1811****
    */
@@ -30,12 +33,25 @@ export class DescribeChannelAllUsersResponseBodyUsers extends $dara.Model {
 }
 
 export class DescribeChannelAllUsersResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the channel exists. Valid values:  
+   * - **true**: The channel exists.  
+   * - **false**: The channel does not exist.
+   */
   channelExist?: boolean;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
    */
   requestId?: string;
+  /**
+   * @remarks
+   * List of online users in the channel.
+   */
   users?: DescribeChannelAllUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {
     return {

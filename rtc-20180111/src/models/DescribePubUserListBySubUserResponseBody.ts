@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribePubUserListBySubUserResponseBodyPubUserDetailListOnlinePeriods extends $dara.Model {
   /**
+   * @remarks
+   * The time when the user joined the channel, represented as a UNIX timestamp in seconds.
+   * 
    * @example
    * 1614936817
    */
   joinTs?: number;
   /**
+   * @remarks
+   * The time when the user left the channel, represented as a UNIX timestamp in seconds.
+   * 
    * @example
    * 1614936817
    */
@@ -37,65 +43,122 @@ export class DescribePubUserListBySubUserResponseBodyPubUserDetailListOnlinePeri
 }
 
 export class DescribePubUserListBySubUserResponseBodyPubUserDetailList extends $dara.Model {
+  /**
+   * @remarks
+   * Call IDs of the user\"s communication streams.
+   */
   callIdList?: string[];
   /**
+   * @remarks
+   * Client type. Valid values: WEB: Web client. NATIVE: Native client.
+   * 
    * @example
    * NATIVE
    */
   clientType?: string;
   /**
+   * @remarks
+   * The time when the user first joined the channel, represented as a UNIX timestamp in seconds.
+   * 
    * @example
    * 1614936817
    */
   createdTs?: number;
   /**
+   * @remarks
+   * The time when the user last left the channel, represented as a UNIX timestamp in seconds.
+   * 
    * @example
    * 1614936817
    */
   destroyedTs?: number;
   /**
+   * @remarks
+   * Communication duration, measured from the first entry to the final exit, in seconds.
+   * 
    * @example
    * 0
    */
   duration?: number;
   /**
+   * @remarks
+   * Geographical location information, such as Zhejiang Province-Hangzhou City.
+   * 
    * @example
    * 浙江省-杭州市
    */
   location?: string;
   /**
+   * @remarks
+   * Network type, such as WiFi, 4G, etc.
+   * 
    * @example
    * 4G
    */
   network?: string;
+  /**
+   * @remarks
+   * Network types, such as WiFi, 4G, etc.
+   */
   networkList?: string[];
   /**
+   * @remarks
+   * Online duration, in seconds.
+   * 
    * @example
    * 0
    */
   onlineDuration?: number;
+  /**
+   * @remarks
+   * Online period information.
+   */
   onlinePeriods?: DescribePubUserListBySubUserResponseBodyPubUserDetailListOnlinePeriods[];
   /**
+   * @remarks
+   * Platform Type: If the client type is WEB, this field indicates the type of the browser. If the client type is NATIVE, this field indicates the operating system.
+   * 
    * @example
    * iOS
    */
   os?: string;
+  /**
+   * @remarks
+   * Platform Type: If the client type is WEB, this field indicates the type of the browser. If the client type is NATIVE, this field indicates the operating system.
+   */
   osList?: string[];
+  /**
+   * @remarks
+   * User roles. Valid values: SENDER: sender. RECEIVER: receiver.
+   */
   roles?: string[];
   /**
+   * @remarks
+   * SDK Version.
+   * 
    * @example
    * 1.0.0
    */
   sdkVersion?: string;
+  /**
+   * @remarks
+   * List of software development kit (SDK) versions, such as 1.0.0, 1.1.1, etc.
+   */
   sdkVersionList?: string[];
   /**
+   * @remarks
+   * User ID.
+   * 
    * @example
    * testuserid
    */
   userId?: string;
   /**
+   * @remarks
+   * User ID alias.
+   * 
    * @example
-   * 旁路转推
+   * yi****
    */
   userIdAlias?: string;
   static names(): { [key: string]: string } {
@@ -171,11 +234,17 @@ export class DescribePubUserListBySubUserResponseBodyPubUserDetailList extends $
 
 export class DescribePubUserListBySubUserResponseBodySubUserDetailOnlinePeriods extends $dara.Model {
   /**
+   * @remarks
+   * The time when the user joined the channel, represented as a UNIX timestamp in seconds.
+   * 
    * @example
    * 1614936817
    */
   joinTs?: number;
   /**
+   * @remarks
+   * The time when the user left the channel, represented as a UNIX timestamp in seconds.
+   * 
    * @example
    * 1614936817
    */
@@ -205,63 +274,116 @@ export class DescribePubUserListBySubUserResponseBodySubUserDetailOnlinePeriods 
 
 export class DescribePubUserListBySubUserResponseBodySubUserDetail extends $dara.Model {
   /**
+   * @remarks
+   * Client type. Valid values: WEB: Web client. NATIVE: Native client.
+   * 
    * @example
    * NATIVE
    */
   clientType?: string;
   /**
+   * @remarks
+   * The time when the user first joined the channel, represented as a UNIX timestamp in seconds.
+   * 
    * @example
    * 1614936817
    */
   createdTs?: number;
   /**
+   * @remarks
+   * The time when the user last left the channel, represented as a UNIX timestamp, in seconds.
+   * 
    * @example
    * 1614936817
    */
   destroyedTs?: number;
   /**
+   * @remarks
+   * Communication duration, from the first entry to the final exit, in seconds.
+   * 
    * @example
    * 0
    */
   duration?: number;
   /**
+   * @remarks
+   * Geographic location information, such as Zhejiang Province-Hangzhou City.
+   * 
    * @example
    * 浙江省-杭州市
    */
   location?: string;
   /**
+   * @remarks
+   * Network type, such as WiFi, 4G, etc.
+   * 
    * @example
    * 4G
    */
   network?: string;
+  /**
+   * @remarks
+   * Network type, such as WiFi, 4G, etc.
+   */
   networkList?: string[];
   /**
+   * @remarks
+   * Online duration, in seconds.
+   * 
    * @example
    * 0
    */
   onlineDuration?: number;
+  /**
+   * @remarks
+   * Online period information.
+   */
   onlinePeriods?: DescribePubUserListBySubUserResponseBodySubUserDetailOnlinePeriods[];
   /**
+   * @remarks
+   * Platform Type: If the client type is WEB, this field indicates the type of the browser. If the client type is NATIVE, this field indicates the operating system type.
+   * 
    * @example
    * iOS
    */
   os?: string;
+  /**
+   * @remarks
+   * Platform Type: If the client type is WEB, this field indicates the type of the browser. If the client type is NATIVE, this field indicates the operating system type.
+   */
   osList?: string[];
+  /**
+   * @remarks
+   * User role.
+   */
   roles?: string[];
   /**
+   * @remarks
+   * SDK Version.
+   * 
    * @example
    * 1.0.0
    */
   sdkVersion?: string;
+  /**
+   * @remarks
+   * List of SDK versions, such as 1.0.0, 1.1.1, etc.
+   */
   sdkVersionList?: string[];
   /**
+   * @remarks
+   * User ID.
+   * 
    * @example
    * testuserid
    */
   userId?: string;
   /**
+   * @remarks
+   * User ID alias.
+   * 
    * @example
-   * 旁路转推
+   * yi****
    */
   userIdAlias?: string;
   static names(): { [key: string]: string } {
@@ -332,16 +454,32 @@ export class DescribePubUserListBySubUserResponseBodySubUserDetail extends $dara
 
 export class DescribePubUserListBySubUserResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Communication status. Valid values:  
+   * - **IN**: In progress.  
+   * - **OUT**: Ended.
+   * 
    * @example
    * IN
    */
   callStatus?: string;
+  /**
+   * @remarks
+   * Details of publishing users.
+   */
   pubUserDetailList?: DescribePubUserListBySubUserResponseBodyPubUserDetailList[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Subscriber user details.
+   */
   subUserDetail?: DescribePubUserListBySubUserResponseBodySubUserDetail;
   static names(): { [key: string]: string } {
     return {

@@ -95,21 +95,33 @@ export class DescribeRtcChannelListResponseBodyChannelList extends $dara.Model {
 export class DescribeRtcChannelListResponseBody extends $dara.Model {
   channelList?: DescribeRtcChannelListResponseBodyChannelList;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 100
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total count.
+   * 
    * @example
    * 1000
    */

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAppStreamingOutTemplatesRequestCondition extends $dara.Model {
   /**
+   * @remarks
+   * Template Name.
+   * 
    * @example
    * 测试
    */
   name?: string;
   /**
+   * @remarks
+   * Template ID.
+   * 
    * @example
    * Bj6D****
    */
@@ -39,19 +45,31 @@ export class DescribeAppStreamingOutTemplatesRequestCondition extends $dara.Mode
 export class DescribeAppStreamingOutTemplatesRequest extends $dara.Model {
   /**
    * @remarks
+   * Application ID, created and queried through the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
    * ioeh****
    */
   appId?: string;
+  /**
+   * @remarks
+   * Search condition.
+   */
   condition?: DescribeAppStreamingOutTemplatesRequestCondition;
   /**
+   * @remarks
+   * Page number. By default, page 1 is queried.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * Number of entries per page. The default value is 10.
+   * 
    * @example
    * 10
    */

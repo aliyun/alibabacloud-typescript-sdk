@@ -104,16 +104,25 @@ export class DescribeAppsResponseBodyAppList extends $dara.Model {
 export class DescribeAppsResponseBody extends $dara.Model {
   appList?: DescribeAppsResponseBodyAppList;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
-   * 6159ba01-6687-4fb2-a831-f0cd8d188648
+   * 231470C1-ACFB-4C9F-844F-4CFE1E3804C6
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of results returned.
+   * 
    * @example
    * 1
    */
   totalNum?: number;
   /**
+   * @remarks
+   * The total number of pages returned.
+   * 
    * @example
    * 1
    */

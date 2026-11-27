@@ -4,16 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class RemoveUsersResponseBodyUsers extends $dara.Model {
   /**
+   * @remarks
+   * Status code. A value of 0 indicates success. An error code is returned upon failure.
+   * 
    * @example
    * 0
    */
   code?: number;
   /**
+   * @remarks
+   * Result of the delete operation. Valid values:  
+   * - **Success**: Succeeded.  
+   * - **Failed**: failed.
+   * 
    * @example
    * Success
    */
   message?: string;
   /**
+   * @remarks
+   * User ID.
+   * 
    * @example
    * 1811****
    */
@@ -45,10 +56,17 @@ export class RemoveUsersResponseBodyUsers extends $dara.Model {
 
 export class RemoveUsersResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
    */
   requestId?: string;
+  /**
+   * @remarks
+   * User List.
+   */
   users?: RemoveUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {
     return {

@@ -5,20 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class RtcSipMuteResponseBodyErrTracks extends $dara.Model {
   /**
    * @remarks
-   * ErrMsg。
+   * The error message.
    * 
    * @example
    * participant does not existed.
    */
   errMsg?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * 12
    */
   id?: string;
   /**
    * @remarks
-   * OperationId。
+   * The operation ID.
    * 
    * @example
    * 12122121
@@ -50,8 +53,15 @@ export class RtcSipMuteResponseBodyErrTracks extends $dara.Model {
 }
 
 export class RtcSipMuteResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The error tracks.
+   */
   errTracks?: RtcSipMuteResponseBodyErrTracks[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * E7997404-5858-5C4D-94E4-33677412ACDC
    */

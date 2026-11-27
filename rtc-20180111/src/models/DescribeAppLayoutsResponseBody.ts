@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAppLayoutsResponseBodyLayoutsPanes extends $dara.Model {
   /**
+   * @remarks
+   * The pane height, as a normalized percentage. The value range for Height is 0.0 < Height ≤ 1.0.
+   * 
    * @example
    * 0.25
    */
   height?: number;
   /**
+   * @remarks
+   * The pane ID.
+   * 
    * @example
    * 0
    */
   paneId?: number;
   /**
+   * @remarks
+   * The pane width, as a normalized percentage. The value range for Width is 0.0 < Width ≤ 1.0.
+   * 
    * @example
    * 0.25
    */
   width?: number;
   /**
+   * @remarks
+   * The X coordinate, as a normalized percentage. The value range for X is 0.0 ≤ X ≤ 1.0.
+   * 
    * @example
    * 0.25
    */
   x?: number;
   /**
+   * @remarks
+   * The Y coordinate, as a normalized percentage. The value range for Y is 0.0 ≤ Y ≤ 1.0.
+   * 
    * @example
    * 0.25
    */
   y?: number;
   /**
+   * @remarks
+   * The Z-order. 0 is the bottom layer, 1 is above 0, and so on.
+   * 
    * @example
    * 0
    */
@@ -66,15 +84,25 @@ export class DescribeAppLayoutsResponseBodyLayoutsPanes extends $dara.Model {
 
 export class DescribeAppLayoutsResponseBodyLayouts extends $dara.Model {
   /**
+   * @remarks
+   * The layout ID.
+   * 
    * @example
    * 167466539798442****
    */
   layoutId?: string;
   /**
+   * @remarks
+   * The layout name.
+   * 
    * @example
    * 测试
    */
   name?: string;
+  /**
+   * @remarks
+   * The list of panes.
+   */
   panes?: DescribeAppLayoutsResponseBodyLayoutsPanes[];
   static names(): { [key: string]: string } {
     return {
@@ -105,18 +133,31 @@ export class DescribeAppLayoutsResponseBodyLayouts extends $dara.Model {
 }
 
 export class DescribeAppLayoutsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of layouts.
+   */
   layouts?: DescribeAppLayoutsResponseBodyLayouts[];
   /**
+   * @remarks
+   * The ID of this request.
+   * 
    * @example
    * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 10
    */
   totalNum?: number;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 1
    */

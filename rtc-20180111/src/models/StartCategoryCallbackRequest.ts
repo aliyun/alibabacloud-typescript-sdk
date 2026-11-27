@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StartCategoryCallbackRequestCallback extends $dara.Model {
   /**
    * @remarks
+   * The callback code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +37,8 @@ export class StartCategoryCallbackRequestCallback extends $dara.Model {
 export class StartCategoryCallbackRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,6 +47,8 @@ export class StartCategoryCallbackRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The callback.
+   * 
    * This parameter is required.
    */
   callback?: StartCategoryCallbackRequestCallback;

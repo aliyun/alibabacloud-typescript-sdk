@@ -15,6 +15,8 @@ export class DescribeChannelOverallDataRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * Channel ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +25,8 @@ export class DescribeChannelOverallDataRequest extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
+   * UNIX timestamp indicating the channel creation time. Supports querying data from the last 30 days. Expressed as a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +34,10 @@ export class DescribeChannelOverallDataRequest extends $dara.Model {
    */
   createdTs?: number;
   /**
+   * @remarks
+   * Channel release time, represented as a UNIX timestamp in seconds. If this parameter is empty, the current time is used.
+   * > If the provided channel release time exceeds the actual release time, data from the Creation Time to the actual release time is returned.
+   * 
    * @example
    * 1615893757
    */

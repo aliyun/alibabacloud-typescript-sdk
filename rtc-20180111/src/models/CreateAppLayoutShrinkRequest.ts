@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAppLayoutShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query the ID in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class CreateAppLayoutShrinkRequest extends $dara.Model {
    */
   appId?: string;
   /**
+   * @remarks
+   * The client token.
+   * 
    * @example
    * 53200b81-b761-4c10-842a-a0726d97xxxx
    */
   clientToken?: string;
   /**
    * @remarks
+   * The layout.
+   * 
    * This parameter is required.
    */
   layoutShrink?: string;

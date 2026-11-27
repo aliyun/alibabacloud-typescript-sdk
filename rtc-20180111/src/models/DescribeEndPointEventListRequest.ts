@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEndPointEventListRequest extends $dara.Model {
   /**
    * @remarks
-   * APP ID。
+   * The app ID.
    * 
    * This parameter is required.
    * 
@@ -15,6 +15,8 @@ export class DescribeEndPointEventListRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The channel ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +25,8 @@ export class DescribeEndPointEventListRequest extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
+   * The start time of the event query time range. This time cannot be earlier than the actual creation time of the channel or 30 days ago. The time is a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,12 +34,17 @@ export class DescribeEndPointEventListRequest extends $dara.Model {
    */
   createdTs?: number;
   /**
+   * @remarks
+   * The end time of the event query time range. This time cannot be later than the release time of the channel. The time is a UNIX timestamp in seconds. If this parameter is left empty, the current time is used.
+   * 
    * @example
    * 1614936817
    */
   destroyedTs?: number;
   /**
    * @remarks
+   * The list of user IDs. Separate multiple user IDs with commas (,).
+   * 
    * This parameter is required.
    * 
    * @example

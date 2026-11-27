@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAppAgentTemplatesRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query the ID in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,21 +14,33 @@ export class DescribeAppAgentTemplatesRequest extends $dara.Model {
    */
   appId?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 123121414122313121313
    */
   id?: string;
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
-   * 智能体模版
+   * Agent template
    */
   name?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The page size.
+   * 
    * @example
    * 10
    */

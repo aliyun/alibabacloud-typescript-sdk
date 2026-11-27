@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEventSubscribeRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the subscribed application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateEventSubscribeRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The callback URL. For information about the callback content, see the following callback content example.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,12 +24,19 @@ export class CreateEventSubscribeRequest extends $dara.Model {
    */
   callbackUrl?: string;
   /**
+   * @remarks
+   * The ID of the subscribed channel.
+   * 
+   * > This parameter is required if the Users.N parameter is not empty.
+   * 
    * @example
    * 123333
    */
   channelId?: string;
   /**
    * @remarks
+   * The idempotence identifier used by the client to create the subscription.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,6 +45,8 @@ export class CreateEventSubscribeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
+   * The subscribed events.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,17 +54,35 @@ export class CreateEventSubscribeRequest extends $dara.Model {
    */
   events?: string[];
   /**
+   * @remarks
+   * Specifies whether to enable callback authentication. Valid values:
+   * 
+   * - **true**: enables callback authentication.
+   * - **fasle** (default): disables callback authentication.
+   * 
+   * For more information, see the following callback authentication description.
+   * 
    * @example
    * false
    */
   needCallbackAuth?: boolean;
   ownerId?: number;
   /**
+   * @remarks
+   * The user role. Valid values:
+   * 
+   * - **1**: subscribes to host messages in the channel.
+   * - **2**: subscribes to audience messages in the channel.
+   * - **Empty or other values**: subscribes to messages from all roles in the channel without role filtering.
+   * 
    * @example
    * 1
    */
   role?: number;
   /**
+   * @remarks
+   * The subscribed users.
+   * 
    * @example
    * user1
    */

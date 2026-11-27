@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeQualityAreaDistributionStatDataRequest extends $dara.Model {
   /**
    * @remarks
-   * APP ID
+   * The app ID.
    * 
    * This parameter is required.
    * 
@@ -15,6 +15,8 @@ export class DescribeQualityAreaDistributionStatDataRequest extends $dara.Model 
   appId?: string;
   /**
    * @remarks
+   * The end time of the query. The value is a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,12 +24,17 @@ export class DescribeQualityAreaDistributionStatDataRequest extends $dara.Model 
    */
   endDate?: number;
   /**
+   * @remarks
+   * The name of the parent region. For example, the parent region of Hangzhou is Zhejiang Province, and the parameter is set to China_Zhejiang Province. If this parameter is left empty, the statistics are collected at the country level worldwide, such as China and the United Kingdom.
+   * 
    * @example
-   * 中国
+   * China_Zhejiang Province
    */
   parentArea?: string;
   /**
    * @remarks
+   * The start time of the query. The value is a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example

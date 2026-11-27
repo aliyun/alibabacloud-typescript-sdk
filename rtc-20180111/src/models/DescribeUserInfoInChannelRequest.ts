@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserInfoInChannelRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID, which is created and queried through the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class DescribeUserInfoInChannelRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The channel ID. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +26,8 @@ export class DescribeUserInfoInChannelRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The user ID. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example

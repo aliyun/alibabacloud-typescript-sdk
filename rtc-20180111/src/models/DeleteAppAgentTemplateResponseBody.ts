@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteAppAgentTemplateResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * 1223131213231313213
    */

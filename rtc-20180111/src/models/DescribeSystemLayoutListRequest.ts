@@ -5,11 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSystemLayoutListRequest extends $dara.Model {
   ownerId?: number;
   /**
+   * @remarks
+   * Page number.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * Number of entries per page.
+   * 
    * @example
    * 10
    */

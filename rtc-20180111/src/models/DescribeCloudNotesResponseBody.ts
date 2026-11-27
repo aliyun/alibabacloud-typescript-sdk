@@ -4,66 +4,105 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeCloudNotesResponseBodyItems extends $dara.Model {
   /**
+   * @remarks
+   * Path where the chapter overview result file is stored.
+   * 
    * @example
    * cloudNote/ksvxxppi/88_12/autoChapters_1724914365173.json
    */
   autoChaptersFilePath?: string;
   /**
+   * @remarks
+   * The user-defined bucket.
+   * 
    * @example
    * sample-bucket
    */
   bucket?: string;
   /**
+   * @remarks
+   * Channel ID.
+   * 
    * @example
    * testchannelId
    */
   channelId?: string;
   /**
+   * @remarks
+   * The path where the custom prompt result file is stored.
+   * 
    * @example
    * cloudNote/ksvxxppi/88_12/customPrompt_1724914365173.json
    */
   customPromptFilePath?: string;
   /**
+   * @remarks
+   * The path where the key points extraction result file is stored.
+   * 
    * @example
    * cloudNote/ksvxxppi/88_12/meetingAssistance_1724914365173.json
    */
   meetingAssistanceFilePath?: string;
   /**
+   * @remarks
+   * Reference job region.
+   * 
    * @example
    * 1
    */
   region?: number;
   /**
+   * @remarks
+   * The path where the service quality inspection result file is stored.
+   * 
    * @example
    * cloudNote/ksvxxppi/88_12/serviceInspection_1724914365173.json
    */
   serviceInspectionFilePath?: string;
   /**
+   * @remarks
+   * Start Time of the meeting summary job.
+   * 
    * @example
    * 1731939816837
    */
   startTs?: number;
   /**
+   * @remarks
+   * Path where the summary result file is stored.
+   * 
    * @example
    * cloudNote/ksvxxppi/88_12/summarization_1724914365173.json
    */
   summarizationFilePath?: string;
   /**
+   * @remarks
+   * Job ID.
+   * 
    * @example
    * test001
    */
   taskId?: string;
   /**
+   * @remarks
+   * The path where the spoken-to-written text result file is stored.
+   * 
    * @example
    * cloudNote/ksvxxppi/88_12/textPolish_1724914365173.json
    */
   textPolishFilePath?: string;
   /**
+   * @remarks
+   * Path where the transcription result file is stored.
+   * 
    * @example
    * cloudNote/ksvxxppi/88_12/transcription_1724914365173.json
    */
   transcriptionFilePath?: string;
   /**
+   * @remarks
+   * The vendor referenced when enabling the job.
+   * 
    * @example
    * 1
    */
@@ -114,13 +153,23 @@ export class DescribeCloudNotesResponseBodyItems extends $dara.Model {
 }
 
 export class DescribeCloudNotesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of meeting summary results.
+   */
   items?: DescribeCloudNotesResponseBodyItems[];
   /**
+   * @remarks
+   * Page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * Quantity per page.
+   * 
    * @example
    * 10
    */
@@ -134,6 +183,9 @@ export class DescribeCloudNotesResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total quantity.
+   * 
    * @example
    * 10
    */

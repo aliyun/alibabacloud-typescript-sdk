@@ -12,26 +12,43 @@ export class DescribeFaultDiagnosisUserDetailResponseBodyCallInfo extends $dara.
    */
   appId?: string;
   /**
+   * @remarks
+   * Call status. Valid values:
+   * - **IN**: In progress.
+   * - **OUT**: Ended.
+   * 
    * @example
    * IN
    */
   callStatus?: string;
   /**
+   * @remarks
+   * Channel ID.
+   * 
    * @example
    * 311
    */
   channelId?: string;
   /**
+   * @remarks
+   * The time when the call was created, represented as a UNIX timestamp in seconds.
+   * 
    * @example
    * 1620957905
    */
   createdTs?: number;
   /**
+   * @remarks
+   * The time when the call was released, represented as a UNIX timestamp in seconds.
+   * 
    * @example
    * 1620958150
    */
   destroyedTs?: number;
   /**
+   * @remarks
+   * Call duration in seconds.
+   * 
    * @example
    * 100
    */
@@ -69,16 +86,27 @@ export class DescribeFaultDiagnosisUserDetailResponseBodyCallInfo extends $dara.
 
 export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventDatasEventDataItemsEventList extends $dara.Model {
   /**
+   * @remarks
+   * Event Name.
+   * 
    * @example
    * 开始发布
    */
   eventName?: string;
   /**
+   * @remarks
+   * Event Type. Valid values:
+   * - **USER**: User event.
+   * - **SYSTEM**: System event.
+   * 
    * @example
    * USER
    */
   eventType?: string;
   /**
+   * @remarks
+   * The time of the first management event occurrence, represented as a UNIX timestamp in seconds.
+   * 
    * @example
    * 1614936817
    */
@@ -109,8 +137,15 @@ export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventD
 }
 
 export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventDatasEventDataItems extends $dara.Model {
+  /**
+   * @remarks
+   * Event List.
+   */
   eventList?: DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventDatasEventDataItemsEventList[];
   /**
+   * @remarks
+   * [responses_200_schema_properties_FaultMetricData_properties_Nodes_description]List of metric coordinate points.
+   * 
    * @example
    * 1614936817
    */
@@ -142,13 +177,25 @@ export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventD
 }
 
 export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventDatas extends $dara.Model {
+  /**
+   * @remarks
+   * List of event data.
+   */
   eventDataItems?: DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventDatasEventDataItems[];
   /**
+   * @remarks
+   * Source role. Valid values:
+   * - **SENDER**: Publisher (upstream).
+   * - **RECEIVER**: Subscriber (downstream).
+   * 
    * @example
    * SENDER
    */
   role?: string;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * 0a497933****
    */
@@ -182,13 +229,23 @@ export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventD
 }
 
 export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedMetricDatasNodes extends $dara.Model {
+  /**
+   * @remarks
+   * [responses_200_schema_properties_FactorList_items_properties_RelatedEventDatas_items_properties_EventDataItems_items_properties_EventList_items_properties_Ts_title]The time of the first management event occurrence, represented as a UNIX timestamp in seconds.
+   */
   ext?: { [key: string]: any };
   /**
+   * @remarks
+   * [responses_200_schema_properties_FactorList_items_properties_FactorId_title]Factor ID: 1: Poor publisher-side Network; 2: Poor subscriber-side Network; 3: Poor publisher-side device Performance; 4: Publisher-side camera shutdown; 5: Publisher-side app moved to background Run
+   * 
    * @example
    * 1615892596
    */
   x?: string;
   /**
+   * @remarks
+   * [responses_200_schema_properties_RequestId_title]The Request ID.
+   * 
    * @example
    * 20
    */
@@ -222,18 +279,33 @@ export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedMetric
 }
 
 export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedMetricDatas extends $dara.Model {
+  /**
+   * @remarks
+   * [responses_200_schema_properties_FactorList_items_properties_RelatedEventDatas_items_properties_EventDataItems_items_properties_EventList_items_properties_EventName_type]string
+   */
   nodes?: DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedMetricDatasNodes[];
   /**
+   * @remarks
+   * Source role. Valid values:
+   * - **SENDER**: Publisher.
+   * - **RECEIVER**: Subscriber.
+   * 
    * @example
    * SENDER
    */
   role?: string;
   /**
+   * @remarks
+   * Metric type, consistent with the metric types defined in the end-to-end metrics API.
+   * 
    * @example
    * AUDIO_STUCK
    */
   type?: string;
   /**
+   * @remarks
+   * User ID of the publisher from which the data originates.
+   * 
    * @example
    * 0a497933****
    */
@@ -270,16 +342,30 @@ export class DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedMetric
 
 export class DescribeFaultDiagnosisUserDetailResponseBodyFactorList extends $dara.Model {
   /**
+   * @remarks
+   * The factor ID. For details, see the factor ID values below.
+   * 
    * @example
    * 1
    */
   factorId?: string;
   /**
+   * @remarks
+   * Abnormal source: LOCAL indicates the local end; REMOTE indicates the remote end.
+   * 
    * @example
    * LOCAL
    */
   faultSource?: string;
+  /**
+   * @remarks
+   * Associated management events, grouped by time. Coordinate data is returned when FaultType is AUDIO_STUCK, VIDEO_STUCK, VIDEO_VAGUE, or HIGH_DELAY.
+   */
   relatedEventDatas?: DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedEventDatas[];
+  /**
+   * @remarks
+   * Associated metrics and coordinate data, returned when FaultType is AUDIO_STUCK, VIDEO_STUCK, VIDEO_VAGUE, or HIGH_DELAY.
+   */
   relatedMetricDatas?: DescribeFaultDiagnosisUserDetailResponseBodyFactorListRelatedMetricDatas[];
   static names(): { [key: string]: string } {
     return {
@@ -316,11 +402,17 @@ export class DescribeFaultDiagnosisUserDetailResponseBodyFactorList extends $dar
 
 export class DescribeFaultDiagnosisUserDetailResponseBodyFaultMetricDataNodes extends $dara.Model {
   /**
+   * @remarks
+   * 指标趋势图中x轴横坐标，单位时间为1分钟。
+   * 
    * @example
    * 1620957900
    */
   x?: string;
   /**
+   * @remarks
+   * 指标趋势图中y轴纵坐标。
+   * 
    * @example
    * 0.4540
    */
@@ -349,6 +441,10 @@ export class DescribeFaultDiagnosisUserDetailResponseBodyFaultMetricDataNodes ex
 }
 
 export class DescribeFaultDiagnosisUserDetailResponseBodyFaultMetricData extends $dara.Model {
+  /**
+   * @remarks
+   * List of metric coordinate points.
+   */
   nodes?: DescribeFaultDiagnosisUserDetailResponseBodyFaultMetricDataNodes[];
   static names(): { [key: string]: string } {
     return {
@@ -376,11 +472,17 @@ export class DescribeFaultDiagnosisUserDetailResponseBodyFaultMetricData extends
 
 export class DescribeFaultDiagnosisUserDetailResponseBodyUserDetailOnlinePeriods extends $dara.Model {
   /**
+   * @remarks
+   * Time of joining the call, represented as a UNIX timestamp in seconds.
+   * 
    * @example
    * 1620957919
    */
   joinTs?: number;
   /**
+   * @remarks
+   * Time of leaving the call, represented as a UNIX timestamp in seconds.
+   * 
    * @example
    * 1620958150
    */
@@ -410,47 +512,78 @@ export class DescribeFaultDiagnosisUserDetailResponseBodyUserDetailOnlinePeriods
 
 export class DescribeFaultDiagnosisUserDetailResponseBodyUserDetail extends $dara.Model {
   /**
+   * @remarks
+   * Call creation time, represented as a UNIX timestamp in seconds.
+   * 
    * @example
    * 1620957919
    */
   createdTs?: number;
   /**
+   * @remarks
+   * [responses_200_schema_properties_UserDetail_properties_OnlineDuration_type]integer
+   * 
    * @example
    * 1620958150
    */
   destroyedTs?: number;
   /**
+   * @remarks
+   * [responses_200_schema_properties_FactorList_title]List of impact factors. An empty value indicates that the impact factors are unknown.
+   * 
    * @example
    * 231
    */
   duration?: number;
   /**
+   * @remarks
+   * Geographic location information, such as: Beijing City - Beijing Municipality.
+   * 
    * @example
    * 浙江省-杭州市
    */
   location?: string;
   /**
+   * @remarks
+   * [responses_200_schema_properties_UserDetail_properties_OnlinePeriods_items_properties_JoinTs_title]Time of joining the call, represented as a UNIX timestamp in seconds.
+   * 
    * @example
    * 4G
    */
   network?: string;
   /**
+   * @remarks
+   * Online duration, in seconds.
+   * 
    * @example
    * 231
    */
   onlineDuration?: number;
+  /**
+   * @remarks
+   * Online period information.
+   */
   onlinePeriods?: DescribeFaultDiagnosisUserDetailResponseBodyUserDetailOnlinePeriods[];
   /**
+   * @remarks
+   * [responses_200_schema_properties_UserDetail_properties_OnlinePeriods_type]array
+   * 
    * @example
    * iOS
    */
   os?: string;
   /**
+   * @remarks
+   * [responses_200_schema_properties_UserDetail_properties_Location_title]Geographic location information, such as: Beijing City - Beijing Municipality
+   * 
    * @example
    * 1.0.0
    */
   sdkVersion?: string;
   /**
+   * @remarks
+   * [responses_200_schema_properties_UserDetail_properties_OnlinePeriods_items_properties_LeaveTs_title]Time of leaving the call, represented as a UNIX timestamp in seconds.
+   * 
    * @example
    * 0a497933****
    */
@@ -498,15 +631,38 @@ export class DescribeFaultDiagnosisUserDetailResponseBodyUserDetail extends $dar
 }
 
 export class DescribeFaultDiagnosisUserDetailResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Basic call information, returned when QueryCallUserInfo=false.
+   */
   callInfo?: DescribeFaultDiagnosisUserDetailResponseBodyCallInfo;
+  /**
+   * @remarks
+   * List of impact factors. An empty list indicates that the impact factors are unknown.
+   */
   factorList?: DescribeFaultDiagnosisUserDetailResponseBodyFactorList[];
+  /**
+   * @remarks
+   * Abnormal metrics.
+   */
   faultMetricData?: DescribeFaultDiagnosisUserDetailResponseBodyFaultMetricData;
+  /**
+   * @remarks
+   * List of Network carriers
+   */
   networkOperators?: string[];
   /**
+   * @remarks
+   * The Request ID.
+   * 
    * @example
    * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
    */
   requestId?: string;
+  /**
+   * @remarks
+   * [responses_200_schema_properties_UserDetail_properties_CreatedTs_type]integer
+   */
   userDetail?: DescribeFaultDiagnosisUserDetailResponseBodyUserDetail;
   static names(): { [key: string]: string } {
     return {

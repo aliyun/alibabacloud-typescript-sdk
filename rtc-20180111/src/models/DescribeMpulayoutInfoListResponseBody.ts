@@ -133,16 +133,25 @@ export class DescribeMPULayoutInfoListResponseBodyLayouts extends $dara.Model {
 export class DescribeMPULayoutInfoListResponseBody extends $dara.Model {
   layouts?: DescribeMPULayoutInfoListResponseBodyLayouts;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 760bad53276431c499e30dc36f6b26be
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of records.
+   * 
    * @example
    * 1
    */
   totalNum?: number;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 1
    */

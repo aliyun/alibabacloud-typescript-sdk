@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeChannelsRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query the ID in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,11 +14,17 @@ export class DescribeChannelsRequest extends $dara.Model {
    */
   appId?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of items per page.
+   * 
    * @example
    * 10
    */

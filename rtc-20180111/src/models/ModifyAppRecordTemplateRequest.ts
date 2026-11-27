@@ -4,12 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyAppRecordTemplateRequestRecordTemplate extends $dara.Model {
   /**
+   * @remarks
+   * Delayed stop recording time. Unit: seconds.
+   * 
    * @example
    * 180
    */
   delayStopTime?: number;
   /**
    * @remarks
+   * The naming convention for recording files.
+   * 
+   * > To ensure unique recording file names, use the following naming convention: `record/{AppId}/{ChannelId}/{TaskId}/{EscapedStartTime}/{EscapedEndTime}`.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +25,8 @@ export class ModifyAppRecordTemplateRequestRecordTemplate extends $dara.Model {
   filePrefix?: string;
   /**
    * @remarks
+   * Recording file split duration (greater than or equal to 1800). Unit: seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,16 +35,24 @@ export class ModifyAppRecordTemplateRequestRecordTemplate extends $dara.Model {
   fileSplitInterval?: number;
   /**
    * @remarks
+   * Recording file format. Currently, only .m3u8, .mp4, and .flv are supported.
+   * 
    * This parameter is required.
    */
   formats?: string[];
   /**
    * @remarks
+   * Layout ID list, up to 16.
+   * 
+   * Note: The layouts in the list must not have the same number of data sources.
+   * 
    * This parameter is required.
    */
   layoutIds?: string[];
   /**
    * @remarks
+   * Encoding options.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,6 +61,8 @@ export class ModifyAppRecordTemplateRequestRecordTemplate extends $dara.Model {
   mediaEncode?: number;
   /**
    * @remarks
+   * Template name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52,6 +71,8 @@ export class ModifyAppRecordTemplateRequestRecordTemplate extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * Template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -102,6 +123,8 @@ export class ModifyAppRecordTemplateRequestRecordTemplate extends $dara.Model {
 export class ModifyAppRecordTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * Application ID. Create and query through the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -109,12 +132,17 @@ export class ModifyAppRecordTemplateRequest extends $dara.Model {
    */
   appId?: string;
   /**
+   * @remarks
+   * Idempotency parameter.
+   * 
    * @example
    * 53200b81-b761-4c10-842a-a0726d97xxxx
    */
   clientToken?: string;
   /**
    * @remarks
+   * Recording template.
+   * 
    * This parameter is required.
    */
   recordTemplate?: ModifyAppRecordTemplateRequestRecordTemplate;

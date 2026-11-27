@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeUsageOverallDataResponseBodyUsageOverallDataNodes extends $dara.Model {
   /**
+   * @remarks
+   * The x-axis coordinate in the metric trends chart.
+   * 
    * @example
    * 1615824000
    */
   x?: string;
   /**
+   * @remarks
+   * The y-axis coordinate in the metric trends chart.
+   * 
    * @example
    * 1
    */
@@ -37,8 +43,15 @@ export class DescribeUsageOverallDataResponseBodyUsageOverallDataNodes extends $
 }
 
 export class DescribeUsageOverallDataResponseBodyUsageOverallData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of coordinate points for the metric trends chart.
+   */
   nodes?: DescribeUsageOverallDataResponseBodyUsageOverallDataNodes[];
   /**
+   * @remarks
+   * The queried metric type.
+   * 
    * @example
    * ONLINE_USER_PEAK
    */
@@ -71,10 +84,17 @@ export class DescribeUsageOverallDataResponseBodyUsageOverallData extends $dara.
 
 export class DescribeUsageOverallDataResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The usage overview data list.
+   */
   usageOverallData?: DescribeUsageOverallDataResponseBodyUsageOverallData[];
   static names(): { [key: string]: string } {
     return {

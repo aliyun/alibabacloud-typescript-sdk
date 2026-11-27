@@ -4,35 +4,64 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeCallbacksResponseBodyCallbacks extends $dara.Model {
   /**
+   * @remarks
+   * The callback code.
+   * 
    * @example
    * RecordEvent
    */
   category?: string;
   /**
+   * @remarks
+   * The callback validation status. 0 indicates validating. 1 indicates validation successful. 2 indicates validation failed.
+   * 
    * @example
    * 1
    */
   checkStatus?: string;
   /**
+   * @remarks
+   * The callback validation code.
+   * 
    * @example
    * RESPONSE_INVALID
    */
   code?: string;
   /**
+   * @remarks
+   * The webhook address.
+   * 
    * @example
    * https://www.aliyun.com
    */
   conf?: string;
   /**
+   * @remarks
+   * The callback validation message.
+   * 
    * @example
    * Success
    */
   msg?: string;
   /**
+   * @remarks
+   * The callback status. 0 indicates enabled. 1 indicates disabled.
+   * 
    * @example
    * 1
    */
   status?: number;
+  /**
+   * @remarks
+   * The sub-events. For more information, see Callback overview.
+   * Recording events:
+   * 
+   * - **2010**: The service status of the recording changes.
+   * 
+   * - **2011**: The status of the recording audio stream changes.
+   * 
+   * - **2012**: The status of the recording video stream changes.
+   */
   subEvent?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -71,6 +100,10 @@ export class DescribeCallbacksResponseBodyCallbacks extends $dara.Model {
 }
 
 export class DescribeCallbacksResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * A list of subscribed events for the application.
+   */
   callbacks?: DescribeCallbacksResponseBodyCallbacks[];
   /**
    * @remarks

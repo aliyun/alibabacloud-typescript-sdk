@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyCloudNotePhrasesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the hotword table.
+   * 
    * @example
    * 21088b2617489486958531017d0b19
    */

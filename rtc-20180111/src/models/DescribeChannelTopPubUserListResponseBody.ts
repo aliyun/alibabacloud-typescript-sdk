@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeChannelTopPubUserListResponseBodyTopPubUserDetailListOnlinePeriods extends $dara.Model {
   /**
+   * @remarks
+   * The time when the user joined the channel. The value is a UNIX timestamp in seconds.
+   * 
    * @example
    * 1615893327
    */
   joinTs?: number;
   /**
+   * @remarks
+   * The time when the user left the channel. The value is a UNIX timestamp in seconds.
+   * 
    * @example
    * 1615893442
    */
@@ -38,32 +44,54 @@ export class DescribeChannelTopPubUserListResponseBodyTopPubUserDetailListOnline
 
 export class DescribeChannelTopPubUserListResponseBodyTopPubUserDetailList extends $dara.Model {
   /**
+   * @remarks
+   * The time when the user first joined the channel. The value is a UNIX timestamp in seconds.
+   * 
    * @example
    * 1615893327
    */
   createdTs?: number;
   /**
+   * @remarks
+   * The time when the user last left the channel. The value is a UNIX timestamp in seconds. The value is 0 if the call has not ended.
+   * 
    * @example
    * 1615893442
    */
   destroyedTs?: number;
   /**
+   * @remarks
+   * The total duration in seconds.
+   * 
    * @example
-   * 0
+   * 115
    */
   duration?: number;
   /**
+   * @remarks
+   * The geographic location, such as Beijing-Beijing.
+   * 
    * @example
-   * 浙江省-杭州市
+   * Zhejiang-Hangzhou
    */
   location?: string;
   /**
+   * @remarks
+   * The communication duration in seconds.
+   * 
    * @example
-   * 0
+   * 115
    */
   onlineDuration?: number;
+  /**
+   * @remarks
+   * The list of online periods for the user.
+   */
   onlinePeriods?: DescribeChannelTopPubUserListResponseBodyTopPubUserDetailListOnlinePeriods[];
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * testuserid
    */
@@ -106,10 +134,17 @@ export class DescribeChannelTopPubUserListResponseBodyTopPubUserDetailList exten
 
 export class DescribeChannelTopPubUserListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of details about top publishing users.
+   */
   topPubUserDetailList?: DescribeChannelTopPubUserListResponseBodyTopPubUserDetailList[];
   static names(): { [key: string]: string } {
     return {

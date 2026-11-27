@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class RtcSipMuteRequestOperationsValue extends $dara.Model {
   /**
    * @remarks
+   * The actual value.
+   * - active: Unmutes the microphone.
+   * - inactive: Mutes the microphone.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,11 +39,16 @@ export class RtcSipMuteRequestOperationsValue extends $dara.Model {
 export class RtcSipMuteRequestOperations extends $dara.Model {
   /**
    * @remarks
+   * The list of user IDs.
+   * 
    * This parameter is required.
    */
   ids?: string[];
   /**
    * @remarks
+   * The operation type.
+   * - replace
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48,6 +57,8 @@ export class RtcSipMuteRequestOperations extends $dara.Model {
   op?: string;
   /**
    * @remarks
+   * The operation ID. If some operations fail, you can use this ID for troubleshooting.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56,6 +67,9 @@ export class RtcSipMuteRequestOperations extends $dara.Model {
   operationId?: string;
   /**
    * @remarks
+   * The operation scope.
+   * - /media/audio/status: Modifies the audio stream status of the user.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -64,6 +78,8 @@ export class RtcSipMuteRequestOperations extends $dara.Model {
   path?: string;
   /**
    * @remarks
+   * The operation value.
+   * 
    * This parameter is required.
    */
   value?: RtcSipMuteRequestOperationsValue;
@@ -105,6 +121,8 @@ export class RtcSipMuteRequestOperations extends $dara.Model {
 export class RtcSipMuteRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query the ID in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -113,6 +131,8 @@ export class RtcSipMuteRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The ID of an existing channel. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -121,6 +141,8 @@ export class RtcSipMuteRequest extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
+   * The operations.
+   * 
    * This parameter is required.
    */
   operations?: RtcSipMuteRequestOperations[];

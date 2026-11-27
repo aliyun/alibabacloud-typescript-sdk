@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFaultDiagnosisUserListRequest extends $dara.Model {
   /**
    * @remarks
-   * APP ID。
+   * The app ID.
    * 
    * This parameter is required.
    * 
@@ -14,12 +14,17 @@ export class DescribeFaultDiagnosisUserListRequest extends $dara.Model {
    */
   appId?: string;
   /**
+   * @remarks
+   * The ID of the channel to search.
+   * 
    * @example
    * 311
    */
   channelId?: string;
   /**
    * @remarks
+   * The end time of the query. The time is a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -27,12 +32,25 @@ export class DescribeFaultDiagnosisUserListRequest extends $dara.Model {
    */
   endTs?: number;
   /**
+   * @remarks
+   * The fault types to filter. Separate multiple fault types with commas (,). Valid values:
+   * - **JOIN_SLOW**: Slow channel joining.
+   * - **AUDIO_STUCK**: Audio stuttering. 
+   * - **VIDEO_STUCK**: Video stuttering.
+   * - **VIDEO_VAGUE**: Blurry video.
+   * - **HIGH_DELAY**: High call latency.
+   * - **FIRST_FRAME_SLOW**: Slow first frame rendering.
+   * 
+   * For more information about fault types, see [Fault types](https://help.aliyun.com/document_detail/2639494.html).
+   * 
    * @example
    * JOIN_SLOW,AUDIO_STUCK
    */
   faultTypes?: string;
   /**
    * @remarks
+   * The page number.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -41,6 +59,8 @@ export class DescribeFaultDiagnosisUserListRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
+   * The number of entries per page.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49,6 +69,8 @@ export class DescribeFaultDiagnosisUserListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * The start time of the query. The time is a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -56,6 +78,9 @@ export class DescribeFaultDiagnosisUserListRequest extends $dara.Model {
    */
   startTs?: number;
   /**
+   * @remarks
+   * The ID of the user to search.
+   * 
    * @example
    * c906531af5f9****
    */

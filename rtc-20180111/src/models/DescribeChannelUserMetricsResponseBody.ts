@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeChannelUserMetricsResponseBodyMetricDatasNodes extends $dara.Model {
+  /**
+   * @remarks
+   * The extended properties.
+   */
   ext?: { [key: string]: any };
   /**
+   * @remarks
+   * The x-axis coordinate in the metric trends chart.
+   * 
    * @example
    * 1612418625
    */
   x?: string;
   /**
+   * @remarks
+   * The y-axis coordinate in the metric trends chart.
+   * 
    * @example
    * 123
    */
@@ -43,8 +53,20 @@ export class DescribeChannelUserMetricsResponseBodyMetricDatasNodes extends $dar
 }
 
 export class DescribeChannelUserMetricsResponseBodyMetricDatas extends $dara.Model {
+  /**
+   * @remarks
+   * The list of coordinate points in the metric trends chart.
+   */
   nodes?: DescribeChannelUserMetricsResponseBodyMetricDatasNodes[];
   /**
+   * @remarks
+   * The metric type. Valid values:
+   * - **ALL_NUM**: the number of users per unit of time.
+   * - **PUB_NUM**: the number of publishing users per unit of time.
+   * - **SUB_NUM**: the number of subscribing users per unit of time.
+   * - **JOIN_FAIL_NUM**: the number of users who failed to join the channel per unit of time.
+   * - **BAD_EXP_NUM**: the number of users with abnormal communication experience per unit of time.
+   * 
    * @example
    * ALL_NUM
    */
@@ -77,26 +99,41 @@ export class DescribeChannelUserMetricsResponseBodyMetricDatas extends $dara.Mod
 
 export class DescribeChannelUserMetricsResponseBodyOverallData extends $dara.Model {
   /**
+   * @remarks
+   * The total number of users with abnormal communication experience.
+   * 
    * @example
    * 0
    */
   totalBadExpNum?: number;
   /**
+   * @remarks
+   * The total number of users who failed to join the channel.
+   * 
    * @example
    * 0
    */
   totalJoinFailNum?: number;
   /**
+   * @remarks
+   * The total number of publishing users.
+   * 
    * @example
    * 1
    */
   totalPubUserNum?: number;
   /**
+   * @remarks
+   * The total number of subscribing users.
+   * 
    * @example
    * 3
    */
   totalSubUserNum?: number;
   /**
+   * @remarks
+   * The total number of users.
+   * 
    * @example
    * 5
    */
@@ -131,9 +168,20 @@ export class DescribeChannelUserMetricsResponseBodyOverallData extends $dara.Mod
 }
 
 export class DescribeChannelUserMetricsResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The metric data list.
+   */
   metricDatas?: DescribeChannelUserMetricsResponseBodyMetricDatas[];
+  /**
+   * @remarks
+   * The overview data.
+   */
   overallData?: DescribeChannelUserMetricsResponseBodyOverallData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
    */

@@ -4,36 +4,61 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateMPULayoutRequestPanes extends $dara.Model {
   /**
+   * @remarks
+   * The height of the pane, represented as a normalized percentage. Valid values: **0.0 < Height ≤ 1.0**.
+   * 
    * @example
    * 0.25
    */
   height?: number;
   /**
+   * @remarks
+   * Specifies the main pane. Each layout can have only one main pane.
+   * 
+   * - **0**: secondary pane.
+   *  
+   * - **1**: main pane.
+   * 
    * @example
    * 1
    */
   majorPane?: number;
   /**
+   * @remarks
+   * The pane ID. Panes are sorted from top left to bottom right, starting from 0.
+   * 
    * @example
    * 0
    */
   paneId?: number;
   /**
+   * @remarks
+   * The width of the pane, represented as a normalized percentage. Valid values: **0.0 < Width ≤ 1.0**.
+   * 
    * @example
    * 0.25
    */
   width?: number;
   /**
+   * @remarks
+   * The X-coordinate, represented as a normalized percentage. Valid values: **0.0 ≤ X ≤ 1.0**.
+   * 
    * @example
    * 0.25
    */
   x?: number;
   /**
+   * @remarks
+   * The Y-coordinate, represented as a normalized percentage. Valid values: **0.0 ≤ Y ≤ 1.0**.
+   * 
    * @example
    * 0.25
    */
   y?: number;
   /**
+   * @remarks
+   * The stacking order. A value of 0 indicates the bottom layer. A value of 1 indicates the layer above 0, and so on.
+   * 
    * @example
    * 0
    */
@@ -74,6 +99,8 @@ export class CreateMPULayoutRequestPanes extends $dara.Model {
 export class CreateMPULayoutRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. Only a single ID is supported. You can create and query application IDs in the console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -82,6 +109,8 @@ export class CreateMPULayoutRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The maximum number of audio mixes. Valid values: **0** to **6**.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -89,6 +118,9 @@ export class CreateMPULayoutRequest extends $dara.Model {
    */
   audioMixCount?: number;
   /**
+   * @remarks
+   * The name of the layout.
+   * 
    * @example
    * LayoutName
    */
@@ -96,6 +128,8 @@ export class CreateMPULayoutRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The list of panes in the layout.
+   * 
    * This parameter is required.
    */
   panes?: CreateMPULayoutRequestPanes[];

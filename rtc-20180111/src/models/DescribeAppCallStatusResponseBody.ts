@@ -12,6 +12,9 @@ export class DescribeAppCallStatusResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The callback status. Valid values: enable (enabled) and disable (disabled).
+   * 
    * @example
    * enable
    */

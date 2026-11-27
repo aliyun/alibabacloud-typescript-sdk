@@ -15,6 +15,8 @@ export class DescribeQualityDistributionStatDataRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * End Time of the query, expressed as a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +25,8 @@ export class DescribeQualityDistributionStatDataRequest extends $dara.Model {
   endDate?: number;
   /**
    * @remarks
+   * Start Time of the query, expressed as a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +35,11 @@ export class DescribeQualityDistributionStatDataRequest extends $dara.Model {
   startDate?: number;
   /**
    * @remarks
+   * Statistical dimension. Valid values:  
+   * - **CHANNEL_ONLINE**: Statistics by channel online participant count.  
+   * - **NETWORK**: Statistics by network type.  
+   * - **OS**: Statistics by operating system type.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeQualityOverallDataResponseBodyQualityOverallDataNodes extends $dara.Model {
   /**
+   * @remarks
+   * The x-axis coordinate in the Trend Indicator.
+   * 
    * @example
    * 1615831200
    */
   x?: string;
   /**
+   * @remarks
+   * The y-axis coordinate in the Trend Indicator.
+   * 
    * @example
    * 1.0000
    */
@@ -38,12 +44,22 @@ export class DescribeQualityOverallDataResponseBodyQualityOverallDataNodes exten
 
 export class DescribeQualityOverallDataResponseBodyQualityOverallData extends $dara.Model {
   /**
+   * @remarks
+   * The average value of the Metric.
+   * 
    * @example
    * 0.9376
    */
   average?: string;
+  /**
+   * @remarks
+   * List of coordinate points for the Trend Indicator.
+   */
   nodes?: DescribeQualityOverallDataResponseBodyQualityOverallDataNodes[];
   /**
+   * @remarks
+   * The Metric Type queried.
+   * 
    * @example
    * JOIN_CHANNEL_SUC_RATE
    */
@@ -77,8 +93,15 @@ export class DescribeQualityOverallDataResponseBodyQualityOverallData extends $d
 }
 
 export class DescribeQualityOverallDataResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of overview data.
+   */
   qualityOverallData?: DescribeQualityOverallDataResponseBodyQualityOverallData[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
    */

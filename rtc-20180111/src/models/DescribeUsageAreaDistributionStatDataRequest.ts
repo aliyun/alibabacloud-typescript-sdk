@@ -15,15 +15,26 @@ export class DescribeUsageAreaDistributionStatDataRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The end time of the query, expressed as a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
    * 1615910399
    */
   endDate?: string;
+  /**
+   * @remarks
+   * The parent region name. For example, the parent of Hangzhou City is Zhejiang Province, and the parameter should be set to China_Zhejiang Province. An empty parameter indicates statistics at the global scope (country dimension), such as China or the United Kingdom.
+   * 
+   * @example
+   * 中国_浙江省
+   */
   parentArea?: string;
   /**
    * @remarks
+   * The start time of the query, expressed as a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example

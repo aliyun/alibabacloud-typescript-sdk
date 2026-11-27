@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAllCallbackResponseBodyCallbacksSubEvent extends $dara.Model {
   /**
+   * @remarks
+   * Subscribed sub-event code.
+   * 
    * @example
    * 2000
    */
   event?: number;
   /**
+   * @remarks
+   * Subscribed sub-event name.
+   * 
    * @example
    * 录制开始
    */
   eventName?: string;
   /**
+   * @remarks
+   * Subscription event type: 0 for system, 1 for custom.
+   * 
    * @example
    * 0
    */
@@ -45,15 +54,25 @@ export class DescribeAllCallbackResponseBodyCallbacksSubEvent extends $dara.Mode
 
 export class DescribeAllCallbackResponseBodyCallbacks extends $dara.Model {
   /**
+   * @remarks
+   * Event code.
+   * 
    * @example
    * RecordEvent
    */
   category?: string;
   /**
+   * @remarks
+   * Event name.
+   * 
    * @example
    * 录制回调
    */
   name?: string;
+  /**
+   * @remarks
+   * List of subscribed sub-events.
+   */
   subEvent?: DescribeAllCallbackResponseBodyCallbacksSubEvent[];
   static names(): { [key: string]: string } {
     return {
@@ -84,6 +103,10 @@ export class DescribeAllCallbackResponseBodyCallbacks extends $dara.Model {
 }
 
 export class DescribeAllCallbackResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * List of callback events.
+   */
   callbacks?: DescribeAllCallbackResponseBodyCallbacks[];
   /**
    * @remarks

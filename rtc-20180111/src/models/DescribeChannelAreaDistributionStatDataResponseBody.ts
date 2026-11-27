@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeChannelAreaDistributionStatDataResponseBodyAreaStatList extends $dara.Model {
   /**
+   * @remarks
+   * The region name, such as China_Zhejiang Province_Hangzhou.
+   * 
    * @example
-   * 浙江省
+   * China_Zhejiang Province_Hangzhou
    */
   areaName?: string;
   /**
+   * @remarks
+   * The number of communicating users.
+   * 
    * @example
    * 1
    */
   callUserCount?: number;
   /**
+   * @remarks
+   * The high-quality transmission rate, represented as a decimal. For example, 0.9999 indicates a high-quality transmission rate of 99.99%.
+   * 
    * @example
    * 0.9999
    */
   highQualityTransmissionRate?: string;
   /**
+   * @remarks
+   * The number of publishers.
+   * 
    * @example
    * 1
    */
   pubUserCount?: number;
   /**
+   * @remarks
+   * The number of subscribers.
+   * 
    * @example
    * 1
    */
@@ -58,8 +73,15 @@ export class DescribeChannelAreaDistributionStatDataResponseBodyAreaStatList ext
 }
 
 export class DescribeChannelAreaDistributionStatDataResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The regional statistics list.
+   */
   areaStatList?: DescribeChannelAreaDistributionStatDataResponseBodyAreaStatList[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
    */

@@ -4,17 +4,31 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateCloudRecordShrinkRequestBackgrounds extends $dara.Model {
   /**
+   * @remarks
+   * Transparency.
+   * 
    * @example
    * 0.9
    */
   alpha?: number;
   /**
+   * @remarks
+   * The cropping mode. Valid values:
+   * 
+   * - **1**: Crop while maintaining aspect ratio.
+   * 
+   * - **2**: Maintain aspect ratio with padding.
+   * 
+   * - **3**: Stretch to fill.
+   * 
    * @example
    * 2
    */
   backgroundCropMode?: number;
   /**
    * @remarks
+   * Height.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,12 +36,17 @@ export class UpdateCloudRecordShrinkRequestBackgrounds extends $dara.Model {
    */
   height?: number;
   /**
+   * @remarks
+   * The z-axis layer.
+   * 
    * @example
    * 0
    */
   layer?: number;
   /**
    * @remarks
+   * The image URL.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +55,8 @@ export class UpdateCloudRecordShrinkRequestBackgrounds extends $dara.Model {
   url?: string;
   /**
    * @remarks
+   * Width.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,6 +65,8 @@ export class UpdateCloudRecordShrinkRequestBackgrounds extends $dara.Model {
   width?: number;
   /**
    * @remarks
+   * The horizontal coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52,6 +75,8 @@ export class UpdateCloudRecordShrinkRequestBackgrounds extends $dara.Model {
   x?: number;
   /**
    * @remarks
+   * The vertical coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -95,16 +120,25 @@ export class UpdateCloudRecordShrinkRequestBackgrounds extends $dara.Model {
 
 export class UpdateCloudRecordShrinkRequestClockWidgetsBoxColor extends $dara.Model {
   /**
+   * @remarks
+   * B.
+   * 
    * @example
    * 255
    */
   b?: number;
   /**
+   * @remarks
+   * G.
+   * 
    * @example
    * 255
    */
   g?: number;
   /**
+   * @remarks
+   * R.
+   * 
    * @example
    * 255
    */
@@ -136,16 +170,25 @@ export class UpdateCloudRecordShrinkRequestClockWidgetsBoxColor extends $dara.Mo
 
 export class UpdateCloudRecordShrinkRequestClockWidgetsFontColor extends $dara.Model {
   /**
+   * @remarks
+   * B.
+   * 
    * @example
    * 255
    */
   b?: number;
   /**
+   * @remarks
+   * G.
+   * 
    * @example
    * 255
    */
   g?: number;
   /**
+   * @remarks
+   * R.
+   * 
    * @example
    * 255
    */
@@ -177,40 +220,92 @@ export class UpdateCloudRecordShrinkRequestClockWidgetsFontColor extends $dara.M
 
 export class UpdateCloudRecordShrinkRequestClockWidgets extends $dara.Model {
   /**
+   * @remarks
+   * Transparency.
+   * 
    * @example
    * 0.9
    */
   alpha?: number;
   /**
+   * @remarks
+   * Rectangle box transparency.
+   * 
    * @example
    * 0.6
    */
   boxAlpha?: number;
   /**
+   * @remarks
+   * Rectangle box border width.
+   * 
    * @example
    * 5
    */
   boxBorderw?: number;
+  /**
+   * @remarks
+   * Rectangle box color.
+   */
   boxColor?: UpdateCloudRecordShrinkRequestClockWidgetsBoxColor;
   /**
+   * @remarks
+   * Font.
+   * 
+   * - **0**: Alibaba PuHuiTi Regular
+   * 
+   * - **1**: Alibaba PuHuiTi Light
+   * 
+   * - **2**: Alibaba PuHuiTi Medium
+   * 
+   * - **3**: Alibaba PuHuiTi Bold
+   * 
+   * - **4**: Alibaba PuHuiTi Heavy
+   * 
+   * - **5**: Ali Mama ShuHeiTi
+   * 
+   * - **6**: DingTalk JinBuTi
+   * 
+   * - **7**: Ali Mama DaoLiTi
+   * 
+   * - **8**: Ali Mama DongFang DaKai
+   * 
+   * - **9**: Ali Mama FangYuanTi
+   * 
    * @example
    * 0
    */
   font?: number;
+  /**
+   * @remarks
+   * Font color.
+   */
   fontColor?: UpdateCloudRecordShrinkRequestClockWidgetsFontColor;
   /**
+   * @remarks
+   * Clock font size.
+   * 
    * @example
    * 30
    */
   fontSize?: number;
+  /**
+   * @remarks
+   * Whether to draw a rectangle box.
+   */
   hasBox?: boolean;
   /**
+   * @remarks
+   * The z-axis layer.
+   * 
    * @example
    * 0
    */
   layer?: number;
   /**
    * @remarks
+   * The horizontal coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -219,6 +314,8 @@ export class UpdateCloudRecordShrinkRequestClockWidgets extends $dara.Model {
   x?: number;
   /**
    * @remarks
+   * The vertical coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -226,6 +323,9 @@ export class UpdateCloudRecordShrinkRequestClockWidgets extends $dara.Model {
    */
   y?: number;
   /**
+   * @remarks
+   * Time zone.
+   * 
    * @example
    * 8
    */
@@ -281,12 +381,17 @@ export class UpdateCloudRecordShrinkRequestClockWidgets extends $dara.Model {
 
 export class UpdateCloudRecordShrinkRequestImages extends $dara.Model {
   /**
+   * @remarks
+   * Transparency.
+   * 
    * @example
    * 0.9
    */
   alpha?: number;
   /**
    * @remarks
+   * Height.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -294,17 +399,31 @@ export class UpdateCloudRecordShrinkRequestImages extends $dara.Model {
    */
   height?: number;
   /**
+   * @remarks
+   * The cropping mode. Valid values:
+   * 
+   * - **1**: Crop while maintaining aspect ratio.
+   * 
+   * - **2**: Maintain aspect ratio with padding.
+   * 
+   * - **3**: Stretch to fill.
+   * 
    * @example
    * 2
    */
   imageCropMode?: number;
   /**
+   * @remarks
+   * The z-axis layer.
+   * 
    * @example
    * 0
    */
   layer?: number;
   /**
    * @remarks
+   * The image URL. The image content cannot be updated during stream ingest.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -313,6 +432,8 @@ export class UpdateCloudRecordShrinkRequestImages extends $dara.Model {
   url?: string;
   /**
    * @remarks
+   * Width.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -321,6 +442,8 @@ export class UpdateCloudRecordShrinkRequestImages extends $dara.Model {
   width?: number;
   /**
    * @remarks
+   * The horizontal coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -329,6 +452,8 @@ export class UpdateCloudRecordShrinkRequestImages extends $dara.Model {
   x?: number;
   /**
    * @remarks
+   * The vertical coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -372,17 +497,31 @@ export class UpdateCloudRecordShrinkRequestImages extends $dara.Model {
 
 export class UpdateCloudRecordShrinkRequestPanesBackgrounds extends $dara.Model {
   /**
+   * @remarks
+   * Transparency.
+   * 
    * @example
    * 0.9
    */
   alpha?: number;
   /**
+   * @remarks
+   * When to display.
+   * 
+   * - streamOnly: Display only when the user has a video stream (default).
+   * 
+   * - backup: Display only when the user has no video stream.
+   * 
+   * - always: Always display.
+   * 
    * @example
    * backup
    */
   display?: string;
   /**
    * @remarks
+   * Height.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -390,17 +529,31 @@ export class UpdateCloudRecordShrinkRequestPanesBackgrounds extends $dara.Model 
    */
   height?: number;
   /**
+   * @remarks
+   * The z-axis layer.
+   * 
    * @example
    * 0
    */
   layer?: number;
   /**
+   * @remarks
+   * The cropping mode. Valid values:
+   * 
+   * - **1**: Crop while maintaining aspect ratio.
+   * 
+   * - **2**: Maintain aspect ratio with padding.
+   * 
+   * - **3**: Stretch to fill.
+   * 
    * @example
    * 2
    */
   paneBackgroundCropMode?: number;
   /**
    * @remarks
+   * The background image URL.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -409,6 +562,8 @@ export class UpdateCloudRecordShrinkRequestPanesBackgrounds extends $dara.Model 
   url?: string;
   /**
    * @remarks
+   * Width.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -417,6 +572,8 @@ export class UpdateCloudRecordShrinkRequestPanesBackgrounds extends $dara.Model 
   width?: number;
   /**
    * @remarks
+   * The horizontal coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -425,6 +582,8 @@ export class UpdateCloudRecordShrinkRequestPanesBackgrounds extends $dara.Model 
   x?: number;
   /**
    * @remarks
+   * The vertical coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -470,17 +629,31 @@ export class UpdateCloudRecordShrinkRequestPanesBackgrounds extends $dara.Model 
 
 export class UpdateCloudRecordShrinkRequestPanesImages extends $dara.Model {
   /**
+   * @remarks
+   * Transparency.
+   * 
    * @example
    * 0.9
    */
   alpha?: number;
   /**
+   * @remarks
+   * When to display the watermark.
+   * 
+   * - streamOnly: Display only when the user has a video stream (default).
+   * 
+   * - backup: Display only when the user has no video stream.
+   * 
+   * - always: Always display.
+   * 
    * @example
    * backup
    */
   display?: string;
   /**
    * @remarks
+   * Height.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -488,17 +661,31 @@ export class UpdateCloudRecordShrinkRequestPanesImages extends $dara.Model {
    */
   height?: number;
   /**
+   * @remarks
+   * The z-axis layer.
+   * 
    * @example
    * 0
    */
   layer?: number;
   /**
+   * @remarks
+   * The cropping mode. Valid values:
+   * 
+   * - **1**: Crop while maintaining aspect ratio.
+   * 
+   * - **2**: Maintain aspect ratio with padding.
+   * 
+   * - **3**: Stretch to fill.
+   * 
    * @example
    * 2
    */
   paneImageCropMode?: number;
   /**
    * @remarks
+   * The image URL. The image content cannot be updated during stream ingest.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -507,6 +694,8 @@ export class UpdateCloudRecordShrinkRequestPanesImages extends $dara.Model {
   url?: string;
   /**
    * @remarks
+   * Width.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -515,6 +704,8 @@ export class UpdateCloudRecordShrinkRequestPanesImages extends $dara.Model {
   width?: number;
   /**
    * @remarks
+   * The horizontal coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -523,6 +714,8 @@ export class UpdateCloudRecordShrinkRequestPanesImages extends $dara.Model {
   x?: number;
   /**
    * @remarks
+   * The vertical coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -568,16 +761,25 @@ export class UpdateCloudRecordShrinkRequestPanesImages extends $dara.Model {
 
 export class UpdateCloudRecordShrinkRequestPanesTextsBoxColor extends $dara.Model {
   /**
+   * @remarks
+   * B.
+   * 
    * @example
    * 255
    */
   b?: number;
   /**
+   * @remarks
+   * G.
+   * 
    * @example
    * 255
    */
   g?: number;
   /**
+   * @remarks
+   * R.
+   * 
    * @example
    * 255
    */
@@ -609,16 +811,25 @@ export class UpdateCloudRecordShrinkRequestPanesTextsBoxColor extends $dara.Mode
 
 export class UpdateCloudRecordShrinkRequestPanesTextsFontColor extends $dara.Model {
   /**
+   * @remarks
+   * B.
+   * 
    * @example
    * 255
    */
   b?: number;
   /**
+   * @remarks
+   * G.
+   * 
    * @example
    * 255
    */
   g?: number;
   /**
+   * @remarks
+   * R.
+   * 
    * @example
    * 255
    */
@@ -650,45 +861,106 @@ export class UpdateCloudRecordShrinkRequestPanesTextsFontColor extends $dara.Mod
 
 export class UpdateCloudRecordShrinkRequestPanesTexts extends $dara.Model {
   /**
+   * @remarks
+   * Watermark transparency.
+   * 
    * @example
    * 0.9
    */
   alpha?: number;
   /**
+   * @remarks
+   * Rectangle box transparency.
+   * 
    * @example
    * 0.6
    */
   boxAlpha?: number;
   /**
+   * @remarks
+   * Rectangle box border width.
+   * 
    * @example
    * 5
    */
   boxBorderw?: number;
+  /**
+   * @remarks
+   * Rectangle box color.
+   */
   boxColor?: UpdateCloudRecordShrinkRequestPanesTextsBoxColor;
   /**
+   * @remarks
+   * When to display the watermark.
+   * 
+   * - streamOnly: Display only when the user has a video stream (default).
+   * 
+   * - backup: Display only when the user has no video stream.
+   * 
+   * - always: Always display.
+   * 
    * @example
    * backup
    */
   display?: string;
   /**
+   * @remarks
+   * Font.
+   * 
+   * - **0**: Alibaba PuHuiTi Regular
+   * 
+   * - **1**: Alibaba PuHuiTi Light
+   * 
+   * - **2**: Alibaba PuHuiTi Medium
+   * 
+   * - **3**: Alibaba PuHuiTi Bold
+   * 
+   * - **4**: Alibaba PuHuiTi Heavy
+   * 
+   * - **5**: Ali Mama ShuHeiTi
+   * 
+   * - **6**: DingTalk JinBuTi
+   * 
+   * - **7**: Ali Mama DaoLiTi
+   * 
+   * - **8**: Ali Mama DongFang DaKai
+   * 
+   * - **9**: Ali Mama FangYuanTi
+   * 
    * @example
    * 0
    */
   font?: number;
+  /**
+   * @remarks
+   * Font color.
+   */
   fontColor?: UpdateCloudRecordShrinkRequestPanesTextsFontColor;
   /**
+   * @remarks
+   * Font size.
+   * 
    * @example
    * 36
    */
   fontSize?: number;
+  /**
+   * @remarks
+   * Whether to draw a rectangle box.
+   */
   hasBox?: boolean;
   /**
+   * @remarks
+   * The z-axis layer.
+   * 
    * @example
    * 0
    */
   layer?: number;
   /**
    * @remarks
+   * The watermark content.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -697,6 +969,8 @@ export class UpdateCloudRecordShrinkRequestPanesTexts extends $dara.Model {
   texture?: string;
   /**
    * @remarks
+   * The horizontal coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -705,6 +979,8 @@ export class UpdateCloudRecordShrinkRequestPanesTexts extends $dara.Model {
   x?: number;
   /**
    * @remarks
+   * The vertical coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -764,6 +1040,9 @@ export class UpdateCloudRecordShrinkRequestPanesTexts extends $dara.Model {
 
 export class UpdateCloudRecordShrinkRequestPanesWhiteboard extends $dara.Model {
   /**
+   * @remarks
+   * The whiteboard ID. Default value: default.
+   * 
    * @example
    * default
    */
@@ -790,38 +1069,94 @@ export class UpdateCloudRecordShrinkRequestPanesWhiteboard extends $dara.Model {
 }
 
 export class UpdateCloudRecordShrinkRequestPanes extends $dara.Model {
+  /**
+   * @remarks
+   * Background images.
+   */
   backgrounds?: UpdateCloudRecordShrinkRequestPanesBackgrounds[];
+  /**
+   * @remarks
+   * Local image watermarks for the pane.
+   */
   images?: UpdateCloudRecordShrinkRequestPanesImages[];
   /**
+   * @remarks
+   * The cropping mode. Valid values:
+   * 
+   * - **1**: Crop while maintaining aspect ratio.
+   * 
+   * - **2**: Maintain aspect ratio with padding.
+   * 
+   * - **3**: Stretch to fill.
+   * 
    * @example
    * 2
    */
   paneCropMode?: number;
   /**
    * @remarks
+   * The pane ID, starting from 0.
+   * 
    * This parameter is required.
    * 
    * @example
    * 0
    */
   paneId?: number;
+  /**
+   * @remarks
+   * Reserves a pane for a user who goes offline. The default value is true. If true, the pane for a specified user or wildcard user remains as a placeholder. If false, the pane is filled with a video stream based on the Auto Fill order.
+   */
   reservePaneForOfflineUser?: boolean;
   /**
+   * @remarks
+   * The media source for the cell. You can specify a userId to target a specific user. Wildcard characters are also supported:
+   * 
+   * - **$ActiveSpeaker**: The current active speaker in the channel.
+   * 
+   * - **$ScreenShare**: A screen-sharing user. If multiple users share their screens, they are filled in sequence.
+   * 
    * @example
    * 22
    */
   source?: string;
   /**
+   * @remarks
+   * The media type of the cell. Valid values:
+   * 
+   * - **video**: Camera or screen sharing stream (default).
+   * 
+   * - **camera**: Camera stream.
+   * 
+   * - **screen**: Screen sharing stream.
+   * 
+   * - **whiteboard**: Whiteboard.
+   * 
    * @example
    * video
    */
   sourceType?: string;
+  /**
+   * @remarks
+   * Local text watermarks for the pane.
+   */
   texts?: UpdateCloudRecordShrinkRequestPanesTexts[];
   /**
+   * @remarks
+   * The fill order when SourceType is video.
+   * 
+   * - screenFirst: Prioritize screen sharing (default).
+   * 
+   * - cameraFirst: Prioritize camera.
+   * 
    * @example
    * cameraFirst
    */
   videoOrder?: string;
+  /**
+   * @remarks
+   * Whiteboard configuration.
+   */
   whiteboard?: UpdateCloudRecordShrinkRequestPanesWhiteboard;
   static names(): { [key: string]: string } {
     return {
@@ -876,16 +1211,25 @@ export class UpdateCloudRecordShrinkRequestPanes extends $dara.Model {
 
 export class UpdateCloudRecordShrinkRequestTextsBoxColor extends $dara.Model {
   /**
+   * @remarks
+   * B.
+   * 
    * @example
    * 255
    */
   b?: number;
   /**
+   * @remarks
+   * G.
+   * 
    * @example
    * 255
    */
   g?: number;
   /**
+   * @remarks
+   * R.
+   * 
    * @example
    * 255
    */
@@ -917,16 +1261,25 @@ export class UpdateCloudRecordShrinkRequestTextsBoxColor extends $dara.Model {
 
 export class UpdateCloudRecordShrinkRequestTextsFontColor extends $dara.Model {
   /**
+   * @remarks
+   * B.
+   * 
    * @example
    * 255
    */
   b?: number;
   /**
+   * @remarks
+   * G.
+   * 
    * @example
    * 255
    */
   g?: number;
   /**
+   * @remarks
+   * R.
+   * 
    * @example
    * 255
    */
@@ -958,40 +1311,92 @@ export class UpdateCloudRecordShrinkRequestTextsFontColor extends $dara.Model {
 
 export class UpdateCloudRecordShrinkRequestTexts extends $dara.Model {
   /**
+   * @remarks
+   * Watermark transparency.
+   * 
    * @example
    * 0.1
    */
   alpha?: number;
   /**
+   * @remarks
+   * Rectangle box transparency.
+   * 
    * @example
    * 0.6
    */
   boxAlpha?: number;
   /**
+   * @remarks
+   * Rectangle box border width.
+   * 
    * @example
    * 5
    */
   boxBorderw?: number;
+  /**
+   * @remarks
+   * Rectangle box color.
+   */
   boxColor?: UpdateCloudRecordShrinkRequestTextsBoxColor;
   /**
+   * @remarks
+   * Font.
+   * 
+   * - **0**: Alibaba PuHuiTi Regular
+   * 
+   * - **1**: Alibaba PuHuiTi Light
+   * 
+   * - **2**: Alibaba PuHuiTi Medium
+   * 
+   * - **3**: Alibaba PuHuiTi Bold
+   * 
+   * - **4**: Alibaba PuHuiTi Heavy
+   * 
+   * - **5**: Ali Mama ShuHeiTi
+   * 
+   * - **6**: DingTalk JinBuTi
+   * 
+   * - **7**: Ali Mama DaoLiTi
+   * 
+   * - **8**: Ali Mama DongFang DaKai
+   * 
+   * - **9**: Ali Mama FangYuanTi
+   * 
    * @example
    * 0
    */
   font?: number;
+  /**
+   * @remarks
+   * Font color.
+   */
   fontColor?: UpdateCloudRecordShrinkRequestTextsFontColor;
   /**
+   * @remarks
+   * Font size.
+   * 
    * @example
    * 36
    */
   fontSize?: number;
+  /**
+   * @remarks
+   * Whether to draw a rectangle box.
+   */
   hasBox?: boolean;
   /**
+   * @remarks
+   * The z-axis layer.
+   * 
    * @example
    * 0
    */
   layer?: number;
   /**
    * @remarks
+   * The watermark content.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1000,6 +1405,8 @@ export class UpdateCloudRecordShrinkRequestTexts extends $dara.Model {
   texture?: string;
   /**
    * @remarks
+   * The horizontal coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1008,6 +1415,8 @@ export class UpdateCloudRecordShrinkRequestTexts extends $dara.Model {
   x?: number;
   /**
    * @remarks
+   * The vertical coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1066,27 +1475,63 @@ export class UpdateCloudRecordShrinkRequestTexts extends $dara.Model {
 export class UpdateCloudRecordShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query it in the console. Only one ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
    * eo85****
    */
   appId?: string;
+  /**
+   * @remarks
+   * Background images.
+   */
   backgrounds?: UpdateCloudRecordShrinkRequestBackgrounds[];
   /**
    * @remarks
+   * The existing channel ID. Only one ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
    * testid
    */
   channelId?: string;
+  /**
+   * @remarks
+   * Global clock watermarks.
+   */
   clockWidgets?: UpdateCloudRecordShrinkRequestClockWidgets[];
+  /**
+   * @remarks
+   * Global image watermarks.
+   */
   images?: UpdateCloudRecordShrinkRequestImages[];
+  /**
+   * @remarks
+   * A list that specifies users for layout generation. It supports both blacklists and whitelists.
+   * 
+   * Whitelist: Specifies the users whose video streams are subscribed to in the channel.
+   * 
+   * - The auto-fill feature uses this list for sequential filling.
+   * 
+   * - During multi-layout switching, only users in the whitelist are included.
+   * 
+   * Blacklist: Specifies the users whose video streams are not subscribed to in the channel.
+   * 
+   * - During multi-layout switching, only users not in the blacklist are included.
+   */
   layoutSpecifiedUsersShrink?: string;
+  /**
+   * @remarks
+   * Cell settings.
+   */
   panes?: UpdateCloudRecordShrinkRequestPanes[];
   /**
    * @remarks
+   * The task ID for this cloud recording. Only one ID is supported. It can contain letters, digits, underscores (_), and hyphens (-), with a maximum length of 55 bytes.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1095,12 +1540,19 @@ export class UpdateCloudRecordShrinkRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
+   * The template ID.
+   * >Notice: To update the layout, change the template ID. Resolution updates are not supported.
+   * 
    * This parameter is required.
    * 
    * @example
    * 567
    */
   templateId?: string;
+  /**
+   * @remarks
+   * Global text watermarks.
+   */
   texts?: UpdateCloudRecordShrinkRequestTexts[];
   static names(): { [key: string]: string } {
     return {

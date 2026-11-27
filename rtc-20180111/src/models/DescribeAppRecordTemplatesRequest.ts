@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAppRecordTemplatesRequestCondition extends $dara.Model {
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
-   * 测试
+   * Test
    */
   name?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * ac7N****
    */
@@ -39,6 +45,8 @@ export class DescribeAppRecordTemplatesRequestCondition extends $dara.Model {
 export class DescribeAppRecordTemplatesRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query the ID in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -46,17 +54,30 @@ export class DescribeAppRecordTemplatesRequest extends $dara.Model {
    */
   appId?: string;
   /**
+   * @remarks
+   * The idempotency parameter.
+   * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * The query conditions.
+   */
   condition?: DescribeAppRecordTemplatesRequestCondition;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */

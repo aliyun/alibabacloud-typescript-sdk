@@ -6,36 +6,60 @@ import * as $dara from '@darabonba/typescript';
  */
 export class AddRecordTemplateRequestBackgrounds extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to display the background image. Valid values:
+   * 
+   * - **0** (None): Not displayed.
+   * - **1** (Always): Always displayed.
+   * 
    * @example
    * 0
    */
   display?: number;
   /**
+   * @remarks
+   * The height of the background image pane, as a normalized percentage.
+   * 
    * @example
    * 0.2456
    */
   height?: number;
   /**
+   * @remarks
+   * The HTTP or HTTPS URL of the background image.
+   * 
    * @example
    * https://www.example.com/image.jpg
    */
   url?: string;
   /**
+   * @remarks
+   * The width of the background image pane, as a normalized percentage.
+   * 
    * @example
    * 0.2456
    */
   width?: number;
   /**
+   * @remarks
+   * The X-coordinate of the background image, as a normalized percentage.
+   * 
    * @example
    * 0.7576
    */
   x?: number;
   /**
+   * @remarks
+   * The Y-coordinate of the background image, as a normalized percentage.
+   * 
    * @example
    * 0.7576
    */
   y?: number;
   /**
+   * @remarks
+   * The Z-order of the background image. A value of 0 indicates the bottom layer. A value of 1 indicates the layer above 0, and so on.
+   * 
    * @example
    * 0
    */
@@ -75,31 +99,58 @@ export class AddRecordTemplateRequestBackgrounds extends $dara.Model {
 
 export class AddRecordTemplateRequestClockWidgets extends $dara.Model {
   /**
+   * @remarks
+   * The text color of the clock in RGB format.
+   * 
+   * The calculation formula is `R + G × 256 + B × 65536`. Valid values for R (red), G (green), and B (blue): **0** to **255**.
+   * 
    * @example
    * 0
    */
   fontColor?: number;
   /**
+   * @remarks
+   * The font size of the clock. Valid values: **(0, 72]**.
+   * 
    * @example
    * 1
    */
   fontSize?: number;
   /**
+   * @remarks
+   * The font type of the clock. Valid values:
+   * 
+   * - **0** (default): NOTO_SERIF_CJKSC_REGULAR.
+   * - **1**: ALIBABA_PUHUITI_REGULAR.
+   * - **2**: ALIBABA_PUHUITI_BOLD.
+   * - **3**: ALIBABA_PUHUITI_Heavy.
+   * - **4**: ALIBABA_PUHUITI_LIGHT.
+   * - **5**: ALIBABA_PUHUITI_MEDIUM.
+   * 
    * @example
    * 0
    */
   fontType?: number;
   /**
+   * @remarks
+   * The X-coordinate of the clock, as a normalized percentage.
+   * 
    * @example
    * 0.7576
    */
   x?: number;
   /**
+   * @remarks
+   * The Y-coordinate of the clock, as a normalized percentage.
+   * 
    * @example
    * 0.7576
    */
   y?: number;
   /**
+   * @remarks
+   * The Z-order of the clock. A value of 0 indicates the bottom layer. A value of 1 indicates the layer above 0, and so on.
+   * 
    * @example
    * 0
    */
@@ -137,41 +188,68 @@ export class AddRecordTemplateRequestClockWidgets extends $dara.Model {
 
 export class AddRecordTemplateRequestWatermarks extends $dara.Model {
   /**
+   * @remarks
+   * The transparency of the watermark. A value of 0.0 indicates fully transparent, and a value of 1.0 indicates fully opaque.
+   * 
    * @example
    * 0
    */
   alpha?: number;
   /**
+   * @remarks
+   * Specifies whether to display the watermark. Valid values:
+   * 
+   * - **0** (None): Not displayed.
+   * - **1** (Always): Always displayed.
+   * 
    * @example
    * 0
    */
   display?: number;
   /**
+   * @remarks
+   * The height of the watermark pane, as a normalized percentage.
+   * 
    * @example
    * 0.2456
    */
   height?: number;
   /**
+   * @remarks
+   * The HTTP or HTTPS URL of the watermark.
+   * 
    * @example
    * https://www.example.com/image.jpg
    */
   url?: string;
   /**
+   * @remarks
+   * The width of the watermark pane, as a normalized percentage.
+   * 
    * @example
    * 0.2456
    */
   width?: number;
   /**
+   * @remarks
+   * The X-coordinate of the watermark, as a normalized percentage.
+   * 
    * @example
    * 0.7576
    */
   x?: number;
   /**
+   * @remarks
+   * The Y-coordinate of the watermark, as a normalized percentage.
+   * 
    * @example
    * 0.7576
    */
   y?: number;
   /**
+   * @remarks
+   * The Z-order of the watermark. A value of 0 indicates the bottom layer. A value of 1 indicates the layer above 0, and so on.
+   * 
    * @example
    * 0
    */
@@ -214,6 +292,8 @@ export class AddRecordTemplateRequestWatermarks extends $dara.Model {
 export class AddRecordTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query the ID in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -221,24 +301,43 @@ export class AddRecordTemplateRequest extends $dara.Model {
    */
   appId?: string;
   /**
+   * @remarks
+   * The background color in RGB format. Default value: 0 (black). The calculation formula is R + G × 256 + B × 65536. Valid values for R (red), G (green), and B (blue): **0** to **255**.
+   * 
    * @example
    * 0
    */
   backgroundColor?: number;
+  /**
+   * @remarks
+   * The list of background images.
+   */
   backgrounds?: AddRecordTemplateRequestBackgrounds[];
+  /**
+   * @remarks
+   * The list of clocks.
+   */
   clockWidgets?: AddRecordTemplateRequestClockWidgets[];
   /**
+   * @remarks
+   * The delay time before stopping the recording. Unit: seconds. Default value: **180**.
+   * 
    * @example
    * 180
    */
   delayStopTime?: number;
   /**
+   * @remarks
+   * Specifies whether to add the timestamp of the TS file to the recorded M3U8 file.
+   * 
    * @example
    * false
    */
   enableM3u8DateTime?: boolean;
   /**
    * @remarks
+   * The splitting duration of the recording file. The value must be greater than or equal to 1800. Unit: seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -247,6 +346,8 @@ export class AddRecordTemplateRequest extends $dara.Model {
   fileSplitInterval?: number;
   /**
    * @remarks
+   * The list of recording file formats.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -254,12 +355,18 @@ export class AddRecordTemplateRequest extends $dara.Model {
    */
   formats?: string[];
   /**
+   * @remarks
+   * The HTTP callback URL for recording events.
+   * > You must specify either this parameter or MnsQueue. You cannot specify both or neither.
+   * 
    * @example
    * http://example.com/callback
    */
   httpCallbackUrl?: string;
   /**
    * @remarks
+   * The list of layout IDs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -268,6 +375,8 @@ export class AddRecordTemplateRequest extends $dara.Model {
   layoutIds?: number[];
   /**
    * @remarks
+   * The encoding option. For more information, see the MediaEncode enum values below.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -275,26 +384,51 @@ export class AddRecordTemplateRequest extends $dara.Model {
    */
   mediaEncode?: number;
   /**
+   * @remarks
+   * The MSMQ for recording event callbacks.
+   * 
+   * > You must specify either this parameter or HttpCallbackUrl. You cannot specify both or neither.
+   * 
    * @example
    * record-callback-queue
    */
   mnsQueue?: string;
   /**
    * @remarks
+   * The name of the recording configuration template.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * Recording template
    */
   name?: string;
   /**
    * @remarks
+   * The OSS bucket where the recording files are stored.
+   * 
+   * > Only OSS buckets in the China (Shanghai) region are supported.
+   * 
    * This parameter is required.
    * 
    * @example
    * rtc-record-oss
    */
   ossBucket?: string;
+  /**
+   * @remarks
+   * The OSS endpoint of the region where the recording files are stored.
+   * 
+   * @example
+   * oss-cn-shanghai.aliyuncs.com
+   */
   ossEndpoint?: string;
   /**
    * @remarks
+   * The naming rule for recording files.
+   * 
+   * > To ensure the uniqueness of recording file names, the naming rule is record/{AppId}/{ChannelId_TaskId}/{EscapedStartTime}_{EscapedEndTime}.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -304,12 +438,21 @@ export class AddRecordTemplateRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The billing configuration of the task. You are charged based on your settings. For more information, see the TaskProfile enum values below.
+   * 
+   * > - The resolution of the MediaEncode encoding option must be less than or equal to the resolution of TaskProfile.
+   * - The maximum number of layout panes must be less than or equal to the number of input channels of TaskProfile.
+   * 
    * This parameter is required.
    * 
    * @example
    * 4IN_1080P
    */
   taskProfile?: string;
+  /**
+   * @remarks
+   * The list of watermarks.
+   */
   watermarks?: AddRecordTemplateRequestWatermarks[];
   static names(): { [key: string]: string } {
     return {

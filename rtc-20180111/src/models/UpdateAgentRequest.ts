@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateAgentRequestVoiceChatConfig extends $dara.Model {
   /**
+   * @remarks
+   * 1 – Natural conversation mode. 2 – Walkie-talkie mode.If this field is not included, no update occurs.
+   * 
    * @example
    * 2
    */
   chatMode?: number;
   /**
+   * @remarks
+   * 1 – Enable voice interruption. 2 – Disable voice interruption.If this field is not included, no update occurs.
+   * 
    * @example
    * 2
    */
@@ -39,6 +45,8 @@ export class UpdateAgentRequestVoiceChatConfig extends $dara.Model {
 export class UpdateAgentRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. Specify only one ID. You can create and query applications in the console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -47,6 +55,8 @@ export class UpdateAgentRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The existing channel ID. Specify only one ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -55,12 +65,18 @@ export class UpdateAgentRequest extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
+   * The task ID. Specify only one ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * yourTaskId
    */
   taskId?: string;
+  /**
+   * @remarks
+   * Configuration for AI voice conversation.
+   */
   voiceChatConfig?: UpdateAgentRequestVoiceChatConfig;
   static names(): { [key: string]: string } {
     return {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteEventSubscribeRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query applications in the console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class DeleteEventSubscribeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The subscription ID. For more information, see [CreateEventSubscribe](https://help.aliyun.com/document_detail/274447.html).
+   * 
    * This parameter is required.
    * 
    * @example

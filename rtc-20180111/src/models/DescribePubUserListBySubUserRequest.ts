@@ -15,6 +15,8 @@ export class DescribePubUserListBySubUserRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * Channel ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +25,8 @@ export class DescribePubUserListBySubUserRequest extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
+   * The channel creation time. You can query data from the last 30 days. The value is represented as a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,12 +34,18 @@ export class DescribePubUserListBySubUserRequest extends $dara.Model {
    */
   createdTs?: number;
   /**
+   * @remarks
+   * The channel release time, represented as a UNIX timestamp in seconds. If this parameter is empty, the current time is used.  
+   * > If the provided channel release time exceeds the actual release time, data from the creation time to the actual release time will be returned.
+   * 
    * @example
    * 1614936817
    */
   destroyedTs?: number;
   /**
    * @remarks
+   * Subscriber User ID.
+   * 
    * This parameter is required.
    * 
    * @example

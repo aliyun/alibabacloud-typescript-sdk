@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAppKeyRequest extends $dara.Model {
   /**
    * @remarks
+   * Application ID. You can create and query this ID in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -15,6 +15,8 @@ export class DescribeFaultDiagnosisFactorDistributionStatRequest extends $dara.M
   appId?: string;
   /**
    * @remarks
+   * End Time of the query, expressed as a UNIX timestamp. Unit: seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +25,8 @@ export class DescribeFaultDiagnosisFactorDistributionStatRequest extends $dara.M
   endTs?: number;
   /**
    * @remarks
+   * Start Time of the query, expressed as a UNIX timestamp. Unit: seconds.
+   * 
    * This parameter is required.
    * 
    * @example

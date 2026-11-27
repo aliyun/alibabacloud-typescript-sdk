@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StopCloudRecordRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID, created and queried via the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class StopCloudRecordRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The existing channel ID. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class StopCloudRecordRequest extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
+   * The existing cloud recording job ID. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example

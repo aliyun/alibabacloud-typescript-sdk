@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartViewResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * FA2F9DE9-8EAD-580E-87DF-A3D25EE87C37
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID for the current request.
+   * 
    * @example
    * 123
    */

@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAppViewTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * Request ID
    * 
    * @example
    * 30D41049-D02D-1C21-86AE-B3E5FD805C27
    */
   requestId?: string;
   /**
+   * @remarks
+   * Template ID
+   * 
    * @example
    * ac7N****
    */

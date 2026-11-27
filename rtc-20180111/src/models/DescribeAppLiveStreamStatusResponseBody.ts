@@ -12,6 +12,9 @@ export class DescribeAppLiveStreamStatusResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The status of the switch. enable indicates that the feature is enabled. disable indicates that the feature is disabled.
+   * 
    * @example
    * disable
    */

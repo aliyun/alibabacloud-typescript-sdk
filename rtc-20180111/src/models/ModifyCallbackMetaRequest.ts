@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyCallbackMetaRequestCallback extends $dara.Model {
   /**
    * @remarks
+   * The callback code.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,12 +15,22 @@ export class ModifyCallbackMetaRequestCallback extends $dara.Model {
   category?: string;
   /**
    * @remarks
+   * The callback URL.
+   * 
    * This parameter is required.
    * 
    * @example
    * https://www.aliyun.com
    */
   conf?: string;
+  /**
+   * @remarks
+   * The sub-events.
+   * Recording events:
+   * - **2010**: Recording service status change.
+   * - **2011**: Recording audio stream status change.
+   * - **2012**: Recording video stream status change.
+   */
   subEvent?: number[];
   static names(): { [key: string]: string } {
     return {
@@ -51,6 +63,8 @@ export class ModifyCallbackMetaRequestCallback extends $dara.Model {
 export class ModifyCallbackMetaRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -59,6 +73,8 @@ export class ModifyCallbackMetaRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The callback configuration.
+   * 
    * This parameter is required.
    */
   callback?: ModifyCallbackMetaRequestCallback;

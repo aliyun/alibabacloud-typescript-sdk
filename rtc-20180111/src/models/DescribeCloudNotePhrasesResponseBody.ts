@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeCloudNotePhrasesResponseBodyPhrasesWordWeights extends $dara.Model {
   /**
+   * @remarks
+   * The weight value.
+   * 
    * @example
    * 0
    */
   weight?: number;
   /**
+   * @remarks
+   * The hotword.
+   * 
    * @example
-   * 苹果
+   * Apple
    */
   word?: string;
   static names(): { [key: string]: string } {
@@ -38,27 +44,41 @@ export class DescribeCloudNotePhrasesResponseBodyPhrasesWordWeights extends $dar
 
 export class DescribeCloudNotePhrasesResponseBodyPhrases extends $dara.Model {
   /**
+   * @remarks
+   * The creation time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC time).
+   * 
    * @example
    * 2025-03-04T06:22:15Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
-   * 水果描述
+   * Fruit description
    */
   description?: string;
   /**
+   * @remarks
+   * The hotword list ID.
+   * 
    * @example
    * 1qweadca332121212
    */
   id?: string;
   /**
+   * @remarks
+   * The hotword list name.
+   * 
    * @example
-   * 水果
+   * Fruit
    */
   name?: string;
   /**
    * @remarks
+   * The hotword weights.
+   * 
    * This parameter is required.
    */
   wordWeights?: DescribeCloudNotePhrasesResponseBodyPhrasesWordWeights[];
@@ -95,21 +115,31 @@ export class DescribeCloudNotePhrasesResponseBodyPhrases extends $dara.Model {
 }
 
 export class DescribeCloudNotePhrasesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The hotword lists.
+   */
   phrases?: DescribeCloudNotePhrasesResponseBodyPhrases[];
   /**
    * @remarks
-   * Id of the request。
+   * The ID of the request.
    * 
    * @example
    * 3A26E1E3-3CBB-599E-AD68-CB78F5A42FA1
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 10
    */
   totalNum?: number;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 1
    */

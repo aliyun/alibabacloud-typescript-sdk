@@ -15,6 +15,8 @@ export class DescribeUsageOsSdkVersionDistributionStatDataRequest extends $dara.
   appId?: string;
   /**
    * @remarks
+   * End Time of the query, represented as a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +25,8 @@ export class DescribeUsageOsSdkVersionDistributionStatDataRequest extends $dara.
   endDate?: number;
   /**
    * @remarks
+   * Start Time of the query, represented as a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example

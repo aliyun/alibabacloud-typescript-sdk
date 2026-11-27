@@ -4,13 +4,19 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeCloudNotePhrasesRequestCondition extends $dara.Model {
   /**
+   * @remarks
+   * The hotword list ID.
+   * 
    * @example
    * ac7N****112121
    */
   id?: string;
   /**
+   * @remarks
+   * The hotword list name.
+   * 
    * @example
-   * 测试
+   * Test
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -39,19 +45,31 @@ export class DescribeCloudNotePhrasesRequestCondition extends $dara.Model {
 export class DescribeCloudNotePhrasesRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query the ID in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
    * ac7N****
    */
   appId?: string;
+  /**
+   * @remarks
+   * The query conditions.
+   */
   condition?: DescribeCloudNotePhrasesRequestCondition;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */

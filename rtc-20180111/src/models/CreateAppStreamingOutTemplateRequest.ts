@@ -5,11 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAppStreamingOutTemplateRequestStreamingOutTemplate extends $dara.Model {
   /**
    * @remarks
+   * The list of layout IDs. A maximum of 16 layout IDs are supported.
+   * 
+   * Note: The layouts in the list must not have the same number of data sources.
+   * 
    * This parameter is required.
    */
   layoutIds?: string[];
   /**
    * @remarks
+   * The encoding options.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,10 +24,12 @@ export class CreateAppStreamingOutTemplateRequestStreamingOutTemplate extends $d
   mediaEncode?: number;
   /**
    * @remarks
+   * The name of the template.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 模版
+   * Template
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -55,6 +63,8 @@ export class CreateAppStreamingOutTemplateRequestStreamingOutTemplate extends $d
 export class CreateAppStreamingOutTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query the ID in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -63,7 +73,12 @@ export class CreateAppStreamingOutTemplateRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The template.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * ac7N****
    */
   streamingOutTemplate?: CreateAppStreamingOutTemplateRequestStreamingOutTemplate;
   static names(): { [key: string]: string } {

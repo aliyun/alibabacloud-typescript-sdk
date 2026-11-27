@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeQoeMetricDataResponseBodyAudioDataNodes extends $dara.Model {
   /**
+   * @remarks
+   * X-axis coordinate in the audio trend indicator.
+   * 
    * @example
    * 1548670256
    */
   x?: string;
   /**
+   * @remarks
+   * Y-axis coordinate in the audio trend indicator.
+   * 
    * @example
    * 123
    */
@@ -37,13 +43,25 @@ export class DescribeQoeMetricDataResponseBodyAudioDataNodes extends $dara.Model
 }
 
 export class DescribeQoeMetricDataResponseBodyAudioData extends $dara.Model {
+  /**
+   * @remarks
+   * List of coordinate points for the audio trend indicator.
+   */
   nodes?: DescribeQoeMetricDataResponseBodyAudioDataNodes[];
   /**
+   * @remarks
+   * Communication experience. Valid values:  
+   * - **AUDIO**: Audio bitrate.  
+   * - **AUDIO_STUCK**: Audio downlink stuttering.
+   * 
    * @example
    * AUDIO
    */
   type?: string;
   /**
+   * @remarks
+   * User ID.
+   * 
    * @example
    * testuserid
    */
@@ -78,11 +96,17 @@ export class DescribeQoeMetricDataResponseBodyAudioData extends $dara.Model {
 
 export class DescribeQoeMetricDataResponseBodyVideoDataNodes extends $dara.Model {
   /**
+   * @remarks
+   * The x-axis coordinate in the video metric trend graph.
+   * 
    * @example
    * 1548670256
    */
   x?: string;
   /**
+   * @remarks
+   * The y-axis coordinate in the Video Trend Indicator.
+   * 
    * @example
    * 123
    */
@@ -111,13 +135,29 @@ export class DescribeQoeMetricDataResponseBodyVideoDataNodes extends $dara.Model
 }
 
 export class DescribeQoeMetricDataResponseBodyVideoData extends $dara.Model {
+  /**
+   * @remarks
+   * List of coordinate points for the video metric trend graph.
+   */
   nodes?: DescribeQoeMetricDataResponseBodyVideoDataNodes[];
   /**
+   * @remarks
+   * The type of metric that impacts communication experience. Valid values:
+   * - **VIDEO_CAMERA**: Camera bitrate.
+   * - **VIDEO_SCREEN_SHARE**: Screen sharing stream bitrate.
+   * - **VIDEO_STUCK_CAMERA**: Camera stuttering.
+   * - **VIDEO_STUCK_SCREEN_SHARE**: Screen sharing stuttering.
+   * - **VIDEO_VAGUE_CAMERA**: Camera blur.
+   * - **VIDEO_VAGUE_SCREEN_SHARE**: Screen sharing blur.
+   * 
    * @example
    * VIDEO_CAMERA
    */
   type?: string;
   /**
+   * @remarks
+   * User ID
+   * 
    * @example
    * testuserid
    */
@@ -151,12 +191,23 @@ export class DescribeQoeMetricDataResponseBodyVideoData extends $dara.Model {
 }
 
 export class DescribeQoeMetricDataResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Audio data.
+   */
   audioData?: DescribeQoeMetricDataResponseBodyAudioData[];
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Video data.
+   */
   videoData?: DescribeQoeMetricDataResponseBodyVideoData[];
   static names(): { [key: string]: string } {
     return {

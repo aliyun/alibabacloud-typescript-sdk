@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartViewRequestBgColor extends $dara.Model {
   /**
    * @remarks
-   * B。
+   * The B value.
    * 
    * @example
    * 255
@@ -13,7 +13,7 @@ export class StartViewRequestBgColor extends $dara.Model {
   b?: number;
   /**
    * @remarks
-   * G。
+   * The G value.
    * 
    * @example
    * 255
@@ -21,7 +21,7 @@ export class StartViewRequestBgColor extends $dara.Model {
   g?: number;
   /**
    * @remarks
-   * R。
+   * The R value.
    * 
    * @example
    * 255
@@ -55,7 +55,7 @@ export class StartViewRequestBgColor extends $dara.Model {
 export class StartViewRequestRegionColor extends $dara.Model {
   /**
    * @remarks
-   * B。
+   * The B value.
    * 
    * @example
    * 255
@@ -63,7 +63,7 @@ export class StartViewRequestRegionColor extends $dara.Model {
   b?: number;
   /**
    * @remarks
-   * G。
+   * The G value.
    * 
    * @example
    * 255
@@ -71,7 +71,7 @@ export class StartViewRequestRegionColor extends $dara.Model {
   g?: number;
   /**
    * @remarks
-   * R。
+   * The R value.
    * 
    * @example
    * 255
@@ -105,15 +105,23 @@ export class StartViewRequestRegionColor extends $dara.Model {
 export class StartViewRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query the ID in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
    * eo85****
    */
   appId?: string;
+  /**
+   * @remarks
+   * The global background color.
+   */
   bgColor?: StartViewRequestBgColor;
   /**
    * @remarks
+   * The ID of an existing channel. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -121,19 +129,40 @@ export class StartViewRequest extends $dara.Model {
    */
   channelId?: string;
   /**
+   * @remarks
+   * The crop mode. Valid values:
+   * - **1**: proportional cropping
+   * - **2**: proportional padding (default)
+   * - **3**: stretch to fill
+   * 
    * @example
    * 2
    */
   cropMode?: number;
+  /**
+   * @remarks
+   * The global pane background color.
+   */
   regionColor?: StartViewRequestRegionColor;
+  /**
+   * @remarks
+   * Specifies whether to allow starting the task when the channel does not exist. Valid values:
+   * - true: Yes.
+   * - false: No (default).
+   */
   startWithoutChannel?: boolean;
   /**
+   * @remarks
+   * The wait time for the task when the channel is not started, in seconds. This parameter is valid only when the StartWithoutChannel parameter is set to true. Valid values: 30 to 120.
+   * 
    * @example
    * 30
    */
   startWithoutChannelWaitTime?: number;
   /**
    * @remarks
+   * The task ID for the current request. Only a single ID is supported. The ID can contain letters, digits, underscores (_), and hyphens (-), and can be up to 55 bytes in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -142,6 +171,8 @@ export class StartViewRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -149,10 +180,19 @@ export class StartViewRequest extends $dara.Model {
    */
   templateId?: string;
   /**
+   * @remarks
+   * The stream property. Valid values:
+   * - main: main stream
+   * - screen-cast: shared stream
+   * 
    * @example
    * main
    */
   viewContent?: string;
+  /**
+   * @remarks
+   * The list of user IDs of Session Initiation Protocol (SIP) devices that are allowed to view the main stream or shared stream.
+   */
   viewSubscribers?: string[];
   static names(): { [key: string]: string } {
     return {

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetMPUTaskStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -14,6 +16,8 @@ export class GetMPUTaskStatusRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The task ID. Only a single ID is supported. The value must be the same as the TaskId parameter in the [StartMpuTask](https://help.aliyun.com/document_detail/93183.html) request.
+   * 
    * This parameter is required.
    * 
    * @example

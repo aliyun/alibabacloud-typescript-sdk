@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetAgentRequest extends $dara.Model {
   /**
+   * @remarks
+   * Application ID. You can create and view this ID in the console. Only one ID is supported.
+   * 
    * @example
    * aec****
    */
   appId?: string;
   /**
+   * @remarks
+   * Channel ID.
+   * 
    * @example
    * 1234
    */
   channelId?: string;
   /**
+   * @remarks
+   * Task ID.
+   * 
    * @example
    * yourTaskId
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveUsersRequestUsers extends $dara.Model {
   /**
    * @remarks
+   * User ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +37,8 @@ export class RemoveUsersRequestUsers extends $dara.Model {
 export class RemoveUsersRequest extends $dara.Model {
   /**
    * @remarks
+   * Application ID. You can create and query it in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,6 +47,8 @@ export class RemoveUsersRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The ID of the joined channel. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -51,6 +57,8 @@ export class RemoveUsersRequest extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
+   * User List. Valid values of N: 1 to 30.
+   * 
    * This parameter is required.
    */
   users?: RemoveUsersRequestUsers[];

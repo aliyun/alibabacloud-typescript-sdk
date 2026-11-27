@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateCloudRecordResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
    */
   requestId?: string;
   /**
+   * @remarks
+   * The task ID for this cloud recording.
+   * 
    * @example
    * 123
    */

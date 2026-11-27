@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAppRecordStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * Request ID
    * 
    * @example
    * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
    */
   requestId?: string;
   /**
+   * @remarks
+   * Recording status. Valid values: enable or disable.
+   * 
    * @example
    * disable
    */

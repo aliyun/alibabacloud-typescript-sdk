@@ -12,6 +12,9 @@ export class CreateAppViewTemplateResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * bc5v****
    */

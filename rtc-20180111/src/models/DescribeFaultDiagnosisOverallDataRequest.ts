@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFaultDiagnosisOverallDataRequest extends $dara.Model {
   /**
    * @remarks
-   * APP ID
+   * The app ID.
    * 
    * This parameter is required.
    * 
@@ -15,6 +15,8 @@ export class DescribeFaultDiagnosisOverallDataRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The end time of the query. The value is a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +25,8 @@ export class DescribeFaultDiagnosisOverallDataRequest extends $dara.Model {
   endTs?: number;
   /**
    * @remarks
+   * The start time of the query. The value is a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,6 +35,14 @@ export class DescribeFaultDiagnosisOverallDataRequest extends $dara.Model {
   startTs?: number;
   /**
    * @remarks
+   * The statistical dimension. Valid values:
+   * - **JOIN_SLOW_USER**: the number of users who joined the channel slowly
+   * - **AUDIO_STUCK_USER**: the number of users who experienced audio stuttering
+   * - **VIDEO_STUCK_USER**: the number of users who experienced video stuttering
+   * - **VIDEO_VAGUE_USER**: the number of users who experienced blurry video
+   * - **HIGH_DELAY_USER**: the number of users who experienced high call latency
+   * - **FIRST_FRAME_SLOW_USER**: the number of users who experienced slow first screen rendering
+   * 
    * This parameter is required.
    * 
    * @example

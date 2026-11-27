@@ -4,38 +4,69 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAppRecordTemplatesResponseBodyTemplates extends $dara.Model {
   /**
+   * @remarks
+   * The creation time. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
+   * 
    * @example
    * 2020-09-04T06:22:15Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The delay time before stopping the recording. Unit: seconds.
+   * 
    * @example
    * 180
    */
   delayStopTime?: number;
   /**
+   * @remarks
+   * The naming rule for recording files.
+   * > To ensure the uniqueness of recording file names, the current naming rule is record/{AppId}/{ChannelId}_{TaskId}/{EscapedStartTime}_{EscapedEndTime}.
+   * 
    * @example
    * record/{AppId}/{ChannelId_TaskId}/{EscapedStartTime}_{EscapedEndTime}
    */
   filePrefix?: string;
   /**
+   * @remarks
+   * The splitting duration of the recording file. The value must be greater than or equal to 1800. Unit: seconds.
+   * 
    * @example
    * 1800
    */
   fileSplitInterval?: number;
+  /**
+   * @remarks
+   * The formats of the recording file. Valid values: .m3u8, .mp4, and .flv.
+   * > Only lowercase letters are supported for file formats.
+   */
   formats?: string[];
+  /**
+   * @remarks
+   * The list of layout IDs.
+   */
   layoutIds?: string[];
   /**
+   * @remarks
+   * The encoding options.
+   * 
    * @example
    * 1
    */
   mediaEncode?: number;
   /**
+   * @remarks
+   * The template name.
+   * 
    * @example
-   * 测试
+   * Test
    */
   name?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * wv7N****
    */
@@ -92,13 +123,23 @@ export class DescribeAppRecordTemplatesResponseBody extends $dara.Model {
    * 2A7497D0-BEAE-58E7-B13A-751BD8EAE4C6
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The list of templates.
+   */
   templates?: DescribeAppRecordTemplatesResponseBodyTemplates[];
   /**
+   * @remarks
+   * The total number of records.
+   * 
    * @example
    * 10
    */
   totalNum?: number;
   /**
+   * @remarks
+   * The total number of pages.
+   * 
    * @example
    * 1
    */

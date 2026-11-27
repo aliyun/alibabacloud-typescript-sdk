@@ -12,6 +12,9 @@ export class ModifyAppStreamingOutTemplateResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Template ID.
+   * 
    * @example
    * ac7N****
    */

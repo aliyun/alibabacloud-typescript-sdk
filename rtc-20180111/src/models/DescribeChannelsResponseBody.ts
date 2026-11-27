@@ -4,22 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeChannelsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of items per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The active channels.
+   */
   records?: string[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total count.
+   * 
    * @example
    * 1
    */

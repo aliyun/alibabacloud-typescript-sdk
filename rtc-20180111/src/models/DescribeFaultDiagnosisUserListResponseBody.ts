@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeFaultDiagnosisUserListResponseBodyUserListFaultList extends $dara.Model {
   /**
+   * @remarks
+   * The fault type.
+   * 
    * @example
    * JOIN_SLOW
    */
@@ -31,29 +34,48 @@ export class DescribeFaultDiagnosisUserListResponseBodyUserListFaultList extends
 
 export class DescribeFaultDiagnosisUserListResponseBodyUserList extends $dara.Model {
   /**
+   * @remarks
+   * The creation timestamp of the channel. The time is a UNIX timestamp in seconds.
+   * 
    * @example
    * 1614936817
    */
   channelCreatedTs?: number;
   /**
+   * @remarks
+   * The ID of the channel.
+   * 
    * @example
    * 904
    */
   channelId?: string;
   /**
+   * @remarks
+   * The time when the user first joined the channel. The time is a UNIX timestamp in seconds.
+   * 
    * @example
    * 1614936817
    */
   createdTs?: number;
   /**
+   * @remarks
+   * The time when the user last left the channel. The time is a UNIX timestamp in seconds.
+   * 
    * @example
    * 1614936817
    */
   destroyedTs?: number;
+  /**
+   * @remarks
+   * The list of faults.
+   */
   faultList?: DescribeFaultDiagnosisUserListResponseBodyUserListFaultList[];
   /**
+   * @remarks
+   * The ID of the user.
+   * 
    * @example
-   * 123456
+   * testuserid
    */
   userId?: string;
   static names(): { [key: string]: string } {
@@ -92,25 +114,41 @@ export class DescribeFaultDiagnosisUserListResponseBodyUserList extends $dara.Mo
 
 export class DescribeFaultDiagnosisUserListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
-   * 2
+   * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The ID of the request.
+   * 
    * @example
    * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
-   * 20
+   * 1
    */
   totalCnt?: number;
+  /**
+   * @remarks
+   * The detailed list of users with faults.
+   */
   userList?: DescribeFaultDiagnosisUserListResponseBodyUserList[];
   static names(): { [key: string]: string } {
     return {

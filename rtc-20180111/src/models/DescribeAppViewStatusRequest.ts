@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAppViewStatusRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the application. You can create and find the application ID in the console. Only one ID can be specified.
+   * 
    * This parameter is required.
    * 
    * @example

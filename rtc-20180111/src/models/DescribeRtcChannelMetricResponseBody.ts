@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRtcChannelMetricResponseBodyChannelMetricInfoChannelMetric extends $dara.Model {
   /**
+   * @remarks
+   * The channel ID.
+   * 
    * @example
    * example_channel
    */
   channelId?: string;
   /**
+   * @remarks
+   * The time when the user left the channel, in UTC. The time is in the yyyy-MM-ddTHH:mm:ssZ format.
+   * 
    * @example
    * 2019-06-06T18:57:00Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The number of users that entered the channel and successfully published streams.
+   * 
    * @example
    * 10
    */
   pubUserCount?: number;
   /**
+   * @remarks
+   * The time when the user joined the channel, in UTC. The time is in the yyyy-MM-ddTHH:mm:ssZ format.
+   * 
    * @example
    * 2019-06-06T17:57:00Z
    */
   startTime?: string;
   /**
+   * @remarks
+   * The number of users that entered the channel and successfully subscribed to streams.
+   * 
    * @example
    * 25
    */
   subUserCount?: number;
   /**
+   * @remarks
+   * The number of users that entered the channel.
+   * 
    * @example
    * 30
    */
@@ -66,26 +84,41 @@ export class DescribeRtcChannelMetricResponseBodyChannelMetricInfoChannelMetric 
 
 export class DescribeRtcChannelMetricResponseBodyChannelMetricInfoDurationPubDuration extends $dara.Model {
   /**
+   * @remarks
+   * The duration of audio. Unit: minutes.
+   * 
    * @example
    * 100
    */
   audio?: number;
   /**
+   * @remarks
+   * The duration of screen sharing. Unit: minutes.
+   * 
    * @example
    * 100
    */
   content?: number;
   /**
+   * @remarks
+   * The duration of full high-definition (FHD) videos. Unit: minutes.
+   * 
    * @example
    * 100
    */
   video1080?: number;
   /**
+   * @remarks
+   * The duration of standard-definition (SD) videos. Unit: minutes.
+   * 
    * @example
    * 100
    */
   video360?: number;
   /**
+   * @remarks
+   * The duration of high-definition (HD) videos. Unit: minutes.
+   * 
    * @example
    * 100
    */
@@ -121,26 +154,41 @@ export class DescribeRtcChannelMetricResponseBodyChannelMetricInfoDurationPubDur
 
 export class DescribeRtcChannelMetricResponseBodyChannelMetricInfoDurationSubDuration extends $dara.Model {
   /**
+   * @remarks
+   * The duration of audio. Unit: minutes.
+   * 
    * @example
    * 100
    */
   audio?: number;
   /**
+   * @remarks
+   * The duration of screen sharing. Unit: minutes.
+   * 
    * @example
    * 100
    */
   content?: number;
   /**
+   * @remarks
+   * The duration of full high-definition (FHD) videos. Unit: minutes.
+   * 
    * @example
    * 100
    */
   video1080?: number;
   /**
+   * @remarks
+   * The duration of standard-definition (SD) videos. Unit: minutes.
+   * 
    * @example
    * 100
    */
   video360?: number;
   /**
+   * @remarks
+   * The duration of high-definition (HD) videos. Unit: minutes.
+   * 
    * @example
    * 100
    */
@@ -175,7 +223,15 @@ export class DescribeRtcChannelMetricResponseBodyChannelMetricInfoDurationSubDur
 }
 
 export class DescribeRtcChannelMetricResponseBodyChannelMetricInfoDuration extends $dara.Model {
+  /**
+   * @remarks
+   * The duration information about publishing streams.
+   */
   pubDuration?: DescribeRtcChannelMetricResponseBodyChannelMetricInfoDurationPubDuration;
+  /**
+   * @remarks
+   * The duration information about subscribing to streams.
+   */
   subDuration?: DescribeRtcChannelMetricResponseBodyChannelMetricInfoDurationSubDuration;
   static names(): { [key: string]: string } {
     return {
@@ -207,7 +263,15 @@ export class DescribeRtcChannelMetricResponseBodyChannelMetricInfoDuration exten
 }
 
 export class DescribeRtcChannelMetricResponseBodyChannelMetricInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The user information of the channel.
+   */
   channelMetric?: DescribeRtcChannelMetricResponseBodyChannelMetricInfoChannelMetric;
+  /**
+   * @remarks
+   * The duration information.
+   */
   duration?: DescribeRtcChannelMetricResponseBodyChannelMetricInfoDuration;
   static names(): { [key: string]: string } {
     return {
@@ -239,8 +303,15 @@ export class DescribeRtcChannelMetricResponseBodyChannelMetricInfo extends $dara
 }
 
 export class DescribeRtcChannelMetricResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The detailed information.
+   */
   channelMetricInfo?: DescribeRtcChannelMetricResponseBodyChannelMetricInfo;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
    */

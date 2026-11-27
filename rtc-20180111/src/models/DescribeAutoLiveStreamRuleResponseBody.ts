@@ -4,38 +4,70 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAutoLiveStreamRuleResponseBodyRules extends $dara.Model {
   /**
+   * @remarks
+   * The callback URL.
+   * 
    * @example
    * http://example.com/callBack
    */
   callBack?: string;
+  /**
+   * @remarks
+   * The prefix list of channel IDs for fuzzy match.
+   */
   channelIdPrefixes?: string[];
+  /**
+   * @remarks
+   * The list of channel IDs for exact match.
+   */
   channelIds?: string[];
   /**
+   * @remarks
+   * The time when the rule was created.
+   * 
    * @example
    * 2021-08-19T02:53:07Z
    */
   createTime?: string;
   /**
+   * @remarks
+   * The encoding options.
+   * 
    * @example
    * 20
    */
   mediaEncode?: number;
   /**
+   * @remarks
+   * The playback domain name for automatic bypass.
+   * 
    * @example
    * rtmp://${domain}/${app}/${stream}
    */
   playDomain?: string;
   /**
+   * @remarks
+   * The rule ID.
+   * 
    * @example
    * 12
    */
   ruleId?: number;
   /**
+   * @remarks
+   * The rule name.
+   * 
    * @example
    * testRule
    */
   ruleName?: string;
   /**
+   * @remarks
+   * The rule status. Valid values:
+   * 
+   * - enable: Enabled.
+   * - disable: Disabled.
+   * 
    * @example
    * disable
    */
@@ -85,10 +117,17 @@ export class DescribeAutoLiveStreamRuleResponseBodyRules extends $dara.Model {
 
 export class DescribeAutoLiveStreamRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 069BCB66-CD80-11E8-A82B-A70F78BBDC00
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The rule details.
+   */
   rules?: DescribeAutoLiveStreamRuleResponseBodyRules[];
   static names(): { [key: string]: string } {
     return {

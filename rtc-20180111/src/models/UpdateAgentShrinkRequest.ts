@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAgentShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. Specify only one ID. You can create and query applications in the console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class UpdateAgentShrinkRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The existing channel ID. Specify only one ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,12 +25,18 @@ export class UpdateAgentShrinkRequest extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
+   * The task ID. Specify only one ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * yourTaskId
    */
   taskId?: string;
+  /**
+   * @remarks
+   * Configuration for AI voice conversation.
+   */
   voiceChatConfigShrink?: string;
   static names(): { [key: string]: string } {
     return {

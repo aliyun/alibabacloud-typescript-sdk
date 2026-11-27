@@ -4,17 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateStreamingOutShrinkRequestBackgrounds extends $dara.Model {
   /**
+   * @remarks
+   * The transparency.
+   * 
    * @example
    * 0.9
    */
   alpha?: number;
   /**
+   * @remarks
+   * The crop mode. Valid values:
+   * - **1**: Crops the image while maintaining the aspect ratio.
+   * - **2**: Adds padding to the image while maintaining the aspect ratio.
+   * - **3**: Stretches the image to fill the area.
+   * 
    * @example
    * 2
    */
   backgroundCropMode?: number;
   /**
    * @remarks
+   * The height.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,12 +33,17 @@ export class UpdateStreamingOutShrinkRequestBackgrounds extends $dara.Model {
    */
   height?: number;
   /**
+   * @remarks
+   * The Z-axis layer.
+   * 
    * @example
    * 0
    */
   layer?: number;
   /**
    * @remarks
+   * The image URL.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +52,8 @@ export class UpdateStreamingOutShrinkRequestBackgrounds extends $dara.Model {
   url?: string;
   /**
    * @remarks
+   * The width.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,6 +62,8 @@ export class UpdateStreamingOutShrinkRequestBackgrounds extends $dara.Model {
   width?: number;
   /**
    * @remarks
+   * The X-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52,6 +72,8 @@ export class UpdateStreamingOutShrinkRequestBackgrounds extends $dara.Model {
   x?: number;
   /**
    * @remarks
+   * The Y-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -95,16 +117,25 @@ export class UpdateStreamingOutShrinkRequestBackgrounds extends $dara.Model {
 
 export class UpdateStreamingOutShrinkRequestBgColor extends $dara.Model {
   /**
+   * @remarks
+   * The blue component.
+   * 
    * @example
    * 255
    */
   b?: number;
   /**
+   * @remarks
+   * The green component.
+   * 
    * @example
    * 255
    */
   g?: number;
   /**
+   * @remarks
+   * The red component.
+   * 
    * @example
    * 255
    */
@@ -136,16 +167,25 @@ export class UpdateStreamingOutShrinkRequestBgColor extends $dara.Model {
 
 export class UpdateStreamingOutShrinkRequestClockWidgetsBoxColor extends $dara.Model {
   /**
+   * @remarks
+   * The blue component.
+   * 
    * @example
    * 255
    */
   b?: number;
   /**
+   * @remarks
+   * The green component.
+   * 
    * @example
    * 255
    */
   g?: number;
   /**
+   * @remarks
+   * The red component.
+   * 
    * @example
    * 255
    */
@@ -177,16 +217,25 @@ export class UpdateStreamingOutShrinkRequestClockWidgetsBoxColor extends $dara.M
 
 export class UpdateStreamingOutShrinkRequestClockWidgetsFontColor extends $dara.Model {
   /**
+   * @remarks
+   * The blue component.
+   * 
    * @example
    * 255
    */
   b?: number;
   /**
+   * @remarks
+   * The green component.
+   * 
    * @example
    * 255
    */
   g?: number;
   /**
+   * @remarks
+   * The red component.
+   * 
    * @example
    * 255
    */
@@ -218,40 +267,82 @@ export class UpdateStreamingOutShrinkRequestClockWidgetsFontColor extends $dara.
 
 export class UpdateStreamingOutShrinkRequestClockWidgets extends $dara.Model {
   /**
+   * @remarks
+   * The transparency.
+   * 
    * @example
    * 0.9
    */
   alpha?: number;
   /**
+   * @remarks
+   * The transparency of the rectangle.
+   * 
    * @example
    * 0.6
    */
   boxAlpha?: number;
   /**
+   * @remarks
+   * The border width of the rectangle.
+   * 
    * @example
    * 5
    */
   boxBorderw?: number;
+  /**
+   * @remarks
+   * The color of the rectangle.
+   */
   boxColor?: UpdateStreamingOutShrinkRequestClockWidgetsBoxColor;
   /**
+   * @remarks
+   * The font. Valid values:
+   * - **0**: Alibaba PuHuiTi Regular
+   * - **1**: Alibaba PuHuiTi Light
+   * - **2**: Alibaba PuHuiTi Medium
+   * - **3**: Alibaba PuHuiTi Bold
+   * - **4**: Alibaba PuHuiTi Heavy
+   * - **5**: Alimama ShuHeiTi
+   * - **6**: DingTalk JinBuTi
+   * - **7**: Alimama DaoLiTi
+   * - **8**: Alimama DongFangDaKai
+   * - **9**: Alimama FangYuanTi
+   * 
    * @example
    * 0
    */
   font?: number;
+  /**
+   * @remarks
+   * The font color.
+   */
   fontColor?: UpdateStreamingOutShrinkRequestClockWidgetsFontColor;
   /**
+   * @remarks
+   * The clock font size.
+   * 
    * @example
    * 30
    */
   fontSize?: number;
+  /**
+   * @remarks
+   * Specifies whether to display the rectangle.
+   */
   hasBox?: boolean;
   /**
+   * @remarks
+   * The Z-axis layer.
+   * 
    * @example
    * 0
    */
   layer?: number;
   /**
    * @remarks
+   * The X-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -260,6 +351,8 @@ export class UpdateStreamingOutShrinkRequestClockWidgets extends $dara.Model {
   x?: number;
   /**
    * @remarks
+   * The Y-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -267,6 +360,9 @@ export class UpdateStreamingOutShrinkRequestClockWidgets extends $dara.Model {
    */
   y?: number;
   /**
+   * @remarks
+   * The time zone.
+   * 
    * @example
    * 8
    */
@@ -322,12 +418,17 @@ export class UpdateStreamingOutShrinkRequestClockWidgets extends $dara.Model {
 
 export class UpdateStreamingOutShrinkRequestImages extends $dara.Model {
   /**
+   * @remarks
+   * The transparency.
+   * 
    * @example
    * 0.9
    */
   alpha?: number;
   /**
    * @remarks
+   * The height.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -335,17 +436,28 @@ export class UpdateStreamingOutShrinkRequestImages extends $dara.Model {
    */
   height?: number;
   /**
+   * @remarks
+   * The crop mode. Valid values:
+   * - **1**: Crops the image while maintaining the aspect ratio.
+   * - **2**: Adds padding to the image while maintaining the aspect ratio.
+   * - **3**: Stretches the image to fill the area.
+   * 
    * @example
    * 2
    */
   imageCropMode?: number;
   /**
+   * @remarks
+   * The Z-axis layer.
+   * 
    * @example
    * 0
    */
   layer?: number;
   /**
    * @remarks
+   * The image URL. The image content cannot be updated during stream ingest.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -354,6 +466,8 @@ export class UpdateStreamingOutShrinkRequestImages extends $dara.Model {
   url?: string;
   /**
    * @remarks
+   * The width.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -362,6 +476,8 @@ export class UpdateStreamingOutShrinkRequestImages extends $dara.Model {
   width?: number;
   /**
    * @remarks
+   * The X-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -370,6 +486,8 @@ export class UpdateStreamingOutShrinkRequestImages extends $dara.Model {
   x?: number;
   /**
    * @remarks
+   * The Y-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -413,35 +531,57 @@ export class UpdateStreamingOutShrinkRequestImages extends $dara.Model {
 
 export class UpdateStreamingOutShrinkRequestPanesBackgrounds extends $dara.Model {
   /**
+   * @remarks
+   * The transparency.
+   * 
    * @example
    * 0.9
    */
   alpha?: number;
   /**
+   * @remarks
+   * The condition for displaying the watermark. Valid values:
+   * - streamOnly: Displayed when the current user has a video stream. This is the default value.
+   * - backup: Displayed when the current user does not have a video stream.
+   * - always: Always displayed.
+   * 
    * @example
    * backup
    */
   display?: string;
   /**
    * @remarks
+   * The height.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 0.2
+   * 0.79
    */
   height?: number;
   /**
+   * @remarks
+   * The Z-axis layer.
+   * 
    * @example
-   * 0
+   * 1
    */
   layer?: number;
   /**
+   * @remarks
+   * The crop mode. Valid values:
+   * - **1**: Crops the image while maintaining the aspect ratio.
+   * - **2**: Adds padding to the image while maintaining the aspect ratio.
+   * - **3**: Stretches the image to fill the area.
+   * 
    * @example
-   * 2
+   * 1
    */
   paneBackgroundCropMode?: number;
   /**
    * @remarks
+   * The image URL.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -450,14 +590,18 @@ export class UpdateStreamingOutShrinkRequestPanesBackgrounds extends $dara.Model
   url?: string;
   /**
    * @remarks
+   * The width.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 0.2
+   * 0.3
    */
   width?: number;
   /**
    * @remarks
+   * The X-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -466,10 +610,12 @@ export class UpdateStreamingOutShrinkRequestPanesBackgrounds extends $dara.Model
   x?: number;
   /**
    * @remarks
+   * The Y-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 0.2
+   * 0.95
    */
   y?: number;
   static names(): { [key: string]: string } {
@@ -511,17 +657,28 @@ export class UpdateStreamingOutShrinkRequestPanesBackgrounds extends $dara.Model
 
 export class UpdateStreamingOutShrinkRequestPanesImages extends $dara.Model {
   /**
+   * @remarks
+   * The transparency.
+   * 
    * @example
    * 0.9
    */
   alpha?: number;
   /**
+   * @remarks
+   * The condition for displaying the watermark. Valid values:
+   * - streamOnly: Displayed when the current user has a video stream. This is the default value.
+   * - backup: Displayed when the current user does not have a video stream.
+   * - always: Always displayed.
+   * 
    * @example
    * backup
    */
   display?: string;
   /**
    * @remarks
+   * The height.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -529,17 +686,28 @@ export class UpdateStreamingOutShrinkRequestPanesImages extends $dara.Model {
    */
   height?: number;
   /**
+   * @remarks
+   * The Z-axis layer.
+   * 
    * @example
    * 0
    */
   layer?: number;
   /**
+   * @remarks
+   * The crop mode. Valid values:
+   * - **1**: Crops the image while maintaining the aspect ratio.
+   * - **2**: Adds padding to the image while maintaining the aspect ratio.
+   * - **3**: Stretches the image to fill the area.
+   * 
    * @example
    * 2
    */
   paneImageCropMode?: number;
   /**
    * @remarks
+   * The image URL. The image content cannot be updated during stream ingest.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -548,6 +716,8 @@ export class UpdateStreamingOutShrinkRequestPanesImages extends $dara.Model {
   url?: string;
   /**
    * @remarks
+   * The width.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -556,6 +726,8 @@ export class UpdateStreamingOutShrinkRequestPanesImages extends $dara.Model {
   width?: number;
   /**
    * @remarks
+   * The X-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -564,6 +736,8 @@ export class UpdateStreamingOutShrinkRequestPanesImages extends $dara.Model {
   x?: number;
   /**
    * @remarks
+   * The Y-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -609,16 +783,25 @@ export class UpdateStreamingOutShrinkRequestPanesImages extends $dara.Model {
 
 export class UpdateStreamingOutShrinkRequestPanesTextsBoxColor extends $dara.Model {
   /**
+   * @remarks
+   * The blue component.
+   * 
    * @example
    * 255
    */
   b?: number;
   /**
+   * @remarks
+   * The green component.
+   * 
    * @example
    * 255
    */
   g?: number;
   /**
+   * @remarks
+   * The red component.
+   * 
    * @example
    * 255
    */
@@ -650,16 +833,25 @@ export class UpdateStreamingOutShrinkRequestPanesTextsBoxColor extends $dara.Mod
 
 export class UpdateStreamingOutShrinkRequestPanesTextsFontColor extends $dara.Model {
   /**
+   * @remarks
+   * The blue component.
+   * 
    * @example
    * 255
    */
   b?: number;
   /**
+   * @remarks
+   * The green component.
+   * 
    * @example
    * 255
    */
   g?: number;
   /**
+   * @remarks
+   * The red component.
+   * 
    * @example
    * 255
    */
@@ -691,53 +883,103 @@ export class UpdateStreamingOutShrinkRequestPanesTextsFontColor extends $dara.Mo
 
 export class UpdateStreamingOutShrinkRequestPanesTexts extends $dara.Model {
   /**
+   * @remarks
+   * The transparency of the watermark.
+   * 
    * @example
    * 0.9
    */
   alpha?: number;
   /**
+   * @remarks
+   * The transparency of the rectangle.
+   * 
    * @example
    * 0.6
    */
   boxAlpha?: number;
   /**
+   * @remarks
+   * The border width of the rectangle.
+   * 
    * @example
    * 5
    */
   boxBorderw?: number;
+  /**
+   * @remarks
+   * The color of the rectangle.
+   */
   boxColor?: UpdateStreamingOutShrinkRequestPanesTextsBoxColor;
   /**
+   * @remarks
+   * The condition for displaying the watermark. Valid values:
+   * - streamOnly: Displayed when the current user has a video stream. This is the default value.
+   * - backup: Displayed when the current user does not have a video stream.
+   * - always: Always displayed.
+   * 
    * @example
-   * backup
+   * always
    */
   display?: string;
   /**
+   * @remarks
+   * The font. Valid values:
+   * - **0**: Alibaba PuHuiTi Regular
+   * - **1**: Alibaba PuHuiTi Light
+   * - **2**: Alibaba PuHuiTi Medium
+   * - **3**: Alibaba PuHuiTi Bold
+   * - **4**: Alibaba PuHuiTi Heavy
+   * - **5**: Alimama ShuHeiTi
+   * - **6**: DingTalk JinBuTi
+   * - **7**: Alimama DaoLiTi
+   * - **8**: Alimama DongFangDaKai
+   * - **9**: Alimama FangYuanTi
+   * 
    * @example
    * 0
    */
   font?: number;
+  /**
+   * @remarks
+   * The font color.
+   */
   fontColor?: UpdateStreamingOutShrinkRequestPanesTextsFontColor;
   /**
+   * @remarks
+   * The font size.
+   * 
    * @example
    * 36
    */
   fontSize?: number;
+  /**
+   * @remarks
+   * Specifies whether to display the rectangle.
+   */
   hasBox?: boolean;
   /**
+   * @remarks
+   * The Z-axis layer.
+   * 
    * @example
    * 0
    */
   layer?: number;
   /**
    * @remarks
+   * The watermark content.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 文字水印
+   * Text watermark
    */
   texture?: string;
   /**
    * @remarks
+   * The X-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -746,6 +988,8 @@ export class UpdateStreamingOutShrinkRequestPanesTexts extends $dara.Model {
   x?: number;
   /**
    * @remarks
+   * The Y-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -805,6 +1049,9 @@ export class UpdateStreamingOutShrinkRequestPanesTexts extends $dara.Model {
 
 export class UpdateStreamingOutShrinkRequestPanesWhiteboard extends $dara.Model {
   /**
+   * @remarks
+   * The whiteboard ID. Default value: default.
+   * 
    * @example
    * default
    */
@@ -831,35 +1078,81 @@ export class UpdateStreamingOutShrinkRequestPanesWhiteboard extends $dara.Model 
 }
 
 export class UpdateStreamingOutShrinkRequestPanes extends $dara.Model {
+  /**
+   * @remarks
+   * The background image of the pane.
+   */
   backgrounds?: UpdateStreamingOutShrinkRequestPanesBackgrounds[];
+  /**
+   * @remarks
+   * The local image watermarks for the pane.
+   */
   images?: UpdateStreamingOutShrinkRequestPanesImages[];
   /**
+   * @remarks
+   * The crop mode. Valid values:
+   * - **1**: Crops the image while maintaining the aspect ratio.
+   * - **2**: Adds padding to the image while maintaining the aspect ratio.
+   * - **3**: Stretches the image to fill the area.
+   * 
    * @example
    * 2
    */
   paneCropMode?: number;
   /**
+   * @remarks
+   * The pane ID.
+   * 
    * @example
    * 1
    */
   paneId?: number;
+  /**
+   * @remarks
+   * Specifies whether to reserve the pane as a placeholder for offline users. Default value: true. A value of true indicates that the pane is forcibly reserved as a placeholder when the specific user or wildcard user specified for the grid is offline. A value of false indicates that video streams are displayed in the automatic fill order when the specific user or wildcard user specified for the grid is offline.
+   */
   reservePaneForOfflineUser?: boolean;
   /**
+   * @remarks
+   * The media source of the pane. You can specify a userId. To specify a specific user type, you can use wildcard configurations. The following types are supported:
+   * - **$ActiveSpeaker**: The current speaker in the channel.
+   * - **$ScreenShare**: The user who is sharing their screen. If multiple users are sharing their screens in the channel, the panes are filled in chronological order.
+   * 
    * @example
    * 22
    */
   source?: string;
   /**
+   * @remarks
+   * The media type of the pane. Valid values:
+   * - **video**: The user camera or screen sharing stream. This is the default value.
+   * - **camera**: The camera stream.
+   * - **screen**: The screen sharing stream.
+   * - **whiteboard**: The whiteboard.
+   * 
    * @example
    * video
    */
   sourceType?: string;
+  /**
+   * @remarks
+   * The local text watermarks for the pane.
+   */
   texts?: UpdateStreamingOutShrinkRequestPanesTexts[];
   /**
+   * @remarks
+   * The fill order when SourceType is set to video. Valid values:
+   * - screenFirst: Screen sharing takes precedence. This is the default value.
+   * - cameraFirst: The camera takes precedence.
+   * 
    * @example
    * cameraFirst
    */
   videoOrder?: string;
+  /**
+   * @remarks
+   * The whiteboard configurations.
+   */
   whiteboard?: UpdateStreamingOutShrinkRequestPanesWhiteboard;
   static names(): { [key: string]: string } {
     return {
@@ -914,16 +1207,25 @@ export class UpdateStreamingOutShrinkRequestPanes extends $dara.Model {
 
 export class UpdateStreamingOutShrinkRequestRegionColor extends $dara.Model {
   /**
+   * @remarks
+   * The blue component.
+   * 
    * @example
    * 255
    */
   b?: number;
   /**
+   * @remarks
+   * The green component.
+   * 
    * @example
    * 255
    */
   g?: number;
   /**
+   * @remarks
+   * The red component.
+   * 
    * @example
    * 255
    */
@@ -955,16 +1257,25 @@ export class UpdateStreamingOutShrinkRequestRegionColor extends $dara.Model {
 
 export class UpdateStreamingOutShrinkRequestTextsBoxColor extends $dara.Model {
   /**
+   * @remarks
+   * The blue component.
+   * 
    * @example
    * 255
    */
   b?: number;
   /**
+   * @remarks
+   * The green component.
+   * 
    * @example
    * 255
    */
   g?: number;
   /**
+   * @remarks
+   * The red component.
+   * 
    * @example
    * 255
    */
@@ -996,16 +1307,25 @@ export class UpdateStreamingOutShrinkRequestTextsBoxColor extends $dara.Model {
 
 export class UpdateStreamingOutShrinkRequestTextsFontColor extends $dara.Model {
   /**
+   * @remarks
+   * The blue component.
+   * 
    * @example
    * 255
    */
   b?: number;
   /**
+   * @remarks
+   * The green component.
+   * 
    * @example
    * 255
    */
   g?: number;
   /**
+   * @remarks
+   * The red component.
+   * 
    * @example
    * 255
    */
@@ -1037,48 +1357,92 @@ export class UpdateStreamingOutShrinkRequestTextsFontColor extends $dara.Model {
 
 export class UpdateStreamingOutShrinkRequestTexts extends $dara.Model {
   /**
+   * @remarks
+   * The transparency of the watermark.
+   * 
    * @example
    * 0.1
    */
   alpha?: number;
   /**
+   * @remarks
+   * The transparency of the rectangle.
+   * 
    * @example
    * 0.6
    */
   boxAlpha?: number;
   /**
+   * @remarks
+   * The border width of the rectangle.
+   * 
    * @example
    * 5
    */
   boxBorderw?: number;
+  /**
+   * @remarks
+   * The color of the rectangle.
+   */
   boxColor?: UpdateStreamingOutShrinkRequestTextsBoxColor;
   /**
+   * @remarks
+   * The font. Valid values:
+   * - **0**: Alibaba PuHuiTi Regular
+   * - **1**: Alibaba PuHuiTi Light
+   * - **2**: Alibaba PuHuiTi Medium
+   * - **3**: Alibaba PuHuiTi Bold
+   * - **4**: Alibaba PuHuiTi Heavy
+   * - **5**: Alimama ShuHeiTi
+   * - **6**: DingTalk JinBuTi
+   * - **7**: Alimama DaoLiTi
+   * - **8**: Alimama DongFangDaKai
+   * - **9**: Alimama FangYuanTi
+   * 
    * @example
    * 0
    */
   font?: number;
+  /**
+   * @remarks
+   * The font color.
+   */
   fontColor?: UpdateStreamingOutShrinkRequestTextsFontColor;
   /**
+   * @remarks
+   * The font size.
+   * 
    * @example
    * 36
    */
   fontSize?: number;
+  /**
+   * @remarks
+   * Specifies whether to display the rectangle.
+   */
   hasBox?: boolean;
   /**
+   * @remarks
+   * The Z-axis layer.
+   * 
    * @example
    * 0
    */
   layer?: number;
   /**
    * @remarks
+   * The watermark content.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 文字水印
+   * Text watermark
    */
   texture?: string;
   /**
    * @remarks
+   * The X-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1087,6 +1451,8 @@ export class UpdateStreamingOutShrinkRequestTexts extends $dara.Model {
   x?: number;
   /**
    * @remarks
+   * The Y-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1145,35 +1511,86 @@ export class UpdateStreamingOutShrinkRequestTexts extends $dara.Model {
 export class UpdateStreamingOutShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query the ID in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
    * eo85****
    */
   appId?: string;
+  /**
+   * @remarks
+   * The background image.
+   */
   backgrounds?: UpdateStreamingOutShrinkRequestBackgrounds[];
+  /**
+   * @remarks
+   * The global background color.
+   */
   bgColor?: UpdateStreamingOutShrinkRequestBgColor;
   /**
    * @remarks
+   * The ID of an existing channel. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
    * testid
    */
   channelId?: string;
+  /**
+   * @remarks
+   * The global clock watermark.
+   */
   clockWidgets?: UpdateStreamingOutShrinkRequestClockWidgets[];
   /**
+   * @remarks
+   * The crop mode. Valid values:
+   * - **1**: Crops the image while maintaining the aspect ratio.
+   * - **2**: Adds padding to the image while maintaining the aspect ratio.
+   * - **3**: Stretches the image to fill the area.
+   * 
    * @example
    * 2
    */
   cropMode?: number;
+  /**
+   * @remarks
+   * The global image watermark.
+   */
   images?: UpdateStreamingOutShrinkRequestImages[];
+  /**
+   * @remarks
+   * The specified user list for layout generation, which includes two types: blacklist and whitelist.
+   * 
+   * Whitelist: specifies the users in the room whose video streams are subscribed to.
+   * * After the setting is applied, automatic padding is performed in sequence based on this list.
+   * * When switching between multiple layouts in a template, only users in the whitelist are considered.
+   * 
+   * Blacklist: specifies the users in the room whose video streams are not subscribed to.
+   * * When switching between multiple layouts in a template, only users not in the blacklist are considered.
+   */
   layoutSpecifiedUsersShrink?: string;
+  /**
+   * @remarks
+   * The pane settings. You can configure up to 16 panes.
+   */
   panes?: UpdateStreamingOutShrinkRequestPanes[];
+  /**
+   * @remarks
+   * The global region background color.
+   */
   regionColor?: UpdateStreamingOutShrinkRequestRegionColor;
+  /**
+   * @remarks
+   * The list of specified users for audio mixing.
+   */
   specMixedUserList?: string[];
   /**
    * @remarks
+   * The ID of the bypass live streaming task. Only a single ID is supported. The ID can contain uppercase and lowercase letters, digits, underscores (_), and hyphens (-), and can be up to 55 bytes in length.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1182,12 +1599,19 @@ export class UpdateStreamingOutShrinkRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
+   * The template ID.
+   * >Notice: When you update the template ID, you can only update the layout. The resolution cannot be updated.
+   * 
    * This parameter is required.
    * 
    * @example
    * 567
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The global text watermark.
+   */
   texts?: UpdateStreamingOutShrinkRequestTexts[];
   static names(): { [key: string]: string } {
     return {

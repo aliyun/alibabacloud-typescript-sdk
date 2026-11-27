@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyAppLayoutRequestLayoutPanes extends $dara.Model {
   /**
+   * @remarks
+   * Pane height, normalized percentage. Height ranges from 0.0\<Height≤1.0.
+   * 
    * @example
    * 0.25
    */
   height?: number;
   /**
+   * @remarks
+   * Pane ID, starting from 0.
+   * 
    * @example
    * 0
    */
   paneId?: number;
   /**
+   * @remarks
+   * Pane width, normalized percentage. Width ranges from 0.0\<Width≤1.0.
+   * 
    * @example
    * 0.25
    */
   width?: number;
   /**
+   * @remarks
+   * X coordinate, normalized percentage. The X coordinate ranges from 0.0 to 1.0.
+   * 
    * @example
    * 0.25
    */
   x?: number;
   /**
+   * @remarks
+   * Y coordinate, normalized percentage. The Y coordinate ranges from 0.0 to 1.0.
+   * 
    * @example
    * 0.25
    */
   y?: number;
   /**
+   * @remarks
+   * Stacking order. 0 is the bottom layer, 1 is above 0, and so on.
+   * 
    * @example
    * 0
    */
@@ -67,6 +85,8 @@ export class ModifyAppLayoutRequestLayoutPanes extends $dara.Model {
 export class ModifyAppLayoutRequestLayout extends $dara.Model {
   /**
    * @remarks
+   * Layout ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -75,12 +95,18 @@ export class ModifyAppLayoutRequestLayout extends $dara.Model {
   layoutId?: string;
   /**
    * @remarks
+   * Layout name.
+   * 
    * This parameter is required.
    * 
    * @example
    * 测试
    */
   name?: string;
+  /**
+   * @remarks
+   * List of panes.
+   */
   panes?: ModifyAppLayoutRequestLayoutPanes[];
   static names(): { [key: string]: string } {
     return {
@@ -113,6 +139,8 @@ export class ModifyAppLayoutRequestLayout extends $dara.Model {
 export class ModifyAppLayoutRequest extends $dara.Model {
   /**
    * @remarks
+   * Application ID. Create and query through the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -120,12 +148,17 @@ export class ModifyAppLayoutRequest extends $dara.Model {
    */
   appId?: string;
   /**
+   * @remarks
+   * Idempotent parameter.
+   * 
    * @example
    * 53200b81-b761-4c10-842a-a0726d97xxxx
    */
   clientToken?: string;
   /**
    * @remarks
+   * Layout.
+   * 
    * This parameter is required.
    */
   layout?: ModifyAppLayoutRequestLayout;

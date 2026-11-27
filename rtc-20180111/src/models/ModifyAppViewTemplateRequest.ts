@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAppViewTemplateRequestTemplate extends $dara.Model {
   /**
    * @remarks
+   * List of layout IDs. Maximum of 16 IDs.
+   * 
    * This parameter is required.
    */
   layoutIds?: string[];
   /**
    * @remarks
+   * Encoding option.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,14 +22,18 @@ export class ModifyAppViewTemplateRequestTemplate extends $dara.Model {
   mediaEncode?: number;
   /**
    * @remarks
+   * Template name.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 模版
+   * 模板
    */
   name?: string;
   /**
    * @remarks
+   * Template ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -65,6 +73,8 @@ export class ModifyAppViewTemplateRequestTemplate extends $dara.Model {
 export class ModifyAppViewTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * Application ID. Create and view it in the console. Only one ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -73,6 +83,8 @@ export class ModifyAppViewTemplateRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The template.
+   * 
    * This parameter is required.
    */
   template?: ModifyAppViewTemplateRequestTemplate;

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartCloudRecordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * requestId
+   * The request ID.
    * 
    * @example
    * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
@@ -13,7 +13,7 @@ export class StartCloudRecordResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * taskId
+   * The task ID of the current cloud recording.
    * 
    * @example
    * 123

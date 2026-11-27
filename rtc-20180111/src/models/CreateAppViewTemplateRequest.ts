@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAppViewTemplateRequestTemplate extends $dara.Model {
   /**
    * @remarks
+   * The list of layout IDs. A maximum of 16 layout IDs are supported.
+   * 
    * This parameter is required.
    */
   layoutIds?: string[];
   /**
    * @remarks
+   * The encoding options.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,10 +22,12 @@ export class CreateAppViewTemplateRequestTemplate extends $dara.Model {
   mediaEncode?: number;
   /**
    * @remarks
+   * The template name.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 模版
+   * Template
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -55,6 +61,8 @@ export class CreateAppViewTemplateRequestTemplate extends $dara.Model {
 export class CreateAppViewTemplateRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query it in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -63,6 +71,8 @@ export class CreateAppViewTemplateRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The template.
+   * 
    * This parameter is required.
    */
   template?: CreateAppViewTemplateRequestTemplate;

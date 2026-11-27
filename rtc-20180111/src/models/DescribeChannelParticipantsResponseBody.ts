@@ -30,21 +30,33 @@ export class DescribeChannelParticipantsResponseBodyUserList extends $dara.Model
 
 export class DescribeChannelParticipantsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 6159ba01-6687-4fb2-a831-f0cd8d188648
    */
   requestId?: string;
   /**
+   * @remarks
+   * The time when the result is returned. The value is a UNIX timestamp in seconds.
+   * 
    * @example
    * 1557909133
    */
   timestamp?: number;
   /**
+   * @remarks
+   * The total number of results returned.
+   * 
    * @example
    * 3
    */
   totalNum?: number;
   /**
+   * @remarks
+   * The total number of pages returned.
+   * 
    * @example
    * 1
    */

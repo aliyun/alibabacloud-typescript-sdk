@@ -4,22 +4,38 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAppViewTemplatesResponseBodyTemplates extends $dara.Model {
   /**
+   * @remarks
+   * Creation time. Format: yyyy-MM-ddTHH:mm:ssZ (UTC).
+   * 
    * @example
    * 2020-09-04T06:22:15Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * List of layout IDs
+   */
   layoutIds?: string[];
   /**
+   * @remarks
+   * Encoding option
+   * 
    * @example
    * 1
    */
   mediaEncode?: number;
   /**
+   * @remarks
+   * Template name
+   * 
    * @example
-   * 模版名称
+   * 模板名称
    */
   name?: string;
   /**
+   * @remarks
+   * Template ID
+   * 
    * @example
    * Bj6D****
    */
@@ -59,19 +75,29 @@ export class DescribeAppViewTemplatesResponseBodyTemplates extends $dara.Model {
 export class DescribeAppViewTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * Request ID
    * 
    * @example
    * B0A2FCBC-43A4-428F-BC1D-3F4F85837F76
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Template list
+   */
   templates?: DescribeAppViewTemplatesResponseBodyTemplates[];
   /**
+   * @remarks
+   * Total number of records
+   * 
    * @example
    * 10
    */
   totalNum?: number;
   /**
+   * @remarks
+   * Total number of pages
+   * 
    * @example
    * 1
    */

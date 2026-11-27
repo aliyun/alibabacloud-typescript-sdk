@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAppStreamingOutTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query the ID in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,7 +15,12 @@ export class CreateAppStreamingOutTemplateShrinkRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The template.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * ac7N****
    */
   streamingOutTemplateShrink?: string;
   static names(): { [key: string]: string } {

@@ -14,30 +14,49 @@ export class DescribeCloudNotesRequest extends $dara.Model {
    */
   appId?: string;
   /**
+   * @remarks
+   * Channel ID.
+   * 
    * @example
    * 311
    */
   channelId?: string;
   /**
+   * @remarks
+   * Query range, closed interval of job start time, in milliseconds.
+   * 
    * @example
    * 1712376532000
    */
   endTs?: number;
   /**
+   * @remarks
+   * Page number.
+   * 
    * @example
    * 1
    */
   pageNo?: number;
   /**
+   * @remarks
+   * Number of items per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Query range, open interval of job start time, in milliseconds. If not specified, defaults to querying recordings from the last 3 days, with a maximum range of one year in the past.
+   * 
    * @example
    * 1712376032000
    */
   startTs?: number;
+  /**
+   * @remarks
+   * List of job TaskIds.
+   */
   taskIds?: string[];
   static names(): { [key: string]: string } {
     return {

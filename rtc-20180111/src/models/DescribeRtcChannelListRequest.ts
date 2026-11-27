@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeRtcChannelListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The application ID. You can create and query the ID in the console. Only a single ID is supported.
+   * 
    * @example
    * aoe****
    */
   appId?: string;
   /**
+   * @remarks
+   * The channel ID. Only a single ID is supported.
+   * 
    * @example
    * testChannel
    */
@@ -16,6 +22,8 @@ export class DescribeRtcChannelListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * The page number. Valid values: greater than **0**. Default value: 1.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -24,6 +32,8 @@ export class DescribeRtcChannelListRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
+   * The number of entries per page. Valid values: greater than **0**. Default value: 10.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -31,17 +41,29 @@ export class DescribeRtcChannelListRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The service area. By default, all areas are queried. Valid values:
+   * 
+   * - **cn**: China.
+   * 
+   * - **us**: United States.
+   * 
    * @example
    * cn
    */
   serviceArea?: string;
   /**
+   * @remarks
+   * The sort order. By default, the records are sorted in descending order of StartTime.
+   * 
    * @example
    * desc
    */
   sortType?: string;
   /**
    * @remarks
+   * The query time in UTC. The format is yyyy-MM-ddTHH:mm:ssZ. The time granularity is one day.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -49,6 +71,9 @@ export class DescribeRtcChannelListRequest extends $dara.Model {
    */
   timePoint?: string;
   /**
+   * @remarks
+   * The user ID. Only a single ID is supported.
+   * 
    * @example
    * testUser
    */

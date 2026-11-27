@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeFaultDiagnosisOverallDataResponseBodyMetricDataNodes extends $dara.Model {
+  /**
+   * @remarks
+   * The extended properties, where ratio indicates the proportion of abnormal users per unit time and totalCount indicates the total number of users per unit time.
+   */
   ext?: { [key: string]: any };
   /**
+   * @remarks
+   * The x-axis coordinate in the metric trends chart. The unit of time is 1 minute.
+   * 
    * @example
    * 1615824000
    */
   x?: string;
   /**
+   * @remarks
+   * The y-axis coordinate in the metric trends chart.
+   * 
    * @example
    * 1
    */
@@ -43,6 +53,10 @@ export class DescribeFaultDiagnosisOverallDataResponseBodyMetricDataNodes extend
 }
 
 export class DescribeFaultDiagnosisOverallDataResponseBodyMetricData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of coordinate points for the metric trends chart.
+   */
   nodes?: DescribeFaultDiagnosisOverallDataResponseBodyMetricDataNodes[];
   static names(): { [key: string]: string } {
     return {
@@ -70,16 +84,25 @@ export class DescribeFaultDiagnosisOverallDataResponseBodyMetricData extends $da
 
 export class DescribeFaultDiagnosisOverallDataResponseBodyOverallData extends $dara.Model {
   /**
+   * @remarks
+   * The number of abnormal user visits or abnormal users.
+   * 
    * @example
    * 20
    */
   faultUserCount?: number;
   /**
+   * @remarks
+   * The total proportion of abnormal users.
+   * 
    * @example
-   * 0.1
+   * 0.5
    */
   faultUserRatio?: number;
   /**
+   * @remarks
+   * The total number of user visits or total users.
+   * 
    * @example
    * 40
    */
@@ -110,9 +133,20 @@ export class DescribeFaultDiagnosisOverallDataResponseBodyOverallData extends $d
 }
 
 export class DescribeFaultDiagnosisOverallDataResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The exception metric data.
+   */
   metricData?: DescribeFaultDiagnosisOverallDataResponseBodyMetricData;
+  /**
+   * @remarks
+   * The list of overview data for exception diagnostics.
+   */
   overallData?: DescribeFaultDiagnosisOverallDataResponseBodyOverallData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
    */

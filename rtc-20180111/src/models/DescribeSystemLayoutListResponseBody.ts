@@ -157,16 +157,25 @@ export class DescribeSystemLayoutListResponseBodyLayouts extends $dara.Model {
 export class DescribeSystemLayoutListResponseBody extends $dara.Model {
   layouts?: DescribeSystemLayoutListResponseBodyLayouts;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 16A96B9A-F203-4EC5-8E43-CB92E68F4CD8
    */
   requestId?: string;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 6
    */
   totalNum?: number;
   /**
+   * @remarks
+   * Total number of pages.
+   * 
    * @example
    * 2
    */

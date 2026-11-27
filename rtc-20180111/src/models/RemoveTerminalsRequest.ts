@@ -5,6 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveTerminalsRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. Only one ID is supported.
+   * 
+   * You can create and query application IDs in the console.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +17,8 @@ export class RemoveTerminalsRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The ID of the channel that the user has joined. Only one ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,6 +28,8 @@ export class RemoveTerminalsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
+   * A list of user IDs.
+   * 
    * This parameter is required.
    * 
    * @example

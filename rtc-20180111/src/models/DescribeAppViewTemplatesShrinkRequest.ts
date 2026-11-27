@@ -5,19 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAppViewTemplatesShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Application ID. Create and view it in the console. You can specify only one ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * ioeh****
    */
   appId?: string;
+  /**
+   * @remarks
+   * Search condition.
+   */
   conditionShrink?: string;
   /**
+   * @remarks
+   * Page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * Number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */

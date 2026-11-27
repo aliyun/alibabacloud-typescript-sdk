@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeChannelResponseBodyChannel extends $dara.Model {
   /**
+   * @remarks
+   * channel ID.
+   * 
    * @example
    * testid
    */
   channelId?: string;
   /**
+   * @remarks
+   * The UNIX timestamp (in seconds) indicating when the channel started (UTC).
+   * 
    * @example
    * 1557909133
    */
@@ -42,8 +48,17 @@ export class DescribeChannelResponseBody extends $dara.Model {
    * channel
    */
   channel?: DescribeChannelResponseBodyChannel;
+  /**
+   * @remarks
+   * Indicates whether the channel exists. Valid values:  
+   * - **true**: The channel exists.  
+   * - **false**: The channel does not exist.
+   */
   channelExist?: boolean;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * 16A96B9A-F203-4EC5-8E43-CB92E68F4CF8
    */

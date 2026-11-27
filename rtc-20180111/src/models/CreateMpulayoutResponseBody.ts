@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateMPULayoutResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The layout ID.
+   * 
    * @example
    * 2
    */
   layoutId?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 760bad53276431c499e30dc36f6b26be
    */

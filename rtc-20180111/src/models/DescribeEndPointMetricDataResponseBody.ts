@@ -3,13 +3,23 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeEndPointMetricDataResponseBodyPubMetricsNodes extends $dara.Model {
+  /**
+   * @remarks
+   * The extended properties.
+   */
   ext?: { [key: string]: any };
   /**
+   * @remarks
+   * The x-axis coordinate in the publisher metric trends chart.
+   * 
    * @example
    * 1548670257
    */
   x?: string;
   /**
+   * @remarks
+   * The y-axis coordinate in the publisher metric trends chart.
+   * 
    * @example
    * 230100
    */
@@ -43,13 +53,23 @@ export class DescribeEndPointMetricDataResponseBodyPubMetricsNodes extends $dara
 }
 
 export class DescribeEndPointMetricDataResponseBodyPubMetrics extends $dara.Model {
+  /**
+   * @remarks
+   * The list of coordinate points.
+   */
   nodes?: DescribeEndPointMetricDataResponseBodyPubMetricsNodes[];
   /**
+   * @remarks
+   * The metric type corresponding to the Metrics request parameter.
+   * 
    * @example
    * VIDEO_STUCK_CAMERA
    */
   type?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * testuserid
    */
@@ -83,13 +103,23 @@ export class DescribeEndPointMetricDataResponseBodyPubMetrics extends $dara.Mode
 }
 
 export class DescribeEndPointMetricDataResponseBodySubMetricsNodes extends $dara.Model {
+  /**
+   * @remarks
+   * The extended properties.
+   */
   ext?: { [key: string]: any };
   /**
+   * @remarks
+   * The x-axis coordinate in the subscriber metric trends chart.
+   * 
    * @example
    * 1548670257
    */
   x?: string;
   /**
+   * @remarks
+   * The y-axis coordinate in the subscriber metric trends chart.
+   * 
    * @example
    * 230100
    */
@@ -123,13 +153,23 @@ export class DescribeEndPointMetricDataResponseBodySubMetricsNodes extends $dara
 }
 
 export class DescribeEndPointMetricDataResponseBodySubMetrics extends $dara.Model {
+  /**
+   * @remarks
+   * The list of coordinate points for the subscriber metric trends chart.
+   */
   nodes?: DescribeEndPointMetricDataResponseBodySubMetricsNodes[];
   /**
+   * @remarks
+   * The metric type corresponding to the Metrics request parameter.
+   * 
    * @example
    * VIDEO_STUCK_CAMERA
    */
   type?: string;
   /**
+   * @remarks
+   * The user ID.
+   * 
    * @example
    * testuserid
    */
@@ -163,12 +203,23 @@ export class DescribeEndPointMetricDataResponseBodySubMetrics extends $dara.Mode
 }
 
 export class DescribeEndPointMetricDataResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The metric data of the publisher.
+   */
   pubMetrics?: DescribeEndPointMetricDataResponseBodyPubMetrics[];
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 231470C1-ACFB-4C9F-844F-4CFE1E3804C5
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The metric data of the subscriber.
+   */
   subMetrics?: DescribeEndPointMetricDataResponseBodySubMetrics[];
   static names(): { [key: string]: string } {
     return {

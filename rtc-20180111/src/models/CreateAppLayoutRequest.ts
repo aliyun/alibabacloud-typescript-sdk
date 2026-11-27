@@ -4,31 +4,49 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateAppLayoutRequestLayoutPanes extends $dara.Model {
   /**
+   * @remarks
+   * The height of the pane, represented as a normalized percentage. Valid values: 0.0 < Height ≤ 1.0.
+   * 
    * @example
    * 0.25
    */
   height?: number;
   /**
+   * @remarks
+   * The ID of the pane. The value starts from 0.
+   * 
    * @example
    * 0
    */
   paneId?: number;
   /**
+   * @remarks
+   * The width of the pane, represented as a normalized percentage. Valid values: 0.0 < Width ≤ 1.0.
+   * 
    * @example
    * 0.25
    */
   width?: number;
   /**
+   * @remarks
+   * The X coordinate, represented as a normalized percentage. Valid values: 0.0 ≤ X ≤ 1.0.
+   * 
    * @example
    * 0.25
    */
   x?: number;
   /**
+   * @remarks
+   * The Y coordinate, represented as a normalized percentage. Valid values: 0.0 ≤ Y ≤ 1.0.
+   * 
    * @example
    * 0.25
    */
   y?: number;
   /**
+   * @remarks
+   * The Z-order of the pane. A value of 0 indicates the bottom layer, 1 indicates the layer above 0, and so on.
+   * 
    * @example
    * 0
    */
@@ -67,14 +85,18 @@ export class CreateAppLayoutRequestLayoutPanes extends $dara.Model {
 export class CreateAppLayoutRequestLayout extends $dara.Model {
   /**
    * @remarks
+   * The name of the layout.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 布局
+   * Layout
    */
   name?: string;
   /**
    * @remarks
+   * The list of panes.
+   * 
    * This parameter is required.
    */
   panes?: CreateAppLayoutRequestLayoutPanes[];
@@ -107,6 +129,8 @@ export class CreateAppLayoutRequestLayout extends $dara.Model {
 export class CreateAppLayoutRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query the ID in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -114,12 +138,17 @@ export class CreateAppLayoutRequest extends $dara.Model {
    */
   appId?: string;
   /**
+   * @remarks
+   * The client token.
+   * 
    * @example
    * 53200b81-b761-4c10-842a-a0726d97xxxx
    */
   clientToken?: string;
   /**
    * @remarks
+   * The layout.
+   * 
    * This parameter is required.
    */
   layout?: CreateAppLayoutRequestLayout;

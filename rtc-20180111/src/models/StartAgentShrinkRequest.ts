@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StartAgentShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query the ID in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class StartAgentShrinkRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The ID of the channel to join. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,11 +25,18 @@ export class StartAgentShrinkRequest extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
+   * The configuration for the agent to join a Real-Time Communication (RTC) channel.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * 2
    */
   rtcConfigShrink?: string;
   /**
    * @remarks
+   * The task ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -34,12 +45,18 @@ export class StartAgentShrinkRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
+   * The template ID.
+   * 
    * This parameter is required.
    * 
    * @example
    * 76dasgb****
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The configuration for AI voice chat.
+   */
   voiceChatConfigShrink?: string;
   static names(): { [key: string]: string } {
     return {

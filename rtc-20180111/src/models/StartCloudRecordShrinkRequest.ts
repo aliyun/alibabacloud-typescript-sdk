@@ -4,17 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class StartCloudRecordShrinkRequestBackgrounds extends $dara.Model {
   /**
+   * @remarks
+   * The transparency of the image.
+   * 
    * @example
    * 0.9
    */
   alpha?: number;
   /**
+   * @remarks
+   * The crop mode of the image. Valid values:
+   * - **1**: Crops the image while maintaining the aspect ratio.
+   * - **2**: Maintains the aspect ratio and adds borders.
+   * - **3**: Stretches the image to fill the pane.
+   * 
    * @example
    * 2
    */
   backgroundCropMode?: number;
   /**
    * @remarks
+   * The height.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,12 +33,17 @@ export class StartCloudRecordShrinkRequestBackgrounds extends $dara.Model {
    */
   height?: number;
   /**
+   * @remarks
+   * The z-axis layer.
+   * 
    * @example
    * 0
    */
   layer?: number;
   /**
    * @remarks
+   * The URL of the image.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -36,6 +52,8 @@ export class StartCloudRecordShrinkRequestBackgrounds extends $dara.Model {
   url?: string;
   /**
    * @remarks
+   * The width.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -44,6 +62,8 @@ export class StartCloudRecordShrinkRequestBackgrounds extends $dara.Model {
   width?: number;
   /**
    * @remarks
+   * The x-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -52,6 +72,8 @@ export class StartCloudRecordShrinkRequestBackgrounds extends $dara.Model {
   x?: number;
   /**
    * @remarks
+   * The y-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -95,16 +117,25 @@ export class StartCloudRecordShrinkRequestBackgrounds extends $dara.Model {
 
 export class StartCloudRecordShrinkRequestBgColor extends $dara.Model {
   /**
+   * @remarks
+   * The blue component.
+   * 
    * @example
    * 255
    */
   b?: number;
   /**
+   * @remarks
+   * The green component.
+   * 
    * @example
    * 255
    */
   g?: number;
   /**
+   * @remarks
+   * The red component.
+   * 
    * @example
    * 255
    */
@@ -136,16 +167,25 @@ export class StartCloudRecordShrinkRequestBgColor extends $dara.Model {
 
 export class StartCloudRecordShrinkRequestClockWidgetsBoxColor extends $dara.Model {
   /**
+   * @remarks
+   * The blue component.
+   * 
    * @example
    * 255
    */
   b?: number;
   /**
+   * @remarks
+   * The green component.
+   * 
    * @example
    * 255
    */
   g?: number;
   /**
+   * @remarks
+   * The red component.
+   * 
    * @example
    * 255
    */
@@ -177,16 +217,25 @@ export class StartCloudRecordShrinkRequestClockWidgetsBoxColor extends $dara.Mod
 
 export class StartCloudRecordShrinkRequestClockWidgetsFontColor extends $dara.Model {
   /**
+   * @remarks
+   * The blue component.
+   * 
    * @example
    * 255
    */
   b?: number;
   /**
+   * @remarks
+   * The green component.
+   * 
    * @example
    * 255
    */
   g?: number;
   /**
+   * @remarks
+   * The red component.
+   * 
    * @example
    * 255
    */
@@ -218,40 +267,82 @@ export class StartCloudRecordShrinkRequestClockWidgetsFontColor extends $dara.Mo
 
 export class StartCloudRecordShrinkRequestClockWidgets extends $dara.Model {
   /**
+   * @remarks
+   * The transparency of the image.
+   * 
    * @example
    * 0.9
    */
   alpha?: number;
   /**
+   * @remarks
+   * The transparency of the text box.
+   * 
    * @example
    * 0.6
    */
   boxAlpha?: number;
   /**
+   * @remarks
+   * The border width of the text box.
+   * 
    * @example
    * 5
    */
   boxBorderw?: number;
+  /**
+   * @remarks
+   * The color of the text box.
+   */
   boxColor?: StartCloudRecordShrinkRequestClockWidgetsBoxColor;
   /**
+   * @remarks
+   * The font. Valid values:
+   * - **0**: Alibaba PuHuiTi Regular
+   * - **1**: Alibaba PuHuiTi Light
+   * - **2**: Alibaba PuHuiTi Medium
+   * - **3**: Alibaba PuHuiTi Bold
+   * - **4**: Alibaba PuHuiTi Heavy
+   * - **5**: Alimama ShuHeiTi
+   * - **6**: DingTalk JinBuTi
+   * - **7**: Alimama DaoLiTi
+   * - **8**: Alimama DongFangDaKai
+   * - **9**: Alimama FangYuanTi
+   * 
    * @example
    * 0
    */
   font?: number;
+  /**
+   * @remarks
+   * The font color.
+   */
   fontColor?: StartCloudRecordShrinkRequestClockWidgetsFontColor;
   /**
+   * @remarks
+   * The font size of the clock.
+   * 
    * @example
    * 30
    */
   fontSize?: number;
+  /**
+   * @remarks
+   * Specifies whether to display a text box.
+   */
   hasBox?: boolean;
   /**
+   * @remarks
+   * The z-axis layer.
+   * 
    * @example
    * 0
    */
   layer?: number;
   /**
    * @remarks
+   * The x-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -260,6 +351,8 @@ export class StartCloudRecordShrinkRequestClockWidgets extends $dara.Model {
   x?: number;
   /**
    * @remarks
+   * The y-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -267,6 +360,9 @@ export class StartCloudRecordShrinkRequestClockWidgets extends $dara.Model {
    */
   y?: number;
   /**
+   * @remarks
+   * The time zone.
+   * 
    * @example
    * 8
    */
@@ -322,12 +418,17 @@ export class StartCloudRecordShrinkRequestClockWidgets extends $dara.Model {
 
 export class StartCloudRecordShrinkRequestImages extends $dara.Model {
   /**
+   * @remarks
+   * The transparency of the image.
+   * 
    * @example
    * 0.9
    */
   alpha?: number;
   /**
    * @remarks
+   * The height.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -335,17 +436,28 @@ export class StartCloudRecordShrinkRequestImages extends $dara.Model {
    */
   height?: number;
   /**
+   * @remarks
+   * The crop mode of the image. Valid values:
+   * - **1**: Crops the image while maintaining the aspect ratio.
+   * - **2**: Maintains the aspect ratio and adds borders.
+   * - **3**: Stretches the image to fill the pane.
+   * 
    * @example
    * 2
    */
   imageCropMode?: number;
   /**
+   * @remarks
+   * The z-axis layer.
+   * 
    * @example
    * 0
    */
   layer?: number;
   /**
    * @remarks
+   * The image URL. The image content cannot be updated during stream ingest.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -354,6 +466,8 @@ export class StartCloudRecordShrinkRequestImages extends $dara.Model {
   url?: string;
   /**
    * @remarks
+   * The width.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -362,6 +476,8 @@ export class StartCloudRecordShrinkRequestImages extends $dara.Model {
   width?: number;
   /**
    * @remarks
+   * The x-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -370,6 +486,8 @@ export class StartCloudRecordShrinkRequestImages extends $dara.Model {
   x?: number;
   /**
    * @remarks
+   * The y-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -413,17 +531,28 @@ export class StartCloudRecordShrinkRequestImages extends $dara.Model {
 
 export class StartCloudRecordShrinkRequestPanesBackgrounds extends $dara.Model {
   /**
+   * @remarks
+   * The transparency of the image.
+   * 
    * @example
    * 0.9
    */
   alpha?: number;
   /**
+   * @remarks
+   * The condition for displaying the background image. Valid values:
+   * - streamOnly: The background image is displayed when the current user has a video stream. This is the default value.
+   * - backup: The background image is displayed when the current user does not have a video stream.
+   * - always: The background image is always displayed.
+   * 
    * @example
    * backup
    */
   display?: string;
   /**
    * @remarks
+   * The height.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -431,17 +560,28 @@ export class StartCloudRecordShrinkRequestPanesBackgrounds extends $dara.Model {
    */
   height?: number;
   /**
+   * @remarks
+   * The z-axis layer.
+   * 
    * @example
    * 0
    */
   layer?: number;
   /**
+   * @remarks
+   * The crop mode of the image. Valid values:
+   * - **1**: Crops the image while maintaining the aspect ratio.
+   * - **2**: Maintains the aspect ratio and adds borders.
+   * - **3**: Stretches the image to fill the pane.
+   * 
    * @example
    * 2
    */
   paneBackgroundCropMode?: number;
   /**
    * @remarks
+   * The URL of the image.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -450,14 +590,18 @@ export class StartCloudRecordShrinkRequestPanesBackgrounds extends $dara.Model {
   url?: string;
   /**
    * @remarks
+   * The width.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 0.2
+   * 0.3
    */
   width?: number;
   /**
    * @remarks
+   * The x-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -466,6 +610,8 @@ export class StartCloudRecordShrinkRequestPanesBackgrounds extends $dara.Model {
   x?: number;
   /**
    * @remarks
+   * The y-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -511,17 +657,28 @@ export class StartCloudRecordShrinkRequestPanesBackgrounds extends $dara.Model {
 
 export class StartCloudRecordShrinkRequestPanesImages extends $dara.Model {
   /**
+   * @remarks
+   * The transparency of the image.
+   * 
    * @example
    * 0.9
    */
   alpha?: number;
   /**
+   * @remarks
+   * The condition for displaying the watermark. Valid values:
+   * - streamOnly: The watermark is displayed when the current user has a video stream. This is the default value.
+   * - backup: The watermark is displayed when the current user does not have a video stream.
+   * - always: The watermark is always displayed.
+   * 
    * @example
    * backup
    */
   display?: string;
   /**
    * @remarks
+   * The height.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -529,17 +686,28 @@ export class StartCloudRecordShrinkRequestPanesImages extends $dara.Model {
    */
   height?: number;
   /**
+   * @remarks
+   * The z-axis layer.
+   * 
    * @example
    * 0
    */
   layer?: number;
   /**
+   * @remarks
+   * The crop mode of the image. Valid values:
+   * - **1**: Crops the image while maintaining the aspect ratio.
+   * - **2**: Maintains the aspect ratio and adds borders.
+   * - **3**: Stretches the image to fill the pane.
+   * 
    * @example
    * 2
    */
   paneImageCropMode?: number;
   /**
    * @remarks
+   * The URL of the image. The image content cannot be updated during stream ingest.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -548,6 +716,8 @@ export class StartCloudRecordShrinkRequestPanesImages extends $dara.Model {
   url?: string;
   /**
    * @remarks
+   * The width.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -556,6 +726,8 @@ export class StartCloudRecordShrinkRequestPanesImages extends $dara.Model {
   width?: number;
   /**
    * @remarks
+   * The x-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -564,6 +736,8 @@ export class StartCloudRecordShrinkRequestPanesImages extends $dara.Model {
   x?: number;
   /**
    * @remarks
+   * The y-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -609,16 +783,25 @@ export class StartCloudRecordShrinkRequestPanesImages extends $dara.Model {
 
 export class StartCloudRecordShrinkRequestPanesTextsBoxColor extends $dara.Model {
   /**
+   * @remarks
+   * The blue component.
+   * 
    * @example
    * 255
    */
   b?: number;
   /**
+   * @remarks
+   * The green component.
+   * 
    * @example
    * 255
    */
   g?: number;
   /**
+   * @remarks
+   * The red component.
+   * 
    * @example
    * 255
    */
@@ -650,16 +833,25 @@ export class StartCloudRecordShrinkRequestPanesTextsBoxColor extends $dara.Model
 
 export class StartCloudRecordShrinkRequestPanesTextsFontColor extends $dara.Model {
   /**
+   * @remarks
+   * The blue component.
+   * 
    * @example
    * 255
    */
   b?: number;
   /**
+   * @remarks
+   * The green component.
+   * 
    * @example
    * 255
    */
   g?: number;
   /**
+   * @remarks
+   * The red component.
+   * 
    * @example
    * 255
    */
@@ -691,53 +883,103 @@ export class StartCloudRecordShrinkRequestPanesTextsFontColor extends $dara.Mode
 
 export class StartCloudRecordShrinkRequestPanesTexts extends $dara.Model {
   /**
+   * @remarks
+   * The transparency of the watermark.
+   * 
    * @example
    * 0.9
    */
   alpha?: number;
   /**
+   * @remarks
+   * The transparency of the text box.
+   * 
    * @example
    * 0.6
    */
   boxAlpha?: number;
   /**
+   * @remarks
+   * The border width of the text box.
+   * 
    * @example
    * 5
    */
   boxBorderw?: number;
+  /**
+   * @remarks
+   * The color of the text box.
+   */
   boxColor?: StartCloudRecordShrinkRequestPanesTextsBoxColor;
   /**
+   * @remarks
+   * The condition for displaying the watermark. Valid values:
+   * - streamOnly: The watermark is displayed when the current user has a video stream. This is the default value.
+   * - backup: The watermark is displayed when the current user does not have a video stream.
+   * - always: The watermark is always displayed.
+   * 
    * @example
    * backup
    */
   display?: string;
   /**
+   * @remarks
+   * The font. Valid values:
+   * - **0**: Alibaba PuHuiTi Regular
+   * - **1**: Alibaba PuHuiTi Light
+   * - **2**: Alibaba PuHuiTi Medium
+   * - **3**: Alibaba PuHuiTi Bold
+   * - **4**: Alibaba PuHuiTi Heavy
+   * - **5**: Alimama ShuHeiTi
+   * - **6**: DingTalk JinBuTi
+   * - **7**: Alimama DaoLiTi
+   * - **8**: Alimama DongFangDaKai
+   * - **9**: Alimama FangYuanTi
+   * 
    * @example
    * 0
    */
   font?: number;
+  /**
+   * @remarks
+   * The font color.
+   */
   fontColor?: StartCloudRecordShrinkRequestPanesTextsFontColor;
   /**
+   * @remarks
+   * The font size.
+   * 
    * @example
    * 36
    */
   fontSize?: number;
+  /**
+   * @remarks
+   * Specifies whether to display a text box.
+   */
   hasBox?: boolean;
   /**
+   * @remarks
+   * The z-axis layer.
+   * 
    * @example
    * 0
    */
   layer?: number;
   /**
    * @remarks
+   * The content of the watermark.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 文字水印
+   * Text watermark
    */
   texture?: string;
   /**
    * @remarks
+   * The x-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -746,6 +988,8 @@ export class StartCloudRecordShrinkRequestPanesTexts extends $dara.Model {
   x?: number;
   /**
    * @remarks
+   * The y-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -805,6 +1049,9 @@ export class StartCloudRecordShrinkRequestPanesTexts extends $dara.Model {
 
 export class StartCloudRecordShrinkRequestPanesWhiteboard extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the whiteboard. Default value: default.
+   * 
    * @example
    * default
    */
@@ -831,16 +1078,30 @@ export class StartCloudRecordShrinkRequestPanesWhiteboard extends $dara.Model {
 }
 
 export class StartCloudRecordShrinkRequestPanes extends $dara.Model {
+  /**
+   * @remarks
+   * The local background images for the pane.
+   */
   backgrounds?: StartCloudRecordShrinkRequestPanesBackgrounds[];
+  /**
+   * @remarks
+   * The local image watermarks for the pane.
+   */
   images?: StartCloudRecordShrinkRequestPanesImages[];
   /**
+   * @remarks
+   * The crop mode of the image. Valid values:
+   * - **1**: Crops the image while maintaining the aspect ratio.
+   * - **2**: Maintains the aspect ratio and adds borders.
+   * - **3**: Stretches the image to fill the pane.
+   * 
    * @example
    * 3
    */
   paneCropMode?: number;
   /**
    * @remarks
-   * paneId
+   * The ID of the pane. The value starts from 0.
    * 
    * This parameter is required.
    * 
@@ -848,26 +1109,53 @@ export class StartCloudRecordShrinkRequestPanes extends $dara.Model {
    * 0
    */
   paneId?: number;
+  /**
+   * @remarks
+   * Specifies whether to reserve the pane as a placeholder for users who have not joined the meeting.
+   * Default value: true. A value of true indicates that if the specific user or wildcard user specified for the pane is offline, the pane is forcibly reserved as a placeholder. A value of false indicates that if the specific user or wildcard user specified for the pane is offline, video streams are displayed based on the automatic fill order.
+   */
   reservePaneForOfflineUser?: boolean;
   /**
    * @remarks
-   * source
+   * The media source of the pane. You can specify a user ID. To specify a specific user type, you can use wildcard configurations. The following wildcard types are supported:
+   * - **$ActiveSpeaker**: the current speaker in the channel.
+   * - **$ScreenShare**: the user who is sharing the screen. If multiple users are sharing their screens in the channel, the panes are filled in chronological order.
+   * 
+   * @example
+   * 22
    */
   source?: string;
   /**
    * @remarks
-   * sourceType
+   * The media type of the pane. Valid values:
+   * - **video**: The user camera or screen sharing stream. This is the default value.
+   * - **camera**: The camera stream.
+   * - **screen**: The screen sharing stream.
+   * - **whiteboard**: The whiteboard.
    * 
    * @example
    * video
    */
   sourceType?: string;
+  /**
+   * @remarks
+   * The local text watermarks for the pane.
+   */
   texts?: StartCloudRecordShrinkRequestPanesTexts[];
   /**
+   * @remarks
+   * The fill order when SourceType is set to video. Valid values:
+   * - screenFirst: Screen sharing takes precedence. This is the default value.
+   * - cameraFirst: The camera takes precedence.
+   * 
    * @example
    * cameraFirst
    */
   videoOrder?: string;
+  /**
+   * @remarks
+   * The whiteboard configurations.
+   */
   whiteboard?: StartCloudRecordShrinkRequestPanesWhiteboard;
   static names(): { [key: string]: string } {
     return {
@@ -922,16 +1210,25 @@ export class StartCloudRecordShrinkRequestPanes extends $dara.Model {
 
 export class StartCloudRecordShrinkRequestRegionColor extends $dara.Model {
   /**
+   * @remarks
+   * The blue component.
+   * 
    * @example
    * 255
    */
   b?: number;
   /**
+   * @remarks
+   * The green component.
+   * 
    * @example
    * 255
    */
   g?: number;
   /**
+   * @remarks
+   * The red component.
+   * 
    * @example
    * 255
    */
@@ -964,7 +1261,7 @@ export class StartCloudRecordShrinkRequestRegionColor extends $dara.Model {
 export class StartCloudRecordShrinkRequestStorageConfig extends $dara.Model {
   /**
    * @remarks
-   * accessKey
+   * The AccessKey. Make sure that the RAM user associated with the AccessKey pair is granted the **write** permissions on the object storage service of the corresponding cloud provider. Otherwise, the result files fail to be written.
    * 
    * This parameter is required.
    * 
@@ -974,7 +1271,7 @@ export class StartCloudRecordShrinkRequestStorageConfig extends $dara.Model {
   accessKey?: string;
   /**
    * @remarks
-   * bucket
+   * The name of the bucket.
    * 
    * This parameter is required.
    * 
@@ -983,13 +1280,60 @@ export class StartCloudRecordShrinkRequestStorageConfig extends $dara.Model {
    */
   bucket?: string;
   /**
+   * @remarks
+   * The private endpoint for Apsara Stack.
+   * 
    * @example
    * https://aliyuns.dalian.oss.com
    */
   endpoint?: string;
   /**
    * @remarks
-   * region
+   * The storage region.
+   * 
+   * | Region | Alibaba Cloud OSS |
+   * |--------|------------|
+   * | 0 | CN_Hangzhou |
+   * | 1 | CN_Shanghai |
+   * | 2 | CN_Qingdao |
+   * | 3 | CN_Beijing |
+   * | 4 | CN_Zhangjiakou |
+   * | 5 | CN_Huhehaote |
+   * | 6 | CN_Shenzhen |
+   * | 7 | CN_Hongkong |
+   * | 8 | US_West_1 |
+   * | 9 | US_East_1 |
+   * | 10 | AP_Southeast_1 |
+   * | 11 | AP_Southeast_2 (Deprecated. Do not use.) |
+   * | 12 | AP_Southeast_3 |
+   * | 13 | AP_Southeast_5 |
+   * | 14 | AP_Northeast_1 |
+   * | 15 | AP_South_1 (Deprecated. Do not use.) |
+   * | 16 | EU_Central_1 |
+   * | 17 | EU_West_1 |
+   * | 18 | EU_East_1(ME_East_1) |
+   * | 19 | AP_Southeast_6 |
+   * | 20 | CN_Heyuan |
+   * | 21 | CN_Guangzhou |
+   * | 22 | CN_Chengdu |
+   * | 23 | CN_Nanjing |
+   * | 24 | CN_Fuzhou |
+   * | 25 | CN_Wulanchabu |
+   * | 26 | CN_Northeast_2 |
+   * | 27 | CN_Southeast_7 |
+   * | 28 | CN_Wuhan_LR |
+   * | 100 | oss-cn-hzjbp |
+   * | 101 | oss-cn-shanghai-finance-1 |
+   * | 102 | oss-cn-shenzhen-finance-1 |
+   * | 103 | oss-cn-beijing-finance-1 |
+   * | 104 | oss-cn-hzfinance |
+   * | 105 | oss-cn-shanghai-finance-1-pub |
+   * | 106 | oss-cn-szfinance |
+   * | 107 | oss-cn-beijing-finance-1-pub |
+   * 
+   * | Region | Apsara Stack OSS |
+   * |--------|------------|
+   * | 0 | default |
    * 
    * This parameter is required.
    * 
@@ -1009,7 +1353,12 @@ export class StartCloudRecordShrinkRequestStorageConfig extends $dara.Model {
   secretKey?: string;
   /**
    * @remarks
-   * vendor
+   * The storage platform. Valid values:
+   * 
+   * | vendor | Object storage service | Remarks |
+   * |--------|---------|---------|
+   * | 1 | AliYun OSS | Alibaba Cloud |
+   * | 2 | Apsara Stack OSS | Alibaba Cloud Apsara Stack |
    * 
    * This parameter is required.
    * 
@@ -1050,16 +1399,25 @@ export class StartCloudRecordShrinkRequestStorageConfig extends $dara.Model {
 
 export class StartCloudRecordShrinkRequestTextsBoxColor extends $dara.Model {
   /**
+   * @remarks
+   * The blue component.
+   * 
    * @example
    * 255
    */
   b?: number;
   /**
+   * @remarks
+   * The green component.
+   * 
    * @example
    * 255
    */
   g?: number;
   /**
+   * @remarks
+   * The red component.
+   * 
    * @example
    * 255
    */
@@ -1091,16 +1449,25 @@ export class StartCloudRecordShrinkRequestTextsBoxColor extends $dara.Model {
 
 export class StartCloudRecordShrinkRequestTextsFontColor extends $dara.Model {
   /**
+   * @remarks
+   * The blue component.
+   * 
    * @example
    * 255
    */
   b?: number;
   /**
+   * @remarks
+   * The green component.
+   * 
    * @example
    * 255
    */
   g?: number;
   /**
+   * @remarks
+   * The red component.
+   * 
    * @example
    * 255
    */
@@ -1132,48 +1499,92 @@ export class StartCloudRecordShrinkRequestTextsFontColor extends $dara.Model {
 
 export class StartCloudRecordShrinkRequestTexts extends $dara.Model {
   /**
+   * @remarks
+   * The transparency of the watermark.
+   * 
    * @example
    * 0.1
    */
   alpha?: number;
   /**
+   * @remarks
+   * The transparency of the text box.
+   * 
    * @example
    * 0.6
    */
   boxAlpha?: number;
   /**
+   * @remarks
+   * The border width of the text box.
+   * 
    * @example
    * 5
    */
   boxBorderw?: number;
+  /**
+   * @remarks
+   * The color of the text box.
+   */
   boxColor?: StartCloudRecordShrinkRequestTextsBoxColor;
   /**
+   * @remarks
+   * The font. Valid values:
+   * - **0**: Alibaba PuHuiTi Regular
+   * - **1**: Alibaba PuHuiTi Light
+   * - **2**: Alibaba PuHuiTi Medium
+   * - **3**: Alibaba PuHuiTi Bold
+   * - **4**: Alibaba PuHuiTi Heavy
+   * - **5**: Alimama ShuHeiTi
+   * - **6**: DingTalk JinBuTi
+   * - **7**: Alimama DaoLiTi
+   * - **8**: Alimama DongFangDaKai
+   * - **9**: Alimama FangYuanTi
+   * 
    * @example
    * 0
    */
   font?: number;
+  /**
+   * @remarks
+   * The font color.
+   */
   fontColor?: StartCloudRecordShrinkRequestTextsFontColor;
   /**
+   * @remarks
+   * The font size.
+   * 
    * @example
    * 36
    */
   fontSize?: number;
+  /**
+   * @remarks
+   * Specifies whether to display a text box.
+   */
   hasBox?: boolean;
   /**
+   * @remarks
+   * The z-axis layer.
+   * 
    * @example
    * 0
    */
   layer?: number;
   /**
    * @remarks
+   * The content of the watermark.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 文字水印
+   * Text watermark
    */
   texture?: string;
   /**
    * @remarks
+   * The x-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1182,6 +1593,8 @@ export class StartCloudRecordShrinkRequestTexts extends $dara.Model {
   x?: number;
   /**
    * @remarks
+   * The y-coordinate.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -1239,13 +1652,16 @@ export class StartCloudRecordShrinkRequestTexts extends $dara.Model {
 
 export class StartCloudRecordShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable the annotation feature.
+   * 
    * @example
    * disable
    */
   annotation?: string;
   /**
    * @remarks
-   * appId
+   * The application ID. You can create and query the ID in the console. Only a single ID is supported.
    * 
    * This parameter is required.
    * 
@@ -1253,11 +1669,19 @@ export class StartCloudRecordShrinkRequest extends $dara.Model {
    * eo85****
    */
   appId?: string;
+  /**
+   * @remarks
+   * The local background images for the pane.
+   */
   backgrounds?: StartCloudRecordShrinkRequestBackgrounds[];
+  /**
+   * @remarks
+   * The global background color.
+   */
   bgColor?: StartCloudRecordShrinkRequestBgColor;
   /**
    * @remarks
-   * channelName
+   * The ID of an existing channel. Only a single ID is supported.
    * 
    * This parameter is required.
    * 
@@ -1265,41 +1689,117 @@ export class StartCloudRecordShrinkRequest extends $dara.Model {
    * testid
    */
   channelId?: string;
+  /**
+   * @remarks
+   * The global clock watermark.
+   */
   clockWidgets?: StartCloudRecordShrinkRequestClockWidgets[];
   /**
+   * @remarks
+   * The crop mode. Valid values:
+   * - **1**: Crops the video while keeping the aspect ratio.
+   * - **2**: Keeps the aspect ratio and adds padding (default).
+   * - **3**: Stretches the video to fill the pane.
+   * 
    * @example
    * 2
    */
   cropMode?: number;
+  /**
+   * @remarks
+   * The global image watermarks.
+   * 
+   * @example
+   * disable
+   */
   images?: StartCloudRecordShrinkRequestImages[];
+  /**
+   * @remarks
+   * The specified user list for layout generation, which includes Blacklist/Whitelist.
+   * 
+   * Whitelist: specifies the users whose video streams are subscribed to in the room.
+   * * After the settings are applied, padding is automatically performed in sequence based on this list.
+   * * When switching between multiple layouts in a template, only users in the whitelist are calculated.
+   * 
+   * Blacklist: specifies the users whose video streams are not subscribed to in the room.
+   * * When switching between multiple layouts in a template, only users not in the blacklist are calculated.
+   */
   layoutSpecifiedUsersShrink?: string;
   /**
    * @remarks
-   * panes
+   * The pane settings. You can configure up to 16 panes.
+   * 
+   * @example
+   * eo85****
    */
   panes?: StartCloudRecordShrinkRequestPanes[];
+  /**
+   * @remarks
+   * The recording mode. Valid values:
+   * - 0: Mixed-stream recording. This is the default value.
+   * - 1: Single-stream recording. Single-stream recording does not support updates.
+   * 
+   * @example
+   * 1
+   */
   recordMode?: number;
+  /**
+   * @remarks
+   * The global frame background color.
+   */
   regionColor?: StartCloudRecordShrinkRequestRegionColor;
+  /**
+   * @remarks
+   * Specifies whether to reserve a pane for a user who does not publish a camera stream. Default value: true. A value of true indicates that a pane is reserved. A value of false indicates that no pane is reserved.
+   */
   reservePaneForNoCameraUser?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to display the default background image of the pane when the user is muted. Valid values:
+   * - true: Displays the default background image (default).
+   * - false: Does not display the default background image. The custom background image of the pane is still displayed.
+   */
   showDefaultBackgroundOnMute?: boolean;
+  /**
+   * @remarks
+   * The parameters for single-stream recording.
+   */
   singleStreamingRecordShrink?: string;
+  /**
+   * @remarks
+   * Specifies whether to allow starting the task when the channel does not exist. Valid values:
+   * - true: Yes.
+   * - false: No (default).
+   */
   startWithoutChannel?: boolean;
   /**
+   * @remarks
+   * The wait time for the task when the channel is not started, in seconds. This parameter takes effect only when the StartWithoutChannel parameter is set to true. Valid values: 30 to 120.
+   * 
    * @example
    * 30
    */
   startWithoutChannelWaitTime?: number;
   /**
    * @remarks
-   * storageConfig
+   * The storage configuration.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * testid
    */
   storageConfig?: StartCloudRecordShrinkRequestStorageConfig;
+  /**
+   * @remarks
+   * Specifies whether to subscribe to high-resolution streams. Valid values:
+   * - false: Subscribes to streams of different resolutions based on the pane area (default).
+   * - true: Uses the highest resolution stream published by the client as padding.
+   */
   subHighResolutionStream?: boolean;
   /**
    * @remarks
-   * taskId
+   * The task ID of the cloud recording task. Only a single ID is supported. The ID can contain letters, digits, underscores (_), and hyphens (-), and can be up to 55 bytes in length.
    * 
    * @example
    * 123
@@ -1307,7 +1807,7 @@ export class StartCloudRecordShrinkRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * templateId
+   * The template ID.
    * 
    * This parameter is required.
    * 
@@ -1315,6 +1815,10 @@ export class StartCloudRecordShrinkRequest extends $dara.Model {
    * 567
    */
   templateId?: string;
+  /**
+   * @remarks
+   * The global text watermarks.
+   */
   texts?: StartCloudRecordShrinkRequestTexts[];
   static names(): { [key: string]: string } {
     return {

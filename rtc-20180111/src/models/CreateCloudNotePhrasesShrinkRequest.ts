@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCloudNotePhrasesShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query application IDs in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class CreateCloudNotePhrasesShrinkRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The hotword parameter.
+   * 
    * This parameter is required.
    */
   phraseShrink?: string;

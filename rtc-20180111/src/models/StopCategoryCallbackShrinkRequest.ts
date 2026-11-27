@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class StopCategoryCallbackShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class StopCategoryCallbackShrinkRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The callback.
+   * 
    * This parameter is required.
    */
   callbackShrink?: string;

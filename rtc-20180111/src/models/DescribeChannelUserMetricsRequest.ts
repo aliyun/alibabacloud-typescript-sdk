@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeChannelUserMetricsRequest extends $dara.Model {
   /**
    * @remarks
-   * APP ID。
+   * The app ID.
    * 
    * This parameter is required.
    * 
@@ -15,6 +15,8 @@ export class DescribeChannelUserMetricsRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The channel ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +25,8 @@ export class DescribeChannelUserMetricsRequest extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
+   * The timestamp when the channel was created. You can query data from the last 30 days. The value is a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,6 +34,10 @@ export class DescribeChannelUserMetricsRequest extends $dara.Model {
    */
   createdTs?: number;
   /**
+   * @remarks
+   * The timestamp when the channel was released. The value is a UNIX timestamp in seconds. If this parameter is left empty, the current time is used.
+   * > If the specified channel release time is later than the actual release time, the data from the creation time to the actual release time is returned.
+   * 
    * @example
    * 1614936817
    */

@@ -12,6 +12,9 @@ export class DescribeAppAgentFunctionStatusResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Switch status. Valid values: enable (on) and disable (off).
+   * 
    * @example
    * disable
    */

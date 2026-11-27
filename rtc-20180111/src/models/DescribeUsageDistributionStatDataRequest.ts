@@ -5,13 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUsageDistributionStatDataRequest extends $dara.Model {
   /**
    * @remarks
-   * APP ID
+   * The app ID.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * 0rbd****
    */
   appId?: string;
   /**
    * @remarks
+   * The end time of the query. The value is a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +25,8 @@ export class DescribeUsageDistributionStatDataRequest extends $dara.Model {
   endDate?: number;
   /**
    * @remarks
+   * The start time of the query. The value is a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,6 +35,11 @@ export class DescribeUsageDistributionStatDataRequest extends $dara.Model {
   startDate?: number;
   /**
    * @remarks
+   * The statistical dimension. Valid values:
+   * - **CHANNEL_ONLINE**: aggregates data by the number of online users in a channel.
+   * - **NETWORK**: aggregates data by network type.
+   * - **OS**: aggregates data by operating system type.
+   * 
    * This parameter is required.
    * 
    * @example

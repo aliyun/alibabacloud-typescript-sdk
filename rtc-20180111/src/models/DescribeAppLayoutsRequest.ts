@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeAppLayoutsRequestCondition extends $dara.Model {
   /**
+   * @remarks
+   * The layout ID.
+   * 
    * @example
    * 167466539798442****
    */
   layoutId?: string;
   /**
+   * @remarks
+   * The layout name.
+   * 
    * @example
    * 测试
    */
@@ -39,19 +45,31 @@ export class DescribeAppLayoutsRequestCondition extends $dara.Model {
 export class DescribeAppLayoutsRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. Create and query it using the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
    * ac7N****
    */
   appId?: string;
+  /**
+   * @remarks
+   * The query conditions.
+   */
   condition?: DescribeAppLayoutsRequestCondition;
   /**
+   * @remarks
+   * The page number. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageNum?: number;
   /**
+   * @remarks
+   * The number of entries per page. Default value: 10.
+   * 
    * @example
    * 10
    */

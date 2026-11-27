@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ModifyAppLayoutResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Layout ID.
+   * 
    * @example
    * 167466539798442****
    */

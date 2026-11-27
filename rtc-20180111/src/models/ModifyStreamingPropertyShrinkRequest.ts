@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyStreamingPropertyShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * The application ID. You can create and query the ID in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ModifyStreamingPropertyShrinkRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The ID of an existing channel. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,6 +25,8 @@ export class ModifyStreamingPropertyShrinkRequest extends $dara.Model {
   channelId?: string;
   /**
    * @remarks
+   * The ID of the stream mixing task.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -28,13 +34,16 @@ export class ModifyStreamingPropertyShrinkRequest extends $dara.Model {
    */
   taskId?: string;
   /**
+   * @remarks
+   * The stream mixing content.
+   * 
    * @example
    * main
    */
   viewContent?: string;
   /**
    * @remarks
-   * ViewSubscribers。
+   * The view subscribers.
    */
   viewSubscribersShrink?: string;
   static names(): { [key: string]: string } {

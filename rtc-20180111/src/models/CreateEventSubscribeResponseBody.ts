@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateEventSubscribeResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 760bad53276431c499e30dc36f6b26be
    */
   requestId?: string;
   /**
+   * @remarks
+   * The ID of the created subscription.
+   * 
    * @example
    * ad53276431c****
    */

@@ -12,6 +12,9 @@ export class CreateAppRecordTemplateResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * The template ID.
+   * 
    * @example
    * lD7muaxx
    */

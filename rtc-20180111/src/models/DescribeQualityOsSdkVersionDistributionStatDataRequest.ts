@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeQualityOsSdkVersionDistributionStatDataRequest extends $dara.Model {
   /**
    * @remarks
-   * APP ID
+   * The APP ID.
    * 
    * This parameter is required.
    * 
@@ -15,6 +15,8 @@ export class DescribeQualityOsSdkVersionDistributionStatDataRequest extends $dar
   appId?: string;
   /**
    * @remarks
+   * The end time of the query. The value is a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +25,8 @@ export class DescribeQualityOsSdkVersionDistributionStatDataRequest extends $dar
   endDate?: number;
   /**
    * @remarks
+   * The start time of the query. The value is a UNIX timestamp in seconds.
+   * 
    * This parameter is required.
    * 
    * @example

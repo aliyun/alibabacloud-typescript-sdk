@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCloudNotePhrasesRequestPhrase extends $dara.Model {
   /**
    * @remarks
+   * The ID of the hot word table.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +37,8 @@ export class DeleteCloudNotePhrasesRequestPhrase extends $dara.Model {
 export class DeleteCloudNotePhrasesRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the application. You can create and query application IDs in the console. Only a single ID is supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -43,6 +47,8 @@ export class DeleteCloudNotePhrasesRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
+   * The hot word table parameters.
+   * 
    * This parameter is required.
    */
   phrase?: DeleteCloudNotePhrasesRequestPhrase;
