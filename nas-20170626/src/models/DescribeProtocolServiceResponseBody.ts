@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.Model {
   /**
    * @remarks
-   * The time when the protocol service was created, in UTC.
+   * The time when the protocol service was created. The time is displayed in UTC.
    * 
    * @example
    * 2018-12-12T07:28:38Z
@@ -18,15 +18,15 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
    * Limits:
    * - The description must be 2 to 128 characters in length.
    * - The description must start with a letter and cannot start with `http://` or `https://`.
-   * - The description can contain digits, colons (:), underscores (_), or hyphens (-).
+   * - The description can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
-   * Description of this protocol service
+   * The description of this protocol service
    */
   description?: string;
   /**
    * @remarks
-   * The file system ID.
+   * The ID of the file system.
    * 
    * @example
    * cpfs-099394bd928c****
@@ -58,7 +58,7 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
   instanceRAM?: number;
   /**
    * @remarks
-   * The time when the protocol service was last modified, in UTC.
+   * The time when the protocol service was modified. The time is displayed in UTC.
    * 
    * @example
    * 2018-12-12T07:28:38Z
@@ -66,7 +66,7 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
   modifyTime?: string;
   /**
    * @remarks
-   * The total number of CPFS directories and filesets exported in this protocol service.
+   * The total number of exported CPFS directories and filesets in the protocol service.
    * 
    * @example
    * 5
@@ -74,7 +74,7 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
   mountTargetCount?: number;
   /**
    * @remarks
-   * The protocol service ID.
+   * The ID of the protocol service.
    * 
    * @example
    * ptc-197ed6a00f2b****
@@ -82,9 +82,9 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
   protocolServiceId?: string;
   /**
    * @remarks
-   * The specification of the protocol service cluster.
-   * - Valid values: General
-   * - Default value: General
+   * The specifications of the protocol cluster.
+   * - Valid values: General.
+   * - Default value: General.
    * 
    * @example
    * General
@@ -103,7 +103,7 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
    * The protocol type supported by the protocol service.
    * 
    * Valid values:
-   *  - NFS: The protocol service supports NFS protocol access.
+   *  - NFS: The protocol service supports access over the NFS protocol.
    * 
    * @example
    * NFS
@@ -115,11 +115,11 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
    * 
    * Valid values:
    * - Creating: The protocol service is being created.
-   * - Starting: The protocol service is being started.
+   * - Starting: The protocol service is starting.
    * - Running: The protocol service is available.
    * - Updating: The protocol service is being updated.
    * - Deleting: The protocol service is being deleted.
-   * - Stopping: The protocol service is being stopped.
+   * - Stopping: The protocol service is stopping.
    * - Stopped: The protocol service is stopped.
    * 
    * @example
@@ -128,7 +128,7 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
   status?: string;
   /**
    * @remarks
-   * The vSwitch ID associated with the protocol service.
+   * The ID of the vSwitch associated with the protocol service.
    * 
    * @example
    * vsw-123xxx
@@ -136,7 +136,7 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC ID associated with the protocol service.
+   * The ID of the VPC associated with the protocol service.
    * 
    * @example
    * vpc-123xxx
@@ -194,7 +194,7 @@ export class DescribeProtocolServiceResponseBodyProtocolServices extends $dara.M
 export class DescribeProtocolServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The marker used to retrieve the remaining protocol services.
+   * The pagination token that is used to query the remaining protocol services.
    * 
    * @example
    * aBcdeg==
@@ -202,12 +202,12 @@ export class DescribeProtocolServiceResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The list of protocol service information.
+   * The list of protocol services.
    */
   protocolServices?: DescribeProtocolServiceResponseBodyProtocolServices[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

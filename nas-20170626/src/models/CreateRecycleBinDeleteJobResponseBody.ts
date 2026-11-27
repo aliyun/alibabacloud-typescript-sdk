@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRecycleBinDeleteJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * 8C****C54
@@ -13,7 +13,7 @@ export class CreateRecycleBinDeleteJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 98696EF0-1607-4E9D-B01D-F20930B6****

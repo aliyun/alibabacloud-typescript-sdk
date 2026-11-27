@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class EnableDataInsightRequest extends $dara.Model {
   /**
    * @remarks
-   * The file system ID.
+   * The ID of the file system. The ID must start with `bmcpfs-`, such as bmcpfs-125487****. You can obtain the ID by purchasing a file system through the NAS console or by calling the [DescribeFileSystems](https://www.alibabacloud.com/help/en/nas/developer-reference/api-nas-2017-06-26-describefilesystems) operation and setting FileSystemType to bmcpfs.
    * 
-   * - CPFS for Lingjun: The value must start with `bmcpfs-`, such as bmcpfs-125487\\*\\*\\*\\*.
-   * > Only CPFS for Lingjun file systems are supported.
+   * > This feature is supported only by CPFS for Lingjun file systems.
    * 
    * This parameter is required.
    * 

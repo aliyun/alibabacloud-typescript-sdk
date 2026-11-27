@@ -44,7 +44,7 @@ export class ModifySmbAclRequest extends $dara.Model {
    * @remarks
    * The home folder path for each user. The file path must meet the following format requirements:
    * 
-   * - Forward slashes (/) or backslashes (\\) are used as separators.
+   * - Forward slashes (/) or backslashes (\) are used as separators.
    * 
    * - Each segment cannot contain `<>":|?*`.
    * 

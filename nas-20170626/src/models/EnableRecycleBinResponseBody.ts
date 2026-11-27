@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableRecycleBinResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9E15E394-38A6-457A-A62A-D9797C9A****

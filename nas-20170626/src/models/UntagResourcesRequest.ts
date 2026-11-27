@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to unbind all tags from the file system.
+   * Specifies whether to unbind all tags from the target file system.
    * 
-   * This parameter takes effect only when TagKey.N is empty.
+   * This parameter takes effect when TagKey.N is empty.
    * 
    * Valid values:
    * 
-   * - true: Unbinds all tags from the file system. If the file system has no tags, no operation is performed and a success response is returned.
-   * - false (default): Does not perform the operation and directly returns a success response.
+   * - true: Unbinds all tags from the target file system. If a file system has no tags, no processing is performed and success is returned directly.
+   * - false (default): Does not perform the operation and returns success directly.
    * 
    * @example
    * false
@@ -22,7 +22,7 @@ export class UntagResourcesRequest extends $dara.Model {
    * @remarks
    * The list of resource IDs.
    * 
-   * The ID of the resource. Valid values of N: 1 to 50.
+   * The ID of the target resource. Valid values of N: 1 to 50.
    * 
    * This parameter is required.
    * 
@@ -46,7 +46,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tag keys of the resource. You can specify up to 20 tag keys.
+   * The list of tag keys of the resource. You can enter up to 20 tag keys.
    * 
    * @example
    * nastest

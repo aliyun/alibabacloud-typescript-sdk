@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLifecycleRetrieveJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data retrieval task ID.
+   * The ID of the data retrieval task.
    * 
    * @example
    * lrj-nfstest-ia-160****853-hshvw
@@ -13,7 +13,7 @@ export class CreateLifecycleRetrieveJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BC7C825C-5F65-4B56-BEF6-98C56C7C****

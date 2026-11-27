@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRecycledDirectoriesAndFilesResponseBodyEntries extends $dara.Model {
   /**
    * @remarks
-   * The most recent access time. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The last access time. The time is displayed in UTC and formatted in accordance with the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2019-10-30T10:08:08Z
@@ -13,7 +13,7 @@ export class ListRecycledDirectoriesAndFilesResponseBodyEntries extends $dara.Mo
   ATime?: string;
   /**
    * @remarks
-   * The most recent metadata modification time. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The last modification time of the metadata. The time is displayed in UTC and formatted in accordance with the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2019-10-30T10:08:08Z
@@ -21,7 +21,7 @@ export class ListRecycledDirectoriesAndFilesResponseBodyEntries extends $dara.Mo
   CTime?: string;
   /**
    * @remarks
-   * The time when the file or directory was deleted. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The time when the file or directory was deleted. The time is displayed in UTC and formatted in accordance with the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2021-05-30T10:08:08Z
@@ -45,7 +45,7 @@ export class ListRecycledDirectoriesAndFilesResponseBodyEntries extends $dara.Mo
   inode?: string;
   /**
    * @remarks
-   * The most recent modification time. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The last modification time. The time is displayed in UTC and formatted in accordance with the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2019-10-30T10:08:08Z
@@ -53,7 +53,7 @@ export class ListRecycledDirectoriesAndFilesResponseBodyEntries extends $dara.Mo
   MTime?: string;
   /**
    * @remarks
-   * The name of the file or directory before deletion.
+   * The name of the file or directory before it was deleted.
    * 
    * @example
    * test001
@@ -61,9 +61,9 @@ export class ListRecycledDirectoriesAndFilesResponseBodyEntries extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The file size. Unit: bytes.
+   * The size of the file. Unit: bytes.
    * 
-   * When Type is set to Directory, the value 0 is returned.
+   * If Type is set to Directory, 0 is returned.
    * 
    * @example
    * 1073741824
@@ -71,7 +71,7 @@ export class ListRecycledDirectoriesAndFilesResponseBodyEntries extends $dara.Mo
   size?: number;
   /**
    * @remarks
-   * The object type. Valid values:
+   * The returned object type. Valid values:
    * 
    * - File: file
    * - Directory: folder
@@ -120,14 +120,14 @@ export class ListRecycledDirectoriesAndFilesResponseBodyEntries extends $dara.Mo
 export class ListRecycledDirectoriesAndFilesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The collection of files or directories in the recycle bin.
+   * The collection of information about files or directories in the recycle bin.
    */
   entries?: ListRecycledDirectoriesAndFilesResponseBodyEntries[];
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The token for the next page.
    * 
-   * If a single query does not return all files and directories, a non-empty NextToken is returned. You can pass the correct NextToken in subsequent queries to continue retrieving results.
+   * If the query does not return all files and directories, a non-empty NextToken is returned. You can use the returned NextToken to continue the query.
    * 
    * @example
    * None
@@ -135,7 +135,7 @@ export class ListRecycledDirectoriesAndFilesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 98696EF0-1607-4E9D-B01D-F20930B6****

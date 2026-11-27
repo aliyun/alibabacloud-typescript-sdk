@@ -19,7 +19,7 @@ export class CreateAccessRuleRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - standard (default): General-purpose NAS.
+   * - standard: General-purpose NAS. This is the default value.
    * - extreme: Extreme NAS.
    * 
    * @example
@@ -32,9 +32,9 @@ export class CreateAccessRuleRequest extends $dara.Model {
    * 
    * CIDR blocks and IPv6 address ranges are supported.
    * 
-   * > - IPv6 is supported only by Extreme NAS file systems in regions in the Chinese mainland, and IPv6 must be enabled for the file system.
-   * >- Only VPC networks are supported.
-   * >- IPv4 and IPv6 are mutually exclusive.
+   * > - Only Extreme NAS file systems in regions in the Chinese mainland support IPv6, and the IPv6 feature must be enabled for the file system.
+   * > - Only VPCs are supported.
+   * > - IPv4 and IPv6 are mutually exclusive.
    * 
    * @example
    * 2001:250:6000::***
@@ -42,9 +42,9 @@ export class CreateAccessRuleRequest extends $dara.Model {
   ipv6SourceCidrIp?: string;
   /**
    * @remarks
-   * The priority of the permission rule.
+   * The priority of the permission group rule.
    * 
-   * If an authorized address matches multiple rules, the rule with the highest priority takes effect.
+   * If an authorized object matches multiple rules, the rule with the highest priority takes effect.
    * 
    * Valid values: 1 to 100. The value 1 indicates the highest priority.
    * 
@@ -54,11 +54,11 @@ export class CreateAccessRuleRequest extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The read and write permissions of the authorized address on the file system.
+   * The read and write permissions of the authorized object on the file system.
    * 
    * Valid values:
-   * - RDWR (default): Read and write.
-   * - RDONLY: Read-only.
+   * - RDWR: read and write. This is the default value.
+   * - RDONLY: read-only.
    * 
    * @example
    * RDWR
@@ -66,9 +66,9 @@ export class CreateAccessRuleRequest extends $dara.Model {
   RWAccessType?: string;
   /**
    * @remarks
-   * The IP address or CIDR block of the authorized address.
+   * The IP address or CIDR block of the authorized object.
    * 
-   * The value must be a single IP address or a CIDR block.
+   * The format must be a single IP address or a CIDR block.
    * > Permission groups of the classic network type support only IP addresses.
    * 
    * @example
@@ -77,14 +77,14 @@ export class CreateAccessRuleRequest extends $dara.Model {
   sourceCidrIp?: string;
   /**
    * @remarks
-   * The authorization of the system user of the authorized address on the file system.
+   * The access permissions of system users of the authorization object on the file system.
    * 
    * Valid values:
-   * - no_squash (default): Allows access to the file system as the root user.
-   * - root_squash: Maps the root user to the nobody user when the file system is accessed as the root user.
-   * - all_squash: Maps all users to the nobody user regardless of the user identity used to access the file system.
+   * - no_squash: allows access to the file system by using the root user. This is the default value.
+   * - root_squash: maps the root user to the nobody user when the file system is accessed as the root user.
+   * - all_squash: maps all users to the nobody user regardless of the user identity used to access the file system.
    * 
-   * The nobody user is the default user in Linux. The nobody user can access only public content on the server and has low privileges and high security.
+   * The nobody user is the default user in Linux systems. This user can only access public content on the server and features low permissions and high security.
    * 
    * @example
    * no_squash

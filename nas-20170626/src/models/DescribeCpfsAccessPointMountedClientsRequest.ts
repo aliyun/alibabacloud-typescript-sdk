@@ -25,7 +25,7 @@ export class DescribeCpfsAccessPointMountedClientsRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The page number of the list.
+   * The page number.
    * 
    * @example
    * 1
@@ -33,8 +33,7 @@ export class DescribeCpfsAccessPointMountedClientsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100.
-   * Default value: 10.
+   * The number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10

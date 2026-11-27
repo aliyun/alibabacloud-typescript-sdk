@@ -17,9 +17,9 @@ export class DescribeCpfsAccessPointsResponseBodyAccessPointsRootDirectory exten
    * 
    * Valid values:
    * 
-   * - Unknown: the root path status is unknown.
-   * - NotExist: the root path does not exist. It may have been deleted by the user.
-   * - Ready: the root path status is normal.
+   * - Unknown: The status of the root path is unknown.
+   * - NotExist: The root path does not exist. It may have been deleted.
+   * - Ready: The root path is normal.
    * 
    * @example
    * Ready
@@ -91,7 +91,7 @@ export class DescribeCpfsAccessPointsResponseBodyAccessPointsTags extends $dara.
 export class DescribeCpfsAccessPointsResponseBodyAccessPoints extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the access point.
+   * The ARN of the access point.
    * 
    * @example
    * acs:nas:cn-hangzhou:178321033379****:accesspoint/ap-ie15yd****
@@ -107,7 +107,7 @@ export class DescribeCpfsAccessPointsResponseBodyAccessPoints extends $dara.Mode
   accessPointId?: string;
   /**
    * @remarks
-   * The time when the access point was created. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The time when the access point was created. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2026-03-28T06:32:14Z
@@ -131,7 +131,7 @@ export class DescribeCpfsAccessPointsResponseBodyAccessPoints extends $dara.Mode
   fileSystemId?: string;
   /**
    * @remarks
-   * The time when the access point was last modified. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The time when the access point was modified. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2025-03-28T06:32:14Z
@@ -156,10 +156,10 @@ export class DescribeCpfsAccessPointsResponseBodyAccessPoints extends $dara.Mode
    * 
    * Valid values:
    * 
-   * - Active: available.
-   * - Inactive: unavailable.
-   * - Pending: being created.
-   * - Deleting: being deleted.
+   * - Active: The access point is available.
+   * - Inactive: The access point is unavailable.
+   * - Pending: The access point is being created.
+   * - Deleting: The access point is being deleted.
    * 
    * > You can mount the file system only when the status is Active.
    * 
@@ -169,7 +169,7 @@ export class DescribeCpfsAccessPointsResponseBodyAccessPoints extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * The list of tags for the CPFS access point.
+   * The tags of the CPFS access point.
    */
   tags?: DescribeCpfsAccessPointsResponseBodyAccessPointsTags[];
   static names(): { [key: string]: string } {
@@ -225,7 +225,7 @@ export class DescribeCpfsAccessPointsResponseBody extends $dara.Model {
   accessPoints?: DescribeCpfsAccessPointsResponseBodyAccessPoints[];
   /**
    * @remarks
-   * The page number of the list.
+   * The page number.
    * 
    * @example
    * 1
@@ -233,7 +233,7 @@ export class DescribeCpfsAccessPointsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of results per page.
+   * The number of entries returned per page.
    * Valid values: 1 to 100.                              
    * Default value: 10.
    * 

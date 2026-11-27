@@ -13,11 +13,8 @@ export class StartLifecyclePolicyExecutionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The request status.
-   * 
-   * Valid values:
-   * 
-   * - true: The request was successful.
+   * The request status. Valid values:
+   * - true: The request succeeded.
    * - false: The request failed.
    * 
    * @example

@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class SetDirQuotaRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to perform a precheck on the request.
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
    * The maximum number of files in the directory.
    * 
    * This includes files, directories, and special files.
@@ -18,7 +23,7 @@ export class SetDirQuotaRequest extends $dara.Model {
   fileCountLimit?: number;
   /**
    * @remarks
-   * The file system ID.
+   * The ID of the file system.
    * 
    * This parameter is required.
    * 
@@ -29,7 +34,7 @@ export class SetDirQuotaRequest extends $dara.Model {
   /**
    * @remarks
    * The absolute path of the directory in the file system.
-   *  > - You can set a quota only for a directory that already exists in the NAS file system. The directory path for the quota is the absolute path in the NAS file system, not the local path on a compute node (such as an ECS instance or container).
+   *  > - Quotas can only be set for directories that have been created in a NAS file system. The quota path is the absolute path of the directory in the NAS file system, not a local path on a compute node (such as an ECS instance or container).
    *  > - Directories whose path names contain Chinese characters are not supported.
    * 
    * This parameter is required.
@@ -43,8 +48,8 @@ export class SetDirQuotaRequest extends $dara.Model {
    * The quota type.
    * 
    * Valid values:
-   * - Accounting: statistical quota. Only tracks usage.
-   * - Enforcement: enforcement quota. When usage exceeds the limit, operations such as creating files or directories and appending data fail.
+   * - Accounting: accounting quota, which only tracks usage.
+   * - Enforcement: enforcement quota. If usage exceeds the limit, operations such as creating files or directories and appending data will fail.
    * 
    * This parameter is required.
    * 
@@ -54,9 +59,9 @@ export class SetDirQuotaRequest extends $dara.Model {
   quotaType?: string;
   /**
    * @remarks
-   * The total capacity limit for files in the directory.
+   * The maximum total size of files in the directory.
    * 
-   * Unit: GiB.
+   * Unit: GiB
    * 
    * 
    * When QuotaType is set to Enforcement, you must specify at least one of SizeLimit and FileCountLimit.
@@ -67,14 +72,14 @@ export class SetDirQuotaRequest extends $dara.Model {
   sizeLimit?: number;
   /**
    * @remarks
-   * The UID or GID to restrict.
+   * The Uid or Gid to be restricted.
    * 
-   * This parameter is required and valid only when UserType is set to Uid or Gid.
+   * Required and meaningful only when UserType is Uid or Gid.
    * 
    * Examples:
    * 
-   * - To restrict the user whose UID is 500, set UserType to Uid and UserId to 500.
-   * - To restrict the user group whose GID is 100, set UserType to Gid and UserId to 100.
+   * - To restrict the user with Uid=500, set UserType to Uid and UserId to 500.
+   * - To restrict the user group with Gid=100, set UserType to Gid and UserId to 100.
    * 
    * @example
    * 500
@@ -86,9 +91,9 @@ export class SetDirQuotaRequest extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - Uid: user ID.
-   * - Gid: user group ID.
-   * - AllUsers: all users.
+   * - Uid: user ID
+   * - Gid: group ID of the user
+   * - AllUsers: all users
    * 
    * This parameter is required.
    * 
@@ -98,6 +103,7 @@ export class SetDirQuotaRequest extends $dara.Model {
   userType?: string;
   static names(): { [key: string]: string } {
     return {
+      dryRun: 'DryRun',
       fileCountLimit: 'FileCountLimit',
       fileSystemId: 'FileSystemId',
       path: 'Path',
@@ -110,6 +116,7 @@ export class SetDirQuotaRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dryRun: 'boolean',
       fileCountLimit: 'number',
       fileSystemId: 'string',
       path: 'string',

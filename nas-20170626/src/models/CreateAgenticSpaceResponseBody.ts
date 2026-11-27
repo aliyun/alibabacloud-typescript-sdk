@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAgenticSpaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Agentic space ID. This is a globally unique identifier assigned by the system after the Agentic space (an independent workspace allocated to a single agent end user in AgenticFS) is created.
+   * The ID of the Agentic space. The globally unique identifier assigned by the system after the Agentic space (an independent workspace allocated to a single agent end user in AgenticFS) is created.
    * 
    * @example
    * agentic-229oypxjgpau2****
@@ -13,7 +13,7 @@ export class CreateAgenticSpaceResponseBody extends $dara.Model {
   agenticSpaceId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 98696EF0-1607-4E9D-B01D-F20930B6****

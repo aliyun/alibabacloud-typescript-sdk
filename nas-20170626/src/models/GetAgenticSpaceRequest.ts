@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgenticSpaceRequest extends $dara.Model {
   /**
    * @remarks
-   * AgenticSpace Id。
+   * The AgenticSpace ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetAgenticSpaceRequest extends $dara.Model {
   agenticSpaceId?: string;
   /**
    * @remarks
-   * The file system ID.
+   * The ID of the file system.
    * 
    * This parameter is required.
    * 

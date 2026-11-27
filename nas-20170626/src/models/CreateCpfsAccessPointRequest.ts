@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCpfsAccessPointRequestRootDirectory extends $dara.Model {
   /**
    * @remarks
-   * The root directory of the access point. The value must start and end with a forward slash (/).
+   * The root directory of the access point. It must start and end with a forward slash (/).
    * 
    * @example
    * /test/
@@ -79,9 +79,8 @@ export class CreateCpfsAccessPointRequest extends $dara.Model {
    * 
    * Limits:
    * - The description must be 2 to 128 characters in length.
-   * - The description must start with a letter.
-   * - The description cannot start with http:// or https://.
-   * - The description can contain digits, colons (:), underscores (_), or hyphens (-).
+   * - It must start with a letter or a Chinese character, and cannot start with http:// or https://.
+   * - It can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * Description
@@ -91,9 +90,9 @@ export class CreateCpfsAccessPointRequest extends $dara.Model {
    * @remarks
    * The file system ID.
    * 
-   * - Cloud Parallel File Storage (CPFS): The ID must start with `cpfs-`. Example: cpfs-125487\\*\\*\\*\\*.
+   * - CPFS: The ID must start with `cpfs-`, such as cpfs-125487\*\*\*\*.
    * 
-   * - CPFS for Lingjun: The ID must start with `bmcpfs-`. Example: bmcpfs-0015\\*\\*\\*\\*.
+   * - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-0015\*\*\*\*.
    * 
    * This parameter is required.
    * 
@@ -113,12 +112,12 @@ export class CreateCpfsAccessPointRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The root directory of the access point. Default value: "/".
+   * The root directory of the access point. Default value: /.
    */
   rootDirectory?: CreateCpfsAccessPointRequestRootDirectory;
   /**
    * @remarks
-   * The list of tags for the CPFS access point.
+   * The tags of the CPFS access point.
    */
   tag?: CreateCpfsAccessPointRequestTag[];
   static names(): { [key: string]: string } {

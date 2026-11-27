@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMountTargetResponseBodyMountTargetExtra extends $dara.Model {
   /**
    * @remarks
-   * The IPv4 and IPv6 dual-stack mount target.
+   * The dual-stack mount target that supports both IPv4 and IPv6.
    * 
    * @example
    * 174494b666-x****.dualstack.cn-hangzhou.nas.aliyuncs.com
@@ -43,12 +43,12 @@ export class CreateMountTargetResponseBody extends $dara.Model {
   mountTargetDomain?: string;
   /**
    * @remarks
-   * The mount target information.
+   * The collection of mount target information.
    */
   mountTargetExtra?: CreateMountTargetResponseBodyMountTargetExtra;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 70EACC9C-D07A-4A34-ADA4-77506C42****

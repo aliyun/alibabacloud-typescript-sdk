@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCpfsAccessPointMountedClientsResponseBodyMountedClient extends $dara.Model {
   /**
    * @remarks
-   * The type of the client mounted to the access point. Valid values:
-   * - vsc
-   * - tcp
+   * The channel type of the client mounted to the access point, such as vsc or tcp.
    * 
    * @example
    * vsc
@@ -62,7 +60,7 @@ export class DescribeCpfsAccessPointMountedClientsResponseBody extends $dara.Mod
   mountedClient?: DescribeCpfsAccessPointMountedClientsResponseBodyMountedClient[];
   /**
    * @remarks
-   * The page number of the list.
+   * The page number.
    * 
    * @example
    * 1
@@ -70,7 +68,7 @@ export class DescribeCpfsAccessPointMountedClientsResponseBody extends $dara.Mod
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: 1 to 100. Default value: 10.
+   * The number of entries returned on each page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 10

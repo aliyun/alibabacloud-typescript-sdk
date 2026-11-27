@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNfsAclRequest extends $dara.Model {
   /**
    * @remarks
-   * The file system ID.
+   * The ID of the file system.
    * 
    * This parameter is required.
    * 

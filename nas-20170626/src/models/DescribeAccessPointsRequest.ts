@@ -10,9 +10,9 @@ export class DescribeAccessPointsRequestTag extends $dara.Model {
    * Limits:
    * 
    * - Valid values of N: 1 to 20.
-   * - The tag key can be up to 128 characters in length.
-   * - The tag key cannot start with aliyun or acs:.
-   * - The tag key cannot contain http:// or https://.
+   * - It can be up to 128 characters in length.
+   * - It cannot start with aliyun or acs:.
+   * - It cannot contain http:// or https://.
    * 
    * @example
    * TestKey
@@ -25,9 +25,9 @@ export class DescribeAccessPointsRequestTag extends $dara.Model {
    * Limits:
    * 
    * - Valid values of N: 1 to 20.
-   * - The tag value can be up to 128 characters in length.
-   * - The tag value cannot start with aliyun or acs:.
-   * - The tag value cannot contain http:// or https://.
+   * - It can be up to 128 characters in length.
+   * - It cannot start with aliyun or acs:.
+   * - It cannot contain http:// or https://.
    * 
    * @example
    * TestValue
@@ -59,9 +59,9 @@ export class DescribeAccessPointsRequestTag extends $dara.Model {
 export class DescribeAccessPointsRequest extends $dara.Model {
   /**
    * @remarks
-   * The permission group name.
+   * The name of the permission group.
    * 
-   * This parameter is required if the file system is a General-purpose NAS file system.
+   * This parameter is required when the target file system is a General-purpose NAS file system.
    * 
    * Default permission group: DEFAULT_VPC_GROUP_NAME (the default permission group for VPCs).
    * 
@@ -79,7 +79,7 @@ export class DescribeAccessPointsRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The number of results for each query.
+   * The number of entries to return for each query.
    * 
    * Valid values: 10 to 100. Default value: 10.
    * 
@@ -89,7 +89,7 @@ export class DescribeAccessPointsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token. Set the value to the NextToken value returned in the previous API call.
+   * The query token. Set the value to the NextToken value returned by the previous API call.
    * 
    * @example
    * MTY4NzcxOTcwMjAzMDk2Nzc0MyM4MDM4****

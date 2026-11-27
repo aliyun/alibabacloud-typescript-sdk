@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class StopLifecyclePolicyExecutionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
-   * A request ID is returned regardless of whether the call is successful.
+   * A request ID is returned regardless of whether the API call succeeds.
    * 
    * @example
    * 98696EF0-1607-4E9D-B01D-F20930B6****
@@ -15,11 +15,11 @@ export class StopLifecyclePolicyExecutionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The request status.
+   * The status of the request.
    * 
    * Valid values:
    * 
-   * - true: The request was successful.
+   * - true: The request succeeded.
    * - false: The request failed.
    * 
    * @example

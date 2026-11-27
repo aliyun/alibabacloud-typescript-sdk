@@ -45,7 +45,7 @@ export class DescribeFilesystemsVscAttachInfoRequestResourceIds extends $dara.Mo
 export class DescribeFilesystemsVscAttachInfoRequestRoleChain extends $dara.Model {
   /**
    * @remarks
-   * The UID of the Alibaba Cloud account (the primary account UID). This parameter specifies the Alibaba Cloud account for which the service assumes the role.
+   * The UID of the Alibaba Cloud account (the UID of the primary account), which specifies the Alibaba Cloud account for which the service assumes the role.
    * 
    * @example
    * 101522855006****
@@ -61,7 +61,7 @@ export class DescribeFilesystemsVscAttachInfoRequestRoleChain extends $dara.Mode
   roleArn?: string;
   /**
    * @remarks
-   * The role type. Valid values: service and user.
+   * The type of the role. Valid values: service and user.
    * 
    * @example
    * service

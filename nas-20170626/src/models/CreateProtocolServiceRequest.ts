@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateProtocolServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * Ensures the idempotency of the request. Generate a unique parameter value from your client to ensure that the value is unique among different requests.
+   * The client token that is used to ensure the idempotence of the request. You can generate the token on your client and ensure that the token is unique across different requests.
    * 
-   * ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The ClientToken can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
-   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may differ for each API request.
+   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -17,27 +17,27 @@ export class CreateProtocolServiceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the protocol service. This parameter is displayed as "Protocol Service Name" in the console.
+   * The description of the protocol service. It is displayed as the protocol service name in the console.
    * 
    * Limits:
    * 
    * - The description must be 2 to 128 characters in length.
-   * - The description must start with a letter and cannot start with `http://` or `https://`.
-   * - The description can contain digits, colons (:), underscores (_), and hyphens (-).
+   * - It must start with a letter or a Chinese character, and cannot start with `http://` or `https://`.
+   * - It can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
-   * Description of this protocol service
+   * The description of the protocol service
    */
   description?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run for this request.
+   * Specifies whether to perform a dry run on the creation request.
    * 
-   * A dry run checks parameter validity and dependencies without actually creating the instance or incurring fees.
+   * A dry run checks the validity of parameters and dependencies. It does not actually create the instance or incur any fees.
    * 
    * Valid values:
-   * - true: Sends a dry run request without creating the protocol service. The check items include whether required parameters are specified, the request format, and business limits and dependencies. If the check fails, the corresponding error is returned. If the check succeeds, HTTP status code 200 is returned, but ProtocolServiceId is empty.
-   * - false (default): Sends a normal request. After the check succeeds, the instance is created.
+   * - true: performs a dry run. The protocol service is not created. The system checks whether required parameters are specified, the request format is valid, and business limits and dependencies are met. If the request fails the dry run, an error is returned. If the request passes the dry run, the HTTP status code 200 is returned, but the ProtocolServiceId is empty.
+   * - false (default): performs a standard request. The instance is created directly after the request passes the check.
    * 
    * @example
    * false
@@ -45,7 +45,7 @@ export class CreateProtocolServiceRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The file system ID.
+   * The ID of the file system.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class CreateProtocolServiceRequest extends $dara.Model {
    * @remarks
    * The protocol type of the protocol service.
    * 
-   * Valid values: NFS (default). Only NFSv3 is supported.
+   * Valid values: NFS (default). Only NFSv3 protocol access is supported.
    * 
    * This parameter is required.
    * 
@@ -91,7 +91,7 @@ export class CreateProtocolServiceRequest extends $dara.Model {
    * @remarks
    * The vSwitch ID of the protocol service.
    * 
-   * This parameter cannot be specified when the storage redundancy type of the file system is zone-redundant storage (ZRS). In other cases, this parameter is required.
+   * Do not set this field when the storage redundancy type of the file system is zone-redundant storage (ZRS). In other cases, this field is required.
    * 
    * @example
    * vsw-2vc3c2lybvdllxyq4****
@@ -102,9 +102,9 @@ export class CreateProtocolServiceRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC ID of the protocol service. The VPC must be the same as the VPC of the file system.
+   * The VPC ID of the protocol service. It must be the same as the VPC of the file system.
    * 
-   * This parameter cannot be specified when the storage redundancy type of the file system is zone-redundant storage (ZRS). In other cases, this parameter is required.
+   * Do not set this field when the storage redundancy type of the file system is zone-redundant storage (ZRS). In other cases, this field is required.
    * 
    * @example
    * vpc-2vct297b8157bth9z****

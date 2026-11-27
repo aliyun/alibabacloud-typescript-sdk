@@ -58,9 +58,9 @@ export class ModifyDataFlowRequest extends $dara.Model {
    * @remarks
    * The file system ID.
    * 
-   * - CPFS: The ID must start with `cpfs-`, such as cpfs-125487\\*\\*\\*\\*.
+   * - CPFS: The ID must start with `cpfs-`, such as cpfs-125487\*\*\*\*.
    * 
-   * - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-0015\\*\\*\\*\\*.
+   * - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-0015\*\*\*\*.
    * 
    * This parameter is required.
    * 

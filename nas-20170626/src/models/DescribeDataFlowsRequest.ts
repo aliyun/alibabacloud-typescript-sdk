@@ -7,13 +7,13 @@ export class DescribeDataFlowsRequestFilters extends $dara.Model {
    * @remarks
    * The name of the filter key. Valid values:
    * 
-   * - DataFlowIds: filters by data flow ID.
-   * - FsetIds: filters by Fileset ID.
-   * - FileSystemPath: filters by the path of the Fileset in the CPFS file system.
-   * - SourceStorage: filters by the access path of the source storage.
-   * - ThroughputList: filters by the transmission bandwidth of the data flow.
-   * - Description: filters by the description of the Fileset.
-   * - Status: filters by the data flow status.
+   * - DataFlowIds: filters data flows by data flow ID.
+   * - FsetIds: filters data flows by Fileset ID.
+   * - FileSystemPath: filters data flows by the path of the Fileset in the CPFS file system.
+   * - SourceStorage: filters data flows by the access path of the source storage.
+   * - ThroughputList: filters data flows by the transmission bandwidth.
+   * - Description: filters data flows by the description of the Fileset.
+   * - Status: filters data flows by the data flow status.
    * 
    * @example
    * FsetIds
@@ -23,15 +23,15 @@ export class DescribeDataFlowsRequestFilters extends $dara.Model {
    * @remarks
    * The value of the filter key. This parameter does not support wildcards.
    * 
-   * - When Key is set to DataFlowIds, Value is set to a data flow ID or a part of a data flow ID. You can specify one or more data flow IDs. A maximum of 10 data flow IDs can be specified. Example: `df-194433a5be31****` or `df-194433a512a2****,df-234533a5be31****`.
+   * - If Key is set to DataFlowIds, Value is set to a data flow ID or a part of a data flow ID. You can specify one or more data flow IDs. A maximum of 10 data flow IDs can be specified. Example: `df-194433a5be31****` or `df-194433a512a2****,df-234533a5be31****`.
    * 
-   * - When Key is set to FsetIds, Value is set to a Fileset ID or a part of a Fileset ID. You can specify one or more Fileset IDs. A maximum of 10 Fileset IDs can be specified. Example: `fset-1902718ea0ae****` or `fset-235718ea0ae****,fset-5122718ea0ae****`.
-   * - When Key is set to FileSystemPath, Value is set to a path or a part of a path in the CPFS file system. The value must be 1 to 1,024 characters in length.
-   * - When Key is set to SourceStorage, Value is set to the access path of the source storage. The value can be up to 1,024 characters in length.
-   * - When Key is set to ThroughputList, Value is set to the transmission bandwidth of the data flow. Combined queries are supported.
-   * - When Key is set to Description, Value is set to the description of the data flow or a part of the description.
-   * - When Key is set to Status, Value is set to the data flow status.
-   * - When Key is set to SourceStoragePath, Value is set to the access path in the source storage or a part of the access path. The value can be up to 1,024 characters in length.
+   * - If Key is set to FsetIds, Value is set to a Fileset ID or a part of a Fileset ID. You can specify one or more Fileset IDs. A maximum of 10 Fileset IDs can be specified. Example: `fset-1902718ea0ae****` or `fset-235718ea0ae****,fset-5122718ea0ae****`.
+   * - If Key is set to FileSystemPath, Value is set to a path or a part of a path in the CPFS file system. The value must be 1 to 1,024 characters in length.
+   * - If Key is set to SourceStorage, Value is set to the access path of the source storage. The value can be up to 1,024 characters in length.
+   * - If Key is set to ThroughputList, Value is set to the transmission bandwidth of the data flow. Combined queries are supported.
+   * - If Key is set to Description, Value is set to the description of the data flow or a part of the description.
+   * - If Key is set to Status, Value is set to the data flow status.
+   * - If Key is set to SourceStoragePath, Value is set to the access path of the source storage or a part of the access path. The value can be up to 1,024 characters in length.
    * 
    * @example
    * FsetIds
@@ -63,11 +63,11 @@ export class DescribeDataFlowsRequestFilters extends $dara.Model {
 export class DescribeDataFlowsRequest extends $dara.Model {
   /**
    * @remarks
-   * The file system ID.
+   * The ID of the file system.
    * 
-   * - CPFS: must start with `cpfs-`, for example, cpfs-125487\\*\\*\\*\\*.
+   * - CPFS: The ID must start with `cpfs-`, such as cpfs-125487\*\*\*\*.
    * 
-   * - CPFS for Lingjun: must start with `bmcpfs-`, for example, bmcpfs-0015\\*\\*\\*\\*.
+   * - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-0015\*\*\*\*.
    * 
    * This parameter is required.
    * 
@@ -85,7 +85,7 @@ export class DescribeDataFlowsRequest extends $dara.Model {
   filters?: DescribeDataFlowsRequestFilters[];
   /**
    * @remarks
-   * The maximum number of entries to return for a single request.
+   * The maximum number of results to return per query.
    * 
    * Valid values: 10 to 100. Default value: 20.
    * 
@@ -95,7 +95,7 @@ export class DescribeDataFlowsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * When the returned results of a request are truncated, you can use NextToken to initiate another request and obtain the remaining results.
+   * The pagination token. If the returned results are truncated, you can use NextToken to initiate another request to retrieve the remaining results.
    * 
    * @example
    * TGlzdFJlc291cmNlU****mVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0=

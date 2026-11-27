@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAccessPointsResponseBodyAccessPointsPosixUser extends $dara.Model {
   /**
    * @remarks
-   * The POSIX user group ID.
+   * The ID of the POSIX user group.
    * 
    * @example
    * 10
@@ -13,12 +13,15 @@ export class ListAccessPointsResponseBodyAccessPointsPosixUser extends $dara.Mod
   posixGroupId?: number;
   /**
    * @remarks
-   * The secondary user group ID.
+   * The IDs of the secondary user groups.
+   * 
+   * @example
+   * [100,123]
    */
   posixSecondaryGroupIds?: number[];
   /**
    * @remarks
-   * The POSIX user ID.
+   * The ID of the POSIX user.
    * 
    * @example
    * 156
@@ -55,7 +58,7 @@ export class ListAccessPointsResponseBodyAccessPointsPosixUser extends $dara.Mod
 export class ListAccessPointsResponseBodyAccessPointsRootPathPermission extends $dara.Model {
   /**
    * @remarks
-   * The file group ID of the owner.
+   * The ID of the owner user group.
    * 
    * @example
    * 12
@@ -63,7 +66,7 @@ export class ListAccessPointsResponseBodyAccessPointsRootPathPermission extends 
   ownerGroupId?: number;
   /**
    * @remarks
-   * The user ID of the owner.
+   * The ID of the owner user.
    * 
    * @example
    * 1
@@ -71,7 +74,7 @@ export class ListAccessPointsResponseBodyAccessPointsRootPathPermission extends 
   ownerUserId?: number;
   /**
    * @remarks
-   * The POSIX permission.
+   * The POSIX permissions.
    * 
    * @example
    * 0755
@@ -145,7 +148,7 @@ export class ListAccessPointsResponseBodyAccessPointsTags extends $dara.Model {
 export class ListAccessPointsResponseBodyAccessPoints extends $dara.Model {
   /**
    * @remarks
-   * The access point ARN.
+   * The ARN of the access point.
    * 
    * @example
    * acs:nas:cn-hangzhou:178321033379****:accesspoint/ap-ie15yd****
@@ -153,7 +156,7 @@ export class ListAccessPointsResponseBodyAccessPoints extends $dara.Model {
   ARN?: string;
   /**
    * @remarks
-   * The permission group name.
+   * The name of the permission group.
    * 
    * @example
    * DEFAULT_VPC_GROUP_NAME
@@ -161,7 +164,7 @@ export class ListAccessPointsResponseBodyAccessPoints extends $dara.Model {
   accessGroup?: string;
   /**
    * @remarks
-   * The access point ID.
+   * The ID of the access point.
    * 
    * @example
    * ap-ie15y*****
@@ -169,7 +172,7 @@ export class ListAccessPointsResponseBodyAccessPoints extends $dara.Model {
   accessPointId?: string;
   /**
    * @remarks
-   * The access point name.
+   * The name of the access point.
    * 
    * @example
    * test
@@ -177,7 +180,7 @@ export class ListAccessPointsResponseBodyAccessPoints extends $dara.Model {
   accessPointName?: string;
   /**
    * @remarks
-   * AgenticSpace Id。
+   * The AgenticSpace ID.
    * 
    * @example
    * agentic-229oypxjgpau2****
@@ -185,7 +188,7 @@ export class ListAccessPointsResponseBodyAccessPoints extends $dara.Model {
   agenticSpaceId?: string;
   /**
    * @remarks
-   * The time when the access point was created. The time follows the ISO 8601 standard and is displayed in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The time when the access point was created. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2026-03-28T06:32:14Z
@@ -193,7 +196,7 @@ export class ListAccessPointsResponseBodyAccessPoints extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the agentic space was created. The time follows the ISO 8601 standard. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The time when the Agentic space was created. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2026-06-10T10:08:08Z
@@ -209,7 +212,7 @@ export class ListAccessPointsResponseBodyAccessPoints extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * Indicates whether the RAM policy is enabled.
+   * Specifies whether the RAM policy is enabled.
    * 
    * @example
    * false
@@ -217,7 +220,7 @@ export class ListAccessPointsResponseBodyAccessPoints extends $dara.Model {
   enabledRam?: boolean;
   /**
    * @remarks
-   * The file system ID.
+   * The ID of the file system.
    * 
    * @example
    * 091yj49baxscll2****
@@ -225,7 +228,7 @@ export class ListAccessPointsResponseBodyAccessPoints extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The time when the access point was last modified. The time follows the ISO 8601 standard and is displayed in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The time when the access point was modified. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2026-06-24T02:10:23Z
@@ -233,7 +236,7 @@ export class ListAccessPointsResponseBodyAccessPoints extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The time when the agentic space was last modified. The time follows the ISO 8601 standard. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The time when the Agentic space was updated. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2026-06-10T10:08:08Z
@@ -254,18 +257,16 @@ export class ListAccessPointsResponseBodyAccessPoints extends $dara.Model {
   rootPath?: string;
   /**
    * @remarks
-   * The root directory permission.
+   * The permissions of the root directory.
    */
   rootPathPermission?: ListAccessPointsResponseBodyAccessPointsRootPathPermission;
   /**
    * @remarks
-   * The current root directory status.
+   * The current status of the root directory. Valid values:
    * 
-   * Valid values:
-   * 
-   * - 0: The root path status is unknown.
+   * - 0: The status of the root path is unknown.
    * - 1: The root path does not exist. It may have been deleted by the user.
-   * - 2: The root path status is normal.
+   * - 2: The status of the root path is normal.
    * 
    * @example
    * 2
@@ -273,29 +274,27 @@ export class ListAccessPointsResponseBodyAccessPoints extends $dara.Model {
   rootPathStatus?: string;
   /**
    * @remarks
-   * The current access point status.
+   * The current status of the access point. Valid values:
    * 
-   * Valid values:
+   * - active: The access point is available.
+   * - inactive: The access point is unavailable.
+   * - pending: The access point is being created.
+   * - deleting: The access point is being deleted.
    * 
-   * - Active: The access point is available.
-   * - Inactive: The access point is unavailable.
-   * - Pending: The access point is being created.
-   * - Deleting: The access point is being deleted.
-   * 
-   * > You can mount a file system only when the status is Active.
+   * > You can mount the file system only when the status is active.
    * 
    * @example
-   * Active
+   * active
    */
   status?: string;
   /**
    * @remarks
-   * The access point tag list.
+   * The list of tags for the access point.
    */
   tags?: ListAccessPointsResponseBodyAccessPointsTags[];
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-2zevmwkwyztjuoffg****
@@ -303,7 +302,7 @@ export class ListAccessPointsResponseBodyAccessPoints extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the VPC.
    * 
    * @example
    * vpc-2zesj9afh3y518k9o****
@@ -385,7 +384,7 @@ export class ListAccessPointsResponseBody extends $dara.Model {
   accessPoints?: ListAccessPointsResponseBodyAccessPoints[];
   /**
    * @remarks
-   * The query token. Set this parameter to the value of NextToken that was returned in the previous API call.
+   * The query token. The value is the NextToken parameter value returned by the previous API call.
    * 
    * @example
    * 52frCAAAAABoZS90cm****==

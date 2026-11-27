@@ -159,7 +159,7 @@ export class DescribeDataFlowsResponseBody extends $dara.Model {
   dataFlowInfo?: DescribeDataFlowsResponseBodyDataFlowInfo;
   /**
    * @remarks
-   * When the returned results of a request are truncated, you can use NextToken to initiate another request and obtain the remaining results.
+   * The pagination token. If the returned results are truncated, you can use NextToken to initiate another request to retrieve the remaining results.
    * 
    * @example
    * TGlzdFJlc291cmNlU****mVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0=
@@ -167,7 +167,7 @@ export class DescribeDataFlowsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 2D69A58F-345C-4FDE-88E4-BF518948****

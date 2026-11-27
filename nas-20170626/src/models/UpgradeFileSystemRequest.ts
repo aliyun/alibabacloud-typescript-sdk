@@ -45,8 +45,8 @@ export class UpgradeFileSystemRequest extends $dara.Model {
    * @remarks
    * The file system ID.
    * 
-   * - Extreme NAS: The ID must start with `extreme-`, for example, extreme-0015\\*\\*\\*\\*.
-   * - CPFS: The ID must start with `cpfs-`, for example, cpfs-125487\\*\\*\\*\\*.
+   * - Extreme NAS: The ID must start with `extreme-`, for example, extreme-0015\*\*\*\*.
+   * - CPFS: The ID must start with `cpfs-`, for example, cpfs-125487\*\*\*\*.
    * 
    * This parameter is required.
    * 

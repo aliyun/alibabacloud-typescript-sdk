@@ -17,7 +17,7 @@ export class SetDirQuotaResponseBody extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - true: The request was successful.
+   * - true: The request succeeded.
    * - false: The request failed.
    * 
    * @example

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLifecycleRetrieveJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The file system ID.
+   * The ID of the file system.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateLifecycleRetrieveJobRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The list of directories or file paths to retrieve. A maximum of 10 paths are supported.
+   * The list of paths of the directories or files to retrieve. You can specify up to 10 paths.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,9 @@ export class CreateLifecycleRetrieveJobRequest extends $dara.Model {
   paths?: string[];
   /**
    * @remarks
-   * The storage class. Valid values:
+   * The tiered storage type. Valid values:
    * - InfrequentAccess (default): IA storage class.
-   * - Archive: Archive storage class.
+   * - Archive: Archive storage.
    * 
    * @example
    * InfrequentAccess

@@ -5,12 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMountTargetRequest extends $dara.Model {
   /**
    * @remarks
-   * The file system ID.
-   * - General-purpose NAS: 31a8e4\\*\\*\\*\\*.
+   * Specifies whether to perform a dry run on the request.
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the file system.
+   * - General-purpose NAS: 31a8e4\*\*\*\*.
    * 
-   * - Extreme NAS: must start with `extreme-`, for example, extreme-0015\\*\\*\\*\\*.
+   * - Extreme NAS: must start with `extreme-`, such as extreme-0015\*\*\*\*.
    * 
-   * - Cloud Parallel File Storage (CPFS): must start with `cpfs-`, for example, cpfs-125487\\*\\*\\*\\*.
+   * - CPFS: must start with `cpfs-`, such as cpfs-125487\*\*\*\*.
    * 
    * This parameter is required.
    * 
@@ -30,6 +35,7 @@ export class DeleteMountTargetRequest extends $dara.Model {
   mountTargetDomain?: string;
   static names(): { [key: string]: string } {
     return {
+      dryRun: 'DryRun',
       fileSystemId: 'FileSystemId',
       mountTargetDomain: 'MountTargetDomain',
     };
@@ -37,6 +43,7 @@ export class DeleteMountTargetRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dryRun: 'boolean',
       fileSystemId: 'string',
       mountTargetDomain: 'string',
     };

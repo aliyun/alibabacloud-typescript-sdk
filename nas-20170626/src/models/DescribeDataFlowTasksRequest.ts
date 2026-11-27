@@ -9,18 +9,18 @@ export class DescribeDataFlowTasksRequestFilters extends $dara.Model {
    * 
    * Valid values:
    * 
-   * - DataFlowIds: filters by data flow ID.
-   * - TaskIds: filters by data flow task ID.
-   * - Originator: filters by the initiator of the data flow task.
-   * - TaskActions: filters by the type of the data flow task.
-   * - DataTypes: filters by the data type of the data flow task.
-   * - Status: filters by data flow status.
-   * - CreateTimeBegin: filters data flow tasks created after the specified time.
-   * - CreateTimeEnd: filters data flow tasks created before the specified time.
-   * - StartTimeBegin: filters data flow tasks started after the specified time.
-   * - StartTimeEnd: filters data flow tasks started before the specified time.
-   * - EndTimeBegin: filters data flow tasks that ended after the specified time.
-   * - EndTimeEnd: filters data flow tasks that ended before the specified time.
+   * - DataFlowIds: Filters by data flow ID.
+   * - TaskIds: Filters by data flow task ID.
+   * - Originator: Filters by the originator of the data flow task.
+   * - TaskActions: Filters by the type of the data flow task.
+   * - DataTypes: Filters by the data type of the data flow task.
+   * - Status: Filters by the data flow status.
+   * - CreateTimeBegin: Filters data flow tasks created after a specified time.
+   * - CreateTimeEnd: Filters data flow tasks created before a specified time.
+   * - StartTimeBegin: Filters data flow tasks started after a specified time.
+   * - StartTimeEnd: Filters data flow tasks started before a specified time.
+   * - EndTimeBegin: Filters data flow tasks ended after a specified time.
+   * - EndTimeEnd: Filters data flow tasks ended before a specified time.
    * 
    * @example
    * DataFlowIds
@@ -30,18 +30,18 @@ export class DescribeDataFlowTasksRequestFilters extends $dara.Model {
    * @remarks
    * The value of the filter key. This parameter does not support wildcards.
    * 
-   * - If Key is set to DataFlowIds, Value is set to a data flow ID or part of a data flow ID. You can specify one or more data flow IDs. You can specify up to 10 data flow IDs. Example: `df-194433a5be31****` or `df-194433a5be31****,df-234533a5be31****`.
-   * - If Key is set to TaskId, Value is set to a data flow task ID or part of a data flow task ID. You can specify one or more data flow task IDs. You can specify up to 10 data flow task IDs. Example: `task-38aa8e890f45****` or `task-38aa8e890f45****,task-29ae8e890f45****`.
-   * - If Key is set to TaskActions, Value is set to the type of the data flow task, including **Import**, **Export**, **Evict**, **Inventory**, **StreamImport**, and **StreamExport**. Combined queries are supported. CPFS for Lingjun supports only Import, Export, StreamImport, and StreamExport. StreamImport and StreamExport are supported only by CPFS for Lingjun 2.6.0 and later.
-   * - If Key is set to DataTypes, Value is set to the data type of the data flow task, including MetaAndData, Metadata, and Data. Combined queries are supported.
-   * - If Key is set to Originator, Value is set to the initiator of the data flow task, including User and System.
-   * - If Key is set to Status, Value is set to the status of the data flow task, including Pending, Executing, Failed, Completed, Canceling, and Canceled. Combined queries are supported.
-   * - If Key is set to CreateTimeBegin, Value is set to the earliest creation time of the data flow task. Format: `yyyy-MM-ddThh:mmZ`.
-   * - If Key is set to CreateTimeEnd, Value is set to the latest creation time of the data flow task. Format: `yyyy-MM-ddThh:mmZ`.
-   * - If Key is set to StartTimeBegin, Value is set to the earliest start time of the data flow task. Format: `yyyy-MM-ddThh:mmZ`.
-   * - If Key is set to StartTimeEnd, Value is set to the latest start time of the data flow task. Format: `yyyy-MM-ddThh:mmZ`.
-   * - If Key is set to EndTimeBegin, Value is set to the earliest end time of the data flow task. Format: `yyyy-MM-ddThh:mmZ`.
-   * - If Key is set to EndTimeEnd, Value is set to the latest end time of the data flow task. Format: `yyyy-MM-ddThh:mmZ`.
+   * - When Key is set to DataFlowIds, Value is set to the data flow ID or a part of the data flow ID. It can be a single DataFlowId or a list of DataFlowIds. You can specify up to 10 data flow IDs. Example: `df-194433a5be31****` or `df-194433a512a2****,df-234533a5be31****`.
+   * - When Key is set to TaskIds, Value is set to the data flow task ID or a part of the data flow task ID. It can be a single task ID or a list of task IDs. You can specify up to 10 data flow task IDs. Example: `task-38aa8e890f45****` or `task-38aa8e890f45****,task-29ae8e890f45****`.
+   * - When Key is set to TaskActions, Value is set to the task type of the data flow. Valid values: **Import**, **Export**, **Evict**, **Inventory**, **StreamImport**, and **StreamExport**. Combined queries are supported. Currently, CPFS for Lingjun only supports Import, Export, StreamImport, and StreamExport. StreamImport and StreamExport are supported only in CPFS for Lingjun 2.6.0 and later.
+   * - When Key is set to DataTypes, Value is set to the data type of the data flow task. Valid values: MetaAndData, Metadata, and Data. Combined queries are supported.
+   * - When Key is set to Originator, Value is set to the originator of the data flow task. Valid values: User and System.
+   * - When Key is set to Status, Value is set to the status of the data flow task. Valid values: Pending, Executing, Failed, Completed, Canceling, and Canceled. Combined queries are supported.
+   * - When Key is set to CreateTimeBegin, Value is set to the minimum creation time of the data flow task. Format: `yyyy-MM-ddThh:mmZ`.
+   * - When Key is set to CreateTimeEnd, Value is set to the maximum creation time of the data flow task. Format: `yyyy-MM-ddThh:mmZ`.
+   * - When Key is set to StartTimeBegin, Value is set to the minimum start time of the data flow task. Format: `yyyy-MM-ddThh:mmZ`.
+   * - When Key is set to StartTimeEnd, Value is set to the maximum start time of the data flow task. Format: `yyyy-MM-ddThh:mmZ`.
+   * - When Key is set to EndTimeBegin, Value is set to the minimum end time of the data flow task. Format: `yyyy-MM-ddThh:mmZ`.
+   * - When Key is set to EndTimeEnd, Value is set to the maximum end time of the data flow task. Format: `yyyy-MM-ddThh:mmZ`.
    * 
    * @example
    * df-194433a5be31****
@@ -75,9 +75,9 @@ export class DescribeDataFlowTasksRequest extends $dara.Model {
    * @remarks
    * The file system ID.
    * 
-   * - General-purpose CPFS: The ID must start with `cpfs-`, such as cpfs-099394bd928c****.
+   * - General-purpose CPFS: must start with `cpfs-`, for example, cpfs-099394bd928c****.
    * 
-   * - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-290w65p03ok64ya****.
+   * - CPFS for Lingjun: must start with `bmcpfs-`, for example, bmcpfs-290w65p03ok64ya****.
    * 
    * This parameter is required.
    * 
@@ -87,7 +87,7 @@ export class DescribeDataFlowTasksRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The collection of filter key information.
+   * The collection of filter keys.
    * 
    * **if can be null:**
    * false
@@ -95,7 +95,7 @@ export class DescribeDataFlowTasksRequest extends $dara.Model {
   filters?: DescribeDataFlowTasksRequestFilters[];
   /**
    * @remarks
-   * The number of results for each query.
+   * The maximum number of entries to return for a single request.
    * 
    * Valid values: 10 to 100.
    * 
@@ -107,7 +107,7 @@ export class DescribeDataFlowTasksRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * If the returned results are truncated, you can use NextToken to initiate a new request to retrieve the content after the truncation point.
+   * The next token. If the returned results of a request are truncated, you can use NextToken to initiate another request and obtain the remaining results.
    * 
    * @example
    * TGlzdFJlc291cmNlU****mVzJjE1MTI2NjY4NzY5MTAzOTEmMiZORnI4NDhVeEtrUT0=
@@ -117,11 +117,12 @@ export class DescribeDataFlowTasksRequest extends $dara.Model {
    * @remarks
    * Specifies whether to query report information.
    * 
-   * - True (default): queries reports.
-   * - False: does not query reports.
+   * Valid values:
+   * - True: Queries reports. This is the default value.
+   * - False: Does not query reports.
    * 
-   * > - Setting this parameter to False speeds up the query.
-   * > - Only CPFS for Lingjun is supported.
+   * > - Setting this parameter to false can accelerate the query speed.
+   * > - Only CPFS for Lingjun supports this parameter.
    * 
    * @example
    * True

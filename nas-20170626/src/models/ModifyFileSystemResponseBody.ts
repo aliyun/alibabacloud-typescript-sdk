@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyFileSystemResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5BC5CB97-9F28-42FE-84A4-0CD0DF42****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccessPointResponseBodyAccessPointPosixUser extends $dara.Model {
   /**
    * @remarks
-   * The POSIX user group ID.
+   * The ID of the POSIX user group.
    * 
    * @example
    * 12
@@ -13,12 +13,15 @@ export class DescribeAccessPointResponseBodyAccessPointPosixUser extends $dara.M
   posixGroupId?: number;
   /**
    * @remarks
-   * The secondary user group IDs.
+   * The IDs of the secondary user groups.
+   * 
+   * @example
+   * [123,123]
    */
   posixSecondaryGroupIds?: number[];
   /**
    * @remarks
-   * The POSIX user ID.
+   * The ID of the POSIX user.
    * 
    * @example
    * 123
@@ -55,7 +58,7 @@ export class DescribeAccessPointResponseBodyAccessPointPosixUser extends $dara.M
 export class DescribeAccessPointResponseBodyAccessPointRootPathPermission extends $dara.Model {
   /**
    * @remarks
-   * The file group ID.
+   * The ID of the owner user group.
    * 
    * @example
    * 123
@@ -63,7 +66,7 @@ export class DescribeAccessPointResponseBodyAccessPointRootPathPermission extend
   ownerGroupId?: number;
   /**
    * @remarks
-   * The file owner ID.
+   * The ID of the owner user.
    * 
    * @example
    * 1
@@ -145,7 +148,7 @@ export class DescribeAccessPointResponseBodyAccessPointTags extends $dara.Model 
 export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
   /**
    * @remarks
-   * The access point ARN.
+   * The ARN of the access point.
    * 
    * @example
    * acs:nas:cn-hangzhou:178321033379****:accesspoint/ap-ie15yd****
@@ -153,7 +156,7 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
   ARN?: string;
   /**
    * @remarks
-   * The permission group name.
+   * The name of the permission group.
    * 
    * @example
    * test
@@ -169,7 +172,7 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
   accessPointId?: string;
   /**
    * @remarks
-   * The access point name.
+   * The name of the access point.
    * 
    * @example
    * test
@@ -177,7 +180,7 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
   accessPointName?: string;
   /**
    * @remarks
-   * AgenticSpace Id。
+   * The AgenticSpace ID.
    * 
    * @example
    * agentic-229oypxjgpau2****
@@ -185,7 +188,7 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
   agenticSpaceId?: string;
   /**
    * @remarks
-   * The time when the access point was created. Format: Unix/POSIX timestamp.
+   * The creation time of the access point. Format: UNIX/POSIX timestamp.
    * 
    * @example
    * 1709619668276167
@@ -193,7 +196,7 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the access point was created. The time follows the ISO 8601 standard. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The creation time of the AgenticSpace. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2026-06-10T10:08:08Z
@@ -201,7 +204,7 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
   createTimeUtc?: string;
   /**
    * @remarks
-   * The access point domain name.
+   * The domain name of the access point.
    * 
    * @example
    * ap-ie15ydanoz.001014****-w****.cn-hangzhou.nas.aliyuncs.com
@@ -225,7 +228,7 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The time when the access point was last modified. Format: Unix/POSIX timestamp.
+   * The modification time of the access point. Format: UNIX/POSIX timestamp.
    * 
    * @example
    * 1709619668276167
@@ -233,7 +236,7 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The time when the access point was last modified. The time follows the ISO 8601 standard. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The update time of the AgenticSpace. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2026-06-10T10:08:08Z
@@ -262,18 +265,16 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
   rootPath?: string;
   /**
    * @remarks
-   * The root directory creation permissions.
+   * The creation permissions for the root directory.
    */
   rootPathPermission?: DescribeAccessPointResponseBodyAccessPointRootPathPermission;
   /**
    * @remarks
-   * The current root directory status.
+   * The current status of the root directory. Valid values:
    * 
-   * Valid values:
-   * 
-   * - 0: The root path status is unknown.
-   * - 1: The root path does not exist. It may have been deleted by the user.
-   * - 2: The root path status is normal.
+   * - 0: The status of the root path is unknown.
+   * - 1: The root path does not exist and may have been deleted by the user.
+   * - 2: The status of the root path is normal.
    * 
    * @example
    * 2
@@ -281,22 +282,20 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
   rootPathStatus?: string;
   /**
    * @remarks
-   * The current access point status.
+   * The current status of the access point. Valid values:
    * 
-   * Valid values:
-   * 
-   * - Active: active
-   * - Inactive: inactive
-   * - Pending: being created
-   * - Deleting: being deleted
+   * - active: The access point is available.
+   * - inactive: The access point is unavailable.
+   * - pending: The access point is being created.
+   * - deleting: The access point is being deleted.
    * 
    * @example
-   * Active
+   * active
    */
   status?: string;
   /**
    * @remarks
-   * The list of access point tags.
+   * The list of tags for the access point.
    */
   tags?: DescribeAccessPointResponseBodyAccessPointTags[];
   /**
@@ -309,9 +308,7 @@ export class DescribeAccessPointResponseBodyAccessPoint extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC ID.
-   * 
-   * The VPC must be the same as the VPC of the Elastic Computing Service (ECS) server to be mounted.
+   * The VPC ID. The VPC must be the same as the VPC of the Elastic Computing Service (ECS) server to which the file system is to be mounted.
    * 
    * @example
    * vpc-2zesj9afh3y518k9o****

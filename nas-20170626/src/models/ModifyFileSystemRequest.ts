@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyFileSystemRequestAutoUpgradeConfig extends $dara.Model {
   /**
    * @remarks
-   * The capacity usage threshold.
+   * The capacity usage threshold. Valid values: 1 to 99.
    * 
    * @example
    * 80
@@ -13,12 +13,15 @@ export class ModifyFileSystemRequestAutoUpgradeConfig extends $dara.Model {
   capacityUsedRatio?: number;
   /**
    * @remarks
-   * Specifies whether to enable auto-scaling.
+   * Specifies whether to enable automatic expansion.
+   * 
+   * @example
+   * false
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The scaling increment.
+   * The expansion step. The step must be a multiple of 100 GiB.
    * 
    * @example
    * 100
@@ -26,7 +29,7 @@ export class ModifyFileSystemRequestAutoUpgradeConfig extends $dara.Model {
   step?: number;
   /**
    * @remarks
-   * The duration.
+   * The duration. The minimum duration is 5 minutes, and the maximum duration is 24 hours. Unit: minutes.
    * 
    * @example
    * 30
@@ -62,7 +65,7 @@ export class ModifyFileSystemRequestAutoUpgradeConfig extends $dara.Model {
 export class ModifyFileSystemRequestOptions extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the SMB Access-Based Enumeration (ABE) feature.
+   * Specifies whether to enable the SMB ABE access control feature.
    * 
    * @example
    * false
@@ -74,7 +77,7 @@ export class ModifyFileSystemRequestOptions extends $dara.Model {
    * Valid values:
    * - true: Enabled.
    * - false: Disabled.
-   * > Only file systems of the SMB Protocol Type are supported.
+   * > This parameter is supported only for file systems of the SMB Protocol Type.
    * 
    * @example
    * true
@@ -82,7 +85,7 @@ export class ModifyFileSystemRequestOptions extends $dara.Model {
   enableOplock?: boolean;
   /**
    * @remarks
-   * Specifies whether the Lingjun VSC mount target supports only access point-based access.
+   * Specifies whether to enable AP-only access for VSC mount targets.
    * 
    * @example
    * false
@@ -116,7 +119,7 @@ export class ModifyFileSystemRequestOptions extends $dara.Model {
 export class ModifyFileSystemRequest extends $dara.Model {
   /**
    * @remarks
-   * The auto-scaling configuration.
+   * The automatic expansion configuration.
    */
   autoUpgradeConfig?: ModifyFileSystemRequestAutoUpgradeConfig;
   /**
@@ -126,8 +129,8 @@ export class ModifyFileSystemRequest extends $dara.Model {
    * Limits:
    * 
    * - The description must be 2 to 128 characters in length.
-   * - The description must start with a letter or Chinese character and cannot start with `http://` or `https://`.
-   * - The description can contain digits, colons (:), underscores (_), or hyphens (-).
+   * - It must start with a letter or a Chinese character, and cannot start with `http://` or `https://`.
+   * - It can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
    * NAS-test-1
@@ -135,12 +138,12 @@ export class ModifyFileSystemRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The file system ID.
+   * The ID of the file system.
    * 
    * - General-purpose NAS: `31a8e4****`.
    * 
-   * - Extreme NAS: The ID must start with `extreme-`, for example, `extreme-0015****`.
-   * - Cloud Parallel File Storage (CPFS): The ID must start with `cpfs-`, for example, `cpfs-125487****`.
+   * - Extreme NAS: must start with `extreme-`, such as `extreme-0015****`.
+   * - CPFS: must start with `cpfs-`, such as `cpfs-125487****`.
    * 
    * This parameter is required.
    * 

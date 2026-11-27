@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataInsightDirectoriesResponseBodyDirectorySubDirectories extends $dara.Model {
   /**
    * @remarks
-   * The time when the directory was created. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The time when the directory was created. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2026-07-23T12:47:14Z
@@ -37,7 +37,7 @@ export class ListDataInsightDirectoriesResponseBodyDirectorySubDirectories exten
   dirCapacityOnline?: number;
   /**
    * @remarks
-   * The subdirectory level.
+   * The level of the subdirectory.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class ListDataInsightDirectoriesResponseBodyDirectorySubDirectories exten
   dirLevel?: number;
   /**
    * @remarks
-   * The subdirectory name.
+   * The name of the subdirectory.
    * 
    * @example
    * /dir_l1_n000
@@ -85,7 +85,7 @@ export class ListDataInsightDirectoriesResponseBodyDirectorySubDirectories exten
   inode?: number;
   /**
    * @remarks
-   * The time when the database directory data record was last updated. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The update time of the database directory data record. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2026-07-29T03:41:12Z
@@ -93,7 +93,7 @@ export class ListDataInsightDirectoriesResponseBodyDirectorySubDirectories exten
   lastAccessTime?: string;
   /**
    * @remarks
-   * The time when the directory was last accessed. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The last access time of the directory. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2026-07-29T03:41:12Z
@@ -145,7 +145,7 @@ export class ListDataInsightDirectoriesResponseBodyDirectorySubDirectories exten
 export class ListDataInsightDirectoriesResponseBodyDirectory extends $dara.Model {
   /**
    * @remarks
-   * The directory capacity.
+   * The capacity of the directory.
    * 
    * @example
    * 10240
@@ -177,7 +177,7 @@ export class ListDataInsightDirectoriesResponseBodyDirectory extends $dara.Model
   fileCount?: number;
   /**
    * @remarks
-   * The number of Infrequent Access (IA) files.
+   * The number of IA files.
    * 
    * @example
    * 204800
@@ -201,7 +201,7 @@ export class ListDataInsightDirectoriesResponseBodyDirectory extends $dara.Model
   inode?: number;
   /**
    * @remarks
-   * The subdirectory information.
+   * The collection of subdirectory information.
    */
   subDirectories?: ListDataInsightDirectoriesResponseBodyDirectorySubDirectories[];
   static names(): { [key: string]: string } {
@@ -245,7 +245,7 @@ export class ListDataInsightDirectoriesResponseBodyDirectory extends $dara.Model
 export class ListDataInsightDirectoriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The directory information.
+   * The collection of directory information.
    */
   directory?: ListDataInsightDirectoriesResponseBodyDirectory;
   /**
@@ -258,7 +258,7 @@ export class ListDataInsightDirectoriesResponseBody extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The maximum number of directories returned.
+   * The maximum number of directories to return for the query.
    * 
    * @example
    * 10
@@ -266,7 +266,7 @@ export class ListDataInsightDirectoriesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned in this call.
+   * The query token returned by the current call.
    * 
    * @example
    * /subDir

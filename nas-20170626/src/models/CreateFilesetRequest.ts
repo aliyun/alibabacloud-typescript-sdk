@@ -17,13 +17,13 @@ export class CreateFilesetRequestQuota extends $dara.Model {
   fileCountLimit?: number;
   /**
    * @remarks
-   * The total capacity limit of the quota. Unit: bytes.
+   * The total capacity limit of the quota. Unit: Byte.
    * 
    * Valid values:
    * 
    * - Minimum value: 10,737,418,240 (10 GiB).
    * 
-   * - Increment: 1,073,741,824 (1 GiB).
+   * - Step: 1,073,741,824 (1 GiB).
    * 
    * @example
    * 10737418240
@@ -55,9 +55,9 @@ export class CreateFilesetRequestQuota extends $dara.Model {
 export class CreateFilesetRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests.
+   * Ensures the idempotence of the request. You can generate a value on your client to ensure that this parameter is unique across different requests.
    * 
-   * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The ClientToken can contain only ASCII characters and cannot exceed 64 characters. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
    * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
    * 
@@ -67,12 +67,12 @@ export class CreateFilesetRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The release protection property of the instance. Specifies whether the instance can be released by using the console or the [DeleteFileset](https://help.aliyun.com/document_detail/2402263.html) operation.
+   * The release protection attribute of the instance. It specifies whether the instance can be released through the console or the [DeleteFileset](https://help.aliyun.com/document_detail/2402263.html) operation.
    * 
    * - true: Enables release protection for the instance.
    * - false (default): Disables release protection for the instance.
    * 
-   * > This property only restricts manual release operations and does not take effect on system-initiated release operations.
+   * > This attribute limits only manual release operations and does not apply to system release operations.
    * 
    * @example
    * false
@@ -80,26 +80,26 @@ export class CreateFilesetRequest extends $dara.Model {
   deletionProtection?: boolean;
   /**
    * @remarks
-   * The description of the fileset.
+   * The description of the Fileset.
    * 
    * - The description must be 2 to 128 characters in length.
-   * - The description must start with a letter or Chinese character and cannot start with http:// or https://.
+   * - The description must start with an uppercase letter, a lowercase letter, or a Chinese character. It cannot start with http:// or https://.
    * - The description can contain digits, colons (:), underscores (_), or hyphens (-).
    * 
    * @example
-   * Internal affairs directory
+   * Internal transaction directory
    */
   description?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run for this request.
+   * Specifies whether to perform a dry run for this creation request.
    * 
-   * A dry run checks parameter validity and resource availability without actually creating the instance or incurring charges.
+   * A dry run performs checks such as parameter validity and inventory. It does not actually create the instance or incur fees.
    * 
    * Valid values:
    * 
-   * - true: Sends a dry run request without creating the instance. The check items include required parameters, request format, business restrictions, and NAS inventory. If the check fails, the corresponding error is returned. If the check succeeds, HTTP status code 200 is returned, but FsetId is empty.
-   * - false (default): Sends a normal request. After the check succeeds, the instance is created.
+   * - true: Sends a check request and does not create the instance. Check items include whether required parameters are specified, the request format, business limits, and NAS inventory. If the check fails, the corresponding error is returned. If the check succeeds, the 200 HTTP status code is returned, but FsetId is empty.
+   * - false (default): Sends a normal request and creates the instance directly after the check succeeds.
    * 
    * @example
    * false
@@ -109,9 +109,9 @@ export class CreateFilesetRequest extends $dara.Model {
    * @remarks
    * The file system ID.
    * 
-   * - CPFS: The ID must start with `cpfs-`, such as cpfs-099394bd928c\\*\\*\\*\\*.
+   * - CPFS: The ID must start with `cpfs-`. Example: cpfs-099394bd928c****.
    * 
-   * - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-290w65p03ok64ya\\*\\*\\*\\*.
+   * - CPFS for Lingjun: The ID must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya****.
    * 
    * This parameter is required.
    * 
@@ -121,20 +121,20 @@ export class CreateFilesetRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The absolute path of the fileset to create.
+   * The absolute path of the Fileset to be created.
    * 
-   * - Path restrictions for CPFS:
+   * - CPFS path limits.
    *   - The parent directory of the specified directory must be an existing directory in the file system.
-   *   - The path must be 2 to 1,024 characters in length.
+   *   - The length must be 2 to 1,024 characters.
    *   - The specified directory must start and end with a forward slash (/).
-   * - Path restrictions for CPFS for Lingjun:
-   *   - The path must be 2 to 1,024 characters in length.
-   *   - The specified directory must start and end with a forward slash (/).
-   *   - The fileset path must be a new path and cannot be an existing path. Renaming a fileset path is not supported, and the path cannot be a symbolic link.
-   *   - The maximum depth of a fileset path is 8 levels, with the root directory / as level 0. For example, a fileset path of /test/aaa/ccc/ has a depth of 3 levels.
-   *   - If the fileset path contains multiple directory levels, the parent directory must be an existing directory.
-   *   - Nesting filesets within a fileset is not supported. If a parent directory is already specified as a fileset, its subdirectories cannot be specified as filesets. Only one quota is supported for each fileset path.
-   *   - The total path length cannot exceed 990 characters.
+   *  - CPFS for Lingjun path limits.
+   *    - The length must be 2 to 1,024 characters.
+   *    - The specified directory must start and end with a forward slash (/).
+   *    - The Fileset path must be a new path and cannot be an existing path. Fileset paths cannot be renamed and cannot be symbolic links.
+   *    - The maximum supported depth of a Fileset path is 8 levels. The root directory / is level 0. For example, if the Fileset path is /test/aaa/ccc/, the path depth is 3 levels.
+   *    - If the Fileset path contains multiple directory levels, the parent directory must be an existing directory.
+   *    - You cannot nest Filesets. If a parent directory is already specified as a Fileset, its subdirectories cannot be specified as Filesets. Each Fileset path supports only one quota.
+   *    - The total path length can be up to 990 characters.
    * 
    * This parameter is required.
    * 
@@ -145,7 +145,7 @@ export class CreateFilesetRequest extends $dara.Model {
   /**
    * @remarks
    * The quota information.
-   * > This parameter is supported only for CPFS for Lingjun 2.7.0 and later.
+   * > Only CPFS for Lingjun 2.7.0 and later support this parameter.
    */
   quota?: CreateFilesetRequestQuota;
   static names(): { [key: string]: string } {

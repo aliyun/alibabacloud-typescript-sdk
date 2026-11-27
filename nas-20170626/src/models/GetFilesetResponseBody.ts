@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFilesetResponseBodyDataQuota extends $dara.Model {
   /**
    * @remarks
-   * The file count limit of the quota. Value range:
+   * The file count limit of the quota. Valid values:
    * 
    * - Minimum value: 10,000.
    * 
@@ -19,14 +19,14 @@ export class GetFilesetResponseBodyDataQuota extends $dara.Model {
    * @remarks
    * The total capacity limit of the quota. Unit: bytes.
    * 
-   * Value range:
+   * Valid values:
    * 
    * - Minimum value: 10,737,418,240 (10 GiB).
    * 
-   * - Increment: 1,073,741,824 (1 GiB).
+   * - Step size: 1,073,741,824 (1 GiB).
    * 
    * @example
-   * 10,737,418,240
+   * 10737418240
    */
   sizeLimit?: number;
   static names(): { [key: string]: string } {
@@ -65,12 +65,12 @@ export class GetFilesetResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The release protection property of the instance. Specifies whether the instance can be released from the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2402263.html) operation.
+   * The release protection property of the instance, which specifies whether the instance can be released from the console or by calling the [DeleteFileset](https://help.aliyun.com/document_detail/2402263.html) operation.
    * 
    * -   true: Release protection is enabled.
    * -   false (default): Release protection is disabled.
    * 
-   * > This property applies only to manual release operations and does not apply to system-initiated release operations.
+   * > This property only restricts manual release operations and does not take effect on system release operations.
    * 
    * @example
    * false
@@ -86,8 +86,8 @@ export class GetFilesetResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The file count usage.
-   * > Only CPFS for Lingjun 2.7.0 and later support this parameter.
+   * The number of used files.
+   * > This parameter is supported only by CPFS for Lingjun 2.7.0 and later.
    * 
    * @example
    * 1024
@@ -95,11 +95,11 @@ export class GetFilesetResponseBodyData extends $dara.Model {
   fileCountUsage?: number;
   /**
    * @remarks
-   * The file system ID.
+   * The ID of the file system.
    * 
-   * - CPFS: The ID must start with `cpfs-`, such as cpfs-125487\\*\\*\\*\\*.
+   * - CPFS: The ID must start with `cpfs-`, such as cpfs-125487\*\*\*\*.
    * 
-   * - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-0015\\*\\*\\*\\*.
+   * - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-0015\*\*\*\*.
    * 
    * @example
    * cpfs-0244729a8ef8****
@@ -115,8 +115,8 @@ export class GetFilesetResponseBodyData extends $dara.Model {
   fileSystemPath?: string;
   /**
    * @remarks
-   * The Fileset ID.
-   * > This parameter is required if the file system type is CPFS.
+   * The ID of the Fileset.
+   * > This parameter is required when the file system type is CPFS.
    * 
    * @example
    * fset-03250e8fe78d****
@@ -125,13 +125,13 @@ export class GetFilesetResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The quota information.
-   * > Only CPFS for Lingjun 2.7.0 and later support this parameter.
+   * > This parameter is supported only by CPFS for Lingjun 2.7.0 and later.
    */
   quota?: GetFilesetResponseBodyDataQuota;
   /**
    * @remarks
-   * The capacity usage. Unit: bytes.
-   * > Only CPFS for Lingjun 2.7.0 and later support this parameter.
+   * The used storage capacity. Unit: bytes.
+   * > This parameter is supported only by CPFS for Lingjun 2.7.0 and later.
    * 
    * @example
    * 1024
@@ -142,7 +142,7 @@ export class GetFilesetResponseBodyData extends $dara.Model {
    * The status of the Fileset. Valid values:
    * 
    * - CREATING: The Fileset is being created.
-   * - CREATED: The Fileset is created and running as expected. 
+   * - CREATED: The Fileset is created and running normally. 
    * - RELEASING: The Fileset is being released.
    * - RELEASED: The Fileset is deleted.
    * 
@@ -212,7 +212,7 @@ export class GetFilesetResponseBody extends $dara.Model {
   data?: GetFilesetResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BC7C825C-5F65-4B56-BEF6-98C56C7C****

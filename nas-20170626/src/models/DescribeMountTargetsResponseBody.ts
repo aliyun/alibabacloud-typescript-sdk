@@ -206,7 +206,7 @@ export class DescribeMountTargetsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of mount targets on each page when paging is used.
+   * The number of mount targets per paging in a paged query.
    * 
    * @example
    * 1

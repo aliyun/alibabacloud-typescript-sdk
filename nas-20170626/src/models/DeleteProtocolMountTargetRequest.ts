@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteProtocolMountTargetRequest extends $dara.Model {
   /**
    * @remarks
-   * Ensures the idempotence of the request. Generate a value from your client that is unique among different requests.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
    * 
-   * ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
-   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may differ for each API request.
+   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the client token. The RequestId may be different for each API request.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -17,14 +17,14 @@ export class DeleteProtocolMountTargetRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run for this delete request.
-   * A dry run checks parameter validity and dependencies without actually deleting the instance or incurring charges.
+   * Specifies whether to perform a dry run on the delete request.
+   * A dry run helps you check parameter validity and dependencies. The export directory is not actually deleted, and no fees are incurred.
    * 
    * Valid values:
    * 
-   * - true: Sends a dry run request without deleting the export directory. The dry run checks whether required parameters are specified, whether the request format is valid, and whether business limit dependencies are met. If the check fails, the corresponding error is returned. If the check passes, HTTP status code 200 is returned.
+   * - true: performs a dry run. The export directory is not deleted. The system checks whether required parameters are specified, the request format is valid, and business limits and dependencies are met. If the request fails the dry run, an error is returned. If the request passes the dry run, the HTTP status code 200 is returned.
    * 
-   * - false (default): Sends a normal request. After the check passes, the instance is directly deleted.
+   * - false (default): does not perform a dry run and sends the actual request. If the request passes the check, the export directory is directly deleted.
    * 
    * @example
    * true

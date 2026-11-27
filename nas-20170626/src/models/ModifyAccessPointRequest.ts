@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAccessPointRequest extends $dara.Model {
   /**
    * @remarks
-   * The permission group name.
+   * The name of the permission group.
    * 
-   * This parameter is required if the file system is a General-purpose NAS file system.
+   * This parameter is required when the target file system is a General-purpose NAS file system.
    * 
-   * Default permission group: DEFAULT_VPC_GROUP_NAME (the default VPC permission group).
-   * > Agentic file systems do not support this parameter.
+   * Default permission group: DEFAULT_VPC_GROUP_NAME (the default permission group for VPCs).
+   * > Not supported by Agentic file systems.
    * 
    * @example
    * DEFAULT_VPC_GROUP_NAME
@@ -39,11 +39,11 @@ export class ModifyAccessPointRequest extends $dara.Model {
    * Specifies whether to enable the RAM policy. Valid values:
    * 
    * - true: Enabled.
-   * - false (default): Not enabled.
+   * - false: Disabled. This is the default value.
    * 
-   * > After you enable the access point RAM policy, all Resource Access Management (RAM) users are denied access to mount and access data through the access point by default. You must perform authorization to grant the corresponding access permissions to the accounts and then mount and access data through the access point. After you disable the RAM policy, the access point allows anonymity mounting.
+   * > After you enable the RAM policy for the access point, all Resource Access Management (RAM) users are denied from using the access point to mount and access data by default. You must grant authorization to the accounts to enable the corresponding access permissions, and mount the file system through the access point. If this feature is disabled, the access point allows anonymous mounting.
    * 
-   * > Agentic file systems do not support this parameter.
+   * > Not supported by Agentic file systems.
    * 
    * @example
    * false

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableNfsAclResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 29F4F360-A6A8-561A-A45B-A0F6882969BA

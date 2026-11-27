@@ -85,7 +85,7 @@ export class ModifyAccessRuleRequest extends $dara.Model {
    * > You must specify either SourceCidrIp or Ipv6SourceCidrIp. You cannot leave both parameters empty, and you cannot specify both parameters at the same time.
    * 
    * @example
-   * ``192.0.**.**``
+   * `192.0.**.**`
    */
   sourceCidrIp?: string;
   /**

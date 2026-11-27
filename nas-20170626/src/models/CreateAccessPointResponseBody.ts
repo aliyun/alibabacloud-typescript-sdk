@@ -50,7 +50,7 @@ export class CreateAccessPointResponseBody extends $dara.Model {
   accessPoint?: CreateAccessPointResponseBodyAccessPoint;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 98696EF0-1607-4E9D-B01D-F20930B6****

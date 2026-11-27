@@ -5,10 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsDeleteRules extends $dara.Model {
   /**
    * @remarks
-   * The attribute of the rule.
-   * 
-   * Valid values:
-   * - Atime: The last access time of the file.
+   * The attribute of the rule. Valid values:
+   * - Atime: the last access time of the file.
    * 
    * @example
    * Atime
@@ -16,10 +14,8 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsDeleteRul
   attribute?: string;
   /**
    * @remarks
-   * The threshold of the rule.
-   * 
-   * Valid values:
-   * - If Attribute is set to Atime, the value indicates the number of days a file has not been accessed. Valid values: 1 to 365.
+   * The threshold of the rule. Valid values:
+   * - If Attribute is set to Atime, the value indicates the number of days that a file has not been accessed. Valid values: 1 to 365.
    * 
    * @example
    * 3
@@ -52,7 +48,7 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsRetrieveR
   /**
    * @remarks
    * The attribute of the rule. Valid values:
-   * - RetrieveType: The retrieval method.
+   * - RetrieveType: the retrieval method.
    * 
    * @example
    * RetrieveType
@@ -95,10 +91,8 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsRetrieveR
 export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsTransitRules extends $dara.Model {
   /**
    * @remarks
-   * The attribute of the rule.
-   * 
-   * Valid values:
-   * - Atime: The last access time of the file.
+   * The attribute of the rule. Valid values:
+   * - Atime: the last access time of the file.
    * 
    * @example
    * Atime
@@ -106,10 +100,8 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsTransitRu
   attribute?: string;
   /**
    * @remarks
-   * The threshold of the rule.
-   * 
-   * Valid values:
-   * - If Attribute is set to Atime, the value indicates the number of days a file has not been accessed. Valid values: 1 to 365.
+   * The threshold of the rule. Valid values:
+   * - If Attribute is set to Atime, the value indicates the number of days that a file has not been accessed. Valid values: 1 to 365.
    * 
    * @example
    * 3
@@ -159,17 +151,17 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogs extends 
   paths?: string[];
   /**
    * @remarks
-   * The file data retrieval rules.
+   * The data retrieval rules for files.
    */
   retrieveRules?: DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsRetrieveRules[];
   /**
    * @remarks
    * The status of the data retrieval task. Valid values:
-   * - PENDING: The task is being created.
-   * - RUNNING: The task is running.
-   * - STOPPED: The task is stopped.
-   * - FINISHED: The task is completed.
-   * - FAILED: The task fails.
+   * - PENDING: Creating
+   * - RUNNING: Running
+   * - STOPPED: Stopped
+   * - FINISHED: Finished
+   * - FAILED: Failed
    * 
    * @example
    * RUNNING
@@ -178,7 +170,7 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogs extends 
   /**
    * @remarks
    * The tiered storage type. Valid values:
-   * - InfrequentAccess: IA storage class. This is the default value.
+   * - InfrequentAccess: IA storage class (default).
    * - Archive: Archive storage class.
    * 
    * @example
@@ -195,7 +187,7 @@ export class DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogs extends 
   summary?: string;
   /**
    * @remarks
-   * The file data transition rules.
+   * The data transition rules for files.
    */
   transitRules?: DescribeLifecyclePolicyLogsResponseBodyLifecyclePolicyLogsTransitRules[];
   static names(): { [key: string]: string } {
@@ -261,7 +253,7 @@ export class DescribeLifecyclePolicyLogsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of log entries returned on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -277,9 +269,7 @@ export class DescribeLifecyclePolicyLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
-   * 
-   * Valid values:
+   * Indicates whether the request is successful. Valid values:
    * - true: The request is successful.
    * - false: The request fails.
    * 
@@ -289,7 +279,7 @@ export class DescribeLifecyclePolicyLogsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of log entries.
+   * The total number of logs.
    * 
    * @example
    * 36

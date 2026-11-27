@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeMountTargetsRequest extends $dara.Model {
   /**
    * @remarks
-   * The dual-stack (IPv4 and IPv6) mount target domain.
+   * The IPv4 and IPv6 dual-stack mount target.
    * 
-   * > IPv6 is currently supported only in the Chinese mainland regions for Extreme NAS file systems.
+   * > Currently, only Extreme NAS file systems in regions in the Chinese mainland support IPv6.
    * 
    * @example
    * 1ca404****-x****.dualstack.cn-hangzhou.nas.aliyuncs.com
@@ -17,11 +17,11 @@ export class DescribeMountTargetsRequest extends $dara.Model {
    * @remarks
    * The file system ID.
    * 
-   * - General-purpose NAS: 31a8e4\\*\\*\\*\\*.
+   * - General-purpose NAS: 31a8e4\*\*\*\*.
    * 
-   * - Extreme NAS: must start with `extreme-`, for example, extreme-0015\\*\\*\\*\\*.
+   * - Extreme NAS: must start with `extreme-`, such as extreme-0015\*\*\*\*.
    * 
-   * - Cloud Parallel File Storage (CPFS): must start with `cpfs-`, for example, cpfs-125487\\*\\*\\*\\*.
+   * - CPFS: must start with `cpfs-`, such as cpfs-125487\*\*\*\*.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class DescribeMountTargetsRequest extends $dara.Model {
    * @remarks
    * The page number of the list.
    * 
-   * Start value (default value): 1.
+   * Starting value (default value): 1.
    * 
    * @example
    * 1

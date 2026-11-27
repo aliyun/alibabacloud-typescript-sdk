@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAccessPointRequest extends $dara.Model {
   /**
    * @remarks
-   * The access point ID.
+   * The ID of the access point.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteAccessPointRequest extends $dara.Model {
   accessPointId?: string;
   /**
    * @remarks
-   * The file system ID.
+   * The ID of the file system.
    * 
    * This parameter is required.
    * 

@@ -10,7 +10,7 @@ export class TagResourcesRequestTag extends $dara.Model {
    * Limits:
    * 
    * - Cannot be empty or an empty string. 
-   * - Can be up to 128 characters in length.
+   * - Maximum length: 128 characters.
    * - Cannot start with `aliyun` or `acs:`.
    * - Cannot contain `http://` or `https://`.
    * 
@@ -26,7 +26,7 @@ export class TagResourcesRequestTag extends $dara.Model {
    * 
    * Limits:
    * 
-   * - Can be up to 128 characters in length.
+   * - Maximum length: 128 characters.
    * - Cannot contain `http://` or `https://`.
    * 
    * This parameter is required.
@@ -61,7 +61,12 @@ export class TagResourcesRequestTag extends $dara.Model {
 export class TagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource IDs. Valid values of array length: 1 to 50.
+   * Specifies whether to perform a dry run on the request.
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * The resource ID. Valid values: 1 to 50.
    * 
    * This parameter is required.
    * 
@@ -71,11 +76,9 @@ export class TagResourcesRequest extends $dara.Model {
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type.
-   * 
-   * Valid values:
-   * - filesystem: file system.
-   * - accesspoint: access point.
+   * The resource type. Valid values:
+   * - filesystem: File system.
+   * - accesspoint: Access point.
    * 
    * This parameter is required.
    * 
@@ -85,13 +88,14 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags. Array length: 1 to 20. If the array contains multiple tag objects, the tag key (Key) must be unique.
+   * The tag array. Length: 1 to 20. If the array contains multiple tag objects, tag keys must be unique.
    * 
    * This parameter is required.
    */
   tag?: TagResourcesRequestTag[];
   static names(): { [key: string]: string } {
     return {
+      dryRun: 'DryRun',
       resourceId: 'ResourceId',
       resourceType: 'ResourceType',
       tag: 'Tag',
@@ -100,6 +104,7 @@ export class TagResourcesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dryRun: 'boolean',
       resourceId: { 'type': 'array', 'itemType': 'string' },
       resourceType: 'string',
       tag: { 'type': 'array', 'itemType': TagResourcesRequestTag },

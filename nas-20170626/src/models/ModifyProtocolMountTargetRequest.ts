@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyProtocolMountTargetRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. Generate a unique value from your client to ensure that the value is unique among different requests.
+   * The client token that is used to ensure the idempotence of the request. You can generate the token on your client and ensure that the token is unique across different requests.
    * 
-   * The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
-   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may differ for each API request.
+   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the client token. The RequestId of each API request may be different.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -17,33 +17,32 @@ export class ModifyProtocolMountTargetRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the export directory of the protocol service.
+   * The description of the export directory for the protocol service.
    * 
    * Limits:
-   * 
    * - The description must be 2 to 128 characters in length.
-   * - The description must start with a letter or a Chinese character and cannot start with `http://` or `https://`.
-   * - The description can contain digits, colons (:), underscores (_), and hyphens (-).
+   * - It must start with a letter or a Chinese character and cannot start with `http://` or `https://`.
+   * - It can contain digits, colons (:), underscores (_), and hyphens (-).
    * 
    * @example
-   * Description of this export directory
+   * Description of the export directory
    */
   description?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run for this modification request.
+   * Specifies whether to perform a dry run on the modification request.
    * 
-   * A dry run checks parameter validity and dependency conditions without actually modifying the export directory or incurring charges.
+   * A dry run checks whether the parameters are valid and whether the dependencies are met. It does not actually modify the export directory or incur any fees.
    * 
    * Valid values:
    * 
-   * - **true**: Sends a dry run request without modifying the export directory. The check items include required parameters, request format, and business dependency conditions.
-   *   - **DryRun=true also performs resource status checks** (including the requirement that the export directory is in the AVAILABLE state).
-   *   - If the export directory status does not meet the requirements (such as CREATING), the corresponding error is returned.
-   *   - **DryRun does not bypass status checks**. It only validates request parameter validity and basic dependencies.
-   *   - If the check fails, the corresponding error is returned. If the check passes, HTTP status code 200 is returned.
+   * - **true**: A dry run is performed and the export directory is not modified. The system checks whether required parameters are specified, the request format is valid, and the business limits and dependencies are met.
+   *   - **A dry run with DryRun set to true also checks the resource status** (including the requirement that the export directory must be in the AVAILABLE state).
+   *   - If the status of the export directory does not meet the requirements (for example, the status is CREATING), the corresponding error is returned.
+   *   - **A dry run does not bypass the status check**. It is only used to verify the validity of request parameters and basic dependencies.
+   *   - If the request fails the dry run, the corresponding error is returned. If the request passes the dry run, the HTTP status code 200 is returned.
    * 
-   * - **false (default)**: Sends a normal request. After the check passes, the export directory parameters are directly modified.
+   * - **false** (default): A normal request is sent. If the request passes the check, the parameters of the export directory are directly modified.
    * 
    * @example
    * true
@@ -51,7 +50,7 @@ export class ModifyProtocolMountTargetRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The export directory ID of the protocol service. Call [DescribeProtocolMountTarget](https://www.alibabacloud.com/help/en/cpfs/cpfsonecs/developer-reference/api-nas-2017-06-26-describeprotocolmounttarget-cpfs) to obtain the export directory information.
+   * The ID of the export directory for the protocol service. You can call the [DescribeProtocolMountTarget](https://www.alibabacloud.com/help/en/cpfs/cpfsonecs/developer-reference/api-nas-2017-06-26-describeprotocolmounttarget-cpfs) operation to query the export directory information and obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -61,7 +60,7 @@ export class ModifyProtocolMountTargetRequest extends $dara.Model {
   exportId?: string;
   /**
    * @remarks
-   * The file system ID. Call [DescribeFileSystems](https://www.alibabacloud.com/help/en/cpfs/cpfsonecs/developer-reference/api-nas-2017-06-26-describefilesystems-cpfs) (with FileSystemType set to cpfs) to obtain the file system information.
+   * The ID of the file system. You can call the [DescribeFileSystems](https://www.alibabacloud.com/help/en/cpfs/cpfsonecs/developer-reference/api-nas-2017-06-26-describefilesystems-cpfs) operation to query the file system information and obtain the ID. Set the FileSystemType parameter to cpfs.
    * 
    * This parameter is required.
    * 
@@ -71,7 +70,7 @@ export class ModifyProtocolMountTargetRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The protocol service ID. Call [DescribeProtocolService](https://www.alibabacloud.com/help/en/cpfs/cpfsonecs/developer-reference/api-nas-2017-06-26-describeprotocolservice-cpfs) to obtain the protocol service information.
+   * The ID of the protocol service. You can call the [DescribeProtocolService](https://www.alibabacloud.com/help/en/cpfs/cpfsonecs/developer-reference/api-nas-2017-06-26-describeprotocolservice-cpfs) operation to query the protocol service information and obtain the ID.
    * 
    * This parameter is required.
    * 

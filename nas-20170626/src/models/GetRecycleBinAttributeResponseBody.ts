@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRecycleBinAttributeResponseBodyRecycleBinAttribute extends $dara.Model {
   /**
    * @remarks
-   * The storage usage of archived data in the recycle bin. Unit: bytes.
+   * The storage usage of archive data in the recycle bin. Unit: bytes.
    * 
    * @example
    * 1611661312
@@ -13,7 +13,7 @@ export class GetRecycleBinAttributeResponseBodyRecycleBinAttribute extends $dara
   archiveSize?: number;
   /**
    * @remarks
-   * The time when the recycle bin was enabled. The time follows the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The time when the recycle bin was enabled. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2021-05-30T10:08:08Z
@@ -21,9 +21,7 @@ export class GetRecycleBinAttributeResponseBodyRecycleBinAttribute extends $dara
   enableTime?: string;
   /**
    * @remarks
-   * The retention period of files in the recycle bin. Unit: days.
-   * 
-   * If the recycle bin is disabled, this parameter returns 0.
+   * The retention period of files in the recycle bin. Unit: days. If the recycle bin is disabled, this parameter returns 0.
    * 
    * @example
    * 0
@@ -31,7 +29,7 @@ export class GetRecycleBinAttributeResponseBodyRecycleBinAttribute extends $dara
   reservedDays?: number;
   /**
    * @remarks
-   * The storage usage of IA storage class data in the recycle bin. Unit: bytes.
+   * The storage usage of IA data in the recycle bin. Unit: bytes.
    * 
    * @example
    * 100
@@ -47,9 +45,7 @@ export class GetRecycleBinAttributeResponseBodyRecycleBinAttribute extends $dara
   size?: number;
   /**
    * @remarks
-   * The recycle bin status.
-   * 
-   * Valid values:
+   * The status of the recycle bin. Valid values:
    * 
    * - Enable: The recycle bin is enabled.
    * - Disable: The recycle bin is disabled.
@@ -92,12 +88,12 @@ export class GetRecycleBinAttributeResponseBodyRecycleBinAttribute extends $dara
 export class GetRecycleBinAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The recycle bin description.
+   * The attributes of the recycle bin.
    */
   recycleBinAttribute?: GetRecycleBinAttributeResponseBodyRecycleBinAttribute;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9E15E394-38A6-457A-A62A-D9797C9A****

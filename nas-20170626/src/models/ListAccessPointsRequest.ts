@@ -6,7 +6,7 @@ export class ListAccessPointsRequestFilters extends $dara.Model {
   /**
    * @remarks
    * The name of the filter key. Valid values:
-   * - AccessGroup (not supported for agentic)
+   * - AccessGroup (not supported by agentic)
    * - AccessPointId
    * - AgenticSpaceId
    * 
@@ -48,7 +48,7 @@ export class ListAccessPointsRequestFilters extends $dara.Model {
 export class ListAccessPointsRequest extends $dara.Model {
   /**
    * @remarks
-   * The file system ID.
+   * The ID of the file system.
    * 
    * This parameter is required.
    * 
@@ -63,7 +63,7 @@ export class ListAccessPointsRequest extends $dara.Model {
   filters?: ListAccessPointsRequestFilters[];
   /**
    * @remarks
-   * The maximum number of results to return per query.
+   * The maximum number of entries to return for a single request.
    * 
    * - Maximum value: 100.
    * - Minimum value: 10.
@@ -75,7 +75,7 @@ export class ListAccessPointsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token. Set this parameter to the value of NextToken that was returned in the previous API call.
+   * The query token. The value is the NextToken parameter value returned by the previous API call.
    * 
    * @example
    * MTY4NzcxOTcwMjAzMDk2Nzc0MyM4MDM4****

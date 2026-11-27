@@ -13,7 +13,7 @@ export class AttachVscToFilesystemsRequestResourceIds extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The ID of the VSC. You can call the ListVscs operation of the Lingjun AI Computing Service eflo-controller/2022-12-15 API to query the ID. If no VSC is created, you can call the CreateVsc operation to create one.
+   * The ID of the virtual storage channel. You can call the ListVscs operation of Lingjun AI Computing Service eflo-controller/2022-12-15 to query the ID. If the virtual storage channel is not created, you can call the CreateVsc operation to create one.
    * 
    * @example
    * vsc-8vb864o3ppwfvh****
@@ -61,7 +61,7 @@ export class AttachVscToFilesystemsRequestRoleChain extends $dara.Model {
   roleArn?: string;
   /**
    * @remarks
-   * The type of the role. Valid values: service and user.
+   * The role type. Valid values: service and user.
    * 
    * @example
    * service
@@ -95,11 +95,11 @@ export class AttachVscToFilesystemsRequestRoleChain extends $dara.Model {
 export class AttachVscToFilesystemsRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can generate the value from your client and ensure that the value is unique across different requests.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests.
    * 
-   * The client token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+   * The client token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
    * 
-   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the client token. The RequestId may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId of each API request may be different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-42665544****
@@ -107,7 +107,7 @@ export class AttachVscToFilesystemsRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The IDs of the file systems and virtual storage channels (VSCs). You can specify up to 10 IDs per batch. This parameter must be passed in a flattened format, such as ResourceIds.1.FileSystemId=bmcpfs-xxx&ResourceIds.1.VscId=vsc-xxx. JSON arrays are not supported.
+   * The IDs of the file systems and virtual storage channels. A maximum of 10 items can be specified in each batch. This parameter must be passed in a flattened format, such as ResourceIds.1.FileSystemId=bmcpfs-xxx&ResourceIds.1.VscId=vsc-xxx. JSON arrays are not supported.
    * 
    * This parameter is required.
    */

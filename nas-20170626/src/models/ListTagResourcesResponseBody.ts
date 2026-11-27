@@ -63,7 +63,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token for the next query. If NextToken is empty, no more results exist.
+   * The token for the next query. If NextToken is empty, it indicates that the current page is the last page.
    * 
    * @example
    * None

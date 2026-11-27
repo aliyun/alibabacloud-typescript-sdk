@@ -44,7 +44,7 @@ export class DescribeNfsAclResponseBody extends $dara.Model {
   acl?: DescribeNfsAclResponseBodyAcl;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * A1098673-1746-505E-A5F1-08527B7EDBDF

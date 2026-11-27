@@ -55,9 +55,9 @@ export class DescribeCpfsAccessPointsRequest extends $dara.Model {
    * @remarks
    * The file system ID.
    * 
-   * - CPFS: The ID must start with `cpfs-`, such as cpfs-099394bd928c****.
+   * - CPFS: The ID must start with `cpfs-`. Example: cpfs-099394bd928c****.
    * 
-   * - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-290w65p03ok64ya****.
+   * - CPFS for Lingjun: The ID must start with `bmcpfs-`. Example: bmcpfs-290w65p03ok64ya****.
    * 
    * This parameter is required.
    * 
@@ -67,7 +67,7 @@ export class DescribeCpfsAccessPointsRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The page number of the list.
+   * The page number.
    * 
    * @example
    * 1
@@ -75,7 +75,7 @@ export class DescribeCpfsAccessPointsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of results per query.
+   * The number of entries to return on each page.
    * Valid values: 1 to 100.
    * Default value: 10.
    * 
@@ -95,7 +95,7 @@ export class DescribeCpfsAccessPointsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of tags for the CPFS access point.
+   * The tags of the CPFS access point.
    */
   tag?: DescribeCpfsAccessPointsRequestTag[];
   static names(): { [key: string]: string } {

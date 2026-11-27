@@ -72,7 +72,7 @@ export class DescribeAgenticSpacesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token. Set the value to the NextToken value returned from the previous call.
+   * The query token. Set the value to the NextToken value returned from the previous API call.
    * 
    * @example
    * MTc3OTkzNTA0Mjg0NTc1MDI4OCM0MDQ0MzA****=

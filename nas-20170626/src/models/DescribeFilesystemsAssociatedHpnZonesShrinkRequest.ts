@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFilesystemsAssociatedHpnZonesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The collection of file system IDs.
+   * The IDs of the file systems.
    * > The maximum number of elements in the collection must be less than or equal to 20.
    */
   filesystemsShrink?: string;
   /**
    * @remarks
-   * The region ID of the file system.
+   * The ID of the region to which the file system belongs.
    * 
    * This parameter is required.
    * 

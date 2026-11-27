@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDirRequest extends $dara.Model {
   /**
    * @remarks
-   * The file system ID.
+   * Specifies whether to perform a dry run on the request.
+   */
+  dryRun?: boolean;
+  /**
+   * @remarks
+   * The ID of the file system.
    * 
    * This parameter is required.
    * 
@@ -15,7 +20,7 @@ export class CreateDirRequest extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The user group ID of the directory owner. Valid values: 0 to 4294967295.
+   * The ID of the user group that owns the directory. Valid values: 0 to 4294967295.
    * 
    * This parameter is required.
    * 
@@ -25,7 +30,7 @@ export class CreateDirRequest extends $dara.Model {
   ownerGroupId?: number;
   /**
    * @remarks
-   * The user ID of the directory owner. Valid values: 0 to 4294967295.
+   * The ID of the user that owns the directory. Valid values: 0 to 4294967295.
    * 
    * This parameter is required.
    * 
@@ -35,7 +40,7 @@ export class CreateDirRequest extends $dara.Model {
   ownerUserId?: number;
   /**
    * @remarks
-   * The POSIX permissions to apply to the root directory path. The value is a valid octal number, such as 0755.
+   * The POSIX permissions applied to the root directory path. The value must be a valid octal number, such as 0755.
    * 
    * This parameter is required.
    * 
@@ -45,9 +50,9 @@ export class CreateDirRequest extends $dara.Model {
   permission?: string;
   /**
    * @remarks
-   * Specifies whether to create a multi-level directory. Valid values:
+   * Specifies whether to create multi-level directories. Valid values:
    * 
-   * - true (default): If the multi-level directory does not exist, the system creates the directories level by level.
+   * - true (default): If the multi-level directories do not exist, the system creates them level by level.
    * - false: Only the last-level directory is created. If the parent directory does not exist, an error message is returned.
    * 
    * @example
@@ -56,14 +61,14 @@ export class CreateDirRequest extends $dara.Model {
   recursion?: boolean;
   /**
    * @remarks
-   * The directory name.
+   * The name of the directory.
    * 
-   * - The name must start with a forward slash (/).
-   * - The name can contain digits and uppercase and lowercase letters.
-   * - The name can contain underscores (_), hyphens (-), or periods (.).
+   * - Must start with a forward slash (/).
+   * - Supports digits, uppercase letters, and lowercase letters.
+   * - Can contain underscores (_), hyphens (-), or periods (.).
    * - The path cannot contain symbolic links, such as the current directory (.), the parent directory (..), or other symbolic links.
-   * >  - If the root directory does not exist, configure the automatic creation information. The system automatically creates the specified root directory based on the settings.
-   *  > - If the root directory already exists, you do not need to configure the automatic creation information. If you configure the information, the automatic creation settings are ignored.
+   * > - If the root directory does not exist, you must configure the automatic creation information. The system automatically creates the specified root directory based on the settings.
+   * > - If the root directory already exists, you do not need to configure the automatic creation information. If you configure it, the configurations in the automatic creation information are ignored.
    * 
    * This parameter is required.
    * 
@@ -73,6 +78,7 @@ export class CreateDirRequest extends $dara.Model {
   rootDirectory?: string;
   static names(): { [key: string]: string } {
     return {
+      dryRun: 'DryRun',
       fileSystemId: 'FileSystemId',
       ownerGroupId: 'OwnerGroupId',
       ownerUserId: 'OwnerUserId',
@@ -84,6 +90,7 @@ export class CreateDirRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      dryRun: 'boolean',
       fileSystemId: 'string',
       ownerGroupId: 'number',
       ownerUserId: 'number',

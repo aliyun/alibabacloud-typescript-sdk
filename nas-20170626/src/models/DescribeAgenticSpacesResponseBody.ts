@@ -114,7 +114,7 @@ export class DescribeAgenticSpacesResponseBody extends $dara.Model {
   agenticSpaces?: DescribeAgenticSpacesResponseBodyAgenticSpaces;
   /**
    * @remarks
-   * The query token. Set the value to the NextToken value returned from the previous call.
+   * The query token. Set the value to the NextToken value returned from the previous API call.
    * 
    * @example
    * MTc2NTg1MTUyMzA1OTczNTc1OCM0NjQxMzQ****=
@@ -122,7 +122,7 @@ export class DescribeAgenticSpacesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BC7C825C-5F65-4B56-BEF6-98C56C7C****

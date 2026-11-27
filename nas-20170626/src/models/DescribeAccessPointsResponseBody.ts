@@ -13,7 +13,10 @@ export class DescribeAccessPointsResponseBodyAccessPointsPosixUser extends $dara
   posixGroupId?: number;
   /**
    * @remarks
-   * The secondary user group ID.
+   * The secondary user group IDs.
+   * 
+   * @example
+   * [123,123]
    */
   posixSecondaryGroupIds?: number[];
   /**
@@ -55,7 +58,7 @@ export class DescribeAccessPointsResponseBodyAccessPointsPosixUser extends $dara
 export class DescribeAccessPointsResponseBodyAccessPointsRootPathPermission extends $dara.Model {
   /**
    * @remarks
-   * The file group ID of the owner.
+   * The ID of the owner user group.
    * 
    * @example
    * 12
@@ -63,7 +66,7 @@ export class DescribeAccessPointsResponseBodyAccessPointsRootPathPermission exte
   ownerGroupId?: number;
   /**
    * @remarks
-   * The user ID of the owner.
+   * The ID of the owner user.
    * 
    * @example
    * 1
@@ -71,7 +74,7 @@ export class DescribeAccessPointsResponseBodyAccessPointsRootPathPermission exte
   ownerUserId?: number;
   /**
    * @remarks
-   * The POSIX permission.
+   * The POSIX permissions.
    * 
    * @example
    * 0755
@@ -145,7 +148,7 @@ export class DescribeAccessPointsResponseBodyAccessPointsTags extends $dara.Mode
 export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the access point.
+   * The ARN of the access point.
    * 
    * @example
    * acs:nas:cn-hangzhou:178321033379****:accesspoint/ap-ie15yd****
@@ -153,7 +156,7 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   ARN?: string;
   /**
    * @remarks
-   * The permission group name.
+   * The name of the permission group.
    * 
    * @example
    * test
@@ -177,7 +180,7 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   accessPointName?: string;
   /**
    * @remarks
-   * The time when the access point was created. Format: Unix/POSIX timestamp.
+   * The time when the access point was created. Format: UNIX/POSIX timestamp.
    * 
    * @example
    * 1709619668276167
@@ -209,7 +212,7 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   fileSystemId?: string;
   /**
    * @remarks
-   * The time when the access point was last modified. Format: Unix/POSIX timestamp.
+   * The time when the access point was modified. Format: UNIX/POSIX timestamp.
    * 
    * @example
    * 1709619668276167
@@ -230,18 +233,18 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   rootPath?: string;
   /**
    * @remarks
-   * The root directory permissions.
+   * The permissions of the root directory.
    */
   rootPathPermission?: DescribeAccessPointsResponseBodyAccessPointsRootPathPermission;
   /**
    * @remarks
-   * The current root directory status.
+   * The current status of the root directory.
    * 
    * Valid values:
    * 
-   * - 0: The root path status is unknown.
+   * - 0: The status of the root path is unknown.
    * - 1: The root path does not exist. It may have been deleted by the user.
-   * - 2: The root path status is normal.
+   * - 2: The status of the root path is normal.
    * 
    * @example
    * 2
@@ -249,19 +252,19 @@ export class DescribeAccessPointsResponseBodyAccessPoints extends $dara.Model {
   rootPathStatus?: string;
   /**
    * @remarks
-   * The current access point status.
+   * The current status of the access point.
    * 
    * Valid values:
    * 
-   * - Active: active.
-   * - Inactive: inactive.
-   * - Pending: being created.
-   * - Deleting: being deleted.
+   * - active: The access point is available.
+   * - inactive: The access point is unavailable.
+   * - pending: The access point is being created.
+   * - deleting: The access point is being deleted.
    * 
-   * > You can mount a file system only when the status is Active.
+   * > You can mount the file system only when the status is active.
    * 
    * @example
-   * Active
+   * active
    */
   status?: string;
   /**
@@ -355,7 +358,7 @@ export class DescribeAccessPointsResponseBody extends $dara.Model {
   accessPoints?: DescribeAccessPointsResponseBodyAccessPoints[];
   /**
    * @remarks
-   * The query token. Set the value to the NextToken value returned in the previous API call.
+   * The query token. Set the value to the NextToken value returned by the previous API call.
    * 
    * @example
    * MTY4NzcxOTcwMjAzMDk2Nzc0MyM4MDM4****
