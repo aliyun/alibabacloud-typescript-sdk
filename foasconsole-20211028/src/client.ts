@@ -54,7 +54,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the resource group of a resource.
+   * Modifies the resource group.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -93,7 +93,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the resource group of a resource.
+   * Modifies the resource group.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -105,6 +105,10 @@ export default class Client extends OpenApi {
 
   /**
    * Disables the Flink AI service.
+   * 
+   * @remarks
+   * Disables the Flink AI service.
+   * > **AI/Agent invocation guidelines**: If you call this OpenAPI operation in automated scenarios such as AI assistants or Code Agents, install and use the [official skill provided by the platform](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the operation directly, include the AlibabaCloud-Agent-Skills/custom identifier in the User-Agent request header. This helps the platform continuously improve support for AI/Agent scenarios.
    * 
    * @param request - CloseFlinkAiServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -136,6 +140,10 @@ export default class Client extends OpenApi {
 
   /**
    * Disables the Flink AI service.
+   * 
+   * @remarks
+   * Disables the Flink AI service.
+   * > **AI/Agent invocation guidelines**: If you call this OpenAPI operation in automated scenarios such as AI assistants or Code Agents, install and use the [official skill provided by the platform](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the operation directly, include the AlibabaCloud-Agent-Skills/custom identifier in the User-Agent request header. This helps the platform continuously improve support for AI/Agent scenarios.
    * 
    * @param request - CloseFlinkAiServiceRequest
    * @returns CloseFlinkAiServiceResponse
@@ -346,6 +354,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * *Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/billing-overview) of fully managed Flink.**
+   * > **AI/Agent invocation guide**: If you call this OpenAPI operation in automated scenarios such as AI assistants or Code Agents, we recommend that you install and use the [official Skill encapsulated by the platform](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the operation directly, append the AlibabaCloud-Agent-Skills/custom identifier to the User-Agent in the request header. This helps the platform continuously improve support for AI/Agent scenarios.
    * 
    * @param tmpReq - CreateInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -498,6 +507,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * *Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/billing-overview) of fully managed Flink.**
+   * > **AI/Agent invocation guide**: If you call this OpenAPI operation in automated scenarios such as AI assistants or Code Agents, we recommend that you install and use the [official Skill encapsulated by the platform](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the operation directly, append the AlibabaCloud-Agent-Skills/custom identifier to the User-Agent in the request header. This helps the platform continuously improve support for AI/Agent scenarios.
    * 
    * @param request - CreateInstanceRequest
    * @returns CreateInstanceResponse
@@ -509,6 +519,10 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a workspace in a fully managed Flink instance.
+   * 
+   * @remarks
+   * Creates a workspace in a fully managed Flink instance.
+   * > **AI/Agent invocation guide**: If you call this OpenAPI operation in automated scenarios such as AI assistants or Code Agents, install and use the [official skill provided by the platform](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the operation directly, include the AlibabaCloud-Agent-Skills/custom identifier in the User-Agent request header. This helps the platform continuously improve support for AI/Agent scenarios.
    * 
    * @param tmpReq - CreateNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -562,6 +576,10 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a workspace in a fully managed Flink instance.
+   * 
+   * @remarks
+   * Creates a workspace in a fully managed Flink instance.
+   * > **AI/Agent invocation guide**: If you call this OpenAPI operation in automated scenarios such as AI assistants or Code Agents, install and use the [official skill provided by the platform](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the operation directly, include the AlibabaCloud-Agent-Skills/custom identifier in the User-Agent request header. This helps the platform continuously improve support for AI/Agent scenarios.
    * 
    * @param request - CreateNamespaceRequest
    * @returns CreateNamespaceResponse
@@ -677,7 +695,8 @@ export default class Client extends OpenApi {
    * Queries the details of one or more fully managed Flink workspaces.
    * 
    * @remarks
-   * > You cannot release a workspace in the following scenarios: - In pay-as-you-go mode, the workspace is in the Creating, Releasing, or Creation Timed Out state. - For subscription workspaces, unsubscribe from the resources on the Unsubscription page in the User Center.
+   * > You cannot release a workspace in the following scenarios: - In pay-as-you-go mode, the workspace is in the Creating, Releasing, or Creation Timed Out state. - If the billing method is subscription, unsubscribe from the resources on the Unsubscription page in the User Center.
+   * > **AI/Agent invocation guide**: If you call this API operation in automated scenarios such as AI assistants or Code Agents, we recommend that you install and use the [officially encapsulated skill](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the API operation directly, include the AlibabaCloud-Agent-Skills/custom identifier in the User-Agent header of the request. This helps the platform continuously improve support for AI/Agent scenarios.
    * 
    * @param tmpReq - DescribeInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -713,7 +732,8 @@ export default class Client extends OpenApi {
    * Queries the details of one or more fully managed Flink workspaces.
    * 
    * @remarks
-   * > You cannot release a workspace in the following scenarios: - In pay-as-you-go mode, the workspace is in the Creating, Releasing, or Creation Timed Out state. - For subscription workspaces, unsubscribe from the resources on the Unsubscription page in the User Center.
+   * > You cannot release a workspace in the following scenarios: - In pay-as-you-go mode, the workspace is in the Creating, Releasing, or Creation Timed Out state. - If the billing method is subscription, unsubscribe from the resources on the Unsubscription page in the User Center.
+   * > **AI/Agent invocation guide**: If you call this API operation in automated scenarios such as AI assistants or Code Agents, we recommend that you install and use the [officially encapsulated skill](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the API operation directly, include the AlibabaCloud-Agent-Skills/custom identifier in the User-Agent header of the request. This helps the platform continuously improve support for AI/Agent scenarios.
    * 
    * @param request - DescribeInstancesRequest
    * @returns DescribeInstancesResponse
@@ -724,7 +744,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the namespace information of an instance by calling DescribeNamespaces.
+   * Queries the namespace information of a specific instance.
+   * 
+   * @remarks
+   * You can call DescribeNamespaces to query the namespace information of a specific instance.
+   * > **AI/Agent invocation guide**: If you call this OpenAPI in automated scenarios such as AI assistants or Code Agents, install and use the [official platform-encapsulated skill](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the API directly, include the AlibabaCloud-Agent-Skills/custom identifier in the User-Agent request header to help the platform continuously improve support for AI and agent scenarios.
    * 
    * @param tmpReq - DescribeNamespacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -757,7 +781,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the namespace information of an instance by calling DescribeNamespaces.
+   * Queries the namespace information of a specific instance.
+   * 
+   * @remarks
+   * You can call DescribeNamespaces to query the namespace information of a specific instance.
+   * > **AI/Agent invocation guide**: If you call this OpenAPI in automated scenarios such as AI assistants or Code Agents, install and use the [official platform-encapsulated skill](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the API directly, include the AlibabaCloud-Agent-Skills/custom identifier in the User-Agent request header to help the platform continuously improve support for AI and agent scenarios.
    * 
    * @param request - DescribeNamespacesRequest
    * @returns DescribeNamespacesResponse
@@ -768,7 +796,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about regions that support purchases of fully managed Flink.
+   * Retrieves the regions available for purchase.
+   * 
+   * @remarks
+   * Retrieves the regions available for purchase.
+   * > **AI/Agent invocation guide**: If you call this OpenAPI in automated scenarios such as AI assistants or Code Agents, install and use the [official platform-encapsulated skill](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the API directly, include the AlibabaCloud-Agent-Skills/custom identifier in the User-Agent request header. This helps the platform continuously improve support for AI and Agent scenarios.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeSupportedRegionsResponse
@@ -790,7 +822,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about regions that support purchases of fully managed Flink.
+   * Retrieves the regions available for purchase.
+   * 
+   * @remarks
+   * Retrieves the regions available for purchase.
+   * > **AI/Agent invocation guide**: If you call this OpenAPI in automated scenarios such as AI assistants or Code Agents, install and use the [official platform-encapsulated skill](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the API directly, include the AlibabaCloud-Agent-Skills/custom identifier in the User-Agent request header. This helps the platform continuously improve support for AI and Agent scenarios.
    * @returns DescribeSupportedRegionsResponse
    */
   async describeSupportedRegions(): Promise<$_model.DescribeSupportedRegionsResponse> {
@@ -799,7 +835,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about zones that are available for purchase.
+   * Queries the zones available for purchase.
+   * 
+   * @remarks
+   * Queries the zones available for purchase.
+   * > **AI/Agent invocation guidelines**: If you call this OpenAPI in automated scenarios such as AI assistants or Code Agents, we recommend that you install and use the [official skill provided by the platform](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the API directly, include the AlibabaCloud-Agent-Skills/custom identifier in the User-Agent request header. This helps the platform continuously improve support for AI and agent scenarios.
    * 
    * @param request - DescribeSupportedZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -826,7 +866,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about zones that are available for purchase.
+   * Queries the zones available for purchase.
+   * 
+   * @remarks
+   * Queries the zones available for purchase.
+   * > **AI/Agent invocation guidelines**: If you call this OpenAPI in automated scenarios such as AI assistants or Code Agents, we recommend that you install and use the [official skill provided by the platform](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the API directly, include the AlibabaCloud-Agent-Skills/custom identifier in the User-Agent request header. This helps the platform continuously improve support for AI and agent scenarios.
    * 
    * @param request - DescribeSupportedZonesRequest
    * @returns DescribeSupportedZonesResponse
@@ -838,6 +882,10 @@ export default class Client extends OpenApi {
 
   /**
    * Retrieves the status of the Flink AI service.
+   * 
+   * @remarks
+   * Retrieves the status of the Flink AI service.
+   * > **AI/Agent invocation guide**: If you call this OpenAPI in automated scenarios such as AI assistants or Code Agents, install and use the [official platform-encapsulated skill](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the API directly, include the AlibabaCloud-Agent-Skills/custom identifier in the User-Agent request header. This helps the platform continuously improve support for AI and Agent scenarios.
    * 
    * @param request - GetFlinkAiServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -870,6 +918,10 @@ export default class Client extends OpenApi {
   /**
    * Retrieves the status of the Flink AI service.
    * 
+   * @remarks
+   * Retrieves the status of the Flink AI service.
+   * > **AI/Agent invocation guide**: If you call this OpenAPI in automated scenarios such as AI assistants or Code Agents, install and use the [official platform-encapsulated skill](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the API directly, include the AlibabaCloud-Agent-Skills/custom identifier in the User-Agent request header. This helps the platform continuously improve support for AI and Agent scenarios.
+   * 
    * @param request - GetFlinkAiServiceRequest
    * @returns GetFlinkAiServiceResponse
    */
@@ -879,7 +931,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the usage of the free quota for the Flink AI service.
+   * Queries the usage of the free quota for Flink AI services.
+   * 
+   * @remarks
+   * Queries the usage of the free quota for Flink AI services.
+   * > **AI/Agent invocation guide**: If you call this OpenAPI in automated scenarios such as AI assistants or Code Agents, install and use the [official platform-encapsulated skill](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the API directly, include the AlibabaCloud-Agent-Skills/custom identifier in the User-Agent request header. This helps the platform continuously improve support for AI and Agent scenarios.
    * 
    * @param request - GetFlinkAiServiceFreeQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -910,7 +966,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the usage of the free quota for the Flink AI service.
+   * Queries the usage of the free quota for Flink AI services.
+   * 
+   * @remarks
+   * Queries the usage of the free quota for Flink AI services.
+   * > **AI/Agent invocation guide**: If you call this OpenAPI in automated scenarios such as AI assistants or Code Agents, install and use the [official platform-encapsulated skill](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the API directly, include the AlibabaCloud-Agent-Skills/custom identifier in the User-Agent request header. This helps the platform continuously improve support for AI and Agent scenarios.
    * 
    * @param request - GetFlinkAiServiceFreeQuotaRequest
    * @returns GetFlinkAiServiceFreeQuotaResponse
@@ -921,7 +981,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries resource tags. You can query tag keys by tag values, query tag values by tag keys, or retrieve all tag information used in your Flink fully managed workspace.
+   * Queries resource tags. You can query keys by tag values, query values by keys, or retrieve all tags used in a fully managed Flink workspace.
+   * 
+   * @remarks
+   * You can call ListTagResources to query resource tags. You can query keys by tag values, query values by keys, or retrieve all tags used in a fully managed Flink workspace.
+   * > **AI/Agent invocation guide**: If you call this API in automated scenarios such as AI assistants or Code Agents, install and use the [official skill provided by the platform](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the API directly, include the AlibabaCloud-Agent-Skills/custom identifier in the User-Agent request header. This helps the platform continuously improve support for AI and agent scenarios.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -968,7 +1032,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries resource tags. You can query tag keys by tag values, query tag values by tag keys, or retrieve all tag information used in your Flink fully managed workspace.
+   * Queries resource tags. You can query keys by tag values, query values by keys, or retrieve all tags used in a fully managed Flink workspace.
+   * 
+   * @remarks
+   * You can call ListTagResources to query resource tags. You can query keys by tag values, query values by keys, or retrieve all tags used in a fully managed Flink workspace.
+   * > **AI/Agent invocation guide**: If you call this API in automated scenarios such as AI assistants or Code Agents, install and use the [official skill provided by the platform](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the API directly, include the AlibabaCloud-Agent-Skills/custom identifier in the User-Agent request header. This helps the platform continuously improve support for AI and agent scenarios.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -979,7 +1047,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the shutdown protection for the Flink AI service.
+   * Modifies the shutdown protection for Flink AI services.
+   * 
+   * @remarks
+   * Modifies the shutdown protection for Flink AI services.
+   * > **AI/Agent invocation guide**: If you call this API in automated scenarios such as AI assistants or Code Agents, install and use the [official platform-encapsulated skill](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the API directly, include the AlibabaCloud-Agent-Skills/custom identifier in the User-Agent request header. This helps the platform continuously improve support for AI/Agent scenarios.
    * 
    * @param request - ModifyAiServiceProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1014,7 +1086,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the shutdown protection for the Flink AI service.
+   * Modifies the shutdown protection for Flink AI services.
+   * 
+   * @remarks
+   * Modifies the shutdown protection for Flink AI services.
+   * > **AI/Agent invocation guide**: If you call this API in automated scenarios such as AI assistants or Code Agents, install and use the [official platform-encapsulated skill](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the API directly, include the AlibabaCloud-Agent-Skills/custom identifier in the User-Agent request header. This helps the platform continuously improve support for AI/Agent scenarios.
    * 
    * @param request - ModifyAiServiceProtectionRequest
    * @returns ModifyAiServiceProtectionResponse
@@ -1486,6 +1562,10 @@ export default class Client extends OpenApi {
   /**
    * Activates the Flink AI service.
    * 
+   * @remarks
+   * Activates the Flink AI service.
+   * > **AI/Agent invocation guide**: If you call this OpenAPI in automated scenarios such as AI assistants or Code Agents, install and use the [official skill encapsulated by the platform](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the API directly, include the AlibabaCloud-Agent-Skills/custom identifier in the User-Agent request header. This helps the platform continuously improve support for AI/Agent scenarios.
+   * 
    * @param request - OpenFlinkAiServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns OpenFlinkAiServiceResponse
@@ -1516,6 +1596,10 @@ export default class Client extends OpenApi {
 
   /**
    * Activates the Flink AI service.
+   * 
+   * @remarks
+   * Activates the Flink AI service.
+   * > **AI/Agent invocation guide**: If you call this OpenAPI in automated scenarios such as AI assistants or Code Agents, install and use the [official skill encapsulated by the platform](https://skills.aliyun.com/skills/alibabacloud-flink-instance-manage). If you integrate the OpenAPI client and call the API directly, include the AlibabaCloud-Agent-Skills/custom identifier in the User-Agent request header. This helps the platform continuously improve support for AI/Agent scenarios.
    * 
    * @param request - OpenFlinkAiServiceRequest
    * @returns OpenFlinkAiServiceResponse

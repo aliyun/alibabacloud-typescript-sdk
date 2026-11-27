@@ -21,7 +21,7 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * Specifies whether hybrid billing is enabled.
+   * Specifies whether hybrid billing is used.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
   elastic?: boolean;
   /**
    * @remarks
-   * The instance ID of the order.
+   * The order instance ID.
    * 
    * @example
    * f-cn-wwo36qj4g06
@@ -61,7 +61,7 @@ export class DescribeInstancesShrinkRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The paging Settings for the number of entries per page in a paged query. Maximum value: 100. Default value: 10.
+   * The number of entries to return on each page in the paging Settings for a paged query. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 10

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNamespacesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether zone-disaster recovery is enabled.
+   * Specifies whether to enable high availability across zones.
    * 
    * **if can be null:**
    * true
@@ -13,7 +13,7 @@ export class DescribeNamespacesShrinkRequest extends $dara.Model {
   ha?: boolean;
   /**
    * @remarks
-   * The order instance ID.
+   * The instance ID of the order.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DescribeNamespacesShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The namespace name.
+   * The name of the namespace.
    * 
    * @example
    * di-590843445844225

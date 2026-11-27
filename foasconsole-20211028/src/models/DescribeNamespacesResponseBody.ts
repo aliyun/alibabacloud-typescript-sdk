@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNamespacesResponseBodyNamespacesElasticResourceSpec extends $dara.Model {
   /**
    * @remarks
-   * The maximum CPU limit for pay-as-you-go resources.
+   * The CPU limit for pay-as-you-go resources.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DescribeNamespacesResponseBodyNamespacesElasticResourceSpec extends
   cpu?: number;
   /**
    * @remarks
-   * The maximum memory limit for pay-as-you-go resources, in GB.
+   * The memory limit for pay-as-you-go resources. Unit: GB.
    * 
    * @example
    * 0
@@ -45,7 +45,7 @@ export class DescribeNamespacesResponseBodyNamespacesElasticResourceSpec extends
 export class DescribeNamespacesResponseBodyNamespacesGuaranteedResourceSpec extends $dara.Model {
   /**
    * @remarks
-   * The number of CPUs for subscription resources.
+   * The number of CPU cores for subscription resources.
    * 
    * @example
    * 0
@@ -53,7 +53,7 @@ export class DescribeNamespacesResponseBodyNamespacesGuaranteedResourceSpec exte
   cpu?: number;
   /**
    * @remarks
-   * The memory size for subscription resources, in GB.
+   * The memory size for subscription resources. Unit: GB.
    * 
    * @example
    * 0
@@ -85,7 +85,7 @@ export class DescribeNamespacesResponseBodyNamespacesGuaranteedResourceSpec exte
 export class DescribeNamespacesResponseBodyNamespacesResourceSpec extends $dara.Model {
   /**
    * @remarks
-   * The number of CPUs.
+   * The number of CPU cores.
    * 
    * @example
    * 10
@@ -125,7 +125,7 @@ export class DescribeNamespacesResponseBodyNamespacesResourceSpec extends $dara.
 export class DescribeNamespacesResponseBodyNamespacesResourceUsed extends $dara.Model {
   /**
    * @remarks
-   * The number of CPUs used.
+   * The number of used CPU cores.
    * 
    * @example
    * 2
@@ -133,7 +133,7 @@ export class DescribeNamespacesResponseBodyNamespacesResourceUsed extends $dara.
   cpu?: number;
   /**
    * @remarks
-   * The number of compute units (CUs) used.
+   * The number of used compute units (CUs).
    * 
    * @example
    * 0
@@ -141,7 +141,7 @@ export class DescribeNamespacesResponseBodyNamespacesResourceUsed extends $dara.
   cu?: number;
   /**
    * @remarks
-   * The amount of memory used.
+   * The amount of used memory.
    * 
    * @example
    * 4
@@ -228,7 +228,7 @@ export class DescribeNamespacesResponseBodyNamespaces extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 1629879567394
@@ -241,7 +241,7 @@ export class DescribeNamespacesResponseBodyNamespaces extends $dara.Model {
   guaranteedResourceSpec?: DescribeNamespacesResponseBodyNamespacesGuaranteedResourceSpec;
   /**
    * @remarks
-   * Indicates whether zone-disaster recovery is enabled for the namespace.
+   * Indicates whether high availability across zones is enabled for the namespace.
    * 
    * @example
    * false
@@ -249,7 +249,7 @@ export class DescribeNamespacesResponseBodyNamespaces extends $dara.Model {
   ha?: boolean;
   /**
    * @remarks
-   * The namespace name.
+   * The name of the namespace.
    * 
    * @example
    * ns-1
@@ -262,17 +262,17 @@ export class DescribeNamespacesResponseBodyNamespaces extends $dara.Model {
   resourceSpec?: DescribeNamespacesResponseBodyNamespacesResourceSpec;
   /**
    * @remarks
-   * The resources that have been used.
+   * The used resources.
    */
   resourceUsed?: DescribeNamespacesResponseBodyNamespacesResourceUsed;
   /**
    * @remarks
-   * The namespace status. Valid values:
+   * The status of the namespace. Valid values:
    * - CREATING: The namespace is being created.
    * - DELETING: The namespace is being deleted.
    * - MODIFYING: The resource specifications are being modified.
-   * - SUCCESS: The last operation succeeded.
-   * - FAILED: The last operation failed.
+   * - SUCCESS: The previous operation was successful.
+   * - FAILED: The previous operation failed.
    * 
    * @example
    * SUCCESS
@@ -361,7 +361,7 @@ export class DescribeNamespacesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 67F33190-946B-1105-B6A1-E2DF0426DD51
@@ -369,9 +369,9 @@ export class DescribeNamespacesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - true: The request succeeded.
+   * - true: The request is successful.
    * - false: The request failed.
    * 
    * @example

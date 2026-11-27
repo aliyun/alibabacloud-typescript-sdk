@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInstanceResponseBodyOrderInfo extends $dara.Model {
   /**
    * @remarks
-   * The order instance ID.
+   * The ID of the instance in the order.
    * 
    * @example
    * f-cn-zvp2q0zik06
@@ -21,7 +21,7 @@ export class CreateInstanceResponseBodyOrderInfo extends $dara.Model {
   orderId?: number;
   /**
    * @remarks
-   * The storage instance ID.
+   * The ID of the storage instance.
    * 
    * @example
    * sc_flinkstorage_public_cn-w*****
@@ -29,7 +29,7 @@ export class CreateInstanceResponseBodyOrderInfo extends $dara.Model {
   storageInstanceId?: string;
   /**
    * @remarks
-   * The storage order ID.
+   * The ID of the storage order.
    * 
    * @example
    * 240353501970749
@@ -78,7 +78,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

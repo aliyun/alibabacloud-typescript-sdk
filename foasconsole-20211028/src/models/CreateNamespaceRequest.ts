@@ -47,7 +47,7 @@ export class CreateNamespaceRequestResourceSpec extends $dara.Model {
 export class CreateNamespaceRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable zone-level high availability.
+   * Specifies whether to enable cross-zone high availability.
    * 
    * **if can be null:**
    * true
@@ -55,7 +55,7 @@ export class CreateNamespaceRequest extends $dara.Model {
   ha?: boolean;
   /**
    * @remarks
-   * The instance ID of the order.
+   * The order instance ID.
    * 
    * This parameter is required.
    * 

@@ -45,7 +45,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The token for the next query.
+   * The token used to start the next query.
    * 
    * @example
    * 27AE00
@@ -63,7 +63,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The order instance IDs.
+   * The IDs of the order instances. You can call DescribeInstances to query the instance IDs of the workspace.
    */
   resourceId?: string[];
   /**
@@ -78,7 +78,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag list. A maximum of 20 items are supported.
+   * The list of tags. You can specify up to 20 tags.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

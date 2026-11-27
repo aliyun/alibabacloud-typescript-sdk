@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   /**
    * @remarks
-   * The order instance ID.
+   * The instance ID of the order.
    * 
    * @example
    * f-cn-tyts
@@ -13,7 +13,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The resource type. The value is fixed as vvpinstance.
+   * The resource type. The value is fixed to vvpinstance.
    * 
    * @example
    * vvpinstance
@@ -65,7 +65,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token for the next query.
+   * The token used to start the next query.
    * 
    * @example
    * 27AE00
@@ -83,8 +83,8 @@ export class ListTagResourcesResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * - true: Successful.
-   * - false: Failed.
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true
@@ -92,7 +92,7 @@ export class ListTagResourcesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The tag request ID.
+   * The ID of the tag request.
    * 
    * @example
    * 87AE00

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAiServiceProtectionRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable manual shutdown protection.
+   * Specifies whether to enable protection against manual shutdown operations.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyAiServiceProtectionRequest extends $dara.Model {
   deletionProtection?: boolean;
   /**
    * @remarks
-   * The region ID. It must match the region where the API endpoint is deployed. Currently, only cn-beijing is supported.
+   * The region ID. It must match the region where the API endpoint is deployed.
    * 
    * This parameter is required.
    * 

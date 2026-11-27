@@ -14,12 +14,12 @@ export class GetFlinkAiServiceResponseBodyFlinkAiServiceDTO extends $dara.Model 
   /**
    * @remarks
    * The status of the Flink AI instance. Valid values:
-   * - CLOSED: The service is closed or not activated.
-   * - WAITING: The service is waiting for activation after successful payment.
-   * - OPENING: The service is being activated.
-   * - RUNNING: The service is activated.
-   * - CLOSING: The service is being closed.
-   * - DISABLE: The service has an overdue payment.
+   * - CLOSED: Closed or not activated.
+   * - WAITING: Waiting for activation after successful payment.
+   * - OPENING: Activating.
+   * - RUNNING: Activated.
+   * - CLOSING: Closing.
+   * - DISABLE: Overdue payment.
    * 
    * @example
    * CLOSED
@@ -27,7 +27,7 @@ export class GetFlinkAiServiceResponseBodyFlinkAiServiceDTO extends $dara.Model 
   flinkAiInstanceStatus?: string;
   /**
    * @remarks
-   * The ID of the AI service order instance.
+   * The instance ID of the AI service order.
    * 
    * @example
    * sc_flinkaifuncpost_public_cn-o3s4xabcdef
@@ -43,7 +43,7 @@ export class GetFlinkAiServiceResponseBodyFlinkAiServiceDTO extends $dara.Model 
   region?: string;
   /**
    * @remarks
-   * The activation time of the AI service. The value is a timestamp in milliseconds.
+   * The time when the AI service was activated, in the millisecond timestamp format.
    * 
    * @example
    * 1786934292

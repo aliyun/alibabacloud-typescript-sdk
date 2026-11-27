@@ -81,7 +81,7 @@ export class DescribeSupportedRegionsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of region information.
+   * The list of regions.
    */
   regions?: DescribeSupportedRegionsResponseBodyRegions[];
   /**
@@ -105,7 +105,7 @@ export class DescribeSupportedRegionsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of regions returned.
+   * The number of regions returned.
    * 
    * @example
    * 10
