@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeKnowledgeBaseAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of AI applications associated with the knowledge base.
+   * The number of associated AI applications.
    * 
    * @example
    * 2
@@ -13,9 +13,7 @@ export class DescribeKnowledgeBaseAttributeResponseBody extends $dara.Model {
   bindingAppCount?: number;
   /**
    * @remarks
-   * The time when the knowledge base was created.
-   * 
-   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The creation time. The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2020-08-14T05:58:42Z
@@ -39,9 +37,7 @@ export class DescribeKnowledgeBaseAttributeResponseBody extends $dara.Model {
   knowledgeBaseId?: string;
   /**
    * @remarks
-   * The type of the knowledge base. Valid values:
-   * - PUBLIC
-   * - PERSONAL
+   * The type of the knowledge base. Valid values: PUBLIC and PERSONAL.
    * 
    * @example
    * PUBLIC
@@ -94,7 +90,15 @@ export class DescribeKnowledgeBaseAttributeResponseBody extends $dara.Model {
   shardCount?: number;
   /**
    * @remarks
-   * The status of the knowledge base.
+   * Specifies whether source deletion synchronization is enabled.
+   * 
+   * @example
+   * false
+   */
+  sourceDeleteSyncEnabled?: boolean;
+  /**
+   * @remarks
+   * The status.
    * 
    * @example
    * Activation
@@ -128,6 +132,7 @@ export class DescribeKnowledgeBaseAttributeResponseBody extends $dara.Model {
       requestId: 'RequestId',
       searchMode: 'SearchMode',
       shardCount: 'ShardCount',
+      sourceDeleteSyncEnabled: 'SourceDeleteSyncEnabled',
       status: 'Status',
       totalDocs: 'TotalDocs',
       totalSizeBytes: 'TotalSizeBytes',
@@ -146,6 +151,7 @@ export class DescribeKnowledgeBaseAttributeResponseBody extends $dara.Model {
       requestId: 'string',
       searchMode: 'string',
       shardCount: 'number',
+      sourceDeleteSyncEnabled: 'boolean',
       status: 'string',
       totalDocs: 'number',
       totalSizeBytes: 'number',

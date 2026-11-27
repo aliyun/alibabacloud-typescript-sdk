@@ -70,7 +70,7 @@ export declare class DescribeRdsVSwitchsResponseBodyVSwitchesVSwitch extends $da
     regionNo?: string;
     /**
      * @remarks
-     * The status of the vSwitch. Valid values: ***Pending***\\*: The vSwitch is being configured.\\* **Available**: The vSwitch is available.
+     * The status of the vSwitch. Valid values: ***Pending***\*: The vSwitch is being configured.\* **Available**: The vSwitch is available.
      *
      * @example
      * Available

@@ -52,6 +52,14 @@ export class UpdateKnowledgeBaseRequest extends $dara.Model {
    * balanced
    */
   searchMode?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable source deletion synchronization.
+   * 
+   * @example
+   * false
+   */
+  sourceDeleteSyncEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -59,6 +67,7 @@ export class UpdateKnowledgeBaseRequest extends $dara.Model {
       name: 'Name',
       regionId: 'RegionId',
       searchMode: 'SearchMode',
+      sourceDeleteSyncEnabled: 'SourceDeleteSyncEnabled',
     };
   }
 
@@ -69,6 +78,7 @@ export class UpdateKnowledgeBaseRequest extends $dara.Model {
       name: 'string',
       regionId: 'string',
       searchMode: 'string',
+      sourceDeleteSyncEnabled: 'boolean',
     };
   }
 

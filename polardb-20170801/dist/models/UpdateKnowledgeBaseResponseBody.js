@@ -31,12 +31,14 @@ class UpdateKnowledgeBaseResponseBody extends $dara.Model {
         return {
             knowledgeBaseId: 'KnowledgeBaseId',
             requestId: 'RequestId',
+            taskId: 'TaskId',
         };
     }
     static types() {
         return {
             knowledgeBaseId: 'string',
             requestId: 'string',
+            taskId: 'number',
         };
     }
     validate() {

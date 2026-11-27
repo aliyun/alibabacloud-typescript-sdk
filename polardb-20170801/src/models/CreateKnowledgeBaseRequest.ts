@@ -13,7 +13,7 @@ export class CreateKnowledgeBaseRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The type of the knowledge base: PERSONAL or PUBLIC.
+   * The type of the knowledge base. Valid values: PERSONAL and PUBLIC.
    * 
    * @example
    * PUBLIC
@@ -52,16 +52,24 @@ export class CreateKnowledgeBaseRequest extends $dara.Model {
   /**
    * @remarks
    * The search mode. Valid values:
-   * * balanced (default): balanced mode
-   * * precise: precise mode
-   * * semantic: semantic mode
-   * * knn: KNN mode
-   * * rrf: reciprocal rank fusion
+   * - balanced: balanced mode (default)
+   * - precise: precise mode
+   * - semantic: semantic mode
+   * - knn: KNN mode
+   * - rrf: RRF fusion
    * 
    * @example
    * balanced
    */
   searchMode?: string;
+  /**
+   * @remarks
+   * Specifies whether to synchronize deletions from the source.
+   * 
+   * @example
+   * false
+   */
+  sourceDeleteSyncEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
       description: 'Description',
@@ -70,6 +78,7 @@ export class CreateKnowledgeBaseRequest extends $dara.Model {
       name: 'Name',
       regionId: 'RegionId',
       searchMode: 'SearchMode',
+      sourceDeleteSyncEnabled: 'SourceDeleteSyncEnabled',
     };
   }
 
@@ -81,6 +90,7 @@ export class CreateKnowledgeBaseRequest extends $dara.Model {
       name: 'string',
       regionId: 'string',
       searchMode: 'string',
+      sourceDeleteSyncEnabled: 'boolean',
     };
   }
 

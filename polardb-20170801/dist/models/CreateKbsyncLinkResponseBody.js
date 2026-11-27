@@ -36,9 +36,12 @@ class CreateKBSyncLinkResponseBody extends $dara.Model {
             linkId: 'LinkId',
             linkName: 'LinkName',
             requestId: 'RequestId',
+            selectionMode: 'SelectionMode',
+            selectionRules: 'SelectionRules',
             sourceDir: 'SourceDir',
             syncIntervalMinutes: 'SyncIntervalMinutes',
             syncStatus: 'SyncStatus',
+            taskId: 'TaskId',
         };
     }
     static types() {
@@ -50,9 +53,12 @@ class CreateKBSyncLinkResponseBody extends $dara.Model {
             linkId: 'string',
             linkName: 'string',
             requestId: 'string',
+            selectionMode: 'string',
+            selectionRules: 'string',
             sourceDir: 'string',
             syncIntervalMinutes: 'number',
             syncStatus: 'string',
+            taskId: 'number',
         };
     }
     validate() {

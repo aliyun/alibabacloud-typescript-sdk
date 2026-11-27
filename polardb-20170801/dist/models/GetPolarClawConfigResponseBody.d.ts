@@ -22,7 +22,7 @@ export declare class GetPolarClawConfigResponseBody extends $dara.Model {
      *
      * @example
      * {
-     *     "models": "{\\"mode\\":\\"merge\\",\\"providers\\":{\\"bailian\\":{\\"models\\":[{\\"input\\":[\\"text\\",\\"image\\"],\\"name\\":\\"qwen3.6-plus\\",\\"api\\":\\"openai-completions\\",\\"id\\":\\"qwen3.6-plus\\",\\"compat\\":{\\"supportsUsageInStreaming\\":true}}],\\"baseUrl\\":\\"https://dashscope.aliyuncs.com/compatible-mode/v1\\",\\"apiKey\\":\\"__OPENCLAW_REDACTED__\\",\\"api\\":\\"openai-completions\\"},\\"polardbCustom\\":{\\"models\\":[{\\"name\\":\\"qwen3-max\\",\\"api\\":\\"openai-completions\\",\\"id\\":\\"qwen3-max\\"}],\\"baseUrl\\":\\"https://dashscope.aliyuncs.com/compatible-mode/v1\\",\\"apiKey\\":\\"__OPENCLAW_REDACTED__\\",\\"api\\":\\"openai-completions\\"},\\"polardb\\":{\\"models\\":[],\\"baseUrl\\":\\"https://dashscope.aliyuncs.com/compatible-mode/v1\\",\\"api\\":\\"openai-completions\\"}}}"
+     *     "models": "{\"mode\":\"merge\",\"providers\":{\"bailian\":{\"models\":[{\"input\":[\"text\",\"image\"],\"name\":\"qwen3.6-plus\",\"api\":\"openai-completions\",\"id\":\"qwen3.6-plus\",\"compat\":{\"supportsUsageInStreaming\":true}}],\"baseUrl\":\"https://dashscope.aliyuncs.com/compatible-mode/v1\",\"apiKey\":\"__OPENCLAW_REDACTED__\",\"api\":\"openai-completions\"},\"polardbCustom\":{\"models\":[{\"name\":\"qwen3-max\",\"api\":\"openai-completions\",\"id\":\"qwen3-max\"}],\"baseUrl\":\"https://dashscope.aliyuncs.com/compatible-mode/v1\",\"apiKey\":\"__OPENCLAW_REDACTED__\",\"api\":\"openai-completions\"},\"polardb\":{\"models\":[],\"baseUrl\":\"https://dashscope.aliyuncs.com/compatible-mode/v1\",\"api\":\"openai-completions\"}}}"
      * }
      */
     config?: {

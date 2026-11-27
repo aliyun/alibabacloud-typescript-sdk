@@ -87,7 +87,7 @@ export declare class DescribeDBNodesParametersResponseBodyDBNodeIdsRunningParame
      * The description of the parameter.
      *
      * @example
-     * The server\\"s default character set.
+     * The server\"s default character set.
      */
     parameterDescription?: string;
     /**

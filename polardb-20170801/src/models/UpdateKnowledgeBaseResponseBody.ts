@@ -19,10 +19,19 @@ export class UpdateKnowledgeBaseResponseBody extends $dara.Model {
    * EB07CFF0-D8A4-5C76-AED7-D00E26FC2***
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the asynchronous configuration task.
+   * 
+   * @example
+   * 123456
+   */
+  taskId?: number;
   static names(): { [key: string]: string } {
     return {
       knowledgeBaseId: 'KnowledgeBaseId',
       requestId: 'RequestId',
+      taskId: 'TaskId',
     };
   }
 
@@ -30,6 +39,7 @@ export class UpdateKnowledgeBaseResponseBody extends $dara.Model {
     return {
       knowledgeBaseId: 'string',
       requestId: 'string',
+      taskId: 'number',
     };
   }
 

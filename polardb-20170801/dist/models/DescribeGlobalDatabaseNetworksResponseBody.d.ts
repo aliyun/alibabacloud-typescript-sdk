@@ -95,7 +95,7 @@ export declare class DescribeGlobalDatabaseNetworksResponseBodyItems extends $da
      * @remarks
      * The GDN description. Requirements:
      *
-     * - Cannot start with http\\:// or https\\://.
+     * - Cannot start with http\:// or https\://.
      *
      * - Must start with a letter or a Chinese character.
      *

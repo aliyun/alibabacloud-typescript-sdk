@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DeleteResourceControlRequest extends $dara.Model {
     /**
      * @remarks
-     * The cluster ID of the PolarDB cluster.
+     * The ID of the PolarDB cluster.
      *
      * This parameter is required.
      *
@@ -12,8 +12,8 @@ export declare class DeleteResourceControlRequest extends $dara.Model {
     DBClusterId?: string;
     /**
      * @remarks
-     * The region ID of the PolarDB cluster.
-     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available regions.
+     * The ID of the region where the PolarDB cluster is deployed.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view available regions.
      *
      * @example
      * cn-beijing
@@ -21,7 +21,7 @@ export declare class DeleteResourceControlRequest extends $dara.Model {
     regionId?: string;
     /**
      * @remarks
-     * The name of the resource control rule. The name must be 1 to 63 ASCII bytes in length, start with a letter, and can contain letters, digits, and underscores.
+     * The name of the resource control rule. The name must be 1 to 63 ASCII characters in length, start with a letter, and contain only letters, digits, and underscores.
      *
      * This parameter is required.
      *

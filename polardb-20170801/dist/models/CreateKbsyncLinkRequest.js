@@ -29,6 +29,8 @@ const $dara = __importStar(require("@darabonba/typescript"));
 class CreateKBSyncLinkRequest extends $dara.Model {
     static names() {
         return {
+            aiTableMcpEndpoint: 'AiTableMcpEndpoint',
+            chatMemberStaleTtlSeconds: 'ChatMemberStaleTtlSeconds',
             clientId: 'ClientId',
             clientSecret: 'ClientSecret',
             description: 'Description',
@@ -37,7 +39,10 @@ class CreateKBSyncLinkRequest extends $dara.Model {
             linkName: 'LinkName',
             mcpEndpoint: 'McpEndpoint',
             regionId: 'RegionId',
+            selectionMode: 'SelectionMode',
+            selectionRules: 'SelectionRules',
             sheetMcpEndpoint: 'SheetMcpEndpoint',
+            sourceDeleteSyncEnabled: 'SourceDeleteSyncEnabled',
             sourceDir: 'SourceDir',
             sourceType: 'SourceType',
             syncIntervalMinutes: 'SyncIntervalMinutes',
@@ -49,6 +54,8 @@ class CreateKBSyncLinkRequest extends $dara.Model {
     }
     static types() {
         return {
+            aiTableMcpEndpoint: 'string',
+            chatMemberStaleTtlSeconds: 'number',
             clientId: 'string',
             clientSecret: 'string',
             description: 'string',
@@ -57,7 +64,10 @@ class CreateKBSyncLinkRequest extends $dara.Model {
             linkName: 'string',
             mcpEndpoint: 'string',
             regionId: 'string',
+            selectionMode: 'string',
+            selectionRules: 'string',
             sheetMcpEndpoint: 'string',
+            sourceDeleteSyncEnabled: 'boolean',
             sourceDir: 'string',
             sourceType: 'string',
             syncIntervalMinutes: 'number',

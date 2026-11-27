@@ -49,6 +49,14 @@ export declare class UpdateKnowledgeBaseRequest extends $dara.Model {
      * balanced
      */
     searchMode?: string;
+    /**
+     * @remarks
+     * Specifies whether to enable source deletion synchronization.
+     *
+     * @example
+     * false
+     */
+    sourceDeleteSyncEnabled?: boolean;
     static names(): {
         [key: string]: string;
     };

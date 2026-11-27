@@ -15,7 +15,7 @@ export class CreateGwConsumerOrderResponseBody extends $dara.Model {
    * @remarks
    * The expiration time.
    * 
-   * The time is in ISO 8601 format in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The time follows the ISO 8601 standard and is in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2020-11-14T16:00:00Z
@@ -31,7 +31,7 @@ export class CreateGwConsumerOrderResponseBody extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The order ID returned after the order is placed.
+   * The ID of the order returned after the purchase.
    * 
    * @example
    * 2035638*******

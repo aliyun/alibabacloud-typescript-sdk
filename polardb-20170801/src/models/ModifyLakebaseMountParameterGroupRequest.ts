@@ -23,7 +23,7 @@ export class ModifyLakebaseMountParameterGroupRequest extends $dara.Model {
   parameterGroupId?: string;
   /**
    * @remarks
-   * The new parameter template name.
+   * The new name of the parameter template.
    * 
    * @example
    * pg-new

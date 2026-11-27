@@ -153,7 +153,7 @@ export declare class DescribeDBClusterEndpointsZonalResponseBodyItems extends $d
      *     * **off**: Offload reads from primary node.
      *
      * @example
-     * {\\"DistributedTransaction\\":\\"off\\",\\"ConsistLevel\\":\\"0\\",\\"LoadBalanceStrategy\\":\\"load\\",\\"MasterAcceptReads\\":\\"on\\"}
+     * {\"DistributedTransaction\":\"off\",\"ConsistLevel\":\"0\",\"LoadBalanceStrategy\":\"load\",\"MasterAcceptReads\":\"on\"}
      */
     endpointConfig?: string;
     /**

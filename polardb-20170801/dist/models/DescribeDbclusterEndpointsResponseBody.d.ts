@@ -180,7 +180,7 @@ export declare class DescribeDBClusterEndpointsResponseBodyItems extends $dara.M
      *   - **off**: The primary node does not accept read requests.
      *
      * @example
-     * {\\"DistributedTransaction\\":\\"off\\",\\"ConsistLevel\\":\\"0\\",\\"LoadBalanceStrategy\\":\\"load\\",\\"MasterAcceptReads\\":\\"on\\"}
+     * {\"DistributedTransaction\":\"off\",\"ConsistLevel\":\"0\",\"LoadBalanceStrategy\":\"load\",\"MasterAcceptReads\":\"on\"}
      */
     endpointConfig?: string;
     /**

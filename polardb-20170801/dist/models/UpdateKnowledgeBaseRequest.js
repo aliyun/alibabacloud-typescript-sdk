@@ -34,6 +34,7 @@ class UpdateKnowledgeBaseRequest extends $dara.Model {
             name: 'Name',
             regionId: 'RegionId',
             searchMode: 'SearchMode',
+            sourceDeleteSyncEnabled: 'SourceDeleteSyncEnabled',
         };
     }
     static types() {
@@ -43,6 +44,7 @@ class UpdateKnowledgeBaseRequest extends $dara.Model {
             name: 'string',
             regionId: 'string',
             searchMode: 'string',
+            sourceDeleteSyncEnabled: 'boolean',
         };
     }
     validate() {

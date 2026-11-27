@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolarClawSkillRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region where the OSS bucket that stores the skill files resides.
+   * The region ID of the OSS bucket where the skill files are stored.
    * 
    * @example
    * cn-hangzhou
@@ -13,7 +13,7 @@ export class CreatePolarClawSkillRequest extends $dara.Model {
   bucketRegionId?: string;
   /**
    * @remarks
-   * The type of the bucket used for skill files. UserOwned indicates a user-owned bucket. Hosted indicates a hosted bucket. You must have the required permissions to use a hosted bucket.
+   * The type of the bucket used for skill files. Valid values: UserOwned: a user-owned bucket. Hosted: a managed bucket. You must have the required permissions to use a managed bucket.
    * 
    * @example
    * UserOwned
@@ -21,7 +21,7 @@ export class CreatePolarClawSkillRequest extends $dara.Model {
   bucketType?: string;
   /**
    * @remarks
-   * The name of the OSS bucket that resides in the same region as the current project.
+   * The name of the OSS bucket that is in the same region as the current project.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class CreatePolarClawSkillRequest extends $dara.Model {
   OSSBucket?: string;
   /**
    * @remarks
-   * The prefix of the OSS object. The prefix can contain digits and letters and must be 1 to 30 characters in length.
+   * The prefix of your OSS object. The prefix can contain digits and letters and must be 1 to 30 characters in length.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class CreatePolarClawSkillRequest extends $dara.Model {
   OSSPrefix?: string;
   /**
    * @remarks
-   * The ID of the region where the parameter template resides.
+   * The region ID of the region where the parameter template resides.
    * 
    * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query region IDs.
    * 
@@ -51,7 +51,7 @@ export class CreatePolarClawSkillRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the skill.
+   * The skill name.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class CreatePolarClawSkillRequest extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
-   * The version of the skill.
+   * The skill version.
    * 
    * This parameter is required.
    * 
@@ -74,7 +74,7 @@ export class CreatePolarClawSkillRequest extends $dara.Model {
    * The brief description of the skill.
    * 
    * @example
-   * An example for managing PolarDB skills
+   * Example for managing PolarDB skills
    */
   summary?: string;
   /**
@@ -82,7 +82,7 @@ export class CreatePolarClawSkillRequest extends $dara.Model {
    * The tag details.
    * 
    * @example
-   * [\\"PolarDB\\"]
+   * [\"PolarDB\"]
    */
   tags?: string;
   /**

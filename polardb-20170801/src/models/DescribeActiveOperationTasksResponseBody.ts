@@ -351,7 +351,7 @@ export class DescribeActiveOperationTasksResponseBodyItems extends $dara.Model {
 export class DescribeActiveOperationTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of O\\&M tasks.
+   * The list of O\&M tasks.
    */
   items?: DescribeActiveOperationTasksResponseBodyItems[];
   /**

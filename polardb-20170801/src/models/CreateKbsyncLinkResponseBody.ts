@@ -13,7 +13,7 @@ export class CreateKBSyncLinkResponseBody extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * The creation time. The time is displayed in ISO 8601 format in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The creation time. The time follows the ISO 8601 standard and uses the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2026-08-14T05:58:42Z
@@ -61,6 +61,19 @@ export class CreateKBSyncLinkResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
+   * The current configuration. This does not indicate that synchronization is complete. This parameter may not be returned if it is not set.
+   * 
+   * @example
+   * SELECTED
+   */
+  selectionMode?: string;
+  /**
+   * @remarks
+   * The current configuration. This does not indicate that synchronization is complete. This parameter may not be returned if it is not set.
+   */
+  selectionRules?: string;
+  /**
+   * @remarks
    * The address of the source directory for synchronization.
    * 
    * @example
@@ -87,6 +100,14 @@ export class CreateKBSyncLinkResponseBody extends $dara.Model {
    * CREATING
    */
   syncStatus?: string;
+  /**
+   * @remarks
+   * The ID of the asynchronous configuration task.
+   * 
+   * @example
+   * 123456
+   */
+  taskId?: number;
   static names(): { [key: string]: string } {
     return {
       clientId: 'ClientId',
@@ -96,9 +117,12 @@ export class CreateKBSyncLinkResponseBody extends $dara.Model {
       linkId: 'LinkId',
       linkName: 'LinkName',
       requestId: 'RequestId',
+      selectionMode: 'SelectionMode',
+      selectionRules: 'SelectionRules',
       sourceDir: 'SourceDir',
       syncIntervalMinutes: 'SyncIntervalMinutes',
       syncStatus: 'SyncStatus',
+      taskId: 'TaskId',
     };
   }
 
@@ -111,9 +135,12 @@ export class CreateKBSyncLinkResponseBody extends $dara.Model {
       linkId: 'string',
       linkName: 'string',
       requestId: 'string',
+      selectionMode: 'string',
+      selectionRules: 'string',
       sourceDir: 'string',
       syncIntervalMinutes: 'number',
       syncStatus: 'string',
+      taskId: 'number',
     };
   }
 

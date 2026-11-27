@@ -85,7 +85,7 @@ export declare class ModifyModelApiResponseBody extends $dara.Model {
      * The current routing rules, returned as a JSON string. A byte-for-byte exact match of the input is not guaranteed.
      *
      * @example
-     * [{"RuleName":"default","Providers":[{"ModelServiceName":"model-service-a","ModelList":"[\\\\"deepseek-v4-pro\\\\"]","Weight":100}]}]
+     * [{"RuleName":"default","Providers":[{"ModelServiceName":"model-service-a","ModelList":"[\\"deepseek-v4-pro\\"]","Weight":100}]}]
      */
     routeRules?: string;
     /**

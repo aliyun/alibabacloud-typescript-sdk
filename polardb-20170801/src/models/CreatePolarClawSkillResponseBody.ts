@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolarClawSkillResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Used for system scheduled task checks. Modifications are not supported for the current scheduled task.
+   * Used for system scheduled task checks. The current scheduled task does not support modifications.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class CreatePolarClawSkillResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The name of the skill.
+   * The skill name.
    * 
    * @example
    * polarclawhub

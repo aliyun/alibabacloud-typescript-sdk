@@ -72,7 +72,7 @@ export declare class GenerateUpgradeReportForSyncCloneRequest extends $dara.Mode
      * The reserved parameter. The value is a JSON string.
      *
      * @example
-     * {\\"targetTableMode\\":2}
+     * {\"targetTableMode\":2}
      */
     reserve?: string;
     resourceOwnerAccount?: string;

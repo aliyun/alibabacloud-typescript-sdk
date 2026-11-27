@@ -202,7 +202,7 @@ export declare class DescribeDBClustersZonalResponseBodyItems extends $dara.Mode
     payType?: string;
     /**
      * @remarks
-     * The Serverless type. \\`**AgileServerless**\\` indicates that the cluster is a Serverless cluster. An empty value indicates that the cluster is a common cluster.
+     * The Serverless type. \`**AgileServerless**\` indicates that the cluster is a Serverless cluster. An empty value indicates that the cluster is a common cluster.
      *
      * @example
      * AgileServerless

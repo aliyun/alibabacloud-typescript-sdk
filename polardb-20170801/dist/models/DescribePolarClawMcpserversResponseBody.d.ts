@@ -38,7 +38,7 @@ export declare class DescribePolarClawMCPServersResponseBody extends $dara.Model
      *
      * @example
      * {
-     *     "dev-mcp-server": "{\\"args\\":[\\"-y\\",\\"@polarclaw/mcp-dev\\"],\\"command\\":\\"node\\"}"
+     *     "dev-mcp-server": "{\"args\":[\"-y\",\"@polarclaw/mcp-dev\"],\"command\":\"node\"}"
      * }
      */
     servers?: {

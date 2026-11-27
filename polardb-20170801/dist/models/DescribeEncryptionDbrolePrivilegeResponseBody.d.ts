@@ -78,7 +78,7 @@ export declare class DescribeEncryptionDBRolePrivilegeResponseBody extends $dara
      * @remarks
      * The response message.
      *
-     * > If the request is successful, \\`Successful\\` is returned. If the request fails, an error message, such as an error code, is returned.
+     * > If the request is successful, \`Successful\` is returned. If the request fails, an error message, such as an error code, is returned.
      *
      * @example
      * Successful

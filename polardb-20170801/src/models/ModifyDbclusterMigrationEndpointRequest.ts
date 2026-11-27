@@ -28,7 +28,7 @@ export class ModifyDBClusterMigrationEndpointRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * [{\\"dtsJobId\\":\\"di4w4d9r12m38mb\\",\\"endpoint\\":\\"src\\",\\"endpointInstanceId\\":\\"pc-k2j96w169uhu868l8\\"}]
+   * [{\"dtsJobId\":\"di4w4d9r12m38mb\",\"endpoint\":\"src\",\"endpointInstanceId\":\"pc-k2j96w169uhu868l8\"}]
    */
   migrationConfig?: string;
   ownerAccount?: string;

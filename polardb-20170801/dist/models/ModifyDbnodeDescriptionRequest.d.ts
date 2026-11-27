@@ -16,7 +16,7 @@ export declare class ModifyDBNodeDescriptionRequest extends $dara.Model {
      * @remarks
      * The name of the node. The name must meet the following requirements:
      *
-     * - It cannot start with http\\:// or https\\://.
+     * - It cannot start with http\:// or https\://.
      *
      * - It must be 2 to 256 characters in length.
      *

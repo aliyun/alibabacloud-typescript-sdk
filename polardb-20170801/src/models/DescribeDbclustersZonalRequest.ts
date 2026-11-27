@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClustersZonalRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of tag \\`n\\`. You can filter clusters by specifying up to 20 tags. The \\`n\\` must be a unique and consecutive integer that starts from 1. \\`Tag.n.Key\\` corresponds to \\`Tag.n.Value\\`.
+   * The key of tag \`n\`. You can filter clusters by specifying up to 20 tags. The \`n\` must be a unique and consecutive integer that starts from 1. \`Tag.n.Key\` corresponds to \`Tag.n.Value\`.
    * 
    * @example
    * MySQL
@@ -115,7 +115,7 @@ export class DescribeDBClustersZonalRequest extends $dara.Model {
   DBVersion?: string;
   /**
    * @remarks
-   * The query mode. Set the value to \\`Simple\\`. In this mode, only the basic metadata of the clusters is returned.
+   * The query mode. Set the value to \`Simple\`. In this mode, only the basic metadata of the clusters is returned.
    * 
    * @example
    * Simple
@@ -143,7 +143,7 @@ export class DescribeDBClustersZonalRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A token used to retrieve the next page of results. Set this parameter to the \\`NextToken\\` value returned from the previous API call. You do not need to specify this parameter for the first call.
+   * A token used to retrieve the next page of results. Set this parameter to the \`NextToken\` value returned from the previous API call. You do not need to specify this parameter for the first call.
    * 
    * @example
    * 212db86sca4384811e0b5e8707e******

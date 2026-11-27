@@ -61,7 +61,7 @@ export class DescribeActiveOperationTaskRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The task type. You can call the [DescribeActiveOperationTaskType](还未生成ID) operation to query the task types of pending tasks.
+   * The task type. You can call the [DescribeActiveOperationTaskType](ID not generated yet) operation to query the task types of pending tasks.
    * 
    * > * You can also enter **all** to view all pending tasks under your account.
    * * When `TaskType` is set to **all**, `Region` must also be set to **all**.

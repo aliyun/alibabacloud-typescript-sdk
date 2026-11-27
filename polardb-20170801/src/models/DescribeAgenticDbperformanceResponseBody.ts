@@ -146,7 +146,7 @@ export class DescribeAgenticDBPerformanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the query. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+   * The start time of the query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and in UTC.
    * 
    * @example
    * 2020-09-23T01:00Z

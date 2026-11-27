@@ -15,7 +15,7 @@ export class ModifyGlobalDatabaseNetworkRequest extends $dara.Model {
    * @remarks
    * The description of the GDN. It must meet the following requirements:
    * 
-   * - Cannot start with http\\:// or https\\://.
+   * - Cannot start with http\:// or https\://.
    * 
    * - Must start with a letter or a Chinese character.
    * 

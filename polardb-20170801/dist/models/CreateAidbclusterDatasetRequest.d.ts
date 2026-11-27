@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreateAIDBClusterDatasetRequest extends $dara.Model {
     /**
      * @remarks
-     * The ID of the AI database cluster. The cluster must have DBType set to polardb_ai. This parameter is required. If it is not provided, the service returns InvalidDBClusterId.Malformed (404).
+     * The ID of the AI database cluster. The cluster must have DBType set to polardb_ai. This parameter is required. If this parameter is not provided, the service returns InvalidDBClusterId.Malformed (404).
      *
      * @example
      * pc-2ze88***
@@ -49,7 +49,7 @@ export declare class CreateAIDBClusterDatasetRequest extends $dara.Model {
     resourceOwnerId?: number;
     /**
      * @remarks
-     * The training mode for the dataset. Dataset formats vary by mode. Valid values:
+     * The training mode for the dataset. Dataset formats vary based on the mode. Valid values:
      * * **sft**: supervised fine-tuning, dedicated to training datasets
      * * **grpo**: reinforcement learning optimization, dedicated to training datasets
      * * **text**: text generation, dedicated to validation datasets

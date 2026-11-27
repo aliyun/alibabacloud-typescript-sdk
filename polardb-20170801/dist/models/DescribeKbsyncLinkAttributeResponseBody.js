@@ -29,12 +29,14 @@ const $dara = __importStar(require("@darabonba/typescript"));
 class DescribeKBSyncLinkAttributeResponseBodyConfig extends $dara.Model {
     static names() {
         return {
+            chatMemberStaleTtlSeconds: 'ChatMemberStaleTtlSeconds',
             feishuChatMemberStaleTtlSeconds: 'FeishuChatMemberStaleTtlSeconds',
             userId: 'UserId',
         };
     }
     static types() {
         return {
+            chatMemberStaleTtlSeconds: 'number',
             feishuChatMemberStaleTtlSeconds: 'number',
             userId: 'string',
         };
@@ -58,6 +60,9 @@ class DescribeKBSyncLinkAttributeResponseBody extends $dara.Model {
             linkId: 'LinkId',
             linkName: 'LinkName',
             requestId: 'RequestId',
+            selectionMode: 'SelectionMode',
+            selectionRules: 'SelectionRules',
+            sourceDeleteSyncEnabled: 'SourceDeleteSyncEnabled',
             sourceDir: 'SourceDir',
             syncIntervalMinutes: 'SyncIntervalMinutes',
             syncStatus: 'SyncStatus',
@@ -73,6 +78,9 @@ class DescribeKBSyncLinkAttributeResponseBody extends $dara.Model {
             linkId: 'string',
             linkName: 'string',
             requestId: 'string',
+            selectionMode: 'string',
+            selectionRules: 'string',
+            sourceDeleteSyncEnabled: 'boolean',
             sourceDir: 'string',
             syncIntervalMinutes: 'number',
             syncStatus: 'string',

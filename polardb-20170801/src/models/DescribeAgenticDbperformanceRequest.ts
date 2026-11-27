@@ -5,15 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgenticDBPerformanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The alert aggregation method. Valid values vary by metric:
-   * - Value: The value of the HTTP status code.
-   * - Average: The average HTTP wait time.
-   * - Value: The value of the Telnet status code.
-   * - TelnetLatency: The average Telnet wait time.
-   * - Average: The average ping packet loss rate.
+   * Specifies whether to aggregate data by instance scope. This parameter takes effect only when neither BranchId nor EndpointId is specified.
    * 
    * @example
-   * Average
+   * false
    */
   aggregate?: boolean;
   /**

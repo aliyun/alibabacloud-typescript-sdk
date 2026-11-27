@@ -68,7 +68,7 @@ export class CheckPolarClawSkillRequest extends $dara.Model {
    * The tag details.
    * 
    * @example
-   * [\\"PolarDB\\",\\"programming\\"]
+   * [\"PolarDB\",\"programming\"]
    */
   tags?: string;
   /**

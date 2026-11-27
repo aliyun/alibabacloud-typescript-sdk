@@ -31,14 +31,20 @@ class UpdateKBSyncLinkResponseBody extends $dara.Model {
         return {
             linkId: 'LinkId',
             requestId: 'RequestId',
+            selectionMode: 'SelectionMode',
+            selectionRules: 'SelectionRules',
             syncSchedule: 'SyncSchedule',
+            taskId: 'TaskId',
         };
     }
     static types() {
         return {
             linkId: 'string',
             requestId: 'string',
+            selectionMode: 'string',
+            selectionRules: 'string',
             syncSchedule: 'string',
+            taskId: 'number',
         };
     }
     validate() {

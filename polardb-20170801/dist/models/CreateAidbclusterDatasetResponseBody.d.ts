@@ -34,7 +34,7 @@ export declare class CreateAIDBClusterDatasetResponseBody extends $dara.Model {
     datasetName?: string;
     /**
      * @remarks
-     * The path of the dataset.
+     * The path to which the dataset belongs.
      *
      * @example
      * polardb_ai/datasets/train/sft/dataset01

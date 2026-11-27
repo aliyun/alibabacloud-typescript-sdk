@@ -153,7 +153,7 @@ export declare class DescribeAIDBClusterTaskAttributeResponseBody extends $dara.
      * The access information of the model in the test deployment scenario.
      *
      * @example
-     * {\\"networkInterfaceId\\":\\"eni-2zea***\\",\\"port\\":\\"8000\\",\\"host\\":\\"192.**.**.**\\"}
+     * {\"networkInterfaceId\":\"eni-2zea***\",\"port\":\"8000\",\"host\":\"192.**.**.**\"}
      */
     accessInfo?: string;
     /**

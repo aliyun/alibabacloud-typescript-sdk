@@ -122,7 +122,7 @@ export class DescribeGlobalDatabaseNetworksResponseBodyItems extends $dara.Model
    * @remarks
    * The GDN description. Requirements:
    * 
-   * - Cannot start with http\\:// or https\\://.
+   * - Cannot start with http\:// or https\://.
    * 
    * - Must start with a letter or a Chinese character.
    * 

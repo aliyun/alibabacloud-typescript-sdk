@@ -15,7 +15,7 @@ export class ModifyApplicationBackupPolicyRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The application type, such as polarclaw. This parameter is required. If it is not provided, the service returns InvalidApplicationType.Malformed. Valid values: polarclaw, supabase, and polarclawsaas. Note: The ApplicationType field in the DescribeApplications response contains the polardb_ prefix (such as polardb_polarclaw). When you call this operation, remove the prefix and use the short format.
+   * The application type, such as polarclaw. This parameter is required. If it is not provided, the service returns InvalidApplicationType.Malformed. Valid values: polarclaw, supabase, and polarclawsaas. Note: The ApplicationType field in the DescribeApplications response contains the polardb_ prefix, such as polardb_polarclaw. When calling this API, remove the prefix and use the short format.
    * 
    * @example
    * polarclaw
@@ -39,7 +39,7 @@ export class ModifyApplicationBackupPolicyRequest extends $dara.Model {
   preferredBackupRetentionPeriod?: string;
   /**
    * @remarks
-   * The time window when automatic backups are performed. Specify the time in the HH:mmZ-HH:mmZ format in UTC. The start time and end time must be on the hour and exactly one hour apart.
+   * The time window when automatic backups are performed. The format is HH:mmZ-HH:mmZ in UTC. The start time and end time must be on the hour and exactly one hour apart.
    * 
    * @example
    * 07:00Z-08:00Z
@@ -47,7 +47,7 @@ export class ModifyApplicationBackupPolicyRequest extends $dara.Model {
   preferredBackupTime?: string;
   /**
    * @remarks
-   * The region ID of the application.
+   * The ID of the region where the application resides.
    * 
    * @example
    * cn-hangzhou

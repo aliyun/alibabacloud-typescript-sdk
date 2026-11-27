@@ -103,7 +103,7 @@ export declare class ModifyDBClusterEndpointZonalRequest extends $dara.Model {
      * > * The transaction splitting configuration is restricted by the consistency level configuration. For example, if the consistency level is set to **0**, transaction splitting cannot be enabled. If the consistency level is set to **1** or **2**, transaction splitting can be enabled.
      *
      * @example
-     * {\\"DistributedTransaction\\":\\"off\\",\\"ConsistLevel\\":\\"0\\",\\"LoadBalanceStrategy\\":\\"load\\",\\"MasterAcceptReads\\":\\"on\\"}
+     * {\"DistributedTransaction\":\"off\",\"ConsistLevel\":\"0\",\"LoadBalanceStrategy\":\"load\",\"MasterAcceptReads\":\"on\"}
      */
     endpointConfig?: string;
     /**

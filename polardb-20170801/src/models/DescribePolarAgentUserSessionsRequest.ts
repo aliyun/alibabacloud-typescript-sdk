@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolarAgentUserSessionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The source of the product. The value is \\`polardb-console\\`.
+   * The source of the product. The value is \`polardb-console\`.
    * 
    * @example
    * polardb-console

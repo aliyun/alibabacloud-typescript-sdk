@@ -122,7 +122,7 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
    * The task parameters.
    * 
    * @example
-   * {\\"action\\": \\"UpgradeDBVersion\\", \\"check_method\\": \\"check_cpu_usage\\", \\"params\\": {\\"RelativeDbtype\\": \\"maxscale\\", \\"DBInstanceName\\": \\"pc-*************\\", \\"User_ID\\": \\"11111\\", \\"UID\\": \\"1406926474******\\", \\"UpgradePolicy\\": \\"hot\\"}}"
+   * {\"action\": \"UpgradeDBVersion\", \"check_method\": \"check_cpu_usage\", \"params\": {\"RelativeDbtype\": \"maxscale\", \"DBInstanceName\": \"pc-*************\", \"User_ID\": \"11111\", \"UID\": \"1406926474******\", \"UpgradePolicy\": \"hot\"}}"
    */
   taskParams?: string;
   /**

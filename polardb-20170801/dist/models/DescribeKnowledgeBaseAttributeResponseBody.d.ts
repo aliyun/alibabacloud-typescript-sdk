@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribeKnowledgeBaseAttributeResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The number of AI applications associated with the knowledge base.
+     * The number of associated AI applications.
      *
      * @example
      * 2
@@ -10,9 +10,7 @@ export declare class DescribeKnowledgeBaseAttributeResponseBody extends $dara.Mo
     bindingAppCount?: number;
     /**
      * @remarks
-     * The time when the knowledge base was created.
-     *
-     * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+     * The creation time. The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
      *
      * @example
      * 2020-08-14T05:58:42Z
@@ -36,9 +34,7 @@ export declare class DescribeKnowledgeBaseAttributeResponseBody extends $dara.Mo
     knowledgeBaseId?: string;
     /**
      * @remarks
-     * The type of the knowledge base. Valid values:
-     * - PUBLIC
-     * - PERSONAL
+     * The type of the knowledge base. Valid values: PUBLIC and PERSONAL.
      *
      * @example
      * PUBLIC
@@ -91,7 +87,15 @@ export declare class DescribeKnowledgeBaseAttributeResponseBody extends $dara.Mo
     shardCount?: number;
     /**
      * @remarks
-     * The status of the knowledge base.
+     * Specifies whether source deletion synchronization is enabled.
+     *
+     * @example
+     * false
+     */
+    sourceDeleteSyncEnabled?: boolean;
+    /**
+     * @remarks
+     * The status.
      *
      * @example
      * Activation

@@ -662,7 +662,7 @@ export default class Client extends OpenApi {
      * Creates a dataset.
      *
      * @remarks
-     * Before calling this operation, call CreateAIDBCluster to create a cluster with DBType set to polardb_ai, and then call EnableAIDBClusterDatasetService to enable the dataset service. Finally, call this operation to create a dataset.
+     * Before you call this operation, call CreateAIDBCluster to create a cluster with DBType set to polardb_ai, and then call EnableAIDBClusterDatasetService to enable the dataset service. Finally, call this operation to create a dataset.
      *
      * @param request - CreateAIDBClusterDatasetRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -673,7 +673,7 @@ export default class Client extends OpenApi {
      * Creates a dataset.
      *
      * @remarks
-     * Before calling this operation, call CreateAIDBCluster to create a cluster with DBType set to polardb_ai, and then call EnableAIDBClusterDatasetService to enable the dataset service. Finally, call this operation to create a dataset.
+     * Before you call this operation, call CreateAIDBCluster to create a cluster with DBType set to polardb_ai, and then call EnableAIDBClusterDatasetService to enable the dataset service. Finally, call this operation to create a dataset.
      *
      * @param request - CreateAIDBClusterDatasetRequest
      * @returns CreateAIDBClusterDatasetResponse
@@ -1358,7 +1358,7 @@ export default class Client extends OpenApi {
      */
     createGlobalSecurityIPGroup(request: $_model.CreateGlobalSecurityIPGroupRequest): Promise<$_model.CreateGlobalSecurityIPGroupResponse>;
     /**
-     * Places an order to purchase a token resource plan and activates a redemption code.
+     * Purchases a token resource plan and generates a redemption code.
      *
      * @param request - CreateGwConsumerOrderRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1366,7 +1366,7 @@ export default class Client extends OpenApi {
      */
     createGwConsumerOrderWithOptions(request: $_model.CreateGwConsumerOrderRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateGwConsumerOrderResponse>;
     /**
-     * Places an order to purchase a token resource plan and activates a redemption code.
+     * Purchases a token resource plan and generates a redemption code.
      *
      * @param request - CreateGwConsumerOrderRequest
      * @returns CreateGwConsumerOrderResponse
@@ -1622,10 +1622,10 @@ export default class Client extends OpenApi {
      * Uploads a skill.
      *
      * @remarks
-     * ## 前提条件
-     * - 已创建 PolarClaw 应用：技能将上传到该应用。可调用 DescribeApplications 并将 ApplicationTypes 设置为 polardb_polarclaw 查询应用列表，获取应用 ID。
-     * - 技能文件已存放在 OSS Bucket 中：OSSBucket 必须是真实存在、且与应用处于同一地域的 Bucket，Bucket 所在地域可通过 BucketRegionId 指定。
-     * - OSSPrefix 为技能文件在 Bucket 中的对象前缀。
+     * ## Before you begin
+     * - A PolarClaw application is created: The skill will be uploaded to this application. You can call the DescribeApplications operation and set ApplicationTypes to polardb_polarclaw to query the application list and obtain the application ID.
+     * - The skill files are stored in an OSS bucket: The OSS bucket must exist and be in the same region as the application. You can specify the region of the bucket by using BucketRegionId.
+     * - OSSPrefix is the object prefix of the skill files in the bucket.
      *
      * @param request - CreatePolarClawSkillRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1636,10 +1636,10 @@ export default class Client extends OpenApi {
      * Uploads a skill.
      *
      * @remarks
-     * ## 前提条件
-     * - 已创建 PolarClaw 应用：技能将上传到该应用。可调用 DescribeApplications 并将 ApplicationTypes 设置为 polardb_polarclaw 查询应用列表，获取应用 ID。
-     * - 技能文件已存放在 OSS Bucket 中：OSSBucket 必须是真实存在、且与应用处于同一地域的 Bucket，Bucket 所在地域可通过 BucketRegionId 指定。
-     * - OSSPrefix 为技能文件在 Bucket 中的对象前缀。
+     * ## Before you begin
+     * - A PolarClaw application is created: The skill will be uploaded to this application. You can call the DescribeApplications operation and set ApplicationTypes to polardb_polarclaw to query the application list and obtain the application ID.
+     * - The skill files are stored in an OSS bucket: The OSS bucket must exist and be in the same region as the application. You can specify the region of the bucket by using BucketRegionId.
+     * - OSSPrefix is the object prefix of the skill files in the bucket.
      *
      * @param request - CreatePolarClawSkillRequest
      * @returns CreatePolarClawSkillResponse
@@ -1722,13 +1722,12 @@ export default class Client extends OpenApi {
      */
     createRateLimitPolicy(request: $_model.CreateRateLimitPolicyRequest): Promise<$_model.CreateRateLimitPolicyResponse>;
     /**
-     * Creates a resource control rule for a specified PolarDB for MySQL cluster. You can specify the maximum CPU quota percentage for the rule by using MaxCpu or the maximum number of CPU cores by using CpuCount.
-     * You must specify exactly one of the MaxCpu and CpuCount parameters when you create a rule.
+     * Creates a resource control rule for a specified PolarDB for MySQL cluster. You can use MaxCpu to specify the maximum CPU quota percentage or CpuCount to specify the maximum number of CPU cores available to the rule. You must specify exactly one of the MaxCpu and CpuCount parameters when you create a rule.
      *
      * @remarks
-     * Resource Control limits the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding rules, but does not support querying CPU utilization for Resource Control.
+     * Resource Control limits the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules, but does not support querying Resource Control CPU utilization.
      * ### Limits
-     * - Applies only to PolarDB for MySQL Cluster Edition that supports Resource Control. PolarDB for MySQL Standard Edition is not supported.
+     * - This feature applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
      * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
      * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
      * - The maximum value of CpuCount is determined by the resource_control_cpu_count_limit kernel parameter of the target cluster.
@@ -1740,13 +1739,12 @@ export default class Client extends OpenApi {
      */
     createResourceControlWithOptions(request: $_model.CreateResourceControlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateResourceControlResponse>;
     /**
-     * Creates a resource control rule for a specified PolarDB for MySQL cluster. You can specify the maximum CPU quota percentage for the rule by using MaxCpu or the maximum number of CPU cores by using CpuCount.
-     * You must specify exactly one of the MaxCpu and CpuCount parameters when you create a rule.
+     * Creates a resource control rule for a specified PolarDB for MySQL cluster. You can use MaxCpu to specify the maximum CPU quota percentage or CpuCount to specify the maximum number of CPU cores available to the rule. You must specify exactly one of the MaxCpu and CpuCount parameters when you create a rule.
      *
      * @remarks
-     * Resource Control limits the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding rules, but does not support querying CPU utilization for Resource Control.
+     * Resource Control limits the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules, but does not support querying Resource Control CPU utilization.
      * ### Limits
-     * - Applies only to PolarDB for MySQL Cluster Edition that supports Resource Control. PolarDB for MySQL Standard Edition is not supported.
+     * - This feature applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
      * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
      * - MaxCpu and CpuCount are two mutually exclusive CPU quota modes.
      * - The maximum value of CpuCount is determined by the resource_control_cpu_count_limit kernel parameter of the target cluster.
@@ -2823,10 +2821,10 @@ export default class Client extends OpenApi {
      * Deletes a resource control rule from a specified PolarDB for MySQL cluster.
      *
      * @remarks
-     * Resource Control is used to limit the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports the create, update, delete, attach, and detach operations for resource control rules. Querying Resource Control CPU usage is not supported.
+     * Resource Control limits the CPU resources that specific users, databases, queries, or connections can use in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules, but does not support querying Resource Control CPU utilization.
      * ### Limits
      * - This feature applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
-     * - In the cluster kernel parameter Settings, loose_enable_resource_control must be set to ON.
+     * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
      * >Notice: This is a notice.</notice>
      *
      * @param request - DeleteResourceControlRequest
@@ -2838,10 +2836,10 @@ export default class Client extends OpenApi {
      * Deletes a resource control rule from a specified PolarDB for MySQL cluster.
      *
      * @remarks
-     * Resource Control is used to limit the CPU resources available to specified users, databases, queries, or connections in a PolarDB for MySQL cluster. This release supports the create, update, delete, attach, and detach operations for resource control rules. Querying Resource Control CPU usage is not supported.
+     * Resource Control limits the CPU resources that specific users, databases, queries, or connections can use in a PolarDB for MySQL cluster. This release supports creating, modifying, deleting, binding, and unbinding resource control rules, but does not support querying Resource Control CPU utilization.
      * ### Limits
      * - This feature applies only to PolarDB for MySQL Cluster Edition clusters that support Resource Control. PolarDB for MySQL Standard Edition is not supported.
-     * - In the cluster kernel parameter Settings, loose_enable_resource_control must be set to ON.
+     * - The cluster kernel parameter loose_enable_resource_control must be set to ON.
      * >Notice: This is a notice.</notice>
      *
      * @param request - DeleteResourceControlRequest
@@ -6178,7 +6176,7 @@ export default class Client extends OpenApi {
      * Queries the parameter modification history of PolarDB Search.
      *
      * @remarks
-     * Queries the parameter modification history of PolarDB Search. Before you begin, ensure that the target cluster is a PolarDB for MySQL cluster and PolarSearch is enabled. If PolarSearch is not enabled, log on to the PolarDB console, go to the cluster list, open the basic information page of the target cluster, select Add or Remove Node in the Database Nodes section, and add a search node. For more information, see [Guidelines for using PolarSearch](https://www.alibabacloud.com/help/en/polardb/polardb-for-mysql/user-guide/guidelines-for-using-polarsearch).
+     * Queries the parameter modification history of PolarDB Search. Before you begin, ensure that the target cluster is a PolarDB for MySQL cluster and intelligent search (PolarSearch) is enabled. If PolarSearch is not enabled, log on to the PolarDB console, go to the cluster list, open the Basic Information page of the target cluster, click Add or Remove Node in the Database Nodes section, and add a search node. For more information, see [Guidelines for using PolarSearch](https://www.alibabacloud.com/help/en/polardb/polardb-for-mysql/user-guide/guidelines-for-using-polarsearch).
      *
      * @param request - DescribeSearchModifyParameterLogRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6189,7 +6187,7 @@ export default class Client extends OpenApi {
      * Queries the parameter modification history of PolarDB Search.
      *
      * @remarks
-     * Queries the parameter modification history of PolarDB Search. Before you begin, ensure that the target cluster is a PolarDB for MySQL cluster and PolarSearch is enabled. If PolarSearch is not enabled, log on to the PolarDB console, go to the cluster list, open the basic information page of the target cluster, select Add or Remove Node in the Database Nodes section, and add a search node. For more information, see [Guidelines for using PolarSearch](https://www.alibabacloud.com/help/en/polardb/polardb-for-mysql/user-guide/guidelines-for-using-polarsearch).
+     * Queries the parameter modification history of PolarDB Search. Before you begin, ensure that the target cluster is a PolarDB for MySQL cluster and intelligent search (PolarSearch) is enabled. If PolarSearch is not enabled, log on to the PolarDB console, go to the cluster list, open the Basic Information page of the target cluster, click Add or Remove Node in the Database Nodes section, and add a search node. For more information, see [Guidelines for using PolarSearch](https://www.alibabacloud.com/help/en/polardb/polardb-for-mysql/user-guide/guidelines-for-using-polarsearch).
      *
      * @param request - DescribeSearchModifyParameterLogRequest
      * @returns DescribeSearchModifyParameterLogResponse
@@ -8279,7 +8277,7 @@ export default class Client extends OpenApi {
      */
     modifyLakebaseMountParameterGroup(request: $_model.ModifyLakebaseMountParameterGroupRequest): Promise<$_model.ModifyLakebaseMountParameterGroupResponse>;
     /**
-     * Modifies the PolarFS S3 account policy.
+     * Modifies the S3 account policy for PolarFS.
      *
      * @param request - ModifyLakebaseS3AccountPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8287,7 +8285,7 @@ export default class Client extends OpenApi {
      */
     modifyLakebaseS3AccountPolicyWithOptions(request: $_model.ModifyLakebaseS3AccountPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyLakebaseS3AccountPolicyResponse>;
     /**
-     * Modifies the PolarFS S3 account policy.
+     * Modifies the S3 account policy for PolarFS.
      *
      * @param request - ModifyLakebaseS3AccountPolicyRequest
      * @returns ModifyLakebaseS3AccountPolicyResponse
@@ -8884,8 +8882,8 @@ export default class Client extends OpenApi {
      * Resets the password of an application account.
      *
      * @remarks
-     * > * Only privileged accounts of PolarDB for MySQL clusters are supported.
-     * > * If an issue occurs with the privileged account itself, such as unexpected permission revocation (REVOKE), you can reset the permissions of the privileged account to restore it to normal. Call instructions: In the "Before you begin" section, list the complete dependency chain: 1) Create a PolarDB for MySQL cluster (CreateDBCluster, DBType=MySQL); 2) Create an associated PolarDB application for the cluster (CreateApplication, ApplicationType=polarclaw); 3) Wait for the application status to change to Activated (query through DescribeApplications); 4) Confirm that the application contains the privileged account whose password needs to be reset.
+     * > * You can only reset the password of a privileged account in a PolarDB for MySQL cluster.
+     * > * If the privileged account encounters issues, such as unexpected permission revocation (REVOKE), you can reset the permissions of the privileged account to restore normal access. Usage notes: The "Before you begin" section lists the complete dependency chain: 1) Create a PolarDB for MySQL cluster (CreateDBCluster, DBType=MySQL). 2) Create an associated PolarDB application for the cluster (CreateApplication, ApplicationType=polarclaw). 3) Wait until the application status changes to Activated (query by calling DescribeApplications). 4) Confirm that the application contains a privileged account whose password needs to be reset.
      *
      * @param request - ResetApplicationAccountPasswordRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8896,8 +8894,8 @@ export default class Client extends OpenApi {
      * Resets the password of an application account.
      *
      * @remarks
-     * > * Only privileged accounts of PolarDB for MySQL clusters are supported.
-     * > * If an issue occurs with the privileged account itself, such as unexpected permission revocation (REVOKE), you can reset the permissions of the privileged account to restore it to normal. Call instructions: In the "Before you begin" section, list the complete dependency chain: 1) Create a PolarDB for MySQL cluster (CreateDBCluster, DBType=MySQL); 2) Create an associated PolarDB application for the cluster (CreateApplication, ApplicationType=polarclaw); 3) Wait for the application status to change to Activated (query through DescribeApplications); 4) Confirm that the application contains the privileged account whose password needs to be reset.
+     * > * You can only reset the password of a privileged account in a PolarDB for MySQL cluster.
+     * > * If the privileged account encounters issues, such as unexpected permission revocation (REVOKE), you can reset the permissions of the privileged account to restore normal access. Usage notes: The "Before you begin" section lists the complete dependency chain: 1) Create a PolarDB for MySQL cluster (CreateDBCluster, DBType=MySQL). 2) Create an associated PolarDB application for the cluster (CreateApplication, ApplicationType=polarclaw). 3) Wait until the application status changes to Activated (query by calling DescribeApplications). 4) Confirm that the application contains a privileged account whose password needs to be reset.
      *
      * @param request - ResetApplicationAccountPasswordRequest
      * @returns ResetApplicationAccountPasswordResponse
@@ -9463,7 +9461,7 @@ export default class Client extends OpenApi {
      */
     updateExtensions(request: $_model.UpdateExtensionsRequest): Promise<$_model.UpdateExtensionsResponse>;
     /**
-     * Updates the synchronization link for a knowledge base.
+     * Updates a knowledge base synchronization link.
      *
      * @param request - UpdateKBSyncLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9471,7 +9469,7 @@ export default class Client extends OpenApi {
      */
     updateKBSyncLinkWithOptions(request: $_model.UpdateKBSyncLinkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKBSyncLinkResponse>;
     /**
-     * Updates the synchronization link for a knowledge base.
+     * Updates a knowledge base synchronization link.
      *
      * @param request - UpdateKBSyncLinkRequest
      * @returns UpdateKBSyncLinkResponse

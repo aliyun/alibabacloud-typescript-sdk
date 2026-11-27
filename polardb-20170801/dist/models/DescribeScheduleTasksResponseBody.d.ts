@@ -10,7 +10,7 @@ export declare class DescribeScheduleTasksResponseBodyDataTimerInfos extends $da
     action?: string;
     /**
      * @remarks
-     * The ID of the scheduled O\\&M task.
+     * The ID of the scheduled O\&M task.
      *
      * @example
      * 86293c29-a03d-4872-b625-***********

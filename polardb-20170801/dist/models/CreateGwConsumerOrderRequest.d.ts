@@ -10,7 +10,7 @@ export declare class CreateGwConsumerOrderRequest extends $dara.Model {
     clientToken?: string;
     /**
      * @remarks
-     * The expiration time of the API key in ISO 8601 format. The value must be later than the current time.
+     * The expiration time of the API key. Specify the time in the ISO 8601 standard. The specified time must be later than the current time.
      *
      * @example
      * 2027-07-23T03:09:08Z
@@ -28,7 +28,7 @@ export declare class CreateGwConsumerOrderRequest extends $dara.Model {
     gatewayId?: string;
     /**
      * @remarks
-     * The number of API keys to generate, which is the number of capacity plans to order. Valid values: 1 to 30.
+     * The number of API keys to generate, which indicates the number of capacity plans to order. Valid values: 1 to 30.
      *
      * This parameter is required.
      *
@@ -38,7 +38,7 @@ export declare class CreateGwConsumerOrderRequest extends $dara.Model {
     keyCount?: number;
     /**
      * @remarks
-     * The number of credits per API key. The value is a positive integer string.
+     * The number of credits for each API key. The value must be a string representing a positive integer.
      *
      * This parameter is required.
      *
@@ -49,7 +49,7 @@ export declare class CreateGwConsumerOrderRequest extends $dara.Model {
     /**
      * @remarks
      * The region ID.
-     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query region information.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view region details.
      *
      * This parameter is required.
      *

@@ -48,7 +48,7 @@ export class DescribePolarClawSkillTemplateResponseBodySkillTemplates extends $d
    * The map of associated skill details. The key is the skill identifier, and the value is a JSON string that can be parsed into an array of skill details. Each array element contains skillName and version.
    * 
    * @example
-   * {"skill1":"[{\\"skillName\\":\\"example-skill\\",\\"version\\":\\"1.0.0\\"}]"}
+   * {"skill1":"[{\"skillName\":\"example-skill\",\"version\":\"1.0.0\"}]"}
    */
   skills?: { [key: string]: string };
   /**

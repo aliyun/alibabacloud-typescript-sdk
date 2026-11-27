@@ -2,7 +2,15 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribeKBSyncLinkAttributeResponseBodyConfig extends $dara.Model {
     /**
      * @remarks
-     * The validity period of the successful snapshot of Lark group members for fallback reuse, in seconds. This parameter is returned only for Lark synchronization links. A value of -1 indicates that the snapshot never expires. A value of 0 indicates that snapshot fallback reuse is disabled. A positive integer indicates the maximum age of the snapshot allowed for reuse. The valid value configured for the link is returned. If no value is configured, the default value -1 is returned.
+     * The validity period of the group member success snapshot used for fallback reuse, in seconds. This field can be returned for DINGTALK and FEISHU synchronization links. Explicit general configurations take precedence. If it is not configured, Lark uses the legacy dedicated field. A value of -1 indicates that the snapshot never expires. A value of 0 indicates that snapshot fallback reuse is disabled. A positive integer indicates the maximum age of the snapshot allowed for reuse. If it is not configured for DingTalk, -1 is returned. If the general field is not explicitly configured for Lark, this field may not be returned, and the legacy dedicated field returns a valid value.
+     *
+     * @example
+     * -1
+     */
+    chatMemberStaleTtlSeconds?: number;
+    /**
+     * @remarks
+     * The validity period of the Lark group member success snapshot used for fallback reuse, in seconds. This field is returned only for FEISHU synchronization links. A value of -1 indicates that the snapshot never expires. A value of 0 indicates that snapshot fallback reuse is disabled. A positive integer indicates the maximum age of the snapshot allowed for reuse. The valid value configured for the link is returned. If it is not configured, the default value -1 is returned.
      *
      * @example
      * -1
@@ -10,7 +18,7 @@ export declare class DescribeKBSyncLinkAttributeResponseBodyConfig extends $dara
     feishuChatMemberStaleTtlSeconds?: number;
     /**
      * @remarks
-     * The ID of the DingTalk user who performs the operation. This parameter is returned only for DingTalk synchronization links.
+     * The ID of the DingTalk user who performs the operation. This field is returned only for DINGTALK synchronization links.
      *
      * @example
      * manager123
@@ -38,7 +46,7 @@ export declare class DescribeKBSyncLinkAttributeResponseBody extends $dara.Model
     clientId?: string;
     /**
      * @remarks
-     * The synchronization configuration whitelist returned based on the source type. For DingTalk, UserId is returned. For Lark, FeishuChatMemberStaleTtlSeconds is returned.
+     * The synchronization configuration whitelist returned by source type. For DINGTALK, UserId can be returned. For FEISHU, FeishuChatMemberStaleTtlSeconds can be returned.
      */
     config?: DescribeKBSyncLinkAttributeResponseBodyConfig;
     /**
@@ -91,7 +99,28 @@ export declare class DescribeKBSyncLinkAttributeResponseBody extends $dara.Model
     requestId?: string;
     /**
      * @remarks
-     * The source directory. For OSS sources, the bucket and object prefix in the oss://<bucket>/<prefix> format are returned. For other sources, the directory identifier or path of the corresponding channel is returned.
+     * Returns the current configuration, which does not indicate that synchronization is complete. This field may not be returned if it is not set.
+     *
+     * @example
+     * SELECTED
+     */
+    selectionMode?: string;
+    /**
+     * @remarks
+     * Returns the current configuration, which does not indicate that synchronization is complete. This field may not be returned if it is not set.
+     */
+    selectionRules?: string;
+    /**
+     * @remarks
+     * The switch for source deletion synchronization.
+     *
+     * @example
+     * false
+     */
+    sourceDeleteSyncEnabled?: boolean;
+    /**
+     * @remarks
+     * The source directory.
      *
      * @example
      * /documents

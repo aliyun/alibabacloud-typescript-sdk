@@ -29,6 +29,8 @@ const $dara = __importStar(require("@darabonba/typescript"));
 class UpdateKBSyncLinkRequest extends $dara.Model {
     static names() {
         return {
+            aiTableMcpEndpoint: 'AiTableMcpEndpoint',
+            chatMemberStaleTtlSeconds: 'ChatMemberStaleTtlSeconds',
             clientId: 'ClientId',
             clientSecret: 'ClientSecret',
             feishuChatMemberStaleTtlSeconds: 'FeishuChatMemberStaleTtlSeconds',
@@ -36,7 +38,10 @@ class UpdateKBSyncLinkRequest extends $dara.Model {
             linkId: 'LinkId',
             mcpEndpoint: 'McpEndpoint',
             regionId: 'RegionId',
+            selectionMode: 'SelectionMode',
+            selectionRules: 'SelectionRules',
             sheetMcpEndpoint: 'SheetMcpEndpoint',
+            sourceDeleteSyncEnabled: 'SourceDeleteSyncEnabled',
             syncEnabled: 'SyncEnabled',
             syncIntervalMinutes: 'SyncIntervalMinutes',
             userAccessToken: 'UserAccessToken',
@@ -46,6 +51,8 @@ class UpdateKBSyncLinkRequest extends $dara.Model {
     }
     static types() {
         return {
+            aiTableMcpEndpoint: 'string',
+            chatMemberStaleTtlSeconds: 'number',
             clientId: 'string',
             clientSecret: 'string',
             feishuChatMemberStaleTtlSeconds: 'number',
@@ -53,7 +60,10 @@ class UpdateKBSyncLinkRequest extends $dara.Model {
             linkId: 'string',
             mcpEndpoint: 'string',
             regionId: 'string',
+            selectionMode: 'string',
+            selectionRules: 'string',
             sheetMcpEndpoint: 'string',
+            sourceDeleteSyncEnabled: 'boolean',
             syncEnabled: 'boolean',
             syncIntervalMinutes: 'number',
             userAccessToken: 'string',

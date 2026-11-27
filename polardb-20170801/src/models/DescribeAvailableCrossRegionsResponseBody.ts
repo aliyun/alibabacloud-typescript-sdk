@@ -8,7 +8,7 @@ export class DescribeAvailableCrossRegionsResponseBody extends $dara.Model {
    * The list of regions available for cross-region backup.
    * 
    * @example
-   * [\\"cn-beijing\\", \\"cn-shanghai\\", \\"cn-qingdao\\", \\"cn-shenzhen\\", \\"cn-hongkong\\"]
+   * [\"cn-beijing\", \"cn-shanghai\", \"cn-qingdao\", \"cn-shenzhen\", \"cn-hongkong\"]
    */
   regions?: string[];
   /**

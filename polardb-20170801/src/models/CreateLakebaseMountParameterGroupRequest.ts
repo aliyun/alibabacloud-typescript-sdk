@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLakebaseMountParameterGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance edition. Valid values:
-   * - basic: Basic Edition.
-   * - high_performance: High-performance Edition.
+   * The instance edition. Valid values: basic (Basic Edition) and high_performance (High-performance Edition).
    * 
    * This parameter is required.
    * 
@@ -17,7 +15,7 @@ export class CreateLakebaseMountParameterGroupRequest extends $dara.Model {
   paramGroupCategory?: string;
   /**
    * @remarks
-   * The description of the parameter template.
+   * The parameter template description.
    * 
    * @example
    * Test template
@@ -25,7 +23,7 @@ export class CreateLakebaseMountParameterGroupRequest extends $dara.Model {
   parameterGroupDesc?: string;
   /**
    * @remarks
-   * The name of the parameter template.
+   * The parameter template name.
    * 
    * This parameter is required.
    * 

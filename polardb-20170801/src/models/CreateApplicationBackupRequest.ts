@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationBackupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application to back up.
+   * The ID of the application to be backed up.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateApplicationBackupRequest extends $dara.Model {
   jobMode?: string;
   /**
    * @remarks
-   * The ID of the region where the application resides. The server uses the actual region of the application.
+   * The region ID of the region where the application resides. The server uses the actual region of the application.
    * 
    * @example
    * cn-hangzhou

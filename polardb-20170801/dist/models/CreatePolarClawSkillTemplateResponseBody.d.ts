@@ -10,7 +10,7 @@ export declare class CreatePolarClawSkillTemplateResponseBody extends $dara.Mode
     requestId?: string;
     /**
      * @remarks
-     * The skill template ID.
+     * The ID of the skill template.
      *
      * @example
      * pcpg-skill-**************

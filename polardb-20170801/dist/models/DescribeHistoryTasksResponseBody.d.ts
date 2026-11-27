@@ -151,7 +151,7 @@ export declare class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
      * The task details.
      *
      * @example
-     * {\\"steps\\":[{\\"step_name\\":\\"init_task\\"},{\\"step_name\\":\\"exec_task\\"},{\\"step_name\\":\\"finish_task\\"}]}
+     * {\"steps\":[{\"step_name\":\"init_task\"},{\"step_name\":\"exec_task\"},{\"step_name\":\"finish_task\"}]}
      */
     taskDetail?: string;
     /**

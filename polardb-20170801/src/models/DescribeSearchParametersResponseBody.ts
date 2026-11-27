@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSearchParametersResponseBodyRunningParametersParameter extends $dara.Model {
   /**
    * @remarks
-   * The value validation rule of the template. The rule can be a numeric range, an enumeration, or a regular expression, and must be interpreted in combination with the data type.
+   * The value validation rule of the template, which can be a numeric range, an enumeration, or a regular expression. This rule must be interpreted in combination with the DataType field.
    * 
    * @example
-   * [true\\|false]
+   * [true\|false]
    */
   checkingCode?: string;
   /**
@@ -21,7 +21,7 @@ export class DescribeSearchParametersResponseBodyRunningParametersParameter exte
   dataType?: string;
   /**
    * @remarks
-   * The default value of the current active template. This value is independent of the value modified by the user.
+   * The default value of the current active template, which is independent of the value modified by the user.
    * 
    * @example
    * false
@@ -37,7 +37,7 @@ export class DescribeSearchParametersResponseBodyRunningParametersParameter exte
   factor?: string;
   /**
    * @remarks
-   * Specifies whether a restart is required for the parameter to take effect. The value is true for static parameters and false for dynamic parameters.
+   * Specifies whether a restart is required for the modification to take effect. The value is true for static parameters and false for dynamic parameters.
    * 
    * @example
    * false
@@ -45,7 +45,7 @@ export class DescribeSearchParametersResponseBodyRunningParametersParameter exte
   forceRestart?: boolean;
   /**
    * @remarks
-   * Specifies whether the parameter is modifiable.
+   * Specifies whether the user is allowed to modify the parameter.
    * 
    * @example
    * false
@@ -69,7 +69,7 @@ export class DescribeSearchParametersResponseBodyRunningParametersParameter exte
   parameterName?: string;
   /**
    * @remarks
-   * The modification status of the parameter. A value of Normal indicates that no modifications are pending. A value of Modifying indicates that the modification task is not completed.
+   * The modification status of the parameter. A value of Normal indicates that there are no pending modifications. A value of Modifying indicates that the modification task is not completed.
    * 
    * @example
    * false
@@ -163,7 +163,7 @@ export class DescribeSearchParametersResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The Search engine version. This is not the MySQL version of the primary cluster.
+   * The Search engine version, which is not the MySQL version of the primary cluster.
    * 
    * @example
    * 3.0

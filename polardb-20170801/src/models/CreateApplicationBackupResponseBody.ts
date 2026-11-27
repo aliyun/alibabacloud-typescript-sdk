@@ -21,7 +21,7 @@ export class CreateApplicationBackupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the workflow task corresponding to the backup creation.
+   * The ID of the workflow task corresponding to the created backup.
    * 
    * @example
    * 32077061
