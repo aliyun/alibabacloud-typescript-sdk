@@ -9,7 +9,7 @@ export class GetSparkWarehouseBatchSQLResponseBody extends $dara.Model {
    * The returned data.
    * 
    * @example
-   * {\\"DBClusterId\\": \\"amv-uf6485635fz852mn\\", \\"Statements\\": [{\\"Code\\": \\"show databases\\", \\"State\\": \\"FINISHED\\", \\"StatementId\\": \\"sq202501141001sh8e12e080006846-0000\\", \\"Result\\": \\"+--------------------+n
+   * {\"DBClusterId\": \"amv-uf6485635fz852mn\", \"Statements\": [{\"Code\": \"show databases\", \"State\": \"FINISHED\", \"StatementId\": \"sq202501141001sh8e12e080006846-0000\", \"Result\": \"+--------------------+n
    */
   data?: SparkBatchSQL;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReplaceSemanticViewRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AnalyticDB for MySQL cluster.
+   * The ID of the ADB cluster.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class ReplaceSemanticViewRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * YAML 内容
+   * YAML content
    */
   definition?: string;
   /**

@@ -21,7 +21,7 @@ export class RemoveKnowledgeUploadUserResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The number of successfully deleted users.
+   * The number of users that were successfully removed.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class RemoveKnowledgeUploadUserResponseBodyData extends $dara.Model {
   removed?: number;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * - **true**: Successful.
    * - **false**: Failed.
    * 

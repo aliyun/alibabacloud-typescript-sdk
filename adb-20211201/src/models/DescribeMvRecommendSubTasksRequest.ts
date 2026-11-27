@@ -39,7 +39,7 @@ export class DescribeMvRecommendSubTasksRequest extends $dara.Model {
    * - EndTime
    * 
    * @example
-   * {\\"Type\\": \\"ASC\\", \\"Field\\": \\"StartTime\\"}
+   * {\"Type\": \"ASC\", \"Field\": \"StartTime\"}
    */
   orderBy?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddKnowledgeTagsResponseBodyDataSkipped extends $dara.Model {
   /**
    * @remarks
-   * The reason why the tag was skipped.
+   * The reason why the tag is skipped.
    * 
    * @example
    * conflict
@@ -71,7 +71,7 @@ export class AddKnowledgeTagsResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The number of tags that were successfully modified.
+   * The number of tags that are successfully modified.
    * 
    * @example
    * 1
@@ -84,9 +84,9 @@ export class AddKnowledgeTagsResponseBodyData extends $dara.Model {
   skipped?: AddKnowledgeTagsResponseBodyDataSkipped[];
   /**
    * @remarks
-   * Specifies whether the request was successful. Valid values:
-   * - **true**: The request was successful.
-   * - **false**: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    * 
    * @example
    * true
@@ -94,7 +94,7 @@ export class AddKnowledgeTagsResponseBodyData extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The number of tags that were successfully added.
+   * The number of tags that are successfully added.
    * 
    * @example
    * 2

@@ -16,7 +16,7 @@ export class ColDetailModel extends $dara.Model {
    * The time when the column was created. The time is displayed in UTC.
    * 
    * @example
-   * 2023-01-05\\"T\\"13:17:55\\"Z\\"
+   * 2023-01-05\"T\"13:17:55\"Z\"
    */
   createTime?: string;
   /**
@@ -88,7 +88,7 @@ export class ColDetailModel extends $dara.Model {
    * The time when the column was updated. The time is displayed in UTC.
    * 
    * @example
-   * 2023-01-05\\"T\\"13:17:55\\"Z\\"
+   * 2023-01-05\"T\"13:17:55\"Z\"
    */
   updateTime?: string;
   static names(): { [key: string]: string } {

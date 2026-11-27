@@ -188,6 +188,21 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $dara.
   reservedNodeCount?: number;
   reservedNodeSize?: string;
   resourceGroupId?: string;
+  /**
+   * @example
+   * 1
+   */
+  routingControllerNodeCountFree?: number;
+  /**
+   * @example
+   * 1
+   */
+  routingControllerNodeCountPaid?: number;
+  /**
+   * @example
+   * 2
+   */
+  routingControllerNodeSize?: string;
   secondaryVSwitchId?: string;
   secondaryZoneId?: string;
   storageResource?: string;
@@ -238,6 +253,9 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $dara.
       reservedNodeCount: 'ReservedNodeCount',
       reservedNodeSize: 'ReservedNodeSize',
       resourceGroupId: 'ResourceGroupId',
+      routingControllerNodeCountFree: 'RoutingControllerNodeCountFree',
+      routingControllerNodeCountPaid: 'RoutingControllerNodeCountPaid',
+      routingControllerNodeSize: 'RoutingControllerNodeSize',
       secondaryVSwitchId: 'SecondaryVSwitchId',
       secondaryZoneId: 'SecondaryZoneId',
       storageResource: 'StorageResource',
@@ -291,6 +309,9 @@ export class DescribeDBClusterAttributeResponseBodyItemsDBCluster extends $dara.
       reservedNodeCount: 'number',
       reservedNodeSize: 'string',
       resourceGroupId: 'string',
+      routingControllerNodeCountFree: 'number',
+      routingControllerNodeCountPaid: 'number',
+      routingControllerNodeSize: 'string',
       secondaryVSwitchId: 'string',
       secondaryZoneId: 'string',
       storageResource: 'string',

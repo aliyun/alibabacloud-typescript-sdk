@@ -21,7 +21,7 @@ export class GetSparkAppInfoResponseBody extends $dara.Model {
    * - **DurationInMillis**: the execution duration of the Spark application, in milliseconds.
    * 
    * @example
-   * {     \\"name\\": \\"SparkPi\\",     \\"file\\": \\"local:///tmp/spark-examples.jar\\",     \\"className\\": \\"org.apache.spark.examples.SparkPi\\",     \\"args\\": [         \\"1000000\\"     ],     \\"conf\\": {         \\"spark.driver.resourceSpec\\": \\"small\\",         \\"spark.executor.instances\\": 1,         \\"spark.executor.resourceSpec\\": \\"small\\"     } }",
+   * {     \"name\": \"SparkPi\",     \"file\": \"local:///tmp/spark-examples.jar\",     \"className\": \"org.apache.spark.examples.SparkPi\",     \"args\": [         \"1000000\"     ],     \"conf\": {         \"spark.driver.resourceSpec\": \"small\",         \"spark.executor.instances\": 1,         \"spark.executor.resourceSpec\": \"small\"     } }",
    *       "EstimateExecutionCpuTimeInSeconds" : 100,
    *       "LogRootPath" : "oss://test/logs/driver",
    *       "LastAttemptId" : "s202204291426hzpre60cfabb0000004-0003",

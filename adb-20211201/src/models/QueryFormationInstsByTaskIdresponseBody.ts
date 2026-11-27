@@ -96,7 +96,7 @@ export class QueryFormationInstsByTaskIDResponseBodyData extends $dara.Model {
    * The task type.
    * 
    * @example
-   * Update\\"\\"
+   * Update\"\"
    */
   taskType?: string;
   static names(): { [key: string]: string } {

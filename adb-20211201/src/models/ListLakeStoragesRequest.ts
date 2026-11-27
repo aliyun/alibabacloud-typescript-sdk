@@ -15,7 +15,7 @@ export class ListLakeStoragesRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The filter parameters that you want to use to query lake storages. Specify multiple parameters in an AND relationship. For example, if you want to query lake storage whose names are in the range of i-a123, or i-b123, and in the Stopped state, set this parameter to \\&Filter. 1.Name=InstanceName\\&Filter. 1.Value.1=i-a123\\&Filter.1.Value.2=i-b123\\&Filter.2.Name=Status\\&Filter. 2.Value=Stopped.
+   * The filter parameters that you want to use to query lake storages. Specify multiple parameters in an AND relationship. For example, if you want to query lake storage whose names are in the range of i-a123, or i-b123, and in the Stopped state, set this parameter to \&Filter. 1.Name=InstanceName\&Filter. 1.Value.1=i-a123\&Filter.1.Value.2=i-b123\&Filter.2.Name=Status\&Filter. 2.Value=Stopped.
    * 
    * @example
    * -

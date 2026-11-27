@@ -58,7 +58,7 @@ export class SubmitResultExportJobRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * SELECT * FROM `fotor_com_datastore_resource`.`fotor_ai_create_task` where `date` = \\"2023-05-13\\" LIMIT 10;
+   * SELECT * FROM `fotor_com_datastore_resource`.`fotor_ai_create_task` where `date` = \"2023-05-13\" LIMIT 10;
    */
   SQL?: string;
   /**

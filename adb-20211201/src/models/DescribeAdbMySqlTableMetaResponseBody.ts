@@ -66,7 +66,7 @@ export class DescribeAdbMySqlTableMetaResponseBodyTableMeta extends $dara.Model 
    * The partition column information.
    * 
    * @example
-   * DATE_FORMAT(login_time, \\"%Y%m%d\\")
+   * DATE_FORMAT(login_time, \"%Y%m%d\")
    */
   partitionColumn?: string;
   /**

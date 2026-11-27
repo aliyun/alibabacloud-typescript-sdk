@@ -15,7 +15,7 @@ export class AddKnowledgeUploadUserRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the file.
+   * The file ID.
    * 
    * @example
    * 3214123
@@ -23,7 +23,7 @@ export class AddKnowledgeUploadUserRequest extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The path of the knowledge base document.
+   * The address of the knowledge base document.
    * 
    * @example
    * oss://bucketName/path/to/file.pdf

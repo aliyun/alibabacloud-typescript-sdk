@@ -16,7 +16,7 @@ export class Adb4MysqlSparkDiagnosisInfo extends $dara.Model {
    * The diagnostic cause.
    * 
    * @example
-   * 查询执行耗时较长。
+   * The query execution duration is long.
    */
   diagnosisCodeLabel?: string;
   /**
@@ -24,7 +24,7 @@ export class Adb4MysqlSparkDiagnosisInfo extends $dara.Model {
    * The diagnostic suggestion.
    * 
    * @example
-   * 检查查询执行计划并优化 SQL。
+   * Check the query execution plan and optimize the SQL.
    */
   diagnosisMsg?: string;
   /**

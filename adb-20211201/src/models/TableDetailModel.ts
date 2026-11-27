@@ -70,7 +70,7 @@ export class TableDetailModel extends $dara.Model {
    * The table property parameters.
    * 
    * @example
-   * {"escape.delim":"\\\\","field.delim":" "}
+   * {"escape.delim":"\\","field.delim":" "}
    */
   parameters?: { [key: string]: string };
   /**

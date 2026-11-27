@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelSqlPatternCompareReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the report was first canceled. The time is in UTC in the yyyy-MM-ddTHH:mmZ format.
+   * The time of the first cancellation. The time is displayed in UTC in the yyyy-MM-ddTHH:mmZ format.
    * 
    * @example
    * 2026-09-08T01:06Z
@@ -13,7 +13,7 @@ export class CancelSqlPatternCompareReportResponseBody extends $dara.Model {
   cancelTime?: string;
   /**
    * @remarks
-   * Indicates whether the report is canceled. The value true is returned when the report is successfully canceled or canceled again.
+   * Indicates whether the report is canceled. true is returned if the cancellation is successful or if the report is repeatedly canceled.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class CancelSqlPatternCompareReportResponseBody extends $dara.Model {
   canceled?: boolean;
   /**
    * @remarks
-   * The SQL Pattern comparison report ID.
+   * The ID of the SQL pattern comparison report.
    * 
    * @example
    * 1001

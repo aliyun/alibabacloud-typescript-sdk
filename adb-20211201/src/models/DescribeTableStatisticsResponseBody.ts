@@ -123,7 +123,7 @@ export class DescribeTableStatisticsResponseBody extends $dara.Model {
    * The list of database names.
    * 
    * @example
-   * [\\"adb_platform\\", \\"adb_ai\\", \\"adb_data\\"]
+   * [\"adb_platform\", \"adb_ai\", \"adb_data\"]
    */
   schemaNames?: string;
   /**

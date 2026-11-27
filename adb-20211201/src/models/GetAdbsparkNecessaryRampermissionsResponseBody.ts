@@ -113,7 +113,7 @@ export class GetADBSparkNecessaryRAMPermissionsResponseBodyData extends $dara.Mo
    * The recommended configurations in the RAM system based on the diagnostic information.
    * 
    * @example
-   * Grant the system RAM policy \\"AliyunADBDeveloperAccess\\" to current RAM user can quickly solve this issue.
+   * Grant the system RAM policy \"AliyunADBDeveloperAccess\" to current RAM user can quickly solve this issue.
    */
   suggestion?: string;
   static names(): { [key: string]: string } {

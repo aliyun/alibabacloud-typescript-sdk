@@ -8,7 +8,7 @@ export class GenerateSqlBySemanticSqlResponseBodyData extends $dara.Model {
    * The error message returned when the task fails to be created.
    * 
    * @example
-   * Failed to rewrite semantic SQL: Ambiguous path from \\"lineitem\\" to \\"nation\\". Multiple paths found
+   * Failed to rewrite semantic SQL: Ambiguous path from \"lineitem\" to \"nation\". Multiple paths found
    */
   errorMessage?: string;
   /**

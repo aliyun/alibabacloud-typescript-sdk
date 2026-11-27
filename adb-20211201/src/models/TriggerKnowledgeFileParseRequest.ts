@@ -15,7 +15,7 @@ export class TriggerKnowledgeFileParseRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the knowledge base file. You must specify either this parameter or FileLocation, but not both.
+   * The ID of the knowledge base file. You must specify either this parameter or FileLocation.
    * 
    * @example
    * 123
@@ -23,7 +23,7 @@ export class TriggerKnowledgeFileParseRequest extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The URL of a single knowledge base file. You must specify either this parameter or FileId, but not both. You cannot specify a directory. The URL must uniquely point to an existing file.
+   * The path to a single file in the knowledge base. You must specify either this parameter or FileId. You cannot specify a directory. The path must uniquely identify an existing file.
    * 
    * @example
    * oss://bucket/doc.pdf

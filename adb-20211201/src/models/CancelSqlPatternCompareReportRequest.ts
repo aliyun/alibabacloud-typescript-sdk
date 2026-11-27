@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelSqlPatternCompareReportRequest extends $dara.Model {
   /**
    * @remarks
-   * The AnalyticDB for MySQL instance ID.
+   * The ID of the AnalyticDB for MySQL cluster.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CancelSqlPatternCompareReportRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The SQL Pattern comparison report ID.
+   * The ID of the SQL pattern comparison report.
    * 
    * This parameter is required.
    * 

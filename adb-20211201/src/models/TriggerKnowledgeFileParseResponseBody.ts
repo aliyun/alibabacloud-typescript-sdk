@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TriggerKnowledgeFileParseResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the file submitted for reparsing, which is a decimal string. This parameter is returned only when the request is successful.
+   * The ID of the file submitted for reparsing. The value is a decimal string. This parameter is returned only when the operation is successful.
    * 
    * @example
    * 123
@@ -16,12 +16,12 @@ export class TriggerKnowledgeFileParseResponseBodyData extends $dara.Model {
    * The description of the operation result. If the operation fails, this parameter indicates the cause or the security error code.
    * 
    * @example
-   * Reparse task submitted
+   * Submitted for reparsing
    */
   message?: string;
   /**
    * @remarks
-   * The status before submission. Valid values: PENDING, COMPLETED, FAILED, SKIPPED, and DUPLICATED. This parameter is returned only when the request is successful.
+   * The status before the submission. Valid values: PENDING, COMPLETED, FAILED, SKIPPED, and DUPLICATED. This parameter is returned only when the operation is successful.
    * 
    * @example
    * COMPLETED
@@ -29,7 +29,7 @@ export class TriggerKnowledgeFileParseResponseBodyData extends $dara.Model {
   previousStatus?: string;
   /**
    * @remarks
-   * The status after submission. The value is fixed to PENDING. This parameter is returned only when the request is successful.
+   * The status after the submission. The value is fixed to PENDING. This parameter is returned only when the operation is successful.
    * 
    * @example
    * PENDING

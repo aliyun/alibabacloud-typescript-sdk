@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddKnowledgeUploadUserResponseBodyDataSkipped extends $dara.Model {
   /**
    * @remarks
-   * The reason for skipping.
+   * The reason why the user is skipped.
    * 
    * @example
    * conflicts error
@@ -45,7 +45,7 @@ export class AddKnowledgeUploadUserResponseBodyDataSkipped extends $dara.Model {
 export class AddKnowledgeUploadUserResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The path of the knowledge base file.
+   * The address of the knowledge base file.
    * 
    * @example
    * oss://bucketName/path/to/file.pfg
@@ -53,7 +53,7 @@ export class AddKnowledgeUploadUserResponseBodyData extends $dara.Model {
   fileLocation?: string;
   /**
    * @remarks
-   * The message.
+   * The prompt message.
    * 
    * @example
    * Successful
@@ -67,8 +67,8 @@ export class AddKnowledgeUploadUserResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request is successful. Valid values:
-   * - **true**: The request is successful.
-   * - **false**: The request fails.
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true

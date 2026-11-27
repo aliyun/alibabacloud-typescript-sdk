@@ -46,7 +46,7 @@ export class DescribeSparkSQLDiagnosisListRequest extends $dara.Model {
    * > - If this parameter is not specified, the results are sorted in ascending order by the `MaxExclusiveTime` field by default.
    * 
    * @example
-   * [{\\"Field\\":\\"QueryStartTime\\",\\"Type\\":\\"Desc\\"}]
+   * [{\"Field\":\"QueryStartTime\",\"Type\":\"Desc\"}]
    */
   order?: string;
   /**

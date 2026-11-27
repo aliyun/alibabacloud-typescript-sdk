@@ -123,7 +123,7 @@ export class DescribeBadSqlDetectionResponseBodyDetectionItemsResults extends $d
    * > For performance reasons, a maximum of 5,120 characters of an SQL statement can be displayed. SQL statements that exceed this limit are truncated. You can call the [DownloadDiagnosisRecords](https://help.aliyun.com/document_detail/308212.html) operation to download the summary information of SQL statements that meet specified conditions, including the complete SQL statements.
    * 
    * @example
-   * SELECT * FROM device WHERE product_key = \\"h66zXfxet2X\\" AND name = \\"device@zntbtfptv5_9237117\\"
+   * SELECT * FROM device WHERE product_key = \"h66zXfxet2X\" AND name = \"device@zntbtfptv5_9237117\"
    */
   SQL?: string;
   /**

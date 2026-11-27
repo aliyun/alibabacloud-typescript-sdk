@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveKnowledgeTagsRequest extends $dara.Model {
   /**
    * @remarks
-   * The database cluster ID.
+   * The ID of the database cluster.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RemoveKnowledgeTagsRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The file ID.
+   * The ID of the file.
    * 
    * @example
    * 2131234
@@ -23,7 +23,7 @@ export class RemoveKnowledgeTagsRequest extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The knowledge base document location.
+   * The location of the knowledge base document.
    * 
    * @example
    * oss://bucket/doc.pdf
@@ -31,7 +31,7 @@ export class RemoveKnowledgeTagsRequest extends $dara.Model {
   fileLocation?: string;
   /**
    * @remarks
-   * The JSON string of the tag array to be deleted.
+   * The JSON string of the array of tags to delete.
    * 
    * @example
    * [{"tag_key":"biz.scene","tag_value":"test"}]

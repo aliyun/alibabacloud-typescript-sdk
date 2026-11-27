@@ -49,7 +49,7 @@ export class DescribeViewJobsRequest extends $dara.Model {
    * - ScheduledStartTime
    * 
    * @example
-   * {\\"Field\\":\\"StartTime\\",\\"Type\\":\\"Desc\\"}
+   * {\"Field\":\"StartTime\",\"Type\":\"Desc\"}
    */
   orderBy?: string;
   /**

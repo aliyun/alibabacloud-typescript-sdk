@@ -105,7 +105,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
    * The allowed operation information. When you use this parameter, the system matches the operation action based on the currentStepName and status in this information. If no action is matched, the current task status does not support the operation.
    * 
    * @example
-   * {\\"steps\\":[{\\"action_info\\":{\\"Waiting\\":[\\"modifySwitchTime\\"]},\\"step_name\\":\\"exec_task\\"}]}
+   * {\"steps\":[{\"action_info\":{\"Waiting\":[\"modifySwitchTime\"]},\"step_name\":\"exec_task\"}]}
    */
   actionInfo?: string;
   /**
@@ -251,7 +251,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
    * The task details.
    * 
    * @example
-   * {\\"callerUid\\":\\"test\\"}
+   * {\"callerUid\":\"test\"}
    */
   taskDetail?: string;
   /**

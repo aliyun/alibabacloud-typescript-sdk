@@ -30,7 +30,7 @@ export class CreateFormationCrawlerRequest extends $dara.Model {
    *     "type": "monthly",
    *     "cron": "0+00+00+1+*+?+*"
    *   },
-   *   "configuration": "adb.crawler.csv.columns.specify.delimiter.char=auto\\nadb.crawler.csv.columns.specify.quote.char=auto\\n"
+   *   "configuration": "adb.crawler.csv.columns.specify.delimiter.char=auto\nadb.crawler.csv.columns.specify.quote.char=auto\n"
    * }
    */
   crawlerInfo?: string;

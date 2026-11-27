@@ -40,7 +40,7 @@ export class DescribeTablePartitionDiagnoseRequest extends $dara.Model {
    * > If this parameter is not specified, the results are sorted in descending order of the total data volume of the target table by default.
    * 
    * @example
-   * [{\\"Field\\":\\"TotalSize\\",\\"Type\\":\\"Desc\\"}]
+   * [{\"Field\":\"TotalSize\",\"Type\":\"Desc\"}]
    */
   order?: string;
   /**

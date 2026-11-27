@@ -51,7 +51,7 @@ export class DescribeSparkAuditLogRecordsRequest extends $dara.Model {
    *     - `Asc`: ascending order.
    * 
    * @example
-   * [{\\"Field\\":\\"ExecuteTime\\",\\"Type\\":\\"Desc\\"}]
+   * [{\"Field\":\"ExecuteTime\",\"Type\":\"Desc\"}]
    */
   order?: string;
   ownerAccount?: string;

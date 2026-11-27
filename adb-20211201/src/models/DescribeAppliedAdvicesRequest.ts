@@ -67,7 +67,7 @@ export class DescribeAppliedAdvicesRequest extends $dara.Model {
    * > If this parameter is not specified, the results are sorted in descending order by the time when the optimization suggestions were issued.
    * 
    * @example
-   * [{\\"Field\\":\\"AdviceType\\",\\"Type\\":\\"Desc\\"}]
+   * [{\"Field\":\"AdviceType\",\"Type\":\"Desc\"}]
    */
   order?: string;
   /**

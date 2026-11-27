@@ -15,7 +15,7 @@ export class DeleteKnowledgeFileRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the file.
+   * The file ID.
    * 
    * @example
    * 2131213
@@ -23,7 +23,7 @@ export class DeleteKnowledgeFileRequest extends $dara.Model {
   fileId?: string;
   /**
    * @remarks
-   * The path of the knowledge base document.
+   * The location of the knowledge base document.
    * 
    * @example
    * oss://bucket/doc.pdf

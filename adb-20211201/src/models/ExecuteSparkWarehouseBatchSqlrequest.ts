@@ -45,7 +45,7 @@ export class ExecuteSparkWarehouseBatchSQLRequest extends $dara.Model {
    * 
    * @example
    * CREATE TABLE user(id INT, name STRING);
-   * INSERT INTO t VALUE(1, \\"Bob\\");
+   * INSERT INTO t VALUE(1, \"Bob\");
    * SELECT * FROM t;
    */
   query?: string;

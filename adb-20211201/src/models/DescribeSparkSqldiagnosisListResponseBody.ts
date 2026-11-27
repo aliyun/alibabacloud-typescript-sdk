@@ -49,7 +49,7 @@ export class DescribeSparkSQLDiagnosisListResponseBodySQLDiagnosisList extends $
    * The SQL statement.
    * 
    * @example
-   * select * from device where name = \\"105506012112790031\\"
+   * select * from device where name = \"105506012112790031\"
    */
   SQL?: string;
   /**

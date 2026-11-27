@@ -53,7 +53,7 @@ export class ItemsMetricValuesValueTime2 extends $dara.Model {
   maxDisplayValue?: string;
   /**
    * @remarks
-   * The percentage of this Pattern\\"s Time 2 total sum relative to the total sum of all results before dimension filtering in the current report. A value of 10 indicates 10%.
+   * The percentage of this Pattern\"s Time 2 total sum relative to the total sum of all results before dimension filtering in the current report. A value of 10 indicates 10%.
    * 
    * @example
    * 10
@@ -61,7 +61,7 @@ export class ItemsMetricValuesValueTime2 extends $dara.Model {
   sumRatioPercent?: number;
   /**
    * @remarks
-   * The percentage of this Pattern\\"s Time 2 average value relative to the sum of average values across all Patterns before dimension filtering in the current report. A value of 10 indicates 10%.
+   * The percentage of this Pattern\"s Time 2 average value relative to the sum of average values across all Patterns before dimension filtering in the current report. A value of 10 indicates 10%.
    * 
    * @example
    * 10
@@ -129,7 +129,7 @@ export class ItemsMetricValuesValueAvg extends $dara.Model {
   time1DisplayValue?: string;
   /**
    * @remarks
-   * The percentage of this Pattern\\"s Time 1 average value across active query minute buckets relative to the sum of the corresponding statistics for all results before dimension filtering in the current report. A value of 10 indicates 10%.
+   * The percentage of this Pattern\"s Time 1 average value across active query minute buckets relative to the sum of the corresponding statistics for all results before dimension filtering in the current report. A value of 10 indicates 10%.
    * 
    * @example
    * 10
@@ -153,7 +153,7 @@ export class ItemsMetricValuesValueAvg extends $dara.Model {
   time2DisplayValue?: string;
   /**
    * @remarks
-   * The percentage of this Pattern\\"s Time 2 average value across active query minute buckets relative to the sum of the corresponding statistics for all results before dimension filtering in the current report. A value of 10 indicates 10%.
+   * The percentage of this Pattern\"s Time 2 average value across active query minute buckets relative to the sum of the corresponding statistics for all results before dimension filtering in the current report. A value of 10 indicates 10%.
    * 
    * @example
    * 10
@@ -219,7 +219,7 @@ export class ItemsMetricValuesValueSum extends $dara.Model {
   time1DisplayValue?: string;
   /**
    * @remarks
-   * The percentage of this Pattern\\"s Time 1 sum of metric values across active query minute buckets relative to the sum of the corresponding statistics for all results before dimension filtering in the current report. A value of 10 indicates 10%.
+   * The percentage of this Pattern\"s Time 1 sum of metric values across active query minute buckets relative to the sum of the corresponding statistics for all results before dimension filtering in the current report. A value of 10 indicates 10%.
    * 
    * @example
    * 10
@@ -243,7 +243,7 @@ export class ItemsMetricValuesValueSum extends $dara.Model {
   time2DisplayValue?: string;
   /**
    * @remarks
-   * The percentage of this Pattern\\"s Time 2 sum of metric values across active query minute buckets relative to the sum of the corresponding statistics for all results before dimension filtering in the current report. A value of 10 indicates 10%.
+   * The percentage of this Pattern\"s Time 2 sum of metric values across active query minute buckets relative to the sum of the corresponding statistics for all results before dimension filtering in the current report. A value of 10 indicates 10%.
    * 
    * @example
    * 10

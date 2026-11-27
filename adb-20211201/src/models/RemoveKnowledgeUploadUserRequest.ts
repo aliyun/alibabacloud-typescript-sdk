@@ -15,7 +15,7 @@ export class RemoveKnowledgeUploadUserRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The file ID.
+   * The ID of the file.
    * 
    * @example
    * 2134143

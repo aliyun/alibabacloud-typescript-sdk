@@ -171,7 +171,7 @@ export class DescribeDiagnosisRecordsResponseBodyQuerys extends $dara.Model {
    * > For performance reasons, a maximum of 5,120 characters can be displayed for an SQL statement. SQL statements that exceed this limit are truncated. You can call the [DownloadDiagnosisRecords](https://help.aliyun.com/document_detail/308212.html) operation to download the summary information of the SQL statements that meet the specified conditions, including the complete SQL statements.
    * 
    * @example
-   * SELECT count(*)\\nFROM nation
+   * SELECT count(*)\nFROM nation
    */
   SQL?: string;
   /**

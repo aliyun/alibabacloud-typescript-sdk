@@ -116,7 +116,7 @@ export class DescribeApsDatasourceResponseBodyApsDatasourceKafkaInfo extends $da
    * kafka topic
    * 
    * @example
-   * [{\\"value\\": \\"hongxian_test\\"}]
+   * [{\"value\": \"hongxian_test\"}]
    */
   kafkaTopic?: string;
   static names(): { [key: string]: string } {

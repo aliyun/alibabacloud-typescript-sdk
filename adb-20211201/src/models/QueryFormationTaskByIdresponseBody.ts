@@ -22,7 +22,7 @@ export class QueryFormationTaskByIDResponseBody extends $dara.Model {
    *     "scheduleState": "NORMAL",
    *     "frequency": {"type": "custom", "cron": "0 0/1 * * * ?"},
    *     "failedCount": 0,
-   *     "lastTaskInstContent": "{\\"task_inst_id\\":67890,\\"state\\":\\"SUCCESS\\"}"
+   *     "lastTaskInstContent": "{\"task_inst_id\":67890,\"state\":\"SUCCESS\"}"
    *   }
    */
   data?: string;

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSemanticViewResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 3A8F6106-6AFD-5A34-9C80-8DE2C42D06E8

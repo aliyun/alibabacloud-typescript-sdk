@@ -72,7 +72,7 @@ export class QueryFormationTasksByTypeResponseBodyData extends $dara.Model {
    * The scheduling frequency.
    * 
    * @example
-   * {\\"cron\\":\\"\\",\\"type\\":\\"run_on_demand\\"}
+   * {\"cron\":\"\",\"type\":\"run_on_demand\"}
    */
   syncTime?: string;
   /**

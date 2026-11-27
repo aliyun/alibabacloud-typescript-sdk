@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSemanticViewRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ADB cluster.
+   * The ADB cluster ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteSemanticViewRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The name of the schema.
+   * The schema name.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DeleteSemanticViewRequest extends $dara.Model {
   schemaName?: string;
   /**
    * @remarks
-   * The name of the semantic view.
+   * The semantic view name.
    * 
    * This parameter is required.
    * 

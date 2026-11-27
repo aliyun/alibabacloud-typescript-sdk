@@ -156,7 +156,7 @@ export class OpenStructMvDetailModel extends $dara.Model {
    * The refresh interval.
    * 
    * @example
-   * (now() + INTERVAL \\"10\\" SECOND)
+   * (now() + INTERVAL \"10\" SECOND)
    */
   refreshInterval?: string;
   /**

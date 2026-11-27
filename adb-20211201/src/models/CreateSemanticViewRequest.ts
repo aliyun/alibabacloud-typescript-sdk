@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSemanticViewRequest extends $dara.Model {
   /**
    * @remarks
-   * ADB cluster ID.
+   * The ID of the ADB cluster.
    * 
    * This parameter is required.
    * 
@@ -15,17 +15,17 @@ export class CreateSemanticViewRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * YAML definition of the semantic view.
+   * The YAML definition of the semantic view.
    * 
    * This parameter is required.
    * 
    * @example
-   * YAML 内容
+   * YAML content
    */
   definition?: string;
   /**
    * @remarks
-   * Schema name.
+   * The name of the schema.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class CreateSemanticViewRequest extends $dara.Model {
   schemaName?: string;
   /**
    * @remarks
-   * Semantic view name.
+   * The name of the semantic view.
    * 
    * This parameter is required.
    * 
