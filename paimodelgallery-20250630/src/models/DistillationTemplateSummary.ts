@@ -96,6 +96,11 @@ export class DistillationTemplateSummary extends $dara.Model {
   description?: string;
   /**
    * @example
+   * 3063233
+   */
+  doc?: string;
+  /**
+   * @example
    * advanced_cot_distill
    */
   jobType?: string;
@@ -126,6 +131,7 @@ export class DistillationTemplateSummary extends $dara.Model {
       capabilityTags: 'CapabilityTags',
       category: 'Category',
       description: 'Description',
+      doc: 'Doc',
       jobType: 'JobType',
       orderNumber: 'OrderNumber',
       pipelineStages: 'PipelineStages',
@@ -141,6 +147,7 @@ export class DistillationTemplateSummary extends $dara.Model {
       capabilityTags: { 'type': 'array', 'itemType': 'string' },
       category: 'string',
       description: 'string',
+      doc: 'string',
       jobType: 'string',
       orderNumber: 'number',
       pipelineStages: { 'type': 'array', 'itemType': DistillationTemplateSummaryPipelineStages },

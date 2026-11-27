@@ -234,6 +234,11 @@ export class DistillationTemplate extends $dara.Model {
    * 面向数学、逻辑、代码等需要多步推理的场景，产出 SFT 数据集。
    */
   description?: string;
+  /**
+   * @example
+   * 3063233
+   */
+  doc?: string;
   inputDatasetMustBeDirectory?: boolean;
   /**
    * @example
@@ -283,6 +288,7 @@ export class DistillationTemplate extends $dara.Model {
       category: 'Category',
       defaultConfig: 'DefaultConfig',
       description: 'Description',
+      doc: 'Doc',
       inputDatasetMustBeDirectory: 'InputDatasetMustBeDirectory',
       inputExampleUri: 'InputExampleUri',
       jobType: 'JobType',
@@ -307,6 +313,7 @@ export class DistillationTemplate extends $dara.Model {
       category: 'string',
       defaultConfig: 'string',
       description: 'string',
+      doc: 'string',
       inputDatasetMustBeDirectory: 'boolean',
       inputExampleUri: 'string',
       jobType: 'string',
