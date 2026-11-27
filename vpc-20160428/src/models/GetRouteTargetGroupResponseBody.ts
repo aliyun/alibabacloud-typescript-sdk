@@ -10,7 +10,7 @@ export class GetRouteTargetGroupResponseBodyRouteTargetMemberList extends $dara.
    * - **Enable**: Enabled.
    * - **Disable**: Disabled.
    * 
-   * You can replace only a disabled route target group member with another instance. You cannot modify an enabled route target group member.
+   * Only disabled route target group members can be replaced with other instances. Enabled route target group members cannot be modified.
    * 
    * @example
    * Enable
@@ -29,7 +29,7 @@ export class GetRouteTargetGroupResponseBodyRouteTargetMemberList extends $dara.
   healthCheckStatus?: string;
   /**
    * @remarks
-   * The routing target group member instance ID.
+   * The instance ID of the route target group member.
    * 
    * @example
    * ep-xxxx
@@ -37,9 +37,11 @@ export class GetRouteTargetGroupResponseBodyRouteTargetMemberList extends $dara.
   memberId?: string;
   /**
    * @remarks
-   * The type of the route target group member. Valid values:
+   * The type of the route target group member.
    * 
-   * - **GatewayLoadBalancerEndpoint**: Gateway load balancer endpoint.
+   * Currently supported types:
+   * 
+   * - **GatewayLoadBalancerEndpoint**
    * 
    * @example
    * GatewayLoadBalancerEndpoint
@@ -132,7 +134,7 @@ export class GetRouteTargetGroupResponseBody extends $dara.Model {
    * @remarks
    * The configuration mode of the route target group. Valid values:
    * 
-   * - **Active-Standby**: Active/standby mode.
+   * - **Active-Standby**: active/standby mode.
    * 
    * @example
    * Active-Standby
@@ -148,6 +150,8 @@ export class GetRouteTargetGroupResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
+   * The IP version.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -156,7 +160,7 @@ export class GetRouteTargetGroupResponseBody extends $dara.Model {
   ipVersion?: string;
   /**
    * @remarks
-   * The ID of the region where the VPC to which the route target group belongs is deployed. You can call the DescribeRegions operation to query the region ID.
+   * The ID of the region where the VPC to which the route target group belongs is deployed. You can call the DescribeRegions operation to query region IDs.
    * 
    * @example
    * cn-qingdao
@@ -188,7 +192,7 @@ export class GetRouteTargetGroupResponseBody extends $dara.Model {
   routeTargetGroupDescription?: string;
   /**
    * @remarks
-   * The routing target group instance ID.
+   * The ID of the route target group.
    * 
    * @example
    * rtg-xxxx
@@ -209,16 +213,16 @@ export class GetRouteTargetGroupResponseBody extends $dara.Model {
   routeTargetMemberList?: GetRouteTargetGroupResponseBodyRouteTargetMemberList[];
   /**
    * @remarks
-   * The status of the routing target group. Valid values:
+   * The status of the route target group. Valid values:
    * 
-   * - **Recovering**: The system is switching back to the primary instance.
-   * - **Switched**: The active/standby switchover is completed.
-   * - **Available**: The routing target group is available.
-   * - **Abnormal**: Secondary instance failures.
-   * - **Pending**: The routing target group is being created.
-   * - **Switching**: An active/standby switchover is in progress.
-   * - **Deleting**: The routing target group is being deleted.
-   * - **Unavailable**: Both primary and secondary instances have instance failures.
+   * - **Recovering**: Switching back to the primary instance.
+   * - **Switched**: Primary and secondary instances switched.
+   * - **Available**: Active.
+   * - **Abnormal**: The secondary instance is abnormal.
+   * - **Pending**: Creating.
+   * - **Switching**: Switching between primary and secondary instances.
+   * - **Deleting**: Delete in progress.
+   * - **Unavailable**: Both primary and secondary instances are abnormal.
    * 
    * @example
    * Available

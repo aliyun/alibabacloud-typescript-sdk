@@ -6553,6 +6553,98 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a rate limiting rule to throttle traffic from specified source CIDR blocks.
+   * 
+   * @remarks
+   * This operation creates a rate limiting rule for an enhanced Internet NAT gateway or a VPC NAT gateway. The term NAT gateway in this document refers to both types unless otherwise specified.
+   * When you call this operation to add a rate limiting rule, take note of the following items:
+   * - The CreateNatRateLimitRule operation is asynchronous. The system returns a rate limiting rule ID, but the rule is not immediately added. The addition task is still running in the background.
+   *   - If the rule is in the Creating state, the source IP address rate limiting rule is being created. In this state, you can only perform query operations.
+   *   - If the rule is in the Available state, the source IP address rate limiting rule is created.
+   * 
+   * @param request - CreateNatRateLimitRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateNatRateLimitRuleResponse
+   */
+  async createNatRateLimitRuleWithOptions(request: $_model.CreateNatRateLimitRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateNatRateLimitRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bandwidthLimit)) {
+      query["BandwidthLimit"] = request.bandwidthLimit;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.matchType)) {
+      query["MatchType"] = request.matchType;
+    }
+
+    if (!$dara.isNull(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.ruleDescription)) {
+      query["RuleDescription"] = request.ruleDescription;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sourceCIDRs)) {
+      query["SourceCIDRs"] = request.sourceCIDRs;
+    }
+
+    if (!$dara.isNull(request.tunnelIndex)) {
+      query["TunnelIndex"] = request.tunnelIndex;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateNatRateLimitRule",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateNatRateLimitRuleResponse>(await this.callApi(params, req, runtime), new $_model.CreateNatRateLimitRuleResponse({}));
+  }
+
+  /**
+   * Creates a rate limiting rule to throttle traffic from specified source CIDR blocks.
+   * 
+   * @remarks
+   * This operation creates a rate limiting rule for an enhanced Internet NAT gateway or a VPC NAT gateway. The term NAT gateway in this document refers to both types unless otherwise specified.
+   * When you call this operation to add a rate limiting rule, take note of the following items:
+   * - The CreateNatRateLimitRule operation is asynchronous. The system returns a rate limiting rule ID, but the rule is not immediately added. The addition task is still running in the background.
+   *   - If the rule is in the Creating state, the source IP address rate limiting rule is being created. In this state, you can only perform query operations.
+   *   - If the rule is in the Available state, the source IP address rate limiting rule is created.
+   * 
+   * @param request - CreateNatRateLimitRuleRequest
+   * @returns CreateNatRateLimitRuleResponse
+   */
+  async createNatRateLimitRule(request: $_model.CreateNatRateLimitRuleRequest): Promise<$_model.CreateNatRateLimitRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createNatRateLimitRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a network ACL.
    * 
    * @param request - CreateNetworkAclRequest
@@ -7160,44 +7252,44 @@ export default class Client extends OpenApi {
    * Creates a custom route entry on a vRouter or a Virtual Border Router (VBR).
    * 
    * @remarks
-   * - The **CreateRouteEntry** operation is asynchronous. After you invoke this operation, the system returns an instance ID, but the addition of the route is not immediately completed. A background startup task is still running. You can invoke [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) to query the addition status of the route:
-   *     - When the route is in the **Creating** state, it indicates that the route is being added.
-   *     - When the route is in the **Created** state, it indicates that the route addition is complete.
-   * - The **CreateRouteEntry** operation does not support adding a custom route entry concurrently in the same VPC or on the same VBR.
-   * - If you invoke the **CreateRouteEntry** operation concurrently, the system may return the **TaskConflict** error code. Retry the operation as needed.
-   * **When you call this operation to add a custom route entry to the route table of a vRouter, take note of the following items:**
-   * > If the route entry that you want to add is a prefix list route, the system checks whether the sum of the number of existing routes and the maximum number of route entries in the prefix list exceeds the route quota.
-   * - You can add up to 200 custom route entries to a route table.
+   * - The **CreateRouteEntry** operation is asynchronous. After you send the request, the system returns an instance ID, but custom route entry is not immediately created. A background task is still running. You can call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the status of custom route entry:
+   *     - If custom route entry is in the **Creating** state, custom route entry is being created.
+   *     - If custom route entry is in the **Created** state, custom route entry is created.
+   * - You cannot use the **CreateRouteEntry** operation to concurrently create custom route entries in the same VPC or on the same VBR.
+   * - The **CreateRouteEntry** operation may return the **TaskConflict** error code in case of concurrency. Retry the request as needed.
+   * **When you use this operation to add a custom route entry to the route table of a vRouter, take note of the following items:**
+   * > When the route to be added is a prefix list route, the route quota is calculated based on whether the sum of the number of existing routes and the maximum number of route entries for the prefix list route exceeds the route quota limit.
+   * - A route table can contain at most 200 custom route entries.
    * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be the same as the CIDR block of a vSwitch in the VPC. The destination CIDR block can contain the CIDR block of the vSwitch, but cannot be contained by the CIDR block of the vSwitch.
    * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry can be a more specific CIDR block than the system route CIDR block `100.64.0.0/10` for cloud services, but cannot be the same as `100.64.0.0/10`.
-   * <notice>The system route whose destination CIDR block is `100.64.0.0/10` is used for communication between cloud services in a VPC. Proceed with caution when you configure a more specific route. An incorrect configuration may cause cloud services to become inaccessible.</notice>
+   * <notice>The system route whose destination CIDR block is `100.64.0.0/10` is used for communication between cloud services in the VPC. Proceed with caution when you configure a more specific route. Incorrect configurations may cause cloud services to become inaccessible.</notice>
    * - Route entries in the same route table cannot have the same destination CIDR block (**DestinationCidrBlock**).
    * - If the specified destination CIDR block (**DestinationCidrBlock**) is an IP address, it is processed as a CIDR block with a 32-bit subnet mask.
-   * - More than one custom route entry can point to the same next hop (**NextHopId**).
+   * - Multiple custom route entries can point to the same next hop (**NextHopId**).
    * - The next hop (**NextHopId**) of a custom route entry must be in the same VPC as the route table.
-   * - You can use the **NextHopList** parameter settings to configure ECMP routing:
+   * - You can configure equal-cost multi-path (ECMP) routing through the **NextHopList** parameter settings:
    *   * When you add a regular (non-ECMP) custom route, you must specify the **DestinationCidrBlock**, **NextHopType**, and **NextHopId** parameters, and you cannot specify the **NextHopList** parameter.   
    *  
    *   * When you add an ECMP route, you must specify the **DestinationCidrBlock** and **NextHopList** parameters, and you cannot specify the **NextHopType** and **NextHopId** parameters.
-   * **When you call this operation to add a custom route entry to the route table of a VBR, take note of the following items:**
-   * - You can add up to 200 custom route entries to a route table.  
+   * **When you use this operation to add a custom route entry to the route table of a VBR, take note of the following items:**
+   * - A route table can contain at most 200 custom route entries.  
    *        
    * - The **NextHopList** parameter is not supported.   
    *        
    * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry can be a more specific CIDR block than the system route CIDR block `100.64.0.0/10` for cloud services, but cannot be the same as `100.64.0.0/10`.
-   * <notice>The system route whose destination CIDR block is `100.64.0.0/10` is used for communication between cloud services in a VPC. Proceed with caution when you configure a more specific route. A configuration error may cause cloud services to become inaccessible.</notice>
+   * <notice>The system route whose destination CIDR block is `100.64.0.0/10` is used for communication between cloud services in the VPC. Proceed with caution when you configure a more specific route. Incorrect configurations may cause cloud services to become inaccessible.</notice>
    *       
    * - Route entries in the same route table cannot have the same destination CIDR block (**DestinationCidrBlock**).   
    *        
    * - If the specified destination CIDR block (**DestinationCidrBlock**) is an IP address, it is processed as a CIDR block with a 32-bit subnet mask.   
    *       
-   * - More than one custom route entry can point to the same next hop (**NextHopId**).  
+   * - Multiple custom route entries can point to the same next hop (**NextHopId**).  
    *       
    * - The next hop (**NextHopId**) of a custom route entry must be a vRouter interface associated with the VBR.  
    *        
-   * - You can create a route entry on a VBR only when the VBR is in the **Active** state, the associated Express Connect circuit is in the **Enabled** state, and the VBR is not locked due to overdue payments.  
+   * - You can create a route entry on a VBR only when the VBR is in the **Active** state, the associated Express Connect circuit is in the **Enabled** state, and the VBR is not locked due to an overdue payment.  
    *       
-   * - Only regular (non-ECMP) routes are supported. You must specify the **DestinationCidrBlock**, **NextHopType**, and **NextHopId** parameters, and you cannot specify the **NextHopList** parameter.
+   * - Only regular (non-ECMP) routes can be added. You must specify the **DestinationCidrBlock**, **NextHopType**, and **NextHopId** parameters, and you cannot specify the **NextHopList** parameter.
    * 
    * @param request - CreateRouteEntryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7283,44 +7375,44 @@ export default class Client extends OpenApi {
    * Creates a custom route entry on a vRouter or a Virtual Border Router (VBR).
    * 
    * @remarks
-   * - The **CreateRouteEntry** operation is asynchronous. After you invoke this operation, the system returns an instance ID, but the addition of the route is not immediately completed. A background startup task is still running. You can invoke [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) to query the addition status of the route:
-   *     - When the route is in the **Creating** state, it indicates that the route is being added.
-   *     - When the route is in the **Created** state, it indicates that the route addition is complete.
-   * - The **CreateRouteEntry** operation does not support adding a custom route entry concurrently in the same VPC or on the same VBR.
-   * - If you invoke the **CreateRouteEntry** operation concurrently, the system may return the **TaskConflict** error code. Retry the operation as needed.
-   * **When you call this operation to add a custom route entry to the route table of a vRouter, take note of the following items:**
-   * > If the route entry that you want to add is a prefix list route, the system checks whether the sum of the number of existing routes and the maximum number of route entries in the prefix list exceeds the route quota.
-   * - You can add up to 200 custom route entries to a route table.
+   * - The **CreateRouteEntry** operation is asynchronous. After you send the request, the system returns an instance ID, but custom route entry is not immediately created. A background task is still running. You can call the [DescribeRouteEntryList](https://help.aliyun.com/document_detail/138148.html) operation to query the status of custom route entry:
+   *     - If custom route entry is in the **Creating** state, custom route entry is being created.
+   *     - If custom route entry is in the **Created** state, custom route entry is created.
+   * - You cannot use the **CreateRouteEntry** operation to concurrently create custom route entries in the same VPC or on the same VBR.
+   * - The **CreateRouteEntry** operation may return the **TaskConflict** error code in case of concurrency. Retry the request as needed.
+   * **When you use this operation to add a custom route entry to the route table of a vRouter, take note of the following items:**
+   * > When the route to be added is a prefix list route, the route quota is calculated based on whether the sum of the number of existing routes and the maximum number of route entries for the prefix list route exceeds the route quota limit.
+   * - A route table can contain at most 200 custom route entries.
    * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry cannot be the same as the CIDR block of a vSwitch in the VPC. The destination CIDR block can contain the CIDR block of the vSwitch, but cannot be contained by the CIDR block of the vSwitch.
    * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry can be a more specific CIDR block than the system route CIDR block `100.64.0.0/10` for cloud services, but cannot be the same as `100.64.0.0/10`.
-   * <notice>The system route whose destination CIDR block is `100.64.0.0/10` is used for communication between cloud services in a VPC. Proceed with caution when you configure a more specific route. An incorrect configuration may cause cloud services to become inaccessible.</notice>
+   * <notice>The system route whose destination CIDR block is `100.64.0.0/10` is used for communication between cloud services in the VPC. Proceed with caution when you configure a more specific route. Incorrect configurations may cause cloud services to become inaccessible.</notice>
    * - Route entries in the same route table cannot have the same destination CIDR block (**DestinationCidrBlock**).
    * - If the specified destination CIDR block (**DestinationCidrBlock**) is an IP address, it is processed as a CIDR block with a 32-bit subnet mask.
-   * - More than one custom route entry can point to the same next hop (**NextHopId**).
+   * - Multiple custom route entries can point to the same next hop (**NextHopId**).
    * - The next hop (**NextHopId**) of a custom route entry must be in the same VPC as the route table.
-   * - You can use the **NextHopList** parameter settings to configure ECMP routing:
+   * - You can configure equal-cost multi-path (ECMP) routing through the **NextHopList** parameter settings:
    *   * When you add a regular (non-ECMP) custom route, you must specify the **DestinationCidrBlock**, **NextHopType**, and **NextHopId** parameters, and you cannot specify the **NextHopList** parameter.   
    *  
    *   * When you add an ECMP route, you must specify the **DestinationCidrBlock** and **NextHopList** parameters, and you cannot specify the **NextHopType** and **NextHopId** parameters.
-   * **When you call this operation to add a custom route entry to the route table of a VBR, take note of the following items:**
-   * - You can add up to 200 custom route entries to a route table.  
+   * **When you use this operation to add a custom route entry to the route table of a VBR, take note of the following items:**
+   * - A route table can contain at most 200 custom route entries.  
    *        
    * - The **NextHopList** parameter is not supported.   
    *        
    * - The destination CIDR block (**DestinationCidrBlock**) of a custom route entry can be a more specific CIDR block than the system route CIDR block `100.64.0.0/10` for cloud services, but cannot be the same as `100.64.0.0/10`.
-   * <notice>The system route whose destination CIDR block is `100.64.0.0/10` is used for communication between cloud services in a VPC. Proceed with caution when you configure a more specific route. A configuration error may cause cloud services to become inaccessible.</notice>
+   * <notice>The system route whose destination CIDR block is `100.64.0.0/10` is used for communication between cloud services in the VPC. Proceed with caution when you configure a more specific route. Incorrect configurations may cause cloud services to become inaccessible.</notice>
    *       
    * - Route entries in the same route table cannot have the same destination CIDR block (**DestinationCidrBlock**).   
    *        
    * - If the specified destination CIDR block (**DestinationCidrBlock**) is an IP address, it is processed as a CIDR block with a 32-bit subnet mask.   
    *       
-   * - More than one custom route entry can point to the same next hop (**NextHopId**).  
+   * - Multiple custom route entries can point to the same next hop (**NextHopId**).  
    *       
    * - The next hop (**NextHopId**) of a custom route entry must be a vRouter interface associated with the VBR.  
    *        
-   * - You can create a route entry on a VBR only when the VBR is in the **Active** state, the associated Express Connect circuit is in the **Enabled** state, and the VBR is not locked due to overdue payments.  
+   * - You can create a route entry on a VBR only when the VBR is in the **Active** state, the associated Express Connect circuit is in the **Enabled** state, and the VBR is not locked due to an overdue payment.  
    *       
-   * - Only regular (non-ECMP) routes are supported. You must specify the **DestinationCidrBlock**, **NextHopType**, and **NextHopId** parameters, and you cannot specify the **NextHopList** parameter.
+   * - Only regular (non-ECMP) routes can be added. You must specify the **DestinationCidrBlock**, **NextHopType**, and **NextHopId** parameters, and you cannot specify the **NextHopList** parameter.
    * 
    * @param request - CreateRouteEntryRequest
    * @returns CreateRouteEntryResponse
@@ -7432,12 +7524,12 @@ export default class Client extends OpenApi {
    * Creates a route target group instance.
    * 
    * @remarks
-   * - **CreateRouteTargetGroup** is an asynchronous operation. After you invoke this operation, the system returns an instance ID, but the routing target group instance is not yet created. The creation task continues in the background. You can invoke **ListRouteTargetGroup** to query the creation status of the routing target group:
-   *     - If the routing target group is in the **Pending** state, the routing target group is being created.
-   *     - If the routing target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, the routing target group is created.
-   * - **Active/standby mode**: When you create a routing target group, configure primary and secondary instances that are in different zones and of the same type.
-   * - **Primary instance**: The weight is 100. The primary instance handles all traffic under normal conditions and takes effect when health checks are successful.
-   * - **Secondary instance**: The weight is 0. The secondary instance takes over traffic when the primary instance fails, serving as disaster recovery and backup.
+   * - The **CreateRouteTargetGroup** operation is asynchronous. The system returns an instance ID, but the routing target group instance is not yet created and the background creation node is still in progress. You can invoke **ListRouteTargetGroup** to query the creation status of the routing target group:
+   *     - When the routing target group is in the **Pending** state, it indicates that the routing target group is being created.
+   *     - When the routing target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, it indicates that the routing target group is created.
+   * - **Active/standby pattern**: When you create a routing target group, you must configure primary and secondary instances that are of the same type and located in different zones.
+   * - **Primary instance**: The weight is 100. It carries all traffic under normal circumstances and takes effect when the health check is normal.
+   * - **Secondary instance**: The weight is 0. It takes over traffic after the primary instance fails and serves as disaster recovery and backup.
    * 
    * @param request - CreateRouteTargetGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7511,12 +7603,12 @@ export default class Client extends OpenApi {
    * Creates a route target group instance.
    * 
    * @remarks
-   * - **CreateRouteTargetGroup** is an asynchronous operation. After you invoke this operation, the system returns an instance ID, but the routing target group instance is not yet created. The creation task continues in the background. You can invoke **ListRouteTargetGroup** to query the creation status of the routing target group:
-   *     - If the routing target group is in the **Pending** state, the routing target group is being created.
-   *     - If the routing target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, the routing target group is created.
-   * - **Active/standby mode**: When you create a routing target group, configure primary and secondary instances that are in different zones and of the same type.
-   * - **Primary instance**: The weight is 100. The primary instance handles all traffic under normal conditions and takes effect when health checks are successful.
-   * - **Secondary instance**: The weight is 0. The secondary instance takes over traffic when the primary instance fails, serving as disaster recovery and backup.
+   * - The **CreateRouteTargetGroup** operation is asynchronous. The system returns an instance ID, but the routing target group instance is not yet created and the background creation node is still in progress. You can invoke **ListRouteTargetGroup** to query the creation status of the routing target group:
+   *     - When the routing target group is in the **Pending** state, it indicates that the routing target group is being created.
+   *     - When the routing target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, it indicates that the routing target group is created.
+   * - **Active/standby pattern**: When you create a routing target group, you must configure primary and secondary instances that are of the same type and located in different zones.
+   * - **Primary instance**: The weight is 100. It carries all traffic under normal circumstances and takes effect when the health check is normal.
+   * - **Secondary instance**: The weight is 0. It takes over traffic after the primary instance fails and serves as disaster recovery and backup.
    * 
    * @param request - CreateRouteTargetGroupRequest
    * @returns CreateRouteTargetGroupResponse
@@ -13114,9 +13206,9 @@ export default class Client extends OpenApi {
    * Deletes a route target group instance.
    * 
    * @remarks
-   * - **DeleteRouteTargetGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the route target group is not yet deleted. The deletion task continues to run in the background. You can call ListRouteTargetGroup to query the deletion status of the route target group:
+   * - The **DeleteRouteTargetGroup** operation is asynchronous. After you call this operation, the system returns a request ID, but the route target group is not immediately deleted. The deletion task is still running in the background. You can call the ListRouteTargetGroup operation to query the deletion status of the route target group:
    *     - If the route target group is in the **Deleting** state, the route target group is being deleted.
-   *     - If the specified route target group cannot be found, the route target group is deleted.
+   *     - If the specified route target group cannot be queried, the route target group is deleted.
    * 
    * @param request - DeleteRouteTargetGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13170,9 +13262,9 @@ export default class Client extends OpenApi {
    * Deletes a route target group instance.
    * 
    * @remarks
-   * - **DeleteRouteTargetGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the route target group is not yet deleted. The deletion task continues to run in the background. You can call ListRouteTargetGroup to query the deletion status of the route target group:
+   * - The **DeleteRouteTargetGroup** operation is asynchronous. After you call this operation, the system returns a request ID, but the route target group is not immediately deleted. The deletion task is still running in the background. You can call the ListRouteTargetGroup operation to query the deletion status of the route target group:
    *     - If the route target group is in the **Deleting** state, the route target group is being deleted.
-   *     - If the specified route target group cannot be found, the route target group is deleted.
+   *     - If the specified route target group cannot be queried, the route target group is deleted.
    * 
    * @param request - DeleteRouteTargetGroupRequest
    * @returns DeleteRouteTargetGroupResponse
@@ -18312,7 +18404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available regions.
+   * Queries available regions by calling the DescribeRegions operation.
    * 
    * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18363,7 +18455,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the available regions.
+   * Queries available regions by calling the DescribeRegions operation.
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
@@ -24146,6 +24238,80 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of rate limiting rules.
+   * 
+   * @param request - ListNatRateLimitRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListNatRateLimitRulesResponse
+   */
+  async listNatRateLimitRulesWithOptions(request: $_model.ListNatRateLimitRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListNatRateLimitRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.natGatewayId)) {
+      query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.ownerId)) {
+      query["OwnerId"] = request.ownerId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.ruleIds)) {
+      query["RuleIds"] = request.ruleIds;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sourceCIDR)) {
+      query["SourceCIDR"] = request.sourceCIDR;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListNatRateLimitRules",
+      version: "2016-04-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListNatRateLimitRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListNatRateLimitRulesResponse({}));
+  }
+
+  /**
+   * Queries the list of rate limiting rules.
+   * 
+   * @param request - ListNatRateLimitRulesRequest
+   * @returns ListNatRateLimitRulesResponse
+   */
+  async listNatRateLimitRules(request: $_model.ListNatRateLimitRulesRequest): Promise<$_model.ListNatRateLimitRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listNatRateLimitRulesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the device-level capabilities supported by an Express Connect circuit.
    * 
    * @param request - ListPhysicalConnectionFeaturesRequest
@@ -24470,10 +24636,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists route target groups.
+   * Queries route target groups.
    * 
    * @remarks
-   * Queries the list of route target groups.
+   * Queries route target groups.
    * 
    * @param request - ListRouteTargetGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24540,10 +24706,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists route target groups.
+   * Queries route target groups.
    * 
    * @remarks
-   * Queries the list of route target groups.
+   * Queries route target groups.
    * 
    * @param request - ListRouteTargetGroupsRequest
    * @returns ListRouteTargetGroupsResponse
@@ -29300,13 +29466,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a specified vSwitch.
+   * Modifies the configurations of a specified vSwitch.
    * 
    * @remarks
-   * - **ModifyVSwitchAttribute** is an asynchronous operation. After you call this operation, the system returns a request ID, but the vSwitch configuration has not been modified yet. The modification task is still running in the background. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the modification status of the vSwitch:
-   *     - If the vSwitch is in the **Pending** state, the configuration is being modified.
+   * - The **ModifyVSwitchAttribute** operation is asynchronous. The system returns a request ID, but the configurations of the vSwitch are not immediately modified. The modification task is still running in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the modification status of the vSwitch:
+   *     - If the vSwitch is in the **Pending** state, the configurations of the vSwitch are being modified.
    *     - If the vSwitch is in the **Available** state, the vSwitch is available.
-   * - **ModifyVSwitchAttribute** does not support concurrent modifications to the same vSwitch.
+   * - The **ModifyVSwitchAttribute** operation does not support concurrent modifications to the configurations of the same vSwitch.
    * 
    * @param request - ModifyVSwitchAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -29385,13 +29551,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configuration of a specified vSwitch.
+   * Modifies the configurations of a specified vSwitch.
    * 
    * @remarks
-   * - **ModifyVSwitchAttribute** is an asynchronous operation. After you call this operation, the system returns a request ID, but the vSwitch configuration has not been modified yet. The modification task is still running in the background. You can call [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) to query the modification status of the vSwitch:
-   *     - If the vSwitch is in the **Pending** state, the configuration is being modified.
+   * - The **ModifyVSwitchAttribute** operation is asynchronous. The system returns a request ID, but the configurations of the vSwitch are not immediately modified. The modification task is still running in the background. You can call the [DescribeVSwitchAttributes](https://help.aliyun.com/document_detail/94567.html) operation to query the modification status of the vSwitch:
+   *     - If the vSwitch is in the **Pending** state, the configurations of the vSwitch are being modified.
    *     - If the vSwitch is in the **Available** state, the vSwitch is available.
-   * - **ModifyVSwitchAttribute** does not support concurrent modifications to the same vSwitch.
+   * - The **ModifyVSwitchAttribute** operation does not support concurrent modifications to the configurations of the same vSwitch.
    * 
    * @param request - ModifyVSwitchAttributeRequest
    * @returns ModifyVSwitchAttributeResponse
@@ -34787,12 +34953,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information of a route target group instance, including the name, description, and disabled members.
+   * Updates the information about a route target group instance, including the name, description, and disabled members.
    * 
    * @remarks
-   * - The **UpdateRouteTargetGroup** operation is asynchronous. The system returns a request ID, but the route target group is not yet updated. The update task is still running in the background. You can call the ListRouteTargetGroup operation to query the update status of the route target group:
-   *     - If the route target group is in the **Updating** state, the route target group is being updated.
-   *     - If the route target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, the route target group is updated.
+   * - The **UpdateRouteTargetGroup** operation is asynchronous. After you call this operation, the system returns a request ID, but the update task is still running in the background. You can call ListRouteTargetGroup to query the update status of the route target group:
+   *     - When the route target group is in the **Updating** state, the route target group is being updated.
+   *     - When the route target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, the update is complete.
    * 
    * @param request - UpdateRouteTargetGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -34851,12 +35017,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information of a route target group instance, including the name, description, and disabled members.
+   * Updates the information about a route target group instance, including the name, description, and disabled members.
    * 
    * @remarks
-   * - The **UpdateRouteTargetGroup** operation is asynchronous. The system returns a request ID, but the route target group is not yet updated. The update task is still running in the background. You can call the ListRouteTargetGroup operation to query the update status of the route target group:
-   *     - If the route target group is in the **Updating** state, the route target group is being updated.
-   *     - If the route target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, the route target group is updated.
+   * - The **UpdateRouteTargetGroup** operation is asynchronous. After you call this operation, the system returns a request ID, but the update task is still running in the background. You can call ListRouteTargetGroup to query the update status of the route target group:
+   *     - When the route target group is in the **Updating** state, the route target group is being updated.
+   *     - When the route target group is in the **Available**, **Unavailable**, **Switched**, or **Abnormal** state, the update is complete.
    * 
    * @param request - UpdateRouteTargetGroupRequest
    * @returns UpdateRouteTargetGroupResponse

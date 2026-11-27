@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRouteTargetGroupRequestRouteTargetMemberList extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the member in the routing target group.
+   * The routing target group member instance ID.
    * 
    * @example
    * ep-xxxx
@@ -13,7 +13,7 @@ export class UpdateRouteTargetGroupRequestRouteTargetMemberList extends $dara.Mo
   memberId?: string;
   /**
    * @remarks
-   * The type of the member in the route target group.
+   * The type of the route target group member.
    * 
    * Valid values:
    * 
@@ -27,7 +27,7 @@ export class UpdateRouteTargetGroupRequestRouteTargetMemberList extends $dara.Mo
   memberType?: string;
   /**
    * @remarks
-   * The weight of the member in the route target group. Valid values:
+   * The weight of the route target group member. Valid values:
    * 
    * - 100: The member is the primary instance.
    * - 0: The member is the secondary instance.
@@ -66,14 +66,21 @@ export class UpdateRouteTargetGroupRequestRouteTargetMemberList extends $dara.Mo
 export class UpdateRouteTargetGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, and you must ensure that the value is unique among different requests. The client token can contain only ASCII characters. Note: If you do not specify this parameter, the system automatically uses the RequestId of the API request as the client token. The RequestId of each API request may be different.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters. Note: If you do not specify this parameter, the system automatically uses the RequestId of the API request as the client token. The RequestId of each API request may be different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
    */
   clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run without executing the actual operation.
+   */
   dryRun?: boolean;
   /**
+   * @remarks
+   * The IP version.
+   * 
    * @example
    * IPv4
    */
@@ -100,7 +107,7 @@ export class UpdateRouteTargetGroupRequest extends $dara.Model {
   routeTargetGroupDescription?: string;
   /**
    * @remarks
-   * The instance ID of the routing target group.
+   * The routing target group instance ID.
    * 
    * This parameter is required.
    * 

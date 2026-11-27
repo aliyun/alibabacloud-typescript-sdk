@@ -7,7 +7,7 @@ export class ModifyRouteEntryRequest extends $dara.Model {
    * @remarks
    * The description of the route entry.
    * 
-   * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
+   * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
    * 
    * @example
    * EntryDescription
@@ -15,9 +15,9 @@ export class ModifyRouteEntryRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The destination CIDR block of the route entry. Both IPv4 CIDR blocks and IPv6 CIDR blocks are supported.
+   * The destination CIDR block of the route. IPv4 CIDR blocks and IPv6 CIDR blocks are supported.
    * > If the **RouteEntryId** parameter is not specified, the **DestinationCidrBlock** and **RouteTableId** parameters are required.
-   * > To change the destination CIDR block of the routing entry to a **prefix list**, you must specify the **RouteEntryId** parameter. The **DestinationCidrBlock** parameter does not support prefix list CIDR blocks or prefix list instance IDs.
+   * > To change the destination CIDR block of the route to a **prefix list**, you must specify the **RouteEntryId** parameter. The **DestinationCidrBlock** parameter does not support prefix list CIDR blocks or prefix list instance IDs.
    * 
    * @example
    * 192.168.0.0/24
@@ -25,16 +25,16 @@ export class ModifyRouteEntryRequest extends $dara.Model {
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
+   * Specifies whether to perform a dry run for this request. Valid values:
    * 
-   * **true**: performs a dry run and does not modify the routing entry. The system checks whether your AccessKey pair is valid, whether the Resource Access Management (RAM) user is authorized, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * **true**: The system performs a dry run and does not send the request to modify the route. The system checks whether your AccessKey pair is valid, whether the Resource Access Management (RAM) user has the required authorization, and whether the required parameters are specified. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the `DryRunOperation` error code is returned.
    * 
-   * **false** (default): sends a normal request. If the request passes the dry run, a 2xx HTTP status code is returned and the routing entry is modified.
+   * **false** (default): The system sends a normal request. If the request passes the check, a 2xx HTTP status code is returned and the route is directly modified.
    */
   dryRun?: boolean;
   /**
    * @remarks
-   * The instance ID of the next hop for the new routing entry.
+   * The instance ID of the next hop for the new route.
    * 
    * @example
    * eni-bp17y37ytsenqyim****
@@ -42,30 +42,30 @@ export class ModifyRouteEntryRequest extends $dara.Model {
   newNextHopId?: string;
   /**
    * @remarks
-   * The new next hop type of the routing entry. Valid values:
+   * The new next hop type of the route. Valid values:
    * 
-   * - **Instance**: an ECS instance.
+   * - **Instance**: ECS instance.
    * 
-   * - **HaVip**: a high-availability virtual IP address.  
+   * - **HaVip**: high-availability virtual IP address.  
    * 
-   * - **RouterInterface**: a vRouter interface.
+   * - **RouterInterface**: vRouter interface.
    * 
-   * - **NetworkInterface**: an elastic network interface controller (NIC).
+   * - **NetworkInterface**: elastic network interfaces (ENIs) network interface controller (NIC).
    * 
-   * - **VpnGateway**: a VPN gateway.
+   * - **VpnGateway**: VPN gateway.
    * 
-   * - **IPv6Gateway**: an IPv6 gateway.
+   * - **IPv6Gateway**: IPv6 gateway.
    * 
-   * - **NatGateway**: a NAT gateway.
+   * - **NatGateway**: NAT gateway.
    * 
-   * - **Attachment**: a transit router (TR).
+   * - **Attachment**: forward router.
    * 
-   * - **VpcPeer**: a VPC peering connection.
-   * - **Ipv4Gateway**: an IPv4 gateway.
-   * - **GatewayEndpoint**: a gateway endpoint.
-   * - **Ecr**: an Express Connect Router (ECR).
-   * - **GatewayLoadBalancerEndpoint**: a Gateway Load Balancer endpoint (GWLBe).
-   * - **RouteTargetGroup**: a routing target group.
+   * - **VpcPeer**: VPC peering connection.
+   * - **Ipv4Gateway**: IPv4 gateway.
+   * - **GatewayEndpoint**: gateway endpoint.
+   * - **Ecr**: Express Connect Router (ECR).
+   * - **GatewayLoadBalancerEndpoint**: Gateway Load Balancer endpoint (GWLBe).
+   * - **RouteTargetGroup**: routing target group.
    * 
    * @example
    * NetworkInterface
@@ -77,7 +77,7 @@ export class ModifyRouteEntryRequest extends $dara.Model {
    * @remarks
    * The region ID of the route entry.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 
@@ -99,7 +99,7 @@ export class ModifyRouteEntryRequest extends $dara.Model {
    * @remarks
    * The name of the route entry.
    * 
-   * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
+   * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
    * 
    * @example
    * EntryName

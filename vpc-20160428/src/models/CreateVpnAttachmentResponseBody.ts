@@ -49,6 +49,9 @@ export class CreateVpnAttachmentResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the current task is successfully executed.
    * 
+   * - **true**: The task is successfully executed.
+   * - **false**: The task fails to be executed.
+   * 
    * @example
    * true
    */

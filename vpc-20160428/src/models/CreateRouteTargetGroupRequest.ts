@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRouteTargetGroupRequestRouteTargetMemberList extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the route target group member.
+   * The instance ID of the member in the routing target group.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class CreateRouteTargetGroupRequestRouteTargetMemberList extends $dara.Mo
   memberId?: string;
   /**
    * @remarks
-   * The type of the route target group member.
+   * The type of the member in the route target group.
    * 
-   * Supported type:
+   * Supported types:
    * 
    * - **GatewayLoadBalancerEndpoint**
    * 
@@ -31,7 +31,7 @@ export class CreateRouteTargetGroupRequestRouteTargetMemberList extends $dara.Mo
   memberType?: string;
   /**
    * @remarks
-   * The weight of the route target group member. Valid values:
+   * The weight of the member in the route target group. Valid values:
    * 
    * - **100**: The member is the primary instance.
    * - **0**: The member is the secondary instance.
@@ -72,9 +72,9 @@ export class CreateRouteTargetGroupRequestRouteTargetMemberList extends $dara.Mo
 export class CreateRouteTargetGroupRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot enter an empty string.
    * 
-   * The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -82,9 +82,9 @@ export class CreateRouteTargetGroupRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can enter an empty string.
    * 
-   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -116,7 +116,7 @@ export class CreateRouteTargetGroupRequestTag extends $dara.Model {
 export class CreateRouteTargetGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters. If you do not specify this parameter, the system automatically uses the RequestId value as the ClientToken value. The RequestId value is different for each API request.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can only contain ASCII characters. Note: If you do not specify this parameter, the system automatically uses the RequestId of the API request as the client token. The RequestId of each API request is different.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe6****
@@ -126,7 +126,7 @@ export class CreateRouteTargetGroupRequest extends $dara.Model {
    * @remarks
    * The configuration mode of the route target group. Valid values:
    * 
-   * - **Active-Standby**: active/standby mode.
+   * - **Active-Standby**: Active/standby mode.
    * 
    * This parameter is required.
    * 
@@ -134,15 +134,22 @@ export class CreateRouteTargetGroupRequest extends $dara.Model {
    * Active-Standby
    */
   configMode?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform a dry run without executing the operation.
+   */
   dryRun?: boolean;
   /**
+   * @remarks
+   * The IP version.
+   * 
    * @example
    * IPv4
    */
   ipVersion?: string;
   /**
    * @remarks
-   * The region ID of the route target group. You can call the DescribeRegions operation to query the most recent region list.
+   * The region ID of the route target group. You can call the DescribeRegions operation to obtain the region ID.
    * 
    * This parameter is required.
    * 
@@ -152,7 +159,7 @@ export class CreateRouteTargetGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * For more information about resource groups, see [What is a resource group?](https://help.aliyun.com/document_detail/2381067.html).
    * 
@@ -162,7 +169,8 @@ export class CreateRouteTargetGroupRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The description of the route target group. The description must be 1 to 256 characters in length and cannot start with http:// or https://.
+   * The description of the route target group.
+   * The description must be 1 to 256 characters in length and cannot start with http:// or https://.
    * 
    * @example
    * myRouteTargetGroupDescription
@@ -182,10 +190,10 @@ export class CreateRouteTargetGroupRequest extends $dara.Model {
    * @remarks
    * The list of members in the route target group.
    * 
-   * In active/standby mode, the following limits apply to route target group members:
+   * In active/standby mode, the following limits apply to the members of the route target group:
    * 
-   * 1. The number of route target group members must be 2.
-   * 2. The route target group members must be in different zones.
+   * 1. The number of members in the route target group must be 2.
+   * 2. The members of the route target group must belong to different zones.
    * 
    * This parameter is required.
    */
