@@ -14,7 +14,7 @@ import { RLFlowWaste } from "./RlflowWaste";
 export class GetRLFlowAnalysisResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 窗口内是否有轨迹数据
+   * Indicates whether trajectory data exists within the query window.
    * 
    * @example
    * true
@@ -22,17 +22,17 @@ export class GetRLFlowAnalysisResponseBody extends $dara.Model {
   found?: boolean;
   /**
    * @remarks
-   * 轨迹流转漏斗，按 traj → dispatch → run → rollout → reward → sampled → trained 的七级顺序返回。各级按已观测到的事件独立计数，不保证逐级递减。
+   * The 6-level funnel: traj → dispatch → run → push → selected → trained.
    */
   funnel?: RLFlowFunnelStage[];
   /**
    * @remarks
-   * 在途轨迹按环节计数（按 Count 降序）
+   * The count of in-flight trajectories by milestone, sorted in descending order of Count.
    */
   inflightByMilestone?: RLFlowMilestoneCount[];
   /**
    * @remarks
-   * 作业 ID
+   * The job ID.
    * 
    * @example
    * dlc-20210126170216-xxxxxxx
@@ -40,7 +40,7 @@ export class GetRLFlowAnalysisResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * megatron 侧 step 编号相对 global_step 的偏移，取值为 0 或 1；缺少可用对齐信息时返回 0。
+   * The offset of the Megatron global_step relative to the FORM_BATCH batch_id. Valid values: 0 or 1.
    * 
    * @example
    * 0
@@ -48,7 +48,7 @@ export class GetRLFlowAnalysisResponseBody extends $dara.Model {
   megaStepOffset?: number;
   /**
    * @remarks
-   * 服务端观察时刻（毫秒，= min(EndTime, now)），在途 idle 计算基准
+   * The server observation time in milliseconds, calculated as min(EndTime, now). This value serves as the baseline for calculating in-flight idle time.
    * 
    * @example
    * 1787475397000
@@ -56,7 +56,7 @@ export class GetRLFlowAnalysisResponseBody extends $dara.Model {
   nowMs?: number;
   /**
    * @remarks
-   * 请求 ID
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
@@ -64,7 +64,7 @@ export class GetRLFlowAnalysisResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 桑基图
+   * The Sankey diagram.
    * 
    * **if can be null:**
    * true
@@ -72,7 +72,7 @@ export class GetRLFlowAnalysisResponseBody extends $dara.Model {
   sankey?: RLFlowSankey;
   /**
    * @remarks
-   * Steps 的时刻来源：progress 表示取自任务日志的 Step 标记，trace 表示按 trace 里的 global_step 归步，空表示无 step 数据
+   * The time source for steps. A value of progress indicates that the time is extracted from the step markers in the task logs. A value of trace indicates that the time is grouped by global_step in the trace. An empty value indicates that no step data is available.
    * 
    * @example
    * progress
@@ -80,17 +80,17 @@ export class GetRLFlowAnalysisResponseBody extends $dara.Model {
   stepSource?: string;
   /**
    * @remarks
-   * step 生产-消费视图
+   * The step production-consumption view.
    */
   steps?: RLFlowStep[];
   /**
    * @remarks
-   * 在途卡点 Top100（按 IdleSec 降序）
+   * The top 100 in-flight stuck points, sorted in descending order of IdleSec.
    */
   stuck?: RLFlowStuckItem[];
   /**
    * @remarks
-   * 总量统计
+   * The total statistics.
    * 
    * @example
    * {\"Sampled\": 0, \"Uids\": 0, \"Inflight\": 0, \"Trained\": 0, \"Trajs\": 0, \"Rewarded\": 0}
@@ -101,12 +101,12 @@ export class GetRLFlowAnalysisResponseBody extends $dara.Model {
   totals?: RLFlowTotals;
   /**
    * @remarks
-   * 12 个阶段的耗时分位统计，耗时单位为秒。
+   * The percentile statistics for the duration in seconds of 8 stages.
    */
   transitions?: RLFlowTransition[];
   /**
    * @remarks
-   * 生成轮数分布
+   * The distribution of generation turns.
    * 
    * @example
    * {\"Count\": 0, \"Max\": None, \"Avg\": None, \"P50\": None, \"P90\": None}
@@ -117,7 +117,7 @@ export class GetRLFlowAnalysisResponseBody extends $dara.Model {
   turns?: RLFlowTurns;
   /**
    * @remarks
-   * 有效算力统计。UsefulSec 为已完成训练轨迹的累计执行耗时，单位为整数秒；可包含重叠时段，不等同于作业运行时长或训练更新耗时。
+   * The oversampling waste.
    * 
    * @example
    * {\"UsefulSec\": 0}

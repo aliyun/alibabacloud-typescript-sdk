@@ -1259,10 +1259,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 DLC 作业 RL 轨迹流转分析
+   * Retrieves the RL trajectory flow analysis of a DLC job.
    * 
    * @remarks
-   * 获取DLC作业RL轨迹流转分析
+   * Retrieves the RL trajectory flow analysis of a DLC job.
    * 
    * @param request - GetRLFlowAnalysisRequest
    * @param headers - map
@@ -1299,10 +1299,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 DLC 作业 RL 轨迹流转分析
+   * Retrieves the RL trajectory flow analysis of a DLC job.
    * 
    * @remarks
-   * 获取DLC作业RL轨迹流转分析
+   * Retrieves the RL trajectory flow analysis of a DLC job.
    * 
    * @param request - GetRLFlowAnalysisRequest
    * @returns GetRLFlowAnalysisResponse
@@ -1314,10 +1314,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 DLC 作业 RL 日志上下文
+   * Retrieves the context of a specific exception log for a DLC job.
    * 
    * @remarks
-   * 获取DLC作业某条异常日志的上下文
+   * Retrieves the context of a specific exception log for a DLC job.
    * 
    * @param request - GetRLLogContextRequest
    * @param headers - map
@@ -1358,10 +1358,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询 DLC 作业 RL 日志上下文
+   * Retrieves the context of a specific exception log for a DLC job.
    * 
    * @remarks
-   * 获取DLC作业某条异常日志的上下文
+   * Retrieves the context of a specific exception log for a DLC job.
    * 
    * @param request - GetRLLogContextRequest
    * @returns GetRLLogContextResponse
@@ -1488,6 +1488,69 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getRLTrainingProgressWithOptions(JobId, request, headers, runtime);
+  }
+
+  /**
+   * Retrieves the multi-turn generation details of a single RL trajectory for a DLC job.
+   * 
+   * @remarks
+   * Retrieves the multi-turn generation details of a single RL trajectory for a DLC job.
+   * 
+   * @param request - GetRLTrajectoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRLTrajectoryResponse
+   */
+  async getRLTrajectoryWithOptions(JobId: string, request: $_model.GetRLTrajectoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetRLTrajectoryResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.promptUid)) {
+      query["PromptUid"] = request.promptUid;
+    }
+
+    if (!$dara.isNull(request.sampleIndex)) {
+      query["SampleIndex"] = request.sampleIndex;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRLTrajectory",
+      version: "2020-12-03",
+      protocol: "HTTPS",
+      pathname: `/api/v1/jobs/${$dara.URL.percentEncode(JobId)}/rltrace/trajectory`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRLTrajectoryResponse>(await this.callApi(params, req, runtime), new $_model.GetRLTrajectoryResponse({}));
+  }
+
+  /**
+   * Retrieves the multi-turn generation details of a single RL trajectory for a DLC job.
+   * 
+   * @remarks
+   * Retrieves the multi-turn generation details of a single RL trajectory for a DLC job.
+   * 
+   * @param request - GetRLTrajectoryRequest
+   * @returns GetRLTrajectoryResponse
+   */
+  async getRLTrajectory(JobId: string, request: $_model.GetRLTrajectoryRequest): Promise<$_model.GetRLTrajectoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getRLTrajectoryWithOptions(JobId, request, headers, runtime);
   }
 
   /**
@@ -2238,10 +2301,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询 DLC 作业的 RL 样本轨迹
+   * Retrieves a paginated list of RL trajectory samples for a DLC job.
    * 
    * @remarks
-   * 分页获取DLC作业的RL轨迹样本列表
+   * Retrieves a paginated list of RL trajectory samples for a DLC job.
    * 
    * @param request - ListRLSamplesRequest
    * @param headers - map
@@ -2286,10 +2349,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询 DLC 作业的 RL 样本轨迹
+   * Retrieves a paginated list of RL trajectory samples for a DLC job.
    * 
    * @remarks
-   * 分页获取DLC作业的RL轨迹样本列表
+   * Retrieves a paginated list of RL trajectory samples for a DLC job.
    * 
    * @param request - ListRLSamplesRequest
    * @returns ListRLSamplesResponse
@@ -2301,10 +2364,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询 DLC 样本的 RL 轨迹
+   * Retrieves a paginated list of RL trajectories for a specific UID in a DLC job.
    * 
    * @remarks
-   * 分页获取DLC作业某个uid下的RL轨迹列表
+   * Retrieves a paginated list of RL trajectories for a specific UID in a DLC job.
    * 
    * @param request - ListRLTrajectoriesRequest
    * @param headers - map
@@ -2353,10 +2416,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询 DLC 样本的 RL 轨迹
+   * Retrieves a paginated list of RL trajectories for a specific UID in a DLC job.
    * 
    * @remarks
-   * 分页获取DLC作业某个uid下的RL轨迹列表
+   * Retrieves a paginated list of RL trajectories for a specific UID in a DLC job.
    * 
    * @param request - ListRLTrajectoriesRequest
    * @returns ListRLTrajectoriesResponse
