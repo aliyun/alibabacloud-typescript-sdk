@@ -432,13 +432,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attachment information of multiple KVCache instances.
+   * Queries the mount information of KVCache instances in batches.
    * 
    * @remarks
    * This operation has no status restrictions on KVCacheStore. If a KVCacheStore is in the Creating state, an empty list is returned.
-   * * A KVCacheStore can be attached to multiple VSCs. Multiple attachment records may be returned for each KVCacheStore.
-   * * This operation supports batch queries. You can query up to 100 KVCacheStores in a single request.
-   * * This operation supports page number-based pagination (PageNumber and PageSize) and cursor-based pagination (NextToken and MaxResults). If both sets of pagination parameters are specified, cursor-based pagination takes precedence.
+   * * A KVCacheStore can be mounted to multiple VSCs. Multiple mount records may be returned for each KVCacheStore.
+   * * This operation supports batch queries. You can query up to 100 KVCacheStores in a single call.
+   * * This operation supports page number-based pagination (PageNumber and PageSize) and cursor-based pagination (NextToken and MaxResults). If both sets of pagination parameters are provided, cursor-based pagination takes precedence.
    * 
    * @param request - ListKVCacheStoreAttachInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -493,13 +493,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the attachment information of multiple KVCache instances.
+   * Queries the mount information of KVCache instances in batches.
    * 
    * @remarks
    * This operation has no status restrictions on KVCacheStore. If a KVCacheStore is in the Creating state, an empty list is returned.
-   * * A KVCacheStore can be attached to multiple VSCs. Multiple attachment records may be returned for each KVCacheStore.
-   * * This operation supports batch queries. You can query up to 100 KVCacheStores in a single request.
-   * * This operation supports page number-based pagination (PageNumber and PageSize) and cursor-based pagination (NextToken and MaxResults). If both sets of pagination parameters are specified, cursor-based pagination takes precedence.
+   * * A KVCacheStore can be mounted to multiple VSCs. Multiple mount records may be returned for each KVCacheStore.
+   * * This operation supports batch queries. You can query up to 100 KVCacheStores in a single call.
+   * * This operation supports page number-based pagination (PageNumber and PageSize) and cursor-based pagination (NextToken and MaxResults). If both sets of pagination parameters are provided, cursor-based pagination takes precedence.
    * 
    * @param request - ListKVCacheStoreAttachInfoRequest
    * @returns ListKVCacheStoreAttachInfoResponse

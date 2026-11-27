@@ -45,7 +45,7 @@ export class CreateKVCacheStoreRequestTag extends $dara.Model {
 export class CreateKVCacheStoreRequest extends $dara.Model {
   /**
    * @remarks
-   * The storage capacity, in GiB. The minimum capacity is 300 TiB (307,200 GiB), and the capacity scales in increments of 300 TiB.
+   * The storage capacity. Unit: GiB. The minimum capacity is 300 TiB (307,200 GiB), and the capacity scales in increments of 300 TiB.
    * 
    * This parameter is required.
    * 
@@ -71,9 +71,7 @@ export class CreateKVCacheStoreRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The HPN cluster ID, which is used to create an affinity scheduling relationship between the KVCacheStore and the specified HPN cluster. After the KVCacheStore is created, it may have affinity relationships with multiple HPN clusters based on network topology. You can call the GetKVCacheStore operation to query the available HPN clusters.
-   * 
-   * This parameter is required.
+   * The HPN cluster ID, which is used to create an affinity scheduling relationship between the KVCacheStore and the specified HPN cluster. After creation, the KVCacheStore may have affinity relationships with multiple HPN clusters based on network connections. You can call the GetKVCacheStore operation to query the available HPN clusters.
    * 
    * @example
    * B6
@@ -89,7 +87,7 @@ export class CreateKVCacheStoreRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The billing method. Valid value: POSTPAY (pay-as-you-go). Default value: POSTPAY.
+   * The billing method. Valid values: POSTPAY (pay-as-you-go). Default value: POSTPAY.
    * 
    * @example
    * POSTPAY
@@ -97,7 +95,7 @@ export class CreateKVCacheStoreRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The ID of the region where the KVCacheStore is created. You can call the DescribeRegions operation to query the list of activated regions.
+   * The region ID where the KVCacheStore is created. You can call the DescribeRegions operation to query the list of available regions.
    * 
    * This parameter is required.
    * 
@@ -107,7 +105,7 @@ export class CreateKVCacheStoreRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-aekzafsjd7i4qaq
@@ -115,7 +113,7 @@ export class CreateKVCacheStoreRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The list of tag key-value pairs for the resource. A maximum of 20 tags are supported. This parameter overrides the parent TagDTO type and uses the Tag type that is consistent with the Get and List responses.
+   * The list of resource tag key-value pairs. A maximum of 20 tags are supported. This overrides the parent TagDTO type and uses the Tag type that is consistent with the responses of the Get and List operations.
    */
   tag?: CreateKVCacheStoreRequestTag[];
   /**
