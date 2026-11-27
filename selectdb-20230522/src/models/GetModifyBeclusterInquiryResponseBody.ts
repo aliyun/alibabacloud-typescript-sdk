@@ -6,7 +6,6 @@ export class GetModifyBEClusterInquiryResponseBodyDataOptionalPromotions extends
   /**
    * @remarks
    * The discount amount.
-   * 
    * > This parameter is not applicable to the China site.
    * 
    * @example
@@ -26,7 +25,7 @@ export class GetModifyBEClusterInquiryResponseBodyDataOptionalPromotions extends
    * The coupon description.
    * 
    * @example
-   * General coupon with a deduction of 100
+   * General coupon deducts 100
    */
   promotionDesc?: string;
   /**
@@ -39,7 +38,7 @@ export class GetModifyBEClusterInquiryResponseBodyDataOptionalPromotions extends
   promotionName?: string;
   /**
    * @remarks
-   * The coupon ID.
+   * The coupon code.
    * 
    * @example
    * 732211480132
@@ -85,7 +84,7 @@ export class GetModifyBEClusterInquiryResponseBodyData extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The coupon ID.
+   * The coupon codes.
    */
   optionalPromotions?: GetModifyBEClusterInquiryResponseBodyDataOptionalPromotions[];
   /**

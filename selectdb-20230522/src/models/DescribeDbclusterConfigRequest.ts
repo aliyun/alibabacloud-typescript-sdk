@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration file to modify. - For compute clusters: be.conf. - For FE clusters: fe.conf.
+   * The configuration file to modify.
+   * - For compute clusters: be.conf.
+   * - For FE clusters: fe.conf.
    * 
    * This parameter is required.
    * 

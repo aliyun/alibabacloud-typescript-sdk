@@ -21,7 +21,7 @@ export class DescribeDBClusterConfigResponseBodyDataParams extends $dara.Model {
   defaultValue?: string;
   /**
    * @remarks
-   * Specifies whether the parameter takes effect dynamically without a restart.
+   * Indicates whether the parameter takes effect dynamically without a restart.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class DescribeDBClusterConfigResponseBodyDataParams extends $dara.Model {
   isDynamic?: number;
   /**
    * @remarks
-   * Specifies whether users are allowed to modify the parameter.
+   * Indicates whether the parameter can be modified by users.
    * 
    * @example
    * true

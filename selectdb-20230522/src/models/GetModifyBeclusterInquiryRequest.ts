@@ -93,7 +93,7 @@ export class GetModifyBEClusterInquiryRequest extends $dara.Model {
   pricingCycle?: string;
   /**
    * @remarks
-   * The coupon ID.
+   * The coupon code.
    * 
    * @example
    * 123412345

@@ -86,8 +86,8 @@ export class CreateDBInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to add the VPC CIDR block to the whitelist. Valid values:
-   * - 1: yes
-   * - 0: no
+   * - 1: yes.
+   * - 0: no.
    * 
    * @example
    * 1
@@ -107,9 +107,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * - **Postpaid**: pay-as-you-go
+   * - **Postpaid**: pay-as-you-go.
    * 
-   * - **Prepaid**: subscription
+   * - **Prepaid**: subscription.
    * 
    * This parameter is required.
    * 
@@ -172,7 +172,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
    * The description of the instance.
    * 
    * @example
-   * New instance test
+   * Test new instance
    */
   DBInstanceDescription?: string;
   /**
@@ -207,7 +207,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The node specifications of a single node in the frontend (FE) cluster. This parameter takes effect only when you create a pay-as-you-go or subscription instance. Default value: selectdb_fe.xlarge16.
+   * The single node specifications of the FE cluster. This parameter takes effect only when you create a pay-as-you-go or subscription instance. Default value: selectdb_fe.xlarge16.
    * 
    * @example
    * selectdb_fe.xlarge16
@@ -215,7 +215,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   FEClassCode?: string;
   /**
    * @remarks
-   * The number of nodes in the FE cluster. This parameter takes effect only when you create a pay-as-you-go or subscription instance. Default value: 3. Valid values: 1 to 11. The value must be an odd number.
+   * The number of FE cluster nodes. This parameter takes effect only when you create a pay-as-you-go or subscription instance. Default value: 3. Valid values: 1 to 11, and the value must be an odd number.
    * 
    * @example
    * 3
@@ -234,10 +234,10 @@ export class CreateDBInstanceRequest extends $dara.Model {
   multiZone?: CreateDBInstanceRequestMultiZone[];
   /**
    * @remarks
-   * Specifies the billing cycle of the subscription cluster. Valid values:
+   * The subscription period unit of the subscription cluster. Valid values:
    * 
-   * - **Year**: yearly.
-   * - **Month**: monthly.
+   * - **Year**: yearly subscription.
+   * - **Month**: monthly subscription.
    * > This parameter takes effect and is required only when **ChargeType** is set to **Prepaid**.
    * 
    * @example
@@ -289,12 +289,12 @@ export class CreateDBInstanceRequest extends $dara.Model {
   securityIPList?: string;
   /**
    * @remarks
-   * The tag list information of the instance.
+   * The instance label list information.
    */
   tag?: CreateDBInstanceRequestTag[];
   /**
    * @remarks
-   * Specifies whether to enable TDE on the instance.
+   * Specifies whether to enable TDE for the instance.
    * 
    * @example
    * True
@@ -302,7 +302,7 @@ export class CreateDBInstanceRequest extends $dara.Model {
   tdeEnabled?: string;
   /**
    * @remarks
-   * The mode for enabling Transparent Data Encryption (TDE) on the instance.
+   * The specific mode for enabling TDE on the instance.
    * 
    * @example
    * MANAGED
@@ -310,9 +310,9 @@ export class CreateDBInstanceRequest extends $dara.Model {
   tdeMode?: string;
   /**
    * @remarks
-   * The subscription duration of the instance. The unit is specified by the Period parameter. Year indicates years, and Month indicates months. Valid values:
-   * - If Period is set to Year, valid values are 1, 2, 3, 4, and 5.
-   * - If Period is set to Month, valid values are 1 to 12.
+   * The subscription duration of the subscription instance. The unit is specified by the Period parameter. Year indicates years, and Month indicates months. Valid values:
+   * - If Period is set to Year, valid values of UsedTime are 1, 2, 3, 4, and 5.
+   * - If Period is set to Month, valid values of UsedTime are 1 to 12.
    * > This parameter takes effect and is required only when **ChargeType** is set to **Prepaid**.
    * 
    * @example

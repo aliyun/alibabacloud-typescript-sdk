@@ -25,7 +25,7 @@ export class DescribeSecurityIPListResponseBodyGroupItems extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The group tag.
+   * The tag of the group.
    * 
    * @example
    * ""

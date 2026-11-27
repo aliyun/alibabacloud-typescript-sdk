@@ -48,7 +48,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
    * The description of the instance.
    * 
    * @example
-   * New instance test
+   * Create instance test
    */
   DBInstanceDescription?: string;
   /**
@@ -62,12 +62,12 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the instance. Valid values:
-   * - **CREATING**: Creating.
-   * - **ACTIVATION**: Running.
-   * - **RESOURCE_CHANGING**: Changing specifications.
-   * - **ORDER_PREPARING**: Confirming order.
-   * - **READONLY_RESOURCE_CHANGING**: Changing resources (the instance is locked for write operations).
-   * - **DELETING**: Deleting.
+   * - **CREATING**: The instance is being created.
+   * - **ACTIVATION**: The instance is running.
+   * - **RESOURCE_CHANGING**: The instance specifications are being changed.
+   * - **ORDER_PREPARING**: The order is being confirmed.
+   * - **READONLY_RESOURCE_CHANGING**: The instance resources are being changed and the instance is locked for writes.
+   * - **DELETING**: The instance is being deleted.
    * 
    * @example
    * ACTIVATION
@@ -84,7 +84,7 @@ export class DescribeDBInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * - **30**: Default value.
+   * - **30** (default)
    * - **50**
    * - **100**
    * 

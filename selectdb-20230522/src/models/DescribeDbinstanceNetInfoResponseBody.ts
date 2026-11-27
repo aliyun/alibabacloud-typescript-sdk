@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceNetInfoResponseBodyDBClustersNetInfosPortList extends $dara.Model {
   /**
    * @remarks
-   * The connection port number.
+   * The connection port number. Example values include 9030 and 8080.
    * 
    * @example
-   * 9030/8080
+   * 9030
    */
   port?: number;
   /**
@@ -77,15 +77,15 @@ export class DescribeDBInstanceNetInfoResponseBodyDBClustersNetInfos extends $da
   netType?: string;
   /**
    * @remarks
-   * The ports.
+   * The port list.
    */
   portList?: DescribeDBInstanceNetInfoResponseBodyDBClustersNetInfosPortList[];
   /**
    * @remarks
-   * Indicates whether the network information is visible to users.
+   * Indicates whether the network information is visible to users. Example values include true and false.
    * 
    * @example
-   * true/false
+   * true
    */
   userVisible?: boolean;
   /**
@@ -98,7 +98,7 @@ export class DescribeDBInstanceNetInfoResponseBodyDBClustersNetInfos extends $da
   vpcId?: string;
   /**
    * @remarks
-   * The VPC instance ID.
+   * The VPC-connected instance ID.
    * 
    * @example
    * selectdb-cn-****-fe-20230816101006
@@ -158,7 +158,7 @@ export class DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfosPortList ext
    * The connection port number.
    * 
    * @example
-   * MySQLPort
+   * 9030
    */
   port?: number;
   /**
@@ -170,7 +170,7 @@ export class DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfosPortList ext
    * - **MySQLPort**: MySQL port.
    * 
    * @example
-   * 9030
+   * MySQLPort
    */
   protocol?: string;
   static names(): { [key: string]: string } {
@@ -235,7 +235,7 @@ export class DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfos extends $da
   netType?: string;
   /**
    * @remarks
-   * The ports.
+   * The port objects.
    */
   portList?: DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfosPortList[];
   /**
@@ -260,7 +260,7 @@ export class DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfos extends $da
   vpcId?: string;
   /**
    * @remarks
-   * The VPC instance ID.
+   * The VPC-connected instance ID.
    * 
    * @example
    * selectdb-cn-h033cnd****-fe-20230816101006
@@ -317,7 +317,7 @@ export class DescribeDBInstanceNetInfoResponseBodyDBInstanceNetInfos extends $da
 export class DescribeDBInstanceNetInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The network information of the BE instances.
+   * The network list of BE instances.
    */
   DBClustersNetInfos?: DescribeDBInstanceNetInfoResponseBodyDBClustersNetInfos[];
   /**

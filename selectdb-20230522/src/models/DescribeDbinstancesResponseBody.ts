@@ -155,7 +155,7 @@ export class DescribeDBInstancesResponseBodyItemsTags extends $dara.Model {
 export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The edition of the instance. Default value: basic.
+   * The instance edition. Default value: basic.
    * 
    * @example
    * basic
@@ -165,9 +165,9 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * - **Postpaid**: pay-as-you-go
+   * - **Postpaid**: pay-as-you-go.
    * 
-   * - **Prepaid**: subscription
+   * - **Prepaid**: subscription.
    * 
    * @example
    * PrePaid
@@ -193,8 +193,8 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
    * @remarks
    * The deployment mode of the instance. Valid values:
    * 
-   * - multi_az: zone-redundant
-   * - single_az: locally redundant
+   * - multi_az: zone-redundant.
+   * - single_az: locally redundant.
    * 
    * @example
    * single_az
@@ -205,7 +205,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
    * The description of the instance.
    * 
    * @example
-   * New instance test
+   * Create instance test
    */
   description?: string;
   /**
@@ -234,7 +234,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The expiration time of the cluster. The time is displayed in ISO 8601 format and includes the time zone.
+   * The expiration time of the cluster. The time follows the ISO 8601 standard and includes time zone information.
    * > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription). For clusters whose billing method is **Postpaid** (pay-as-you-go), an empty value is returned.
    * 
    * @example
@@ -243,7 +243,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * The FE cluster list.
+   * The list of FE clusters.
    */
   FEClusterList?: DescribeDBInstancesResponseBodyItemsFEClusterList[];
   /**
@@ -264,7 +264,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The usage type of the instance.
+   * The instance usage type.
    * 
    * @example
    * Instance
@@ -274,9 +274,9 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
    * @remarks
    * Indicates whether the instance is deleted. Valid values:
    * 
-   * - **true**: deleted
+   * - **true**: The instance is deleted.
    * 
-   * - **fasle**: not deleted
+   * - **fasle**: The instance is not deleted.
    * 
    * @example
    * false
@@ -308,7 +308,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   maintainEndTimeStr?: string;
   /**
    * @remarks
-   * Reserved parameter. Not returned. Therefore, the time format does not apply.
+   * A reserved parameter. It is not returned at the moment, so the time format does not apply.
    * 
    * @example
    * Reserved parameter. Not returned
@@ -324,7 +324,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   maintainStartTimeStr?: string;
   /**
    * @remarks
-   * Reserved parameter. Not returned. Therefore, the time format does not apply.
+   * A reserved parameter. It is not returned at the moment, so the time format does not apply.
    * 
    * @example
    * Reserved parameter. Not returned
@@ -385,7 +385,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   resourceMemory?: number;
   /**
    * @remarks
-   * The maximum value of the automatic scaling range for the RDS Capacity Unit (RCU) of the instance.
+   * The maximum number of RDS capacity units (RCUs) for automatic scaling of the instance.
    * 
    * @example
    * 0
@@ -393,7 +393,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   scaleMax?: number;
   /**
    * @remarks
-   * The minimum value of the automatic scaling range for the RDS Capacity Unit (RCU) of the instance.
+   * The minimum number of RDS capacity units (RCUs) for automatic scaling of the instance.
    * 
    * @example
    * 0
@@ -401,10 +401,10 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   scaleMin?: number;
   /**
    * @remarks
-   * The redundant field.
+   * A redundant field.
    * 
    * @example
-   * Empty
+   * 1
    */
   scaleReplica?: number;
   /**
@@ -418,12 +418,12 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The status of the instance. Valid values:
-   * - **CREATING**: Creating.
-   * - **ACTIVATION**: Running.
-   * - **RESOURCE_CHANGING**: Changing specifications.
-   * - **ORDER_PREPARING**: Confirming order.
-   * - **READONLY_RESOURCE_CHANGING**: Changing resources (the instance is locked for write operations).
-   * - **DELETING**: Deleting.
+   * - **CREATING**: The instance is being created.
+   * - **ACTIVATION**: The instance is running.
+   * - **RESOURCE_CHANGING**: The instance specifications are being changed.
+   * - **ORDER_PREPARING**: The order is being confirmed.
+   * - **READONLY_RESOURCE_CHANGING**: The instance resources are being changed and the instance is locked for writes.
+   * - **DELETING**: The instance is being deleted.
    * 
    * @example
    * ACTIVATION
@@ -431,7 +431,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The storage space size.
+   * The storage capacity.
    * 
    * @example
    * 100
@@ -505,7 +505,7 @@ export class DescribeDBInstancesResponseBodyItems extends $dara.Model {
   zoneId?: string;
   /**
    * @remarks
-   * The connection endpoint.
+   * The endpoint.
    * 
    * @example
    * Not returned
@@ -636,7 +636,7 @@ export class DescribeDBInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * - **30**: Default value.
+   * - **30** (default)
    * - **50**
    * - **100**
    * 

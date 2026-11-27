@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "selectdb";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
       'ap-southeast-3': "selectdb.aliyuncs.com",
@@ -1219,7 +1223,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the cluster configuration.
+   * Queries the configurations of a cluster.
    * 
    * @param request - DescribeDBClusterConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1262,7 +1266,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the cluster configuration.
+   * Queries the configurations of a cluster.
    * 
    * @param request - DescribeDBClusterConfigRequest
    * @returns DescribeDBClusterConfigResponse
@@ -1388,7 +1392,7 @@ export default class Client extends OpenApi {
    * Queries the details of an instance.
    * 
    * @remarks
-   * Subscription instances cannot be deleted.
+   * You cannot delete subscription instances.
    * 
    * @param request - DescribeDBInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1430,7 +1434,7 @@ export default class Client extends OpenApi {
    * Queries the details of an instance.
    * 
    * @remarks
-   * Subscription instances cannot be deleted.
+   * You cannot delete subscription instances.
    * 
    * @param request - DescribeDBInstanceAttributeRequest
    * @returns DescribeDBInstanceAttributeResponse
@@ -1441,7 +1445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the network information of a specified ApsaraDB for SelectDB instance.
+   * Queries the network information of a specified ApsaraDB for SelectDB database instance.
    * 
    * @param request - DescribeDBInstanceNetInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1480,7 +1484,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the network information of a specified ApsaraDB for SelectDB instance.
+   * Queries the network information of a specified ApsaraDB for SelectDB database instance.
    * 
    * @param request - DescribeDBInstanceNetInfoRequest
    * @returns DescribeDBInstanceNetInfoResponse
@@ -1571,7 +1575,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the time-based elastic rules.
+   * Queries time-based elastic rules.
    * 
    * @param request - DescribeElasticRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1598,7 +1602,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the time-based elastic rules.
+   * Queries time-based elastic rules.
    * 
    * @param request - DescribeElasticRulesRequest
    * @returns DescribeElasticRulesResponse
@@ -2147,7 +2151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the pricing information for creating a cluster in a specified ApsaraDB for SelectDB instance.
+   * Queries the pricing information for creating a cluster in a specified ApsaraDB for SelectDB instance.
    * 
    * @param request - GetModifyBEClusterInquiryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2174,7 +2178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the pricing information for creating a cluster in a specified ApsaraDB for SelectDB instance.
+   * Queries the pricing information for creating a cluster in a specified ApsaraDB for SelectDB instance.
    * 
    * @param request - GetModifyBEClusterInquiryRequest
    * @returns GetModifyBEClusterInquiryResponse
@@ -2527,6 +2531,68 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Scales the FE cluster of a specified ApsaraDB for SelectDB instance.
+   * 
+   * @param request - ModifyFEClusterRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyFEClusterResponse
+   */
+  async modifyFEClusterWithOptions(request: $_model.ModifyFEClusterRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyFEClusterResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.FEClassCode)) {
+      query["FEClassCode"] = request.FEClassCode;
+    }
+
+    if (!$dara.isNull(request.FEClusterId)) {
+      query["FEClusterId"] = request.FEClusterId;
+    }
+
+    if (!$dara.isNull(request.FENodeCount)) {
+      query["FENodeCount"] = request.FENodeCount;
+    }
+
+    if (!$dara.isNull(request.product)) {
+      query["Product"] = request.product;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyFECluster",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyFEClusterResponse>(await this.callApi(params, req, runtime), new $_model.ModifyFEClusterResponse({}));
+  }
+
+  /**
+   * Scales the FE cluster of a specified ApsaraDB for SelectDB instance.
+   * 
+   * @param request - ModifyFEClusterRequest
+   * @returns ModifyFEClusterResponse
+   */
+  async modifyFECluster(request: $_model.ModifyFEClusterRequest): Promise<$_model.ModifyFEClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyFEClusterWithOptions(request, runtime);
+  }
+
+  /**
    * Modifies the IP addresses in the whitelist of a specified ApsaraDB for SelectDB instance.
    * 
    * @param request - ModifySecurityIPListRequest
@@ -2659,7 +2725,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases the public endpoint of an ApsaraDB for SelectDB instance.
+   * Releases the public endpoint of a specified ApsaraDB for SelectDB instance.
    * 
    * @param request - ReleaseInstancePublicConnectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2702,7 +2768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Releases the public endpoint of an ApsaraDB for SelectDB instance.
+   * Releases the public endpoint of a specified ApsaraDB for SelectDB instance.
    * 
    * @param request - ReleaseInstancePublicConnectionRequest
    * @returns ReleaseInstancePublicConnectionResponse

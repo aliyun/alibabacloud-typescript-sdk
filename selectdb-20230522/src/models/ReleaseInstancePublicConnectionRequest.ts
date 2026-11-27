@@ -25,7 +25,7 @@ export class ReleaseInstancePublicConnectionRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
    * This parameter is required.
    * 

@@ -22,23 +22,24 @@ export class ModifyDBClusterRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster node type. This parameter takes effect only in Serverless mode.
+   * 
+   * @example
+   * base
    */
   clusterNodeType?: string;
   /**
    * @remarks
    * The cluster specifications. Valid values:
-   * - **selectdb.xlarge**: 4 cores and 32 GB.
-   * - **selectdb.2xlarge**: 8 cores and 64 GB.
-   * - **selectdb.4xlarge**: 16 cores and 128 GB.
-   * - **selectdb.8xlarge**: 32 cores and 256 GB.
-   * - **selectdb.16xlarge**: 16 cores and 512 GB.
-   * - **selectdb.24xlarge**: 24 cores and 768 GB.
-   * - **selectdb.32xlarge**: 32 cores and 1024 GB.
+   * - **selectdb.g.xlarge**: 4 vCPUs and 16 GB of memory.
+   * - **selectdb.g.2xlarge**: 8 vCPUs and 32 GB of memory.
+   * - **selectdb.g.4xlarge**: 16 vCPUs and 64 GB of memory.
+   * - **selectdb.g.8xlarge**: 32 vCPUs and 128 GB of memory.
+   * - **selectdb.g.16xlarge**: 64 vCPUs and 256 GB of memory.
    * 
    * This parameter is required.
    * 
    * @example
-   * selectdb.2xlarge
+   * selectdb.g.2xlarge
    */
   DBClusterClass?: string;
   /**
@@ -82,7 +83,7 @@ export class ModifyDBClusterRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The maximum value of the auto-scaling range for the instance RCU (RDS Capacity Unit).
+   * The maximum value of the auto-scaling range for instance RCUs (RDS Capacity Units).
    * 
    * @example
    * 32
@@ -90,7 +91,7 @@ export class ModifyDBClusterRequest extends $dara.Model {
   scaleMax?: number;
   /**
    * @remarks
-   * The minimum value of the auto-scaling range for the instance RCU (RDS Capacity Unit).
+   * The minimum value of the auto-scaling range for instance RCUs (RDS Capacity Units).
    * 
    * @example
    * 4

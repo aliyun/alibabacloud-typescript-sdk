@@ -178,7 +178,7 @@ export class DescribeDBClusterConfigChangeLogsResponseBody extends $dara.Model {
   data?: DescribeDBClusterConfigChangeLogsResponseBodyData;
   /**
    * @remarks
-   * The dynamic code. This parameter is not in use and can be ignored.
+   * The dynamic code. This parameter is not used and can be ignored.
    * 
    * @example
    * 0
@@ -186,7 +186,7 @@ export class DescribeDBClusterConfigChangeLogsResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. This parameter is not in use and can be ignored.
+   * The dynamic message. This parameter is not used and can be ignored.
    * 
    * @example
    * An error occurred while processing your request.

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeElasticRulesResponseBodyDataRules extends $dara.Model {
   /**
    * @remarks
-   * The target compute resource rule of the cluster.
+   * The target compute resource rule for the cluster.
    * 
    * @example
    * selectdb.2xlarge

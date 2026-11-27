@@ -170,6 +170,9 @@ export { ModifyDBInstanceAttributeResponse } from './ModifyDbinstanceAttributeRe
 export { ModifyElasticRuleRequest } from './ModifyElasticRuleRequest';
 export { ModifyElasticRuleResponseBody } from './ModifyElasticRuleResponseBody';
 export { ModifyElasticRuleResponse } from './ModifyElasticRuleResponse';
+export { ModifyFEClusterRequest } from './ModifyFeclusterRequest';
+export { ModifyFEClusterResponseBody } from './ModifyFeclusterResponseBody';
+export { ModifyFEClusterResponse } from './ModifyFeclusterResponse';
 export { ModifySecurityIPListRequest } from './ModifySecurityIplistRequest';
 export { ModifySecurityIPListResponseBody } from './ModifySecurityIplistResponseBody';
 export { ModifySecurityIPListResponse } from './ModifySecurityIplistResponse';

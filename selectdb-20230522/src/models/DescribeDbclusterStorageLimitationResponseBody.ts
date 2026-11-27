@@ -125,7 +125,7 @@ export class DescribeDBClusterStorageLimitationResponseBodyData extends $dara.Mo
 export class DescribeDBClusterStorageLimitationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial. This parameter is returned only when RAM authentication fails.
+   * The details of the access denial. This field is returned only when RAM authentication fails.
    * 
    * @example
    * failed
@@ -138,7 +138,7 @@ export class DescribeDBClusterStorageLimitationResponseBody extends $dara.Model 
   data?: DescribeDBClusterStorageLimitationResponseBodyData;
   /**
    * @remarks
-   * The dynamic code. This parameter is not in use. Ignore this parameter.
+   * The dynamic code. This parameter is not in use and can be ignored.
    * 
    * @example
    * 0
@@ -146,7 +146,7 @@ export class DescribeDBClusterStorageLimitationResponseBody extends $dara.Model 
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. This parameter is not in use. Ignore this parameter.
+   * The dynamic message. This parameter is not in use and can be ignored.
    * 
    * @example
    * An error occurred while processing your request.

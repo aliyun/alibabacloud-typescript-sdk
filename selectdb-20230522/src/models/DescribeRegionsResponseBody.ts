@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRegionsResponseBodyRegionModelListZones extends $dara.Model {
   /**
    * @remarks
-   * The zone description.
+   * The description of the zone.
    * 
    * @example
    * Beijing Zone H
@@ -29,7 +29,7 @@ export class DescribeRegionsResponseBodyRegionModelListZones extends $dara.Model
   label?: string;
   /**
    * @remarks
-   * The zone name.
+   * The name of the zone.
    * 
    * @example
    * Beijing H
@@ -145,7 +145,7 @@ export class DescribeRegionsResponseBodyRegionModelList extends $dara.Model {
 export class DescribeRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of region data.
+   * The list of regions.
    */
   regionModelList?: DescribeRegionsResponseBodyRegionModelList[];
   /**

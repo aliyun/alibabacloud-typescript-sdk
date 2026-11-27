@@ -33,7 +33,7 @@ export class DescribeDBClusterConfigChangeLogsRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end time to query change records. Format: yyyy-MM-dd HH:mm:ss.
+   * The end time of the query for change records. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class DescribeDBClusterConfigChangeLogsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start time to query change records. Format: yyyy-MM-dd HH:mm:ss.
+   * The start time of the query for change records. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * This parameter is required.
    * 
